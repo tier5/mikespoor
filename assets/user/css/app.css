@@ -1,0 +1,227 @@
+* {
+	margin:0;
+	padding:0;
+	outline:0;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box
+}
+
+body {
+	/*background:#f4f4f4*/
+}
+
+
+/*.ie8 .input-text {
+	max-width:none
+}*/
+input[type=number].qty, input[type=text].qty {
+	width:45px
+}
+::-webkit-input-placeholder {
+color:#b0b0b0;
+font-weight:600
+}
+
+
+.flex-table {
+	width:100%;
+	margin-bottom:30px;
+	border:2px solid #e8e8e8;
+	border-collapse:separate;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px
+}
+.flex-table td, .flex-table th {
+	padding:10px;
+	border-right:1px solid #e0e0e0
+}
+.flex-table td:last-child, .flex-table th:last-child {
+	border-right:0
+}
+.flex-table thead th {
+	border-bottom:1px solid #e0e0e0;
+	background:#F4F4F4;
+	font-size:13px;
+	font-weight:bold;
+	line-height:1.4;
+	text-transform:capitalize;
+	white-space:nowrap
+}
+.flex-table thead th:first-child {
+	-moz-border-radius-topleft:4px;
+	-webkit-border-top-left-radius:4px;
+	border-top-left-radius:4px
+}
+.flex-table thead th:last-child {
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+	border-top-right-radius:4px
+}
+.flex-table tbody tr td {
+	border-bottom:1px solid #e8e8e8;
+	vertical-align:top
+}
+.flex-table tbody tr:last-child td {
+	border-bottom:0
+}
+.flex-table tfoot td {
+	border-top:1px solid #e0e0e0;
+	background:#F4F4F4
+}
+.flex-table tfoot td:first-child {
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px
+}
+.flex-table tfoot td:last-child {
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+	border-bottom-right-radius:4px
+}
+
+
+
+.cart-quick-checkout {
+	margin-bottom:30px
+}
+.cart-quick-checkout .button {
+	width:100%
+}
+#cart-table tfoot td {
+	text-align:right
+}
+#cart-table .error {
+	color:#ff544c
+}
+#cart-table .item-msg {
+	margin-bottom:0;
+	font-size:13px
+}
+.cart-item-wrapper {
+	position:relative;
+	width:100%;
+	min-height:69px;
+	padding-left:115px
+}
+.cart-item-wrapper .product-image {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100px;
+	height:59px
+}
+.cart-item-wrapper .product-image img {
+	width:100%
+}
+
+#wishlist-view-form {
+	margin-bottom:30px
+}
+.wishlist-item-wrapper {
+	position:relative;
+	min-height:69px;
+	padding-left:115px
+}
+#wishlist-table .add-to-cart-alt {
+	float:left
+}
+#wishlist-table .cart-cell {
+	overflow:hidden
+}
+#wishlist-table .date-added {
+	color:#909090;
+	font-size:13px
+}
+#wishlist-table .item-options {
+	margin-bottom:20px
+}
+#wishlist-table .product-image {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100px;
+	height:59px
+}
+#wishlist-table .product-image img {
+	width:100%
+}
+#wishlist-table .product-name {
+	display:block;
+	margin:0 0 5px
+}
+#wishlist-table .remove-link {
+	float:left;
+	margin:5px 0 0
+}
+#wishlist-table .date-added, #wishlist-table .description, #wishlist-table .link-edit, #wishlist-table .wishlist-qty, .wishlist-comment-box {
+	display:none
+}
+@media screen and (max-width: 479px) {
+.flex-table.linearize thead {
+	display:none
+}
+.flex-table.linearize tr, .flex-table.linearize th, .flex-table.linearize td {
+	display:block
+}
+.flex-table.linearize tbody tr {
+	border-bottom:2px solid #e8e8e8
+}
+.flex-table.linearize tbody tr:last-child {
+	border-bottom:0
+}
+.flex-table.linearize tbody tr td {
+	padding:8px 10px 10px;
+	border-right:0;
+	border-bottom:1px #c4c1c1 solid;
+}
+.flex-table.linearize tbody tr td:first-child {
+	padding-top:10px
+}
+.flex-table.linearize tbody tr td:before {
+	content:attr(data-skinnyties-label);
+	padding-right:10px;
+	font-weight:bold;
+}
+
+.cart-item-wrapper {
+	padding-bottom:10px;
+	border-bottom:1px solid #F00
+}
+
+.wishlist-item-wrapper {
+	padding-bottom:10px;
+	border-bottom:1px solid #f0f0f0
+}
+#wishlist-table .remove-link {
+	margin-left:15px
+}
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) {
+
+.flex-direction-nav a:after {
+width:17px;
+height:31px;
+margin:-16px 0 0 -9px;
+background:url(../img/sprite@2x.png) -185px 0px no-repeat;
+background-size:400px 200px
+}
+.flex-direction-nav a.prev:after {
+background-position:-185px 0px
+}
+.flex-direction-nav a.next:after {
+background-position:-185px -35px
+}
+.flex-direction-nav .prev:hover:after {
+background-position:-185px -70px
+}
+.flex-direction-nav .next:hover:after {
+background-position:-185px -105px
+}
+
+}
+
