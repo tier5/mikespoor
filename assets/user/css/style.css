@@ -2032,9 +2032,12 @@ li.pricing-footer{
 
 /*  6.17. SERVICES OVERVIEW LIST
 ============================================================================= */
+
+.page-content .row.services-row{
+    margin-bottom: 0;
+} 
+
 .services-overview li{
-    background: url('../img/checkmark.png') no-repeat 0 0;
-    float: left;
     width: 100%;
     padding-left: 70px;
     margin-bottom: 30px;
@@ -2044,11 +2047,23 @@ li.pricing-footer{
     -moz-box-sizing: border-box;
 }
 
-.services-overview li h5{
-    margin-bottom: 15px;
+.services-overview .overview-txt{
+    display: inline-block;
+    width: 70%;
 }
 
+.services-overview li h5{
+    background: url(../img/checkmark.png) no-repeat top left;
+    margin-bottom: 15px;
+    padding: 10px 0 10px 50px;
+}
 
+.services-overview li img{
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+    margin-right: 10px;
+}
 
 
 /*  6.18. SERVICES VERTICAL TABS
@@ -4586,9 +4601,193 @@ a.footer{
 }
 
 .folder_text{
-		text-align:center;
+	text-align:center;
 	font: 15px "UNVR57W",Arial,sans-serif;
 	color: #333;
 }
 
+/******************** Timeline **************************/
 
+.timeline ul{
+    text-align: center;
+}
+
+.timeline ul li{
+    display: inline-block;
+    height: 232px;
+    width: 50%;
+    position: relative;
+    vertical-align: top;
+}
+
+.timeline ul li img{
+    position: absolute;
+    max-width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    margin: auto;
+    width: 100%
+}
+
+.timeline ul li .dated{
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 40px;
+    position: absolute;
+    top: 55%;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+.timeline ul li .popout{
+    position: absolute;
+    width: 300px;
+    background: #fff;
+    left: 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px #999;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.timeline ul li .popout h1{
+    color: #333;
+    text-align: left;
+}
+
+.timeline ul li .popout p{
+    font-size: 14px;
+    position: relative;
+    left: 0 !important;
+    top: 0;
+    color: #666;
+    font-weight: normal;
+    text-align: left;
+}
+
+.timeline ul li .dated:hover .popout{
+    opacity: 1;
+    visibility: visible;
+}
+
+.timeline ul li:first-child{
+    height: 176px;
+}
+
+.timeline ul li:first-child .dated{
+    left: 52%;
+    top: 35%;
+    right: auto !important;
+}
+
+.timeline ul li:nth-child(even) .dated{
+    left: 22%;
+}
+
+.timeline ul li:nth-child(odd) .dated{
+    right: 26%;
+}
+
+.timeline ul li:last-child{
+    height: 175px;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    .timeline ul li{
+        height: 185px;
+    }
+
+    .timeline ul li:first-child{
+        height: 140px;
+    }
+
+    .timeline ul li:last-child{
+        height: 175px;
+    }
+
+    .timeline ul li .dated{
+        font-size: 34px;
+    }
+
+    .timeline ul li:nth-child(even) .dated {
+        left: 22%;
+    }
+
+    .timeline ul li:nth-child(odd) .dated {
+        right: 25%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .timeline ul li{
+        height: 144px;
+    }
+
+    .timeline ul li:first-child{
+        height: 108px;
+    }
+
+    .timeline ul li:last-child{
+        height: 135px;
+    }
+
+    .timeline ul li .dated{
+        font-size: 30px;
+    }
+
+    .timeline ul li:nth-child(even) .dated{
+        left: 21%;
+    }
+
+    .timeline ul li:nth-child(odd) .dated{
+        right: 24%;
+    }
+
+    .timeline ul li:first-child .dated{
+        left: 50%;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px){
+    .timeline ul li {
+        width: 100%;
+        height: 170px;
+    }
+
+    .timeline ul li:first-child {
+        height: 128px;
+    }
+
+    .timeline ul li .dated{
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .timeline ul li {
+        width: 100%;
+        height: 108px;
+    }
+
+    .timeline ul li:first-child {
+        height: 80px;
+    }
+
+    .timeline ul li .dated{
+        font-size: 20px;
+    }
+
+    .timeline ul li .popout {
+        width: 130px;
+        padding: 5px;
+    }
+    .timeline ul li .popout p {
+        font-size: 10px;
+        line-height: 20px;
+    }
+}

@@ -257,32 +257,47 @@
 
         <section class='page-content'>
             <div class="container">
-                <div class="row">
-                    <article class="grid_3">
-                        <img class="triggerAnimation animated" src="assets/user/img/pictures/woman-ceo.png" alt="ceo" data-animate="fadeInLeft"/>
+                <div class="row services-row">
+                    <article class="grid_2">
                     </article>
-
-                    <article class="grid_6">
-                        <div class="triggerAnimation animated" data-animate="fadeInLeft">
-                            <!-- .heading-bordered start -->
-                            <section class="heading-bordered">
+                    <article class="grid_7">
+                        <section class="heading-bordered">
                                 <h3>What we <b>Offer</b></h3>
-                            </section><!-- .heading-bordered end -->
+                            </section>
+                    </article>
+                    <article class="grid_3">
+                    </article>
+                </div>
+                <div class="row">
+                    <!-- <article class="grid_3">
+                        <img class="triggerAnimation animated" src="assets/user/img/pictures/woman-ceo.png" alt="ceo" data-animate="fadeInLeft"/>
+                    </article> -->
 
+                    <article class="grid_9">
+                        <div class="triggerAnimation animated" data-animate="fadeInLeft">
                             <ul class="services-overview">
                                 <li>
-                                    <h5><?php echo $homeinfo['home_offer1_title']; ?> </h5>
-                                    <?php echo htmlspecialchars_decode($homeinfo['home_offer1_content']); ?>
+                                    <img class="triggerAnimation animated" src="assets/user/img/pictures/woman-ceo.png" alt="ceo" data-animate="fadeInLeft"/>
+                                    <div class="overview-txt">
+                                        <h5><?php echo $homeinfo['home_offer1_title']; ?> </h5>
+                                        <?php echo htmlspecialchars_decode($homeinfo['home_offer1_content']); ?>
+                                    </div>
                                 </li>
 
                                 <li>
-                                    <h5><?php echo $homeinfo['home_offer2_title']; ?> </h5>
-                                     <?php echo htmlspecialchars_decode($homeinfo['home_offer2_content']); ?>
+                                    <img class="triggerAnimation animated" src="assets/user/img/pictures/woman-ceo.png" alt="ceo" data-animate="fadeInLeft"/>
+                                    <div class="overview-txt">
+                                        <h5><?php echo $homeinfo['home_offer2_title']; ?> </h5>
+                                         <?php echo htmlspecialchars_decode($homeinfo['home_offer2_content']); ?>
+                                    </div>
                                 </li>
 
                                 <li>
-                                    <h5><?php echo $homeinfo['home_offer3_title']; ?> </h5>
-                                     <?php echo htmlspecialchars_decode($homeinfo['home_offer3_content']); ?>
+                                    <img class="triggerAnimation animated" src="assets/user/img/pictures/woman-ceo.png" alt="ceo" data-animate="fadeInLeft"/>
+                                    <div class="overview-txt">
+                                        <h5><?php echo $homeinfo['home_offer3_title']; ?> </h5>
+                                        <?php echo htmlspecialchars_decode($homeinfo['home_offer3_content']); ?>
+                                    </div>
                                 </li>
                             </ul>
                         </div><!-- .triggeranimation.animated end -->
