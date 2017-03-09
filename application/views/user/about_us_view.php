@@ -282,9 +282,50 @@
                   <ul>
                     <li>
                       <img src="assets/timeline/timeline1.png">
-                      <div class="dated">born</div>
+                      <div class="dated"><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?>
+                          <span class="popout">
+                              <h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?></h1>
+                              <p><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_content']); ?></p>
+                          </span>
+                      </div>
                     </li>
-                    <li>
+                    <?php for ($i=1 ; $i<=sizeof($timelinelist); $i++){?>
+                         <?php if(isset($timelinelist[$i])){ ?>
+                          <li>
+                          <img src="assets/timeline/timeline2.png">
+                          <div class="dated"><?php echo $timelinelist[$i]['timeline_title']; ?>
+                            <span class="popout">
+                              <h4><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_title']); ?></h4>
+                              <p><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_content']); ?></p>
+                            </span>
+                          </div>
+                        </li>
+                        <?php } ?>
+                         <?php if(isset($timelinelist[$i+1])){ ?>
+                        <li>
+                          <img src="assets/timeline/timeline3.png">
+                          <div class="dated"><?php echo $timelinelist[$i+1]['timeline_title']; ?>
+                            <span class="popout">
+                              <h4><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_title']); ?></h4>
+                              <p><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_content']); ?></p>
+                            </span>
+                          </div>
+                        </li> 
+                        <?php } ?>
+
+                      <?php $i=$i+1; } ?>
+                   <!--  <?php foreach($timelinelist as $timeline) {?>
+                         <li>
+                          <img src="assets/timeline/timeline2.png">
+                          <div class="dated"><?php echo $timeline[' timeline_title']; ?>
+                            <span class="popout">
+                              <h1><?php echo $timeline[' timeline_title']; ?></h1>
+                              <p><?php echo $timeline['timeline_content']; ?></p>
+                            </span>
+                          </div>
+                        </li> 
+                    <?php } ?> -->
+                   <!--  <li>
                       <img src="assets/timeline/timeline2.png">
                       <div class="dated">1940
                         <span class="popout">
@@ -310,10 +351,10 @@
                           <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer .</p>
                         </span>
                       </div>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!--  <li>
                       <img src="assets/timeline/timeline_end.png">
-                    </li>
+                    </li>  -->
                   </ul>
                 </div>
               </div>

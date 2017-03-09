@@ -69,7 +69,7 @@ class Timeline_model extends CI_Model {
 		{
 			$this->db->select('`timeline_id`, `timeline_title`, `timeline_content`, `orderBy`, `status`, `addedBy`, `addedOn`, `updatedOn`');
             $this->db->from('lm_timeline');
-			$this->db->order_by('orderBy', 'DESC');
+			$this->db->order_by('orderBy', 'ASC');
 			$this->db->where('status',1);
 			$query = $this->db->get();
 			$row = $query->result_array();

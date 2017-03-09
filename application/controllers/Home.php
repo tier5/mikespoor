@@ -38,6 +38,7 @@ class Home extends CI_Controller {
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(1);
 				$data['welcome_title']=$this->home_page_model->gethometitle();
 				$data['offer_list']=$this->home_page_model->get_all_offer();
+				$data['stats_list']=$this->home_page_model->get_all_stats();
 			    
                 //$data['template']='user/home_view';
 			    $this->load->view('user/home_view',$data);

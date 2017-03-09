@@ -274,10 +274,21 @@
                     </article> -->
 
                     <article class="grid_9">
+                        
                         <div class="triggerAnimation animated" data-animate="fadeInLeft">
                             <ul class="services-overview">
+                            <?php foreach ($offer_list as $offer ) { ?>
                                 <li>
-                                    <img class="triggerAnimation animated" src="assets/user/img/pictures/woman-ceo.png" alt="ceo" data-animate="fadeInLeft"/>
+                                    <img class="triggerAnimation animated" src="uploads/home_page/offer/<?php echo $offer['home_offer_logo'];?>" alt="ceo" data-animate="fadeInLeft"/>
+                                    <div class="overview-txt">
+                                        <h5><?php echo $offer['home_offer_title']; ?> </h5>
+                                        <?php echo htmlspecialchars_decode($offer['home_offer_content']); ?>
+                                    </div>
+                                </li>
+                            <?php  } ?>
+                           
+                                <!-- <li>
+                                    <img class="triggerAnimation animated" src="uploads/home_page/offer/" alt="ceo" data-animate="fadeInLeft"/>
                                     <div class="overview-txt">
                                         <h5><?php echo $homeinfo['home_offer1_title']; ?> </h5>
                                         <?php echo htmlspecialchars_decode($homeinfo['home_offer1_content']); ?>
@@ -298,7 +309,7 @@
                                         <h5><?php echo $homeinfo['home_offer3_title']; ?> </h5>
                                         <?php echo htmlspecialchars_decode($homeinfo['home_offer3_content']); ?>
                                     </div>
-                                </li>
+                                </li> -->
                             </ul>
                         </div><!-- .triggeranimation.animated end -->
                     </article><!-- .grid_6 -->
@@ -311,7 +322,13 @@
                             </section><!-- .heading-bordered end -->
 
                             <ul class='numbers-counter' >
-                                <li style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
+                                <?php foreach ($stats_list as $stats) { ?>
+                                    <li style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
+                                        <span class='timer number' data-to='<?php echo $stats['home_stats_content']; ?>' data-speed='2000'><?php echo $stats['home_stats_content']; ?></span>
+                                        <p><?php echo $stats['home_stats_title']; ?></p>
+                                    </li style="background-color:><?php echo $companyinfo['theme_color']; ?>;">
+                               <?php  } ?>
+                                <!-- <li style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
                                     <span class='timer number' data-to='<?php echo $homeinfo['home_stat1_content']; ?>' data-speed='2000'><?php echo $homeinfo['home_stat1_content']; ?></span>
                                     <p><?php echo $homeinfo['home_stat1_title']; ?></p>
                                 </li style="background-color:><?php echo $companyinfo['theme_color']; ?>;">
@@ -330,6 +347,8 @@
                                     <span class='timer number' data-to='<?php echo $homeinfo['home_stat4_content']; ?>' data-speed='2000'><?php echo $homeinfo['home_stat4_content']; ?></span>
                                     <p><?php echo $homeinfo['home_stat4_title']; ?></p>
                                 </li>
+ -->
+
                             </ul>
                         </div><!-- .triggerAnimation.animated end -->
                     </article><!-- .grid_3 end -->
