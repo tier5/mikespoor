@@ -23,6 +23,7 @@ $(window).load(function() {
         $portfolioitems.isotope({
             filter: '*',
             masonry: {
+                
                 columnWidth: 1,
                 isResizable: true
             }

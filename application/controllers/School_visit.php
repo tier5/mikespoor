@@ -5,6 +5,7 @@ class School_visit extends CI_Controller {
         {
                 parent::__construct();
                 // Your own constructor code
+                $this->load->model('backend/banner_model');
         }
 		public function index()
 		{
@@ -23,6 +24,7 @@ class School_visit extends CI_Controller {
 				$data['picturecatlist']=$this->school_visit_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/school_visit_blog_model');
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
+				$data['banner']=$this->banner_model->getbannerbyslug('school_visit');
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(6);
 			    $this->load->view('user/school_visit_view',$data);
@@ -44,6 +46,7 @@ class School_visit extends CI_Controller {
 				$this->load->model('backend/school_visit_model');
 				$data['picturecatlist']=$this->school_visit_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/school_visit_blog_model');
+				$data['banner']=$this->banner_model->getbannerbyslug('school_visit');
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(6);
@@ -63,6 +66,7 @@ class School_visit extends CI_Controller {
 		       $data['totalrec']=$this->school_visit_blog_model->countactiveschool_visit_blog();
 		        $data['nowpage']=$getpage;
 				$this->load->model('backend/school_visit_model');
+				$data['banner']=$this->banner_model->getbannerbyslug('school_visit');
 				$data['picturecatlist']=$this->school_visit_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/school_visit_blog_model');
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
@@ -84,6 +88,7 @@ class School_visit extends CI_Controller {
 				$data['picturecatlist']=$this->school_visit_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/school_visit_blog_model');
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
+				$data['banner']=$this->banner_model->getbannerbyslug('school_visit');
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(6);
 			    $this->load->view('user/school_visit_details_view',$data);

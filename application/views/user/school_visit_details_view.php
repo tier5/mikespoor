@@ -49,8 +49,7 @@
         <!-- .header-wrapper start -->
          <?php include('include/header.php'); ?><!-- .header-wrapper end -->
 
-        <!-- #page-title start -->
-        <section id="page-title" class="page-title-3">
+                <section id="page-title" class="page-title-5" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
             <div class="container">
                 <div class="row">
                     <div class="grid_12">
@@ -151,6 +150,7 @@
                                 <h6>blog categories</h6>
 
                                 <ul>
+                                      <li><a href="<?php echo BASE_URI.'school-visit'; ?>">All</a></li>
                                     <?php
 								foreach($categorylist as $category_listdata)
 								{

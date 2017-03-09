@@ -170,29 +170,29 @@ body {
 }
 
 .page-content.parallax-1{
-    background: url('../img/pictures/parallax-bkg-1.jpg');
-    background-size: cover;
+    /*background: url('../img/pictures/parallax-bkg-1.jpg');
+    background-size: cover;*/
     background-attachment: fixed;
     background-repeat: repeat-y;
 }
 
 .page-content.parallax-2{
-    background: url('../img/pictures/parallax-bkg-2.jpg');
-    background-size: cover;
+    /*background: url('../img/pictures/parallax-bkg-2.jpg');
+    background-size: cover;*/
     background-attachment: fixed;
     background-repeat: repeat-y;
 }
 
 .page-content.parallax-3{
-    background: url('../img/pictures/parallax-bkg-3.jpg');
-    background-size: cover;
+    /*background: url('../img/pictures/parallax-bkg-3.jpg');
+    background-size: cover;*/
     background-attachment: fixed;
     background-repeat: repeat-y;
 }
 
 .page-content.parallax-4{
-    background: url('../img/pictures/parallax-bkg-4.jpg');
-    background-size: cover;
+    /*background: url('../img/pictures/parallax-bkg-4.jpg');
+    background-size: cover;*/
     background-attachment: fixed;
     background-repeat: repeat-y;
 }
@@ -729,14 +729,17 @@ b{
 ============================================================================= */
 
 #page-titlep{
-    background: url('../../required/banner2.jpg') center center;
-    background-size: cover;
-    padding: 100px 0 0;
+    /*background: url('../../required/banner2.jpg') center center;*/
+   
+
+
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+    height: 300px;
     margin-bottom: 70px;
-    overflow: hidden;
+    min-height: 100%;
+    padding: 100px 0 0;
     position: relative;
-	background-attachment: fixed;
-	min-height:249px;
 }
 
 
@@ -744,14 +747,15 @@ b{
 
 
 #page-title{
-    background: url('../../required/banner1.jpg') center center;
-    background-size: cover;
-    padding: 100px 0 0;
+    /*background: url('../../required/banner1.jpg') center center;*/
+    /*background-size: cover;*/
+     background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+    height: 300px;
     margin-bottom: 70px;
-    overflow: hidden;
+    min-height: 100%;
+    padding: 100px 0 0;
     position: relative;
-	background-attachment: fixed;
-	min-height:249px;
 }
 
 #page-title.no-image .pt-title{
@@ -838,18 +842,18 @@ b{
 
 /*  5.2. PAGE TITLE 3
 ============================================================================= */
-#page-title.page-title-3{
+/*#page-title.page-title-3{
     background: url("../../required/banner3.jpg") repeat fixed center center / cover;
     padding: 10px 0;
-}
-#page-title.page-title-4{
+}*/
+/*#page-title.page-title-4{
     background: url("../../required/banner4.jpg") repeat fixed center center / cover;
     padding: 10px 0;
 }
 #page-title.page-title-5{
     background: url("../../required/banner5.jpg") repeat fixed center center / cover;
     padding: 10px 0;
-}
+}*/
 #page-title.page-title-3 .breadcrumbs li a{
     color: #666;
 }
