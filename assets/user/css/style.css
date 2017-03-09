@@ -315,7 +315,6 @@ b{
 /* 4.1. GLOBAL STYLING 
 ----------------------------------------------------------------------------- */
 #header-wrapper{
-    width: 100%;
     margin: 0 auto;
     z-index: 1000;
     position: relative;
@@ -335,7 +334,8 @@ b{
     
     position: fixed;
     top: 0;
-    z-index: 9999;    
+    z-index: 9999; 
+    width: 100%;   
 }
 
 #top-bar-wrapper{
@@ -351,9 +351,13 @@ b{
 }
 
 #top-bar .contact-info{
-    width: 50%;
+    /*width: 50%;
     float: left;
-    padding-top: 13px;
+    padding-top: 13px;*/
+    width: 50%;
+    display: inline-block;
+    padding: 13px 0;
+    float: left;
 }
 
 #top-bar .contact-info li{
@@ -372,25 +376,48 @@ b{
     color: #fff !important;
 }
 #top-bar .social-links{
-    max-width: 50%;
-    float: right;
+    /*max-width: 50%;
+    float: right;*/
+    width: 50%;
+    text-align: right;
+    display: inline-block;
 }
 
 #top-bar .social-links li{
-    float: left;
+    /*float: left;
     background: #45423d;
     width: 45px;
     height: 45px;
+    border-left: 1px solid #eee;*/
+    display: inline-block;
+    background: #45423d;
+    width: 50px;
+    height: 50px;
     border-left: 1px solid #eee;
+    vertical-align: bottom;
 }
 
 #top-bar .social-links li a{
-    color: #fff;
+    /*color: #fff;
     width: 45px;
     height: 45px;
     display: table-cell;
     vertical-align: middle;
+    text-align: center;*/
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: block;
+    vertical-align: bottom;
     text-align: center;
+    position: relative;
+}
+
+.flaticon-twitter16:before, .flaticon-facebook25:before, .flaticon-youtube15:before{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
 }
 
 #top-bar .social-links li:hover a{
@@ -4721,6 +4748,19 @@ a.footer{
     .timeline ul li:nth-child(odd) .dated {
         right: 25%;
     }
+
+    #nav > ul > li > a {
+        padding: 29px 14px;
+    }
+
+    .copyright-container p {
+        padding-top: 0;
+        font-size: 10px
+    }
+
+    .copyright-container a{
+        font-size: 12px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px){
@@ -4751,6 +4791,24 @@ a.footer{
     .timeline ul li:first-child .dated{
         left: 50%;
     }
+
+    #nav > ul > li > a {
+        padding: 28px 8px;
+        font-size: 12px;
+    }
+
+    .services-overview li{
+        padding-left: 0;
+    }
+
+    .copyright-container p {
+        padding-top: 0;
+        font-size: 8px
+    }
+
+    .copyright-container a{
+        font-size: 10px;
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px){
@@ -4766,6 +4824,47 @@ a.footer{
     .timeline ul li .dated{
         font-size: 30px;
     }
+
+    .copyright-container p {
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .copyright-container a{
+        font-size: 11px;
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    #header, #top-bar{
+        width: auto;
+        padding: 0 15px;
+    }
+
+    #top-bar .contact-info li {
+        float: none;
+    }
+
+    #top-bar .social-links {
+        padding: 10px 0;
+    }
+
+    .dl-menuwrapper{
+        display: block !important;
+    }
+
+    .hidden-xs{
+        display: none;
+    }
+.page-content .services-row *[class*="grid_"]{
+        margin-bottom: 10px;
+    }
+
+    .services-overview li{
+        padding-left: 0;
+    }
+
 }
 
 @media screen and (max-width: 480px){
@@ -4789,5 +4888,47 @@ a.footer{
     .timeline ul li .popout p {
         font-size: 10px;
         line-height: 20px;
+    }
+
+    #top-bar .contact-info, #top-bar .social-links{
+        text-align: center;
+    }
+
+    #top-bar .contact-info, 
+    #top-bar .social-links{
+        width: 100%;
+        max-width: 100%;
+        padding: 5px 0;
+    }
+
+    #top-bar .social-links li {
+        width: 30px;
+        height: 30px;
+    }
+
+    .services-overview li img {
+        display: block;
+        width: 50%;
+        margin: auto;
+    }
+
+    .services-overview .overview-txt {
+        width: 100%;
+    }
+
+    .copyright-container p{
+        font-size: 8px;
+    }
+
+    .footer-breadcrumbs {
+        float: none;
+    }
+
+    .footer-breadcrumbs a.footer {
+        margin-right: 0;
+        padding-bottom: 10px;
+        display: block;
+        text-align: left;
+        font-size: 12px;
     }
 }

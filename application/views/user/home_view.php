@@ -258,14 +258,14 @@
         <section class='page-content'>
             <div class="container">
                 <div class="row services-row">
-                    <article class="grid_2">
+                    <article class="grid_2 hidden-xs">
                     </article>
                     <article class="grid_7">
                         <section class="heading-bordered">
                                 <h3>What we <b>Offer</b></h3>
                             </section>
                     </article>
-                    <article class="grid_3">
+                    <article class="grid_3 hidden-xs">
                     </article>
                 </div>
                 <div class="row">

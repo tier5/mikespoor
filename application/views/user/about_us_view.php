@@ -1,46 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <base href="<?php echo BASE_URI; ?>">
-    <title><?php echo $title; ?></title>
-    <meta name="description" content="<?php echo $metainfo['meta_description'];?>" />
-    <meta name="keywords" content="<?php echo $metainfo['meta_keywords'];?>" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width">
-
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="assets/user/css/grid.css" />
-    <link rel="stylesheet" href="assets/user/css/style.css" />
-    <link rel="stylesheet" href="assets/user/css/darkblue.css" />
-    <link rel="stylesheet" href="assets/user/css/responsive.css" />
-    <link rel="stylesheet" href="assets/user/css/animate.css" />
-    <link rel="stylesheet" href="assets/user/css/retina.css" />
-    <link rel="stylesheet" href="assets/user/pixons/style.css" />
-    <link rel="stylesheet" href="assets/user/iconsfont/iconsfont.css" />
-    <link rel="stylesheet" href="assets/user/style-switcher/styleSwitcher.css"/>
-    <link href="assets/user/css/flexslider.css" rel="stylesheet" type="text/css" />
-    <link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
-    <!--/stylesheets -->
-
-    <!-- prettyPhoto lightbox stylesheer -->
-    <link rel="stylesheet" href="assets/user/css/prettyPhoto.css" media="screen" />
-    <!-- /prettyPhoto lightbox stylesheer -->
-
-    <!-- google web fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900,200,100' rel='stylesheet' type='text/css'>
-    <!-- /google web fonts -->
-
-		<!-- Icons -->
-	  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <!-- /Icons -->
-
-    <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-    <![endif]-->
-    <!--[if lt IE 9]>
-        <script src="js/selectivizr-min.js"></script>
-    <![endif]-->
+    <?php include('include/headsection.php'); ?>
 
     <style>
       .apoint{
