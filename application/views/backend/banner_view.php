@@ -57,7 +57,7 @@
                                 <?php unset($_SESSION['successmsg']); } else if(isset($_SESSION['errormsg'])){ ?>
                                     <div class="alert alert-danger" id="success-alert">
                                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                        <strong>Error!</strong> <?php echo $_SESSION['errormsg']; ?>
+                                        <strong>Error!</strong> <?php print_r( $_SESSION['errormsg']); ?>
                                     </div>
                                 <?php unset($_SESSION['errormsg']); } ?>
                                 <form action="<?php echo BASE_URI.'backend/banner/editbanner'; ?>" method="post" enctype="multipart/form-data">
