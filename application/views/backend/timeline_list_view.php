@@ -91,6 +91,7 @@
             
             <!-- /.box-header -->
             <div class="box-header">
+              
               <h3 class="box-title">Timeline List</h3>
 
               <div class="box-tools pull-right">

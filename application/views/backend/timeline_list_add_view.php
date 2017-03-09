@@ -112,7 +112,14 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Title</label>
-                  <input type="text" class="form-control" name="txtTitle" placeholder="Enter Timeline Title" value="<?php if(isset($bannerinfo['timeline_title'])){echo $bannerinfo['timeline_title'];} ?>" required>
+
+                  <select class="form-control" name="txtTitle" placeholder="Enter Timeline Title" required>
+                    <option value="">--Select--</option>
+                    <?php for($i=$first_event['timeline_title']; $i<=date('Y'); $i++) { ?>
+                     <option value="<?php echo $i;?>" <?php if(isset($bannerinfo['timeline_title'])){ if($i==$bannerinfo['timeline_title']){ echo "selected"; }} ?>><?php echo $i; ?></option>
+                  <?php  }?>
+                  </select>
+                  <!-- <input type="text" class="form-control" name="txtTitle" placeholder="Enter Timeline Title" value="<?php if(isset($bannerinfo['timeline_title'])){echo $bannerinfo['timeline_title'];} ?>" required> -->
                 </div>
                
                 <div class="form-group">

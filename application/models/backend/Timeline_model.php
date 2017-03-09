@@ -205,6 +205,19 @@ class Timeline_model extends CI_Model {
 					return false;
 				}
 		}
+
+		public function first_event()
+		{
+
+			$this->db->select('`timeline_id`, `timeline_title`, `timeline_content`, `orderBy`, `status`, `addedBy`, `addedOn`, `updatedOn`');
+            $this->db->from('lm_timeline');
+            $this->db->limit(1);
+			$this->db->order_by('orderBy', 'ASC');
+			$this->db->where('status',1);
+			$query = $this->db->get();
+			$row = $query->row_array();
+			return $row;
+		}
        
 }
 ?>

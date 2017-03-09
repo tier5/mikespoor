@@ -5,6 +5,7 @@ class About_us extends CI_Controller {
         {
                 parent::__construct();
 				$this->load->model('backend/cms_model');
+				$this->load->model('backend/timeline_model');
                 // Your own constructor code
         }
         public function index()
@@ -48,6 +49,7 @@ class About_us extends CI_Controller {
 			$data['title']='About Us - Timeline';
 			$this->load->model('backend/timeline_model');
 			$data['bannerlist']=$this->timeline_model->getfeaturedlistmodel();
+
 	        $this->load->view('backend/timeline_list_view',$data);
 		}
 		public function addtimeline()
@@ -67,6 +69,7 @@ class About_us extends CI_Controller {
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
 				$this->load->model('backend/login_model');
+				$data['first_event']=$this->timeline_model->first_event();
 				$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
 				$data['companyinfo']=$this->login_model->getuserinfoid('1');
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Timeline';

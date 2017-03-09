@@ -136,7 +136,12 @@
         font-family: fantasy;
         color:#717A8B;
       }
+
+      .popout{
+        display: none;
+      }
     </style>
+
   </head>
   <body>
     <!-- .header-wrapper start -->
@@ -292,7 +297,12 @@
                     <?php for ($i=1 ; $i<=sizeof($timelinelist); $i++){?>
                          <?php if(isset($timelinelist[$i])){ ?>
                           <li>
+                            <?php if(sizeof($timelinelist)-1==$i)  { ?>
+                             <img src="assets/timeline/timeline5.png">
+                            <?php } else { ?>
                           <img src="assets/timeline/timeline2.png">
+                          <?php } ?>
+
                           <div class="dated"><?php echo $timelinelist[$i]['timeline_title']; ?>
                             <span class="popout">
                               <h4><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_title']); ?></h4>
@@ -302,8 +312,12 @@
                         </li>
                         <?php } ?>
                          <?php if(isset($timelinelist[$i+1])){ ?>
-                        <li>
+                        <li> 
+                          <?php if(sizeof($timelinelist)-1==$i+1) {?>
+                             <img src="assets/timeline/timeline6.png">
+                            <?php } else { ?>
                           <img src="assets/timeline/timeline3.png">
+                          <?php } ?>
                           <div class="dated"><?php echo $timelinelist[$i+1]['timeline_title']; ?>
                             <span class="popout">
                               <h4><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_title']); ?></h4>
