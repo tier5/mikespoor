@@ -270,158 +270,61 @@
     <!-- .page-content end -->
     <!-- .page-content start -->
     <section class="page-content parallax parallax-1" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row">
+          <article class="grid_12 timeline">
+            <section class="heading-centered triggerAnimation animated" data-animate="bounceIn">
+              <h2 style="margin-bottom:32px;"><?php echo $aboutinfo['cms_title']; ?> </h2>
+              <?php echo htmlspecialchars_decode($aboutinfo['cms_fcontent']); ?>
+              <br>
+              <div class="row">
+                <div class="grid_12" align="center">
+                  <ul>
+                    <li>
+                      <img src="assets/timeline/timeline1.png">
+                      <div class="dated">born</div>
+                    </li>
+                    <li>
+                      <img src="assets/timeline/timeline2.png">
+                      <div class="dated">1940
+                        <span class="popout">
+                          <h1>1940</h1>
+                          <p>Now to Ashford with more space to set up my studio. </p>
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <img src="assets/timeline/timeline3.png">
+                      <div class="dated">1950
+                        <span class="popout">
+                          <h1>1950</h1>
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <img src="assets/timeline/timeline4.png">
+                      <div class="dated">1960
+                        <span class="popout">
+                          <h1>1950</h1>
+                          <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer .</p>
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <img src="assets/timeline/timeline_end.png">
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <!-- .container start -->
-            <div class="container">
-                <!-- .row start -->
-                <div class="row">
-                    <article class="grid_12">
-                        <section class="heading-centered triggerAnimation animated" data-animate="bounceIn">
-                            <h2 style="margin-bottom:32px;"><?php echo $aboutinfo['cms_title']; ?> </h2>
-                           <?php echo htmlspecialchars_decode($aboutinfo['cms_fcontent']); ?>
-                                <?php
-                           /*foreach($timelinelist as $timedata)
-						   {
-							   echo $timedata['timeline_title']."<br/>";
-						   }*/
-						  /* $tlen=count($timelinelist);
-for($t=0;$t<$tlen;$t++)
-{
-	echo $timelinelist[$t]['timeline_title']."<br/>";
-}*/
-						   ?>
-                        <div class="row">
-                    <div class="grid_12" align="center">
-<?php /*?><div class="containera" style="background-image:url(assets/timeline/24.png); background-repeat:no-repeat;">
-</div><?php */?>
-<?php
-$tlen=count($timelinelist);
- $tcount=$tlen;
-
-
-for($t=0;$t<$tlen;$t++)
-{
-	if($tcount==$tlen)
-	{
-		if($tlen%2!=0)
-	{
-?>
-<div class="containere" style="background-image:url(assets/timeline/41n.png); background-repeat:no-repeat;">
-<div class="navf popper" data-popbox="pop<?php echo $tcount; ?>"><a class="apoint" go="pop<?php echo $tcount; ?>" data-geo=""><?php echo $timelinelist[$t]['timeline_title']; ?></a>
-<div id="pop<?php echo $tcount; ?>" style="display:none;">
-    <h1><?php echo $timelinelist[$t]['timeline_title']; ?></h1>
-    <?php echo htmlspecialchars_decode($timelinelist[$t]['timeline_content']); ?>
-    </div>
-</div>
-</div>
-<?php
-	}
-	else
-	{
-		?>
-        <div class="containerl" style="background-image:url(assets/timeline/42n.png); background-repeat:no-repeat;">
-        <div class="navl popper" data-popbox="pop<?php echo $tcount; ?>"><a class="apoint" go="pop<?php echo $tcount; ?>" data-geo=""><?php echo $timelinelist[$t]['timeline_title']; ?></a>
-<div id="pop<?php echo $tcount; ?>" style="display:none;">
-    <h1><?php echo $timelinelist[$t]['timeline_title']; ?></h1>
-    <?php echo htmlspecialchars_decode($timelinelist[$t]['timeline_content']); ?>
-    </div>
-</div>
-</div>
-        <?php
-	}
-	?>
-<?php
-	}
-	else if($tcount==1)
-	{
-		?>
-        <div class="containerd" style="background-image:url(assets/timeline/40n.png); background-repeat:no-repeat;">
-<div class="navc popper" data-popbox="pop<?php echo $tcount; ?>"><a class="apoint" go="pop<?php echo $tcount; ?>" data-geo=""><?php echo $timelinelist[$t]['timeline_title']; ?></a>
-<div id="pop<?php echo $tcount; ?>" style="display:none;">
-    <h1><?php echo $timelinelist[$t]['timeline_title']; ?></h1>
-    <?php echo htmlspecialchars_decode($timelinelist[$t]['timeline_content']); ?>
-    </div>
-</div>
-</div>
-        <?php
-	}
-	else
-	{
-		if($tcount%2==0)
-	{
-?>
-<div class="containerc" style="background-image:url(assets/timeline/9n.png); background-repeat:no-repeat;">
-<div class="navb popper" data-popbox="pop<?php echo $tcount; ?>"><a class="apoint" go="pop<?php echo $tcount; ?>" data-geo=""><?php echo $timelinelist[$t]['timeline_title']; ?></a>
-<div id="pop<?php echo $tcount; ?>" style="display:none;">
-    <h1><?php echo $timelinelist[$t]['timeline_title']; ?></h1>
-     <?php echo htmlspecialchars_decode($timelinelist[$t]['timeline_content']); ?>
-    </div>
-</div>
-</div>
-<?php
-	}
-	else
-	{
-		
-			?>
-            <div class="containerc" style="background-image:url(assets/timeline/7n.png); background-repeat:no-repeat;">
-<div class="nava popper" data-popbox="pop<?php echo $tcount; ?>"><a class="apoint" go="pop<?php echo $tcount; ?>" data-geo=""><?php echo $timelinelist[$t]['timeline_title']; ?></a>
-<div id="pop<?php echo $tcount; ?>" style="display:none;">
-    <h1><?php echo $timelinelist[$t]['timeline_title']; ?></h1>
-    <?php echo htmlspecialchars_decode($timelinelist[$t]['timeline_content']); ?>
-    </div>
-</div>
-</div>
-            <?php
-		
-	}
-
-	}
-	
-
-$tcount=$tcount-1;
-}
-?>
-<?php /*?><div class="containerc" style="background-image:url(assets/timeline/7.png); background-repeat:no-repeat;">
-<div class="nava popper" data-popbox="pop4"><a class="apoint" go="pop4" data-geo="">4</a>
-<div id="pop4" style="display:none;">
-    <h1>hjjjjkjv</h1>
-    </div>
-</div>
-</div>
-<div class="containerc" style="background-image:url(assets/timeline/9.png); background-repeat:no-repeat;">
-<div class="navb popper" data-popbox="pop3"><a class="apoint" go="pop3" data-geo="">3</a>
-<div id="pop3" style="display:none;">
-    <h1>gfjgfjghjj</h1>
-    </div>
-</div>
-</div>
-
-<div class="containerc" style="background-image:url(assets/timeline/7.png); background-repeat:no-repeat;">
-
-<div class="nava popper" data-popbox="pop1"><a class="apoint" go="pop2" data-geo="">2</a>
-<div id="pop2" style="display:none;">
-    <h1>erterpkiji</h1>
-    </div>
-</div>
-</div>
-<div class="containerc" style="background-image:url(assets/timeline/9.png); background-repeat:no-repeat;">
-<div class="navb popper" data-popbox="pop1"><a class="apoint" go="pop1" data-geo="">1</a>
-<div id="pop1" style="display:none;">
-    <h1>bvnbbnmbnm,</h1>
-    </div>
-</div>
-</div><?php */?>
-
- <?php /*?><div class="containerd" style="background-image:url(assets/timeline/26.png); background-repeat:no-repeat;">
-</div><?php */?>
-
-
-</div>
-</div>
-                        </section>
-                    </article><!-- .grid_12 end -->
-                </div><!-- .row end -->
+  </article><!-- .grid_12 end -->
+</div><!-- .row end -->
 
                 <!-- .row start -->
                 <!-- .row end -->
