@@ -107,6 +107,11 @@ a:focus{ outline: none;}
 :focus {outline: 0;}
 .clearfix{clear: both;}
 
+hr{
+    border-top: 1px solid #666;
+    margin: 20px 0;
+}
+
 body {
     font-family: "Open Sans", Arial, sans-serif;
     font-size: 13px;
@@ -1764,6 +1769,7 @@ blockquote + p{
     display: block;
     float: left;
     height: auto;
+    position: relative;
 }
 
 .carousel-nav{
@@ -3006,10 +3012,20 @@ li.pricing-footer{
     z-index: 2;
 }
 
+.portfolio-img-container{
+    height: 100%;
+}
+
 .portfolio-img-container .portfolio-img{
     position: relative;
     overflow: hidden;
     width: 100%;
+    height: 100%;
+}
+
+.portfolio-img-container .portfolio-img img{
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -3141,6 +3157,9 @@ li.pricing-footer{
 
 .portfolio-img-container figcaption{
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 9;
     background: #f6f6f6;
     padding: 10px;
     box-sizing: border-box;
@@ -4165,8 +4184,6 @@ li.pricing-footer{
 }
 
 
-
-
 /* ASIDE SEARCH WIDGET
 ============================================================================= */
 .widget_search form{
@@ -4491,16 +4508,70 @@ li.pricing-footer{
     background: #333;
     border-top: 10px solid #e5e8ec;
     width: 100%;
-    float: left;
-    padding: 70px 0 0 0;
+    display: inline-block;  
 }
 
-#footer p, 
-footer a{
-    color: #bbb;
+#footer p, footer a{
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
+footer{
+    padding: 40px 0;
+}
 
+footer h6{
+    text-transform: capitalize;
+    font-size: 22px;
+    background: #3f7fbc;
+    padding: 10px;
+    color: #fff;
+}
+
+footer ul{
+    margin-bottom: 10px;
+}
+
+footer .social-links li{
+    display: inline-block;
+    background: #333;
+    width: 30px;
+    height: 30px;
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+
+footer .social-links li a{
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: block;
+    vertical-align: bottom;
+    text-align: center;
+    position: relative;
+}
+
+footer .social-links{
+    margin-top: 20px;
+}
+
+footer .footer-menu a{
+    font-family: 'UNVR57W', Arial, sans-serif;
+    display: inline-block;
+    font-size: 16px;
+}
+
+footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .flaticon-youtube15:before{
+    font-size: 20px;
+}
+
+.tr5logo{
+    max-width: 100%;
+    height: auto;
+    width: 70%;
+    margin-top: 10px;
+}
 /* COPYRIGHT CONTAINER 
 ----------------------------------------------------------------------------- */
 .copyright-container{
@@ -4594,10 +4665,10 @@ footer a{
 	margin-top:7px;
 	color:#666;
 }
-a.footer{
+/*a.footer{
     font: 14px 'UNVR57W', Arial, sans-serif;
 	color:#39414b;
-	}
+	}*/
 
 
 
@@ -4807,7 +4878,6 @@ a.footer{
 
     .copyright-container p {
         padding-top: 0;
-        font-size: 8px
     }
 
     .copyright-container a{
@@ -4830,7 +4900,6 @@ a.footer{
     }
 
     .copyright-container p {
-        font-size: 8px;
         text-align: center;
     }
 
@@ -4921,7 +4990,7 @@ a.footer{
     }
 
     .copyright-container p{
-        font-size: 8px;
+        font-size: 10px;
     }
 
     .footer-breadcrumbs {

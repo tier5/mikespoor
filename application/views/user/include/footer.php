@@ -10,120 +10,78 @@
                         <section class="triggerAnimation animated" data-animate="fadeIn">
 
                             <!-- .footer-widget-container start -->
-                            <?php /*?><ul class="grid_3 footer-widget-container">                             
-                                <!-- .widget.widget_text start -->
-                                <li class="widget widget_text clearfix">
-                                    <img src="assets/images/footerlogo.png" style="width" alt="elvyre professional corporate html5 template"/>
-
-                                    <br /> <br />
-
-                                    <p>
-                                        Welcome to Elvyre. Fully responsive, clean
-                                        multipurpose template. Create amazing
-                                        website in minutes. 
-                                    </p>
-
-                                    <br /><br />
-
-                                 
-                                </li><!-- .widget.widget-text end -->
-                            </ul> <?php */?><!-- .footer-widget-container end -->
+                            <div class="grid_4 footer-widget-container footer-menu">
+                                <h6>Menu</h6>
+                                <ul>
+                                    <li><a href="<?php echo BASE_URI; ?>" class="footer">HOME</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>about-us" class="footer">ABOUT MIKE</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>picture-gallery" class="footer">PICTURE GALLERY</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>video-gallery" class="footer">VIDEO GALLERY</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>links-news" class="footer">LINKS & NEWS</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>school-visit" class="footer">SCHOOL VISIT</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>contact" class="footer">CONTACT</a></li>
+                                </ul>
+                            </div><!-- .footer-widget-container end -->
 
                             <!-- .footer-widget-container start -->
-                            <ul class="grid_9 footer-widget-container">
-                                <!-- .widget_tag_cloud start -->
-                                <li class="widget widget_tag_cloud">
-                                    <h6>tag cloud</h6>
+                            <div class="grid_4 footer-widget-container">
+                                <h6>follow us</h6>
+                                <p>Keep up to date with Mike Spoor Illustrations</p>
+                                <!--- .social-links start -->
+                                <ul class="social-links">
+                                    <li>
+                                        <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>" class="flaticon-twitter16"></a>
+                                    </li>
 
-                                    <div class="tagcloud">
-                                    <?php
-									foreach($picturecatlist as $pclistdata)
-									{
-									?>
-                                        <a href="<?php echo BASE_URI.'school-visit/category/'.$pclistdata['school_visit_slug']; ?>"><?php echo $pclistdata['school_visit_title'] ?></a>
-                                        
-                                        <?php
-									}
-									?>
-                                    </div>
-                                </li><!-- .widget_tag_cloud end -->
+                                    <li>
+                                        <a target="_blank" href="<?php echo $companyinfo['facebook_link']; ?>" class="flaticon-facebook25"></a>
+                                    </li>
 
-                                <!-- .widget_categories start --><!-- .widget_categories end -->
-                            </ul><!-- .footer-widget-container end -->
+                                    <li>
+                                        <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15"></a>
+                                    </li>
+                                </ul><!-- .social-links end -->
+                            </div><!-- .footer-widget-container end -->
 
                             <!-- .footer-widget-container start -->
-                            <?php /*?><ul class="grid_3 footer-widget-container">
-
-                                <!-- .widget.widget_text start -->
-                                <li id="tweet-sroll-wrapper" class="widget clearfix">
-                                    <h6>Recent blogs</h6>
-                                      <ul class="contact-info-list">
-                                      <?php
-									  foreach($bloglist as $bloglistdata)
-									  {
-										 ?>
-                                         <li>
-                                            <p>
-                                             <a href="<?php echo BASE_URI.'school-visit/details/'.$bloglistdata['gschool_visit_blog_slug']; ?>"><?php echo $bloglistdata['gschool_visit_blog_title']; ?>  </a> 
-                                            </p>
-                                        </li>
-
-                                         <?php 
-									  }
-									  ?>
-                                        
-                                        
-
-                                       <!-- <li>
-                                            <p>
-                                                <i class="flaticon-telephone66"></i>
-                                                <span class="strong">Fax: </span>
-                                                +41 589 7843
-                                            </p>
-                                        </li>-->
-                                    </ul>
-                                    <div class="tweets-list-container"></div>
-                                </li><!-- #tweet-sroll-wrapper .widget -->
-
-                            </ul><?php */?><!-- .footer-widget-container end -->
-
-                            <!-- .footer-widget-container start -->
-                            <ul class="grid_3 footer-widget-container">
-
+                            <div class="grid_4 footer-widget-container">
+                            <h6>Contact info</h6>
                                 <!-- .widget.widget_text start -->
                                 <li class="widget widget_text">
-                                    <h6>CONTACT INFO</h6>
                                     <ul class="contact-info-list">
                                         <li>
                                             <p>
-                                                <!--<i class="icon-home"></i>-->
-                                                <span class="strong">Address: </span>
+                                                <!-- <i class="flaticon-building8"></i> -->
+                                                <span class="strong">Address:</span>
                                                 <?php echo $companyinfo['company_address']; ?>
                                             </p>
                                         </li>
 
                                         <li>
                                             <p>
-                                                <i class="flaticon-telephone66"></i>
-                                                <span class="strong">Telephone: </span>
+                                                <!-- <i class="flaticon-telephone66"></i> -->
+                                                <span class="strong">Telephone:</span>
                                                 <?php echo $companyinfo['contact_no2']; ?>
                                             </p>
                                         </li>
-
-                                       <!-- <li>
+                                        <li>
                                             <p>
-                                                <i class="flaticon-telephone66"></i>
-                                                <span class="strong">Fax: </span>
-                                                +41 589 7843
+                                                <!-- <i class="flaticon-arrow465"></i> -->
+                                                <a class="underlined" href="<?php echo BASE_URI; ?>contact">FIND MORE ABOUT US</a>
+                                                <i class="flaticon-arrow465"></i>
                                             </p>
-                                        </li>-->
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <span class="strong" style="display: block;">Powered by:</span>
+                                                <img src="assets/user/img/logotr5.png" class="tr5logo" alt="tier5logo">
+                                            </p>
+                                        </li>
                                     </ul>
 
-                                    <br /><br />
-
-                                    <a class="underlined" href="<?php echo BASE_URI; ?>contact">FIND MORE ABOUT US</a>
+                                    
                                 </li><!-- .widget.widget_text end -->
-                            </ul>
+                            </div>
                         </section>
                     </div><!-- .row end -->
                 </div><!-- .container end -->                
@@ -135,22 +93,8 @@
                 <div class="container">
                     <!-- .row start -->
                     <div class="row">
-                        <section class="grid_4">
+                        <section class="grid_12">
                             <p>Copyright Mikespoor 2016. All Rights Reserved.</p>
-                        </section>
-
-                        <section class="grid_8">
-                            <div class="footer-breadcrumbs">
-                                <a href="<?php echo BASE_URI; ?>" class="footer">HOME</a>
-                                <a href="<?php echo BASE_URI; ?>about-us" class="footer">ABOUT MIKE</a>
-                                <a href="<?php echo BASE_URI; ?>picture-gallery" class="footer">PICTURE GALLERY</a>
-                                <a href="<?php echo BASE_URI; ?>video-gallery" class="footer">VIDEO GALLERY</a>
-                                <a href="<?php echo BASE_URI; ?>links-news" class="footer">LINKS & NEWS</a>
-                                
-                                <a href="<?php echo BASE_URI; ?>school-visit" class="footer">SCHOOL VISIT</a>
-                               
-                                <a href="<?php echo BASE_URI; ?>contact" class="footer">CONTACT</a>
-                            </div>
                         </section>
                     </div><!-- .row end -->
                 </div><!-- .container end -->
