@@ -192,7 +192,7 @@
         </div><!-- .tp-wrapper end -->
 
         <!-- .page-content start -->
-        <section class="page-content background-black" style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
+        <section class="page-content background-black" style="background:<?php echo $companyinfo['theme_color']; ?>">
             <!-- .container start -->
             <div class="container">
                 <!-- .row start -->
@@ -210,7 +210,8 @@
         </section><!-- .page-content end -->
 
         <!-- .page-content start -->
-        <section class="page-content parallax parallax-1" data-stellar-background-ratio="0.5">
+        <section class="page-content parallax parallax-1" style="background: url(<?php echo BASE_URI;?>uploads/home_page/home_background/<?php echo $welcome_banner['background_image']; ?> );
+    background-size: cover;">
             <!-- .container start -->
             <div class="container">
                 <!-- .row start -->
@@ -467,10 +468,10 @@
         </section><!-- .page-content end -->
 
         <!-- .page-content.parallax start -->
-        <section class="page-content parallax parallax-4">
-            <!-- .container start -->
+        <!-- <section class="page-content parallax parallax-4">
+            
             <div class="container">
-                <!-- .row start -->
+               
                 <div class="row">
                     <article class="grid_8">
                         <div class="triggerAnimation animated" data-animate='fadeInDown'>
@@ -481,17 +482,17 @@
                             <br />
 
                             
-                        </div><!-- .triggerAnimation.animated end -->
-                    </article><!-- .grid_8 end -->
+                        </div>
+                    </article>
 
                     <article class="grid_4">
                         <div class="triggerAnimation animated" data-animate='fadeInUp'>
                             <img src='assets/user/img/pictures/services-retina.png' alt='iphone'/>
-                        </div><!-- .triggerAnimation.animated end -->
-                    </article><!-- .grid_4 end -->
-                </div><!-- .row end -->
-            </div><!-- .container end -->
-        </section><!-- .page-content.parallax end -->
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section> --><!-- .page-content.parallax end -->
 
         <!-- .page-content end -->
         

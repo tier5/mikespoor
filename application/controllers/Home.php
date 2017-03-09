@@ -37,6 +37,7 @@ class Home extends CI_Controller {
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(1);
 				$data['welcome_title']=$this->home_page_model->gethometitle();
+				$data['welcome_banner']=$this->home_page_model->current_info_background('welcome_background');
 				$data['offer_list']=$this->home_page_model->get_all_offer();
 				$data['stats_list']=$this->home_page_model->get_all_stats();
 			    
