@@ -41,6 +41,18 @@ class Ajax extends CI_Controller {
              $offer_delete=$this->Ajax_model->delete('lm_home_stats',$con);
         }
 
+        public function delete_current_info()
+        {
+            $con['current_info_id']=$this->input->post('info_id');
+
+            $current_info=$this->Ajax_model->delete('lm_home_current_info',$con);
+            if($current_info){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         
 }
 ?>

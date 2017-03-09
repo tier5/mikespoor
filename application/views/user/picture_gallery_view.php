@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <base href="<?php echo BASE_URI; ?>">
-<title><?php echo $title; ?></title>
+        <base href="<?php echo BASE_URI; ?>">
+        <title><?php echo $title; ?></title>
         <meta name="description" content="<?php echo $metainfo['meta_description'];?>" />
-<meta name="keywords" content="<?php echo $metainfo['meta_keywords'];?>" />
+        <meta name="keywords" content="<?php echo $metainfo['meta_keywords'];?>" />
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width">
 
         <!-- stylesheets -->
@@ -28,123 +28,63 @@
         <link rel="stylesheet" href="assets/user/iconsfont/iconsfont.css" />
 
         <link rel="stylesheet" href="assets/user/style-switcher/styleSwitcher.css"/>
-
-        <!--[if lt IE 9]>
-            <script src="js/html5shiv.js"></script>
-        <![endif]-->
-
-        <!--[if lt IE 9]>
-            <script src="js/selectivizr-min.js"></script>
-        <![endif]-->
-        
-
-	<link rel='stylesheet' href='assets/user/unitegallery/css/unite-gallery.css' type='text/css' />
-	
+	    <link rel='stylesheet' href='assets/user/unitegallery/css/unite-gallery.css' type='text/css' />
+	    <link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
     </head>
-<link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
+   
     <body>
-       
-        
         <!-- .header-wrapper start -->
         <?php include('include/header.php'); ?>
         <!-- .header-wrapper end -->
 
         <!-- #page-title start -->
-        <section id="page-titlep" class="page-title-1" data-stellar-background-ratio="0.5">
+        <section id="page-titlep" class="page-title-1" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;" data-stellar-background-ratio="0.5">
             <div class="container">
-                <div class="row">
-                    <!-- .grid_6 end -->
-
-                    <!-- .grid_6 start -->
-                    
-                </div><!-- .row end -->
-
-                
-            </div><!-- .container end -->
-        </section><!-- #page-title end -->
+                <div class="row">              
+                </div>
+            </div>
+        </section>
+        <!-- #page-title end -->
 
         <!-- .page-content start -->
         <section class="page-content">
-
-            <!-- .container start -->
             <div class="container">
-
-                <!-- .row start -->
                 <div class="row portfolio-filters triggerAnimation animated" data-animate="fadeInDown">
                     <section class="grid_12">
                         <ul id="filters">
-                        <li class="active"><a href="<?php echo BASE_URI.'picture-gallery/'; ?>" data-filter="*">All </a></li>
-                        <?php
-						foreach($categorylist as $categorylistdata)
-						{
-						?>
-                            <li><a href="<?php echo BASE_URI.'picture-gallery/category/'.$categorylistdata['picture_slug']; ?>" data-filter="*"><?php echo $categorylistdata['picture_title']; ?> </a></li>
-                            <?php
-						}
-						?>
+                            <li class="active"><a href="<?php echo BASE_URI.'picture-gallery/'; ?>" data-filter="*">All </a></li>
+                            <?php foreach($categorylist as $categorylistdata) { ?>
+                                <li><a href="<?php echo BASE_URI.'picture-gallery/category/'.$categorylistdata['picture_slug']; ?>" data-filter="*"><?php echo $categorylistdata['picture_title']; ?> </a></li>
+                            <?php } ?>
+
                             <?php /*?><li><a href="#" data-filter=".design">BOOK COVERS</a></li>
                             <li><a href="#" data-filter=".photography">ILLUSTRATIONS & SPREADS</a></li>
                             <li><a href="#" data-filter=".graphics">BLACK & WHITE</a></li>
-                             <li><a href="#" data-filter=".graphics">CHARACTERS</a></li>
-                              <li><a href="#" data-filter=".graphics">ANIMAL CHARACTERS </a></li>
-                               <li><a href="#" data-filter=".graphics">PLACES</a></li>
-                                <li><a href="#" data-filter=".graphics">SKETCHES </a></li>
-                                 <li><a href="#" data-filter=".graphics">EDITORIAL ILLUSTRATIONS</a></li>
-                                  <li><a href="#" data-filter=".graphics">STYLES</a></li><?php */?>
+                            <li><a href="#" data-filter=".graphics">CHARACTERS</a></li>
+                            <li><a href="#" data-filter=".graphics">ANIMAL CHARACTERS </a></li>
+                            <li><a href="#" data-filter=".graphics">PLACES</a></li>
+                            <li><a href="#" data-filter=".graphics">SKETCHES </a></li>
+                            <li><a href="#" data-filter=".graphics">EDITORIAL ILLUSTRATIONS</a></li>
+                            <li><a href="#" data-filter=".graphics">STYLES</a></li><?php */?>
                         </ul>
-                    </section><!-- .grid_12 end -->                    
-                </div><!-- .row.portfolio-filters end  end -->
-
+                    </section>               
+                </div>
+			    <?php if(count($gallerylist)>0) {?>	
+    				<div id="gallery" style="display:none;">
+                    <?php foreach($gallerylist as $gallerylistdata) { ?>
+                    <a href="http://unitegallery.net">
+            		    <img alt="<?php echo $gallerylistdata['gpicture_title']; ?>"
+            		     src="<?php echo BASE_URI.'uploads/'.$gallerylistdata['gpicture_image']; ?>"
+            		     data-image="<?php echo BASE_URI.'uploads/'.$gallerylistdata['gpicture_image']; ?>"
+            		     data-description="This is a Lemon Slice"
+            		     style="display:none">
+            		</a>
+                    <?php } ?>
+                    </div>
+			    <?php } else { ?>
+				    <h3>No Picures Found</h3>
+                <?php } ?>
 				
-				
-				
-				
-			<?php
-			if(count($gallerylist)>0)
-			{
-			?>	
-				
-				<div id="gallery" style="display:none;">
-
-		
-        <?php
-		
-		
-		foreach($gallerylist as $gallerylistdata)
-		{
-		?>
-        <a href="http://unitegallery.net">
-		<img alt="<?php echo $gallerylistdata['gpicture_title']; ?>"
-		     src="<?php echo BASE_URI.'uploads/'.$gallerylistdata['gpicture_image']; ?>"
-		     data-image="<?php echo BASE_URI.'uploads/'.$gallerylistdata['gpicture_image']; ?>"
-		     data-description="This is a Lemon Slice"
-		     style="display:none">
-		</a>
-        <?php
-		}
-		?>
-		
-
-			 
-	</div>
-			<?php
-			}
-			else
-			{
-				?>
-				<h3>No Picures Found</h3>
-                <?php
-			}
-			?>
-				
-				
-				
-	
-				
-				
-				
-                
-
                 <!-- .roe start -->
                 <div class="row">
                     <div class="grid_12 pagination">
@@ -160,66 +100,45 @@
                             <li><a href="#">5</a></li>
                             <li><a href="#" class=" icon-double-angle-right"></a></li>
                         </ul><?php */?>
-                        <?php
-if($totalrec!=0)
-{
-?>
-<!--pagination class-->
-<div class="page_no_area">
-<?php
-include ("include/pagination.php");
-$total_records = $totalrec;
-$page_req=ceil($total_records / 20);
-$page = 1;
+                        <?php if($totalrec!=0) { ?>
+                            <!--pagination class-->
+                            <div class="page_no_area">
+                                    <?php 
+                                    include ("include/pagination.php");
+                                    $total_records = $totalrec;
+                                    $page_req=ceil($total_records / 20);
+                                    $page = 1;// how many records per page
+                                    $size = 20; // we get the current page from $_GET
+                                    if ($nowpage){
+                                    	$start = ($nowpage - 1) * 20;
+                                        $page = (int) $nowpage;
+                                    }
+                                    else {
+                                        $start=0;
+                                    }
 
-// how many records per page
-
-$size = 20;
-
-// we get the current page from $_GET
-
-if ($nowpage){
-	$start = ($nowpage - 1) * 20;
-    $page = (int) $nowpage;
-
-}
-else
-{
-	$start=0;
-}
-
-$pagination = new Pagination();
+                                    $pagination = new Pagination();
 
 
-$linkto = BASE_URI."picture-gallery/page/%s";
+                                    $linkto = BASE_URI."picture-gallery/page/%s";
 
-$pagination->setLink($linkto);
+                                    $pagination->setLink($linkto);
 
-$pagination->setPage($page);
+                                    $pagination->setPage($page);
 
-$pagination->setSize($size);
+                                    $pagination->setSize($size);
 
-$pagination->setTotalRecords($total_records);
-
- 
-
-// now use this SQL statement to get records from your table
-
-?>
-<?php
-		  $navigation = $pagination->create_links();
-		  echo $navigation; // will draw our page navigation
-                 ?>
-</div>
-<!--pagination class ends-->
-<?php
-}
-?>
-                    </div><!-- .grid_12 end -->
-                </div><!-- .row end -->
-            </div><!-- .container end -->
-        </section><!-- .page-content end -->
-
+                                    $pagination->setTotalRecords($total_records); ?>
+                                    <?php
+                                	  $navigation = $pagination->create_links();
+                                	  echo $navigation; // will draw our page navigation
+                                    ?>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- .footer-wrapper start -->
         <?php include('include/footer.php'); ?>
         <!-- .footer-wrapper end -->

@@ -137,32 +137,23 @@
                   <td><?php echo $bannerlistdata['feat_title']; ?></td>
                   
                   <td> 
-                  <?php if($bannerlistdata['status']==1)
-                   {
-                    $status="Active";
-                  }else
-                  {
-                     $status="Inactive";
-                  } 
-                   echo $status;
-                  ?>
-            
-                   </td>
-                  <td>
-                          <?php
+                    <?php
           if($bannerlistdata['status'])
           {
             ?>
-                      <a class="btn btn-success btn-md" title="Change Status" href="<?php echo BASE_URI.'backend/home-page/changefeaturestatus/'.$bannerlistdata['feat_id'].'/'.$bannerlistdata['status']; ?>"><i class="fa fa-unlock"> Change Status</i></a>
+                      <a class="btn btn-success btn-md" title="Change Status" href="<?php echo BASE_URI.'backend/home-page/changefeaturestatus/'.$bannerlistdata['feat_id'].'/'.$bannerlistdata['status']; ?>"><i class="fa fa-unlock"> Active</i></a>
                       <?php
           }
           else
           {
             ?>
-                      <a class="btn btn-warning btn-md" title="Change Status" href="<?php echo BASE_URI.'backend/home-page/changefeaturestatus/'.$bannerlistdata['feat_id'].'/'.$bannerlistdata['status']; ?>"><i class="fa fa-lock"> Change Status</i></a>
+                      <a class="btn btn-warning btn-md" title="Change Status" href="<?php echo BASE_URI.'backend/home-page/changefeaturestatus/'.$bannerlistdata['feat_id'].'/'.$bannerlistdata['status']; ?>"><i class="fa fa-lock"> Inactive</i></a>
                       <?php
           }
           ?>
+                   </td>
+                  <td>
+                        
                   <a class="btn btn-primary btn-md" title="Edit" href="<?php echo BASE_URI.'backend/home-page/editfeature/'.$bannerlistdata['feat_id']; ?>"><i class="fa fa-edit"> Edit</i></a>
                   <a class="btn btn-danger btn-md" title="Delete" onclick="return confirm('Are you sure you want to delete this banner?');" href="<?php echo BASE_URI.'backend/home-page/deletefeature/'.$bannerlistdata['feat_id']; ?>"><i class="fa fa-trash"> Delete</i></a>
                   </td>

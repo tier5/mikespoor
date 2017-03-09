@@ -19,7 +19,13 @@ class About_us extends CI_Controller {
 				$data['picturecatlist']=$this->school_visit_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/school_visit_blog_model');
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
-                               $this->load->model('backend/timeline_model');
+                $this->load->model('backend/timeline_model');
+
+                $this->load->model('backend/banner_model');
+                $data['banner']=$this->banner_model->getbannerbyslug('about');
+                $this->load->model('backend/timeline_model');
+
+             
 				$data['timelinelist']=$this->timeline_model->getactivefeaturedlistmodel();
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(2);

@@ -16,7 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
-<link href="<?php echo DOMAIN; ?>assets/error/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<?php echo BASE_URI; ?>assets/error/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href='//fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
 </head>
 <body>

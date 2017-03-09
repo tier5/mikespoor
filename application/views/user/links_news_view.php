@@ -44,7 +44,7 @@
          <?php include('include/header.php'); ?><!-- .header-wrapper end -->
 
         <!-- #page-title start -->
-        <section id="page-title" class="page-title-3">
+        <section id="page-title" class="page-title-3" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
             <div class="container">
                 <div class="row">
                     <div class="grid_12">

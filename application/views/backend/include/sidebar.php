@@ -15,10 +15,11 @@
             <li class="header">MAIN NAVIGATION</li>
             <li <?php if($current_page == 'dashboard') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/dashboard'; ?>"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
             
-            <li class="treeview <?php if($current_page == 'home-page/feature-list' || $current_page == 'home-page' || $current_page == 'home-page/content') { ?> active"<?php }else{echo '"';} ?>>
+            <li class="treeview <?php if($current_page == 'home-page/feature-list' || $current_page == 'home-page' || $current_page == 'home-page/content' || $current_page == 'home-page/offer_list' || $current_page == 'home-page/my_stats') { ?> active"<?php }else{echo '"';} ?>>
                 <a href="<?php echo BASE_URI.'backend/home-page'; ?>"><i class="fa fa-bank"></i> <span>Home Page</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li <?php if($current_page == 'home-page') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page'; ?>"><i class="fa fa-list"></i> Banner List</a></li>
+<!--                     <li <?php if($current_page == 'home-page/backend_image') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/backend_image'; ?>"><i class="fa fa-list"></i> Background Image</a></li> -->
                     <li <?php if($current_page == 'home-page/featured-list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/feature-list'; ?>"><i class="fa fa-list"></i> Feature List</a></li>
                     <li <?php if($current_page == 'home-page/offer_list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/offer_list'; ?>"><i class="fa fa-list"></i> What We Offer</a></li>
                     <li <?php if($current_page == 'home-page/offer_list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/my_stats'; ?>"><i class="fa fa-list"></i> My Stats</a></li>
@@ -53,10 +54,10 @@
             </li>
                                   
             <li class="treeview<?php if($current_page == 'link-news') { ?> active"<?php }else{echo '"';} ?>>
-                <a href="<?php echo BASE_URI.'backend/link-news'; ?>"><i class="fa fa-link"></i> <span>Link & News</span> <i class="fa fa-angle-left pull-right"></i></a>
+               <!--  <a href="<?php echo BASE_URI.'backend/link-news'; ?>"><i class="fa fa-link"></i> <span>Link & News</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li <?php if($current_page == 'link-news') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/link-news'; ?>"><i class="fa fa-list"></i> Content</a></li>
-                </ul>                    
+                    <li <?php if($current_page == 'link-news') { ?>class = "active"<?php } ?> --><a href="<?php echo BASE_URI.'backend/link-news'; ?>"><i class="fa fa-link"></i><!-- <i class="fa fa-list"></i> --> <span>Link & News</span></a><!-- </li>
+                </ul> -->                    
             </li>
                                 
             <li class="treeview<?php if($current_page == 'school_visit/add' || $current_page == 'school_visit' || $current_page == 'school_visit_blog/add' || $current_page == 'school_visit/blog') { ?> active"<?php }else{echo '"';} ?>>
@@ -67,11 +68,16 @@
                 </ul>
             </li>
 
-            <li class="treeview<?php if($current_page == 'contact/add') { ?> active"<?php }else{echo '"';} ?>>
+           <!--  <li class="treeview<?php if($current_page == 'contact/add') { ?> active"<?php }else{echo '"';} ?>>
                 <a href="<?php echo BASE_URI.'backend/video'; ?>"><i class="fa fa-phone"></i> <span>Contact Us</span> <i class="fa fa-angle-left pull-right"></i> </a>
                 <ul class="treeview-menu">
                     <li <?php if($current_page == 'contact') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/contact'; ?>"><i class="fa fa-plus"></i> Content</a></li>               
                 </ul>
+            </li> -->
+
+             <li <?php if($current_page == 'contact') { ?>class = "active"<?php } ?> >
+                    <a href="<?php echo BASE_URI.'backend/contact'; ?>"><i class="fa fa-phone"></i> Contact Us</a>              
+                
             </li>
 
             <li class="treeview<?php if($current_page == 'banner/type/1' || $current_page == 'banner/type/2' || $current_page == 'banner/type/3' || $current_page == 'banner/type/4' || $current_page == 'banner/type/5') { ?> active"<?php }else{echo '"';} ?>>
@@ -85,12 +91,12 @@
                 </ul>
             </li>
 
-            <li class="treeview<?php if($current_page == 'review/add' || $current_page == 'review') { ?> active"<?php }else{echo '"';} ?>>
-                <a href="<?php echo BASE_URI.'backend/video'; ?>"><i class="fa fa-user"></i> <span>Testimonial</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
+            <li class="<?php if($current_page == 'review/add' || $current_page == 'review') { ?> active"<?php }else{echo '"';} ?>>
+                <a href="<?php echo BASE_URI.'backend/review'; ?>"><i class="fa fa-user"></i> <span>Testimonial</span> <!-- <i class="fa fa-angle-left pull-right"></i> --></a>
+                <!-- <ul class="treeview-menu">
                     <li <?php if($current_page == 'review') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/review'; ?>"><i class="fa fa-plus"></i> Testimonial List</a></li>
                     <li <?php if($current_page == 'review/add') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/review/add'; ?>"><i class="fa fa-plus"></i> Add New</a></li>
-                </ul>
+                </ul> -->
             </li>
 
             <li <?php if($current_page == 'seo-settings') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/seo-settings'; ?>"> <i class="fa fa-cog"></i> <span>SEO Settings</span></a></li>

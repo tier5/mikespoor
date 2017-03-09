@@ -7,6 +7,7 @@ class Picture_gallery extends CI_Controller {
 				$this->load->model('backend/picture_gallery_model');
                 // Your own constructor code
         }
+
         public function index()
         {
 			   $this->load->helper('auth_helper');
@@ -19,6 +20,7 @@ class Picture_gallery extends CI_Controller {
 				$data['bannerlist']=$this->picture_gallery_model->getbannerlistmodel();
                 $this->load->view('backend/picture_gallery_view',$data);
         }
+
 		public function add()
 		{
 			    $this->load->helper('auth_helper');
@@ -33,6 +35,7 @@ class Picture_gallery extends CI_Controller {
 				$data['feature']="Add";
                 $this->load->view('backend/picture_gallery_add_view',$data);
 		}
+
 		public function edit($getid)
 		{
 			    $this->load->helper('auth_helper');
@@ -48,6 +51,7 @@ class Picture_gallery extends CI_Controller {
 				$data['feature']="Edit";
                 $this->load->view('backend/picture_gallery_add_view',$data);
 		}
+
 		public function addbanner()
 		{
 			    $this->load->helper('auth_helper');
@@ -76,6 +80,8 @@ class Picture_gallery extends CI_Controller {
 						exit;
 				}
 		}
+
+
 		public function editbanner()
 		{
 			    $this->load->helper('auth_helper');
@@ -96,6 +102,8 @@ class Picture_gallery extends CI_Controller {
 						exit;
 				}
 		}
+
+
 		public function changestatus($getid,$getstatus)
 		{
 			  $this->load->helper('auth_helper');
@@ -116,6 +124,8 @@ class Picture_gallery extends CI_Controller {
 						exit;
 				}
 		}
+
+
 		public function changefeatured($getid,$getstatus)
 		{
 			  $this->load->helper('auth_helper');
@@ -131,11 +141,12 @@ class Picture_gallery extends CI_Controller {
 				}
 				else
 				{
-					    $_SESSION['errormsg']='Seems to be some problem. Try Again';
-						header('location:'.BASE_URI.'backend/picture_gallery/'.$_POST['txtCid']);
-						exit;
+					$_SESSION['errormsg']='Seems to be some problem. Try Again';
+					header('location:'.BASE_URI.'backend/picture_gallery/'.$_POST['txtCid']);
+					exit;
 				}
 		}
+
 		public function delete($getid)
 		{
 			  $this->load->helper('auth_helper');
@@ -143,17 +154,16 @@ class Picture_gallery extends CI_Controller {
 			  $res=$this->picture_gallery_model->deletebannermodel($getid);
 				if($res)
 				{
-					
-						$_SESSION['successmsg']='Picture gallery record deleted successfully';
-						header('location:'.BASE_URI.'backend/picture_gallery');
-						exit;
+					$_SESSION['successmsg']='Picture gallery record deleted successfully';
+					header('location:'.BASE_URI.'backend/picture_gallery');
+					exit;
 					
 				}
 				else
 				{
-					    $_SESSION['errormsg']='Seems to be some problem. Try Again';
-						header('location:'.BASE_URI.'backend/picture_gallery');
-						exit;
+					$_SESSION['errormsg']='Seems to be some problem. Try Again';
+					header('location:'.BASE_URI.'backend/picture_gallery');
+					exit;
 				}
 		}
 

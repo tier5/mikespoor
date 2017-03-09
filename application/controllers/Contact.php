@@ -21,6 +21,10 @@ class Contact extends CI_Controller {
 				$this->load->model('backend/school_visit_blog_model');
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/seo_settings_model');
+				
+				$this->load->model('backend/banner_model');
+                $data['banner']=$this->banner_model->getbannerbyslug('contact_us');
+
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(7);
 			    $this->load->view('user/contact_view',$data);
 		}

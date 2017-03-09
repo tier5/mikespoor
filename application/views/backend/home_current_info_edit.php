@@ -77,31 +77,32 @@
                                 <form action="<?php echo BASE_URI.'backend/home_page/add_current_info'; ?>" method="post" enctype="multipart/form-data">
                                 <?php } else if($feature=='Edit') { ?>
                                 <form action="<?php echo BASE_URI.'backend/home_page/edit_current_info'; ?>" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="offer_id" value="<?php echo $current_info['current_info_id']; ?>"/>
+                                    <input type="hidden" name="info_id" value="<?php echo $current_info['current_info_id']; ?>"/>
                                     <?php } ?>
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Offer Title</label>
-                                            <input type="text" class="form-control" name="offer_title" placeholder="Enter Offer Title" value="<?php if(isset($current_info['current_info_title'])){echo $current_info['current_info_title']; }?>" required>
+                                            <label for="exampleInputEmail1">Current Information Title</label>
+                                            <input type="text" class="form-control" name="info_title" placeholder="Enter Offer Title" value="<?php if(isset($current_info['current_info_title'])){echo $current_info['current_info_title']; }?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Offer Content</label>
-                                            <input type="text" class="form-control" name="offer_content" placeholder="Enter Content Title" value="<?php if(isset($current_info['current_info_content'])){ echo $current_info['current_info_content']; }?>" required>
+                                            <label for="exampleInputEmail1">Current Information Content</label>
+                                            <textarea class="form-control" name="info_content" rows="4" placeholder="Enter Content Title" required> <?php if(isset($current_info['current_info_content'])){ echo $current_info['current_info_content']; }?></textarea>
+                                           
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Offer Logo</label>
-                                            <input type="file" class="form-control" name="offer_logo" placeholder="Enter Feature Title" value="" <?php if($feature=='Add') { echo "required";}?>>
-                                            Image size should less than 2 MB & 3500 X 2300 px.
+                                            <label for="exampleInputEmail1">Current Information Logo</label>
+                                            <input type="file" class="form-control" name="info_logo" id="info_logo" placeholder="Enter Feature Title" value="" <?php if($feature=='Add') { echo "required";}?>>
+                                            Image size should less than 5 MB & 3500 X 3500 px.
                                             <br><br>
-                                            <?php if(!empty($current_info['current_info_logo'])){ ?>
-                                            <img src="<?php if(!empty($current_info['current_info_logo'])){echo BASE_URI.'/uploads/home_page/offer/'.$offer_list['current_info_logo'];} ?>" id="profile" width="200" height="80"/>
-                                            <?php } ?>
+                                            
+                                            <img src="<?php if(!empty($current_info['current_info_logo'])){echo BASE_URI.'uploads/home_page/current_info/'.$current_info['current_info_logo'];} ?>" id="logo_preview" width="200" height="80" style="<?php if(empty($current_info['current_info_logo'])){ echo "display:none";} ?>"/>
+                                            
                                         </div>
                                         <div class="form-group">
                                           <?php if($feature=='Add'){ ?>
-                                              <button type="submit" class="btn btn-primary" value="list" name="btnAdd">Add</button>
+                                              <button type="submit" class="btn btn-success" value="list" name="btnAdd">Add</button>
                                           <?php } else if($feature=='Edit') { ?>
-                                              <button type="submit" class="btn btn-primary" value="new" name="btnEdit">Save Changes</button>
+                                              <button type="submit" class="btn btn-success" value="new" name="btnEdit">Save Changes</button>
                                           <?php } ?>
                                         </div>
                                     </div>
@@ -157,40 +158,29 @@
           });
         </script>
         <script>
-        	$("#success-alert").fadeTo(2000, 500).fadeOut(500, function(){
-                       $("#success-alert").alert('close');
-                        }); 
+        $(document).ready(function(){
+                
+                $("#info_logo").change(function(){
+                                  
+                 readURL(this);
+               });
 
-          function edit_welcome_title(title_id)  
-          {
-              $.ajax({
-                url: 'backend/ajax/get_welcome_title',
-                type: "post",
-                data:{title_id:title_id},
-                success: function(response)
-                {
-                    console.log(response);
-                    response = $.parseJSON(response);     
-                    $('#title_id').val(response.title_id);
-                    $('#welcome_title').val(response.title);
-                }
-              });
-              $('#myModal').modal('show');
-          }
+           });
 
-          $('#save_welcome_title').click(function(){
-              var title_id=$('#title_id').val();
-              var title=$('#welcome_title').val();
-              $.ajax({
-                  url: 'backend/ajax/update_welcome_title',
-                  type: "post",
-                  data:{title_id:title_id, title:title},
-                  success: function(response)
-                  {
-                     window.location.reload();
+           function readURL(input) {
+
+              if (input.files && input.files[0]) {
+                  var reader = new FileReader();
+
+                  reader.onload = function (e) {
+                      $('#logo_preview').attr('src', e.target.result);
+                      $('#logo_preview').show();
                   }
-              });
-          });
-        	</script>
+
+                  reader.readAsDataURL(input.files[0]);
+              }
+          }
+     
+        </script>
     </body>
 </html>

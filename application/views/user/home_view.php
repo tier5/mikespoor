@@ -323,7 +323,8 @@
         </section><!-- .page-content end -->
 
         <!-- .page-content.parallax start -->
-        <section class="page-content parallax parallax-2">
+        <section class="page-content parallax parallax-2" style="background: url(<?php echo BASE_URI;?>uploads/home_page/home_background/<?php echo $current_info_banner['background_image']; ?> );
+    background-size: cover;">
             <!-- .container start -->
             <div class="container">
                 <!-- .row start -->
@@ -338,47 +339,21 @@
 
                 <!-- .row start -->
                 <div class="row">
-                    <!-- .grid_4 start -->
+                    <?php foreach ($current_info as $info) { ?>
+
                     <article class="grid_4">
                         <div class="triggerAnimation animated" data-animate="fadeInLeft">
                             <section class="process-box">
                                 <div class="img-container">
-                                    <img src="assets/user/img/pictures/development-1.png" alt="creative thinking"/>
+                                    <img src="<?php echo BASE_URI.'uploads/home_page/current_info/'.$info['current_info_logo']; ?>" alt="creative thinking"/>
                                 </div>
 
-                                <h5><?php echo $homeinfo['home_sec1_title']; ?> </h5>
-                                <?php echo htmlspecialchars_decode($homeinfo['home_sec1_content']); ?>
+                                <h5><?php echo htmlspecialchars_decode($info['current_info_title']); ?> </h5>
+                                <?php echo htmlspecialchars_decode($info['current_info_content']); ?>
                             </section>
-                        </div><!-- .triggerAnimation animated end -->
-                    </article><!-- .GRID_4 END -->
-
-                    <!-- .grid_4 start -->
-                    <article class="grid_4">
-                        <div class="triggerAnimation animated" data-animate="fadeInUp">
-                            <section class="process-box">
-                                <div class="img-container">
-                                    <img src="assets/user/img/pictures/development-2.png" alt="creative thinking"/>
-                                </div>
-
-                                <h5><?php echo $homeinfo['home_sec2_title']; ?> </h5>
-                                 <?php echo htmlspecialchars_decode($homeinfo['home_sec2_content']); ?>
-                            </section>
-                        </div><!-- .triggerAnimation animated end -->
-                    </article><!-- .GRID_4 END -->
-
-                    <!-- .grid_4 start -->
-                    <article class="grid_4">
-                        <div class="triggerAnimation animated" data-animate="fadeInRight">
-                            <section class="process-box">
-                                <div class="img-container">
-                                    <img src="assets/user/img/pictures/development-3.png" alt="creative thinking"/>
-                                </div>
-
-                                <h5><?php echo $homeinfo['home_sec3_title']; ?> </h5>
-                                  <?php echo htmlspecialchars_decode($homeinfo['home_sec3_content']); ?>
-                            </section>
-                        </div><!-- .triggerAnimation animated end -->
-                    </article><!-- .GRID_4 END -->
+                        </div>
+                    </article>
+                    <?php } ?>
                 </div><!-- .row end -->
             </div><!-- .container end -->
         </section><!-- .page-content.parallax.parallax-2 end -->

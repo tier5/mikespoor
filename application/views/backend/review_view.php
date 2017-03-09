@@ -92,11 +92,12 @@
             <div class="box-header">
               <h3 class="box-title">Review List</h3>
 
-              <div class="box-tools pull-right">
-                <a class="btn btn-block btn-primary btn-xs" href="<?php echo BASE_URI.'backend/review/add'; ?>"><i class="fa fa-plus"></i> Add New</a>
-              </div>
+               <div class="box-tools pull-right"> 
+                <a class="btn btn-block btn-primary btn-lg" href="<?php echo BASE_URI.'backend/review/add'; ?>"><i class="fa fa-plus"></i> Add New</a>
+               </div> 
+              
               <!-- /.box-tools -->
-            </div>
+            </div><br><br>
             <div class="box-body">
             
               <table id="example1" class="table table-bordered table-striped">

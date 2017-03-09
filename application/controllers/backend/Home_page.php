@@ -565,6 +565,7 @@ class Home_page extends CI_Controller {
 			$data['companyinfo']=$this->login_model->getuserinfoid('1');
 		    $data['headtitle']=$data['companyinfo']['company_name'].' | Featured List';
 			$data['title']='Home Page - Current Information';
+			$data['current_info_background']=$this->home_page_model->current_info_background('current_info');
 			$data['current_info']=$this->home_page_model->get_all_current_info();
             $this->load->view('backend/home_current_info_list',$data);
              
@@ -590,6 +591,251 @@ class Home_page extends CI_Controller {
 			$data['current_info']=$this->home_page_model->get_selected_current_info($current_info);
             $this->load->view('backend/home_current_info_edit',$data);
 		}
+
+		public function add_current_info()
+		{
+			$this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/login_model');
+
+            if($_FILES['info_logo']) {
+
+				$config['upload_path'] = './uploads/home_page/current_info/';
+				$config['file_name'] = time();
+				$config['allowed_types'] = 'jpg|jpeg|gif|png';
+				$config['max_size'] = 5060;
+				$config['max_width'] = 2300;
+	            $config['max_height'] = 3500;
+
+	            $files = $_FILES['info_logo'];
+			    $_FILES['user_file']['name'] = $files['name'];
+		        $_FILES['user_file']['type'] = $files['type'];
+		        $_FILES['user_file']['tmp_name'] = $files['tmp_name'];
+		        $_FILES['user_file']['error'] = $files['error'];
+		        $_FILES['user_file']['size'] = $files['size'];
+		        $this->load->library('upload');
+	            $userfile_extn = explode(".", strtolower($_FILES['user_file']['name']));
+		        $this->upload->initialize($config);
+		        if ($this->upload->do_upload('user_file')){
+
+		        	$data['current_info_title']=$this->input->post('info_title');
+		        	$data['current_info_content']=$this->input->post('info_content');
+		        	$data['current_info_logo']=$config['file_name'].".".$userfile_extn[1];
+                    $data['status']=0;
+
+                    $insert_currentinfo=$this->home_page_model->insert('lm_home_current_info',$data);
+		        	if($insert_currentinfo){
+						$_SESSION['successmsg']='Current Info Updated Successfully';
+						header('location:'.BASE_URI.'backend/home-page/current_info');
+						exit;
+					} else {
+						$_SESSION['errormsg']='Try Again';
+						header('location:'.BASE_URI.'backend/home-page/add_edit_current_info');
+						exit;
+					}
+		        } else {
+		        	$_SESSION['errormsg']=$this->upload->display_errors();
+					header('location:'.BASE_URI.'backend/home-page/add_edit_current_info');
+				    exit;
+		        }
+		    }
+		}
+
+		public function edit_current_info()
+		{
+
+			$this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/login_model');
+
+			$con['current_info_id']=$this->input->post('info_id');
+            if($_FILES['info_logo']['name']!='') {
+
+				$config['upload_path'] = './uploads/home_page/home_background/';
+				$config['file_name'] = time();
+				$config['allowed_types'] = 'jpg|jpeg|gif|png';
+				$config['max_size'] = 5060;
+				$config['max_width'] = 3500;
+	            $config['max_height'] = 3500;
+
+	            $files = $_FILES['info_logo'];
+			    $_FILES['user_file']['name'] = $files['name'];
+		        $_FILES['user_file']['type'] = $files['type'];
+		        $_FILES['user_file']['tmp_name'] = $files['tmp_name'];
+		        $_FILES['user_file']['error'] = $files['error'];
+		        $_FILES['user_file']['size'] = $files['size'];
+		        $this->load->library('upload');
+	            $userfile_extn = explode(".", strtolower($_FILES['user_file']['name']));
+		        $this->upload->initialize($config);
+		        if ($this->upload->do_upload('user_file')){
+
+		        	$data['current_info_title']=$this->input->post('info_title');
+		        	$data['current_info_content']=$this->input->post('info_content');
+		        	$data['current_info_logo']=$config['file_name'].".".$userfile_extn[1];
+                    
+                    $update_offer=$this->home_page_model->update('lm_home_current_info',$con,$data);
+		        	if($update_offer){
+						$_SESSION['successmsg']='Current Info Updated Successfully';
+						header('location:'.BASE_URI.'backend/home-page/current_info');
+						exit;
+					} else {
+						$_SESSION['errormsg']='Try Again';
+						header('location:'.BASE_URI.'backend/home-page/add_edit_current_info/'.$con['current_info_id']);
+						exit;
+					}
+		        } else {
+		        	$_SESSION['errormsg']=$this->upload->display_errors();
+					header('location:'.BASE_URI.'backend/home-page/add_edit_current_info/'.$con['current_info_id']);
+				    exit;
+		        }
+		    } else {
+
+		    	$data['current_info_title']=$this->input->post('info_title');
+		        $data['current_info_content']=$this->input->post('info_content');
+                    
+                $update_offer=$this->home_page_model->update('lm_home_current_info',$con,$data);
+	        	if($update_offer){
+					$_SESSION['successmsg']='Current Info Updated Successfully';
+					header('location:'.BASE_URI.'backend/home-page/current_info');
+					exit;
+				} else {
+					$_SESSION['errormsg']='Try Again';
+					header('location:'.BASE_URI.'backend/home-page/add_edit_current_info/'.$con['current_info_id']);
+					exit;
+				}
+
+		    }
+		}
+
+		public function status_current_info($info_id)
+		{
+			$this->load->model('backend/home_page_model');
+			$con['current_info_id']=$info_id;
+	        $get_info=$this->home_page_model->get_selected_current_info($info_id);
+	        if($get_info['status']==0){
+	          	$data['status']=1;
+	        } else {
+	        	$data['status']=0;
+	        }
+
+	        $update_offer=$this->home_page_model->update('lm_home_current_info',$con,$data);
+        	if($update_offer){
+				$_SESSION['successmsg']='Current Info Updated Successfully';
+				header('location:'.BASE_URI.'backend/home-page/current_info');
+				exit;
+			} else {
+				$_SESSION['errormsg']='Try Again';
+				header('location:'.BASE_URI.'backend/home-page/current_info/');
+				exit;
+			}
+		}
+
+
+
+
+		public function backend_image()
+		{
+			$this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/home_background_model');
+
+			$this->load->model('backend/login_model');
+			$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
+			$data['companyinfo']=$this->login_model->getuserinfoid('1');
+		    $data['headtitle']=$data['companyinfo']['company_name'].' | Featured List';
+            $data['home_background']=$this->home_background_model->getallbackground();
+		    $data['title']='Home Page - Background Image';
+            $this->load->view('backend/home_backend_image',$data);
+		}
+
+		public function backend_image_edit($id='')
+		{
+			$this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/home_background_model');
+
+			$this->load->model('backend/login_model');
+			$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
+			$data['companyinfo']=$this->login_model->getuserinfoid('1');
+		    $data['headtitle']=$data['companyinfo']['company_name'].' | Featured List';
+		    if($id)
+		    {
+		    	$data['feature']="Edit";
+		        $data['title']='Home Page -Edit Background Image';
+		    } else {
+		    	$data['feature']="Add";
+		        $data['title']='Home Page -Add Background Image';
+		    }
+            $data['home_background']=$this->home_background_model->get_selected_background($id);
+            
+            $this->load->view('backend/home_backend_edit',$data);
+		}
+
+		public function background_edit()
+		{
+            $this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/home_background_model');
+
+		    $this->load->model('backend/login_model');
+			
+
+		    $con['id']=$this->input->post('background_id');
+
+		    if($_FILES['background_image'] && $_FILES['background_image']['name'])
+            {
+				$config['upload_path'] = './uploads/home_page/home_background/';
+				$config['file_name'] = time();
+				$config['allowed_types'] = 'jpg|jpeg|gif|png';
+				$config['max_size'] = 2000;
+				$config['max_width'] = 2300;
+	            $config['max_height'] = 3500;
+
+	            $files = $_FILES['background_image'];
+			    $_FILES['user_file']['name'] = $files['name'];
+		        $_FILES['user_file']['type'] = $files['type'];
+		        $_FILES['user_file']['tmp_name'] = $files['tmp_name'];
+		        $_FILES['user_file']['error'] = $files['error'];
+		        $_FILES['user_file']['size'] = $files['size'];
+		        $this->load->library('upload');
+	            
+	            $userfile_extn = explode(".", strtolower($_FILES['user_file']['name']));
+
+		        $this->upload->initialize($config);
+
+		        if ($this->upload->do_upload('user_file')){
+
+		        	$data['background_image']=$config['file_name'].".".$userfile_extn[1];
+                    $data['updatedOn']=('Y-m-d H:i:s');
+		        	$update_offer=$this->home_page_model->update('lm_home_background',$con,$data);
+		        	if($update_offer)
+					{
+						
+							$_SESSION['successmsg']='Offer Updated Successfully';
+							header('location:'.BASE_URI.'backend/home-page/backend_image_edit/'.$con['id']);
+							exit;
+						
+					}else{
+						    $_SESSION['errormsg']='Seems to be some problem. Try Again';
+							header('location:'.BASE_URI.'backend/home-page/backend_image_edit/'.$con['id']);
+							exit;
+					}
+                   
+		        } else {
+		        	//echo $this->upload->display_errors();
+		        	$_SESSION['errormsg']=$this->upload->display_errors();
+					header('location:'.BASE_URI.'backend/home-page/backend_image_edit/'.$con['id']);
+					exit;
+		        }
+	        }else{
+	        	$_SESSION['errormsg']='Seems to be some problem. Try Again';
+				header('location:'.BASE_URI.'backend/home-page/backend_image_edit/'.$con['id']);
+				exit;
+	        }
+		   
+		}
+
+
 
 
 }

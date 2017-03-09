@@ -123,15 +123,10 @@
                   <td><img src="<?php echo 'uploads/'.$bannerlistdata['gallery_image']; ?>" width="120" height="50"/></td>
                   <td> 
                   <?php
-				  if($bannerlistdata['status'])
-				  {
-					  ?>
+				  if($bannerlistdata['status'])  { ?>
                       <a class="btn btn-success btn-xs" title="Change Status" href="<?php echo BASE_URI.'backend/gallery/changestatus/'.$bannerlistdata['gallery_id'].'/'.$bannerlistdata['status']; ?>"><i class="fa fa-unlock"></i></a>
                       <?php
-				  }
-				  else
-				  {
-					  ?>
+				  }  else   { ?>
                       <a class="btn btn-warning btn-xs" title="Change Status" href="<?php echo BASE_URI.'backend/gallery/changestatus/'.$bannerlistdata['gallery_id'].'/'.$bannerlistdata['status']; ?>"><i class="fa fa-lock"></i></a>
                       <?php
 				  }
@@ -145,16 +140,12 @@
                 <?php
 				$cnt=$cnt+1;
 					}
-				}
-				else
-				{
-					?>
+				} else {	?>
                      <tr>
                      <td colspan="5"><i>No Results Found</i></td>
                      </tr>
                     <?php
-				}
-				?>
+				} ?>
                 </tbody>
                
               </table>

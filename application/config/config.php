@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://www.mikespoorillustrations.co.uk/';
-$config['base_url'] ='localhost/mikespoorillustrator';
+$config['base_url'] ='http://localhost/mikespoorillustrator';
 /*
 |--------------------------------------------------------------------------
 | Index File

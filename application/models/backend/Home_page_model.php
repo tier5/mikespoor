@@ -449,7 +449,7 @@ class Home_page_model extends CI_Model {
         {
         	$this->db->select('*');
             $this->db->from('lm_home_current_info');
-            $this->db->where('status',0);
+            //$this->db->where('status',0);
 			$query = $this->db->get();
 			$row = $query->result_array();
 			return $row;
@@ -464,6 +464,28 @@ class Home_page_model extends CI_Model {
 			$row = $query->row_array();
 			return $row;
         }
+
+        public function get_active_current_info()
+        {
+        	$this->db->select('*');
+            $this->db->from('lm_home_current_info');
+            $this->db->where('status',0);
+			$query = $this->db->get();
+			$row = $query->result_array();
+			return $row;
+        }
+
+        public function current_info_background($current_info)
+        {
+            $this->db->select('*');
+            $this->db->from('lm_home_background');
+            $this->db->where('background_slug',$current_info);
+			$query = $this->db->get();
+			$row = $query->row_array();
+			return $row;
+        }
+
+        
 		
 }
 ?>

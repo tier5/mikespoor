@@ -45,8 +45,9 @@
                 <section class="content-header">
                     <h1><?php echo $title; ?></h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
-                        <li class="active">Home Page</li>
+                        <li><a href="#"><i class="fa fa-home"></i> Home Page</a></li>
+                        <li class="active">Current Information</li>
+                
                     </ol>
                 </section>
 
@@ -74,17 +75,20 @@
                    
                             <!-- general form elements -->
                             <div class="box box-primary">
-                              <div >
+                               <h2> Information Details</h2>
+                            <!-- <div >
                                 <br>
-                                <a class="btn btn-primary" href="<?php echo BASE_URI.'backend/home-page/add_edit_current_info'; ?>"><i class="fa fa-plus">Add New Offer </i></a>
+                                <a class="btn btn-primary" href="<?php echo BASE_URI.'backend/home-page/add_edit_current_info'; ?>"><i class="fa fa-plus">Add Current Info </i></a>
                                 <br>
-                              </div>
+                              </div>  -->
                               <br>
                                 <table id="" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Offer Title </th>
+                                            <th>Title</th>
+                                            <th>Logo</th>
+                                            <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -92,15 +96,44 @@
                                     <?php  $cnt=1;
                                     foreach ($current_info as $info ) {?>
                                       <tr>
-                                          <td><?php echo $cnt;?></td>
-                                          <td><?php echo $info['current_info_title'];?></td>
-                                          <td> <a class="btn btn-primary btn-md" title="Edit" href="<?php echo BASE_URI.'backend/home-page/add_edit_current_info/'.$info['current_info_id']; ?>"><i class="fa fa-edit"> Edit</i></a> <a class="btn btn-danger btn-md" title="Delete" id="delete_home_offer" onclick="delete_home_offer(<?php echo $info['current_info_id']; ?>)" ><i class="fa fa-trash"> Delete</i></a></td>
+                                            <td><?php echo $cnt;?></td>
+                                            <td><?php echo $info['current_info_title'];?></td>
+                                            <td><img src="<?php echo BASE_URI.'uploads/home_page/current_info/'.$info['current_info_logo']; ?>" width="200" height="80" ></td>
+                                            <td><?php if($info['status']==0) { ?> <a class="btn btn-success btn-md" title="Change Status" href="<?php echo BASE_URI.'backend/home-page/status_current_info/'.$info['current_info_id']; ?>"><i class="fa fa-unlock"> Active</i></a><?php } else { ?> <a class="btn btn-warning btn-md" title="Change Status" href="<?php echo BASE_URI.'backend/home-page/status_current_info/'.$info['current_info_id']; ?>"><i class="fa fa-lock"> Inctive</i></a> <?php }  ?> </td>
+                                            <td> <a class="btn btn-primary btn-md" title="Edit" href="<?php echo BASE_URI.'backend/home-page/add_edit_current_info/'.$info['current_info_id']; ?>"><i class="fa fa-edit"> Edit</i></a> <!-- <a class="btn btn-danger btn-md" title="Delete" id="delete_current_info" onclick="delete_current_info(<?php echo $info['current_info_id']; ?>)" ><i class="fa fa-trash"> Delete</i></a> --></td>
                                       </tr>
 
                                     <?php  $cnt=$cnt+1; } ?>
                                     </tbody>
                                 </table>
                             </div>
+                            <br>
+                             <div class="box box-primary">
+                                <h2>Background</h3>
+                                    <table id="" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th>Background Name</th>
+                                            <th>Background Title</th>
+                                            <th>Background Image</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                   
+                                    
+                                      <tr>
+                                            <td><?php echo $current_info_background['background_name'];?></td>
+                                            <td><?php echo $current_info_background['background_title'];?></td>
+                                            <td><img src="<?php echo BASE_URI.'uploads/home_page/home_background/'.$current_info_background['background_image']; ?>" width="200" height="80" ></td>
+                                            <td><a class="btn btn-primary" href="<?php echo BASE_URI;?>backend/home_page/backend_image_edit/<?php echo $current_info_background['id']; ?>"><i class="fa fa-edit"> Edit</i></a></td>
+                                      </tr>
+
+                                    
+                                    </tbody>
+                                </table>
+                             </div>
                         </div>
                     </div>
                 </section>
@@ -151,14 +184,35 @@
               "autoWidth": false
             });
           });
-        </script>
-        <script>
-        	$("#success-alert").fadeTo(2000, 500).fadeOut(500, function(){
-                       $("#success-alert").alert('close');
-                        }); 
 
+            function delete_current_info(info_id)
+            {
+                swal({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, delete it!'
+                }).then(function (isConfirm) {
+                    if(isConfirm)
+                    {
+                        $.ajax({
+                              url: 'backend/ajax/delete_current_info',
+                              type: "post",
+                              data:{info_id:info_id},
+                              success: function(response)
+                              {
+
+                                 window.location.reload();
+                              }
+                        });
+                    }
+                 
+                })
+            }
+        </script>
         
-              
-        	</script>
     </body>
 </html>
