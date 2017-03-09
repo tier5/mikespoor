@@ -6,9 +6,11 @@
     RESPONSIVE NAVIGATION
 ============================================================================= */
 .dl-menuwrapper {
-    width: 100%;
-    max-width: 300px;
-    float: left;
+    /*width: 100%;
+    max-width: 300px;*/
+    float: right;
+    margin-top: 10px;
+    /*float: left;*/
     position: relative;
     -webkit-perspective: 1000;
     -moz-perspective: 1000;
@@ -111,7 +113,8 @@
 .dl-menuwrapper .dl-menu {
     margin: 5px 0 0 0;
     position: absolute;
-    width: 100%;
+    right: 0;
+    width: 200px;
     opacity: 0;
     pointer-events: none;
     -webkit-transform: translateY(10px);
@@ -393,20 +396,20 @@ All this is done for any sub-level being entered.
         margin-left: 0 !important;
     }
     
-    #header, 
+   /* #header, 
     #top-bar{
         width: 270px;
-    }
+    }*/
     
-    #top-bar .contact-info, 
+    /*#top-bar .contact-info, 
     #top-bar .social-links{
         width: 100%;
         max-width: 100%;
-    }
+    }*/
     
-    #top-bar .social-links{
+    /*#top-bar .social-links{
         margin-top: 10px;
-    }
+    }*/
     
     #top-bar .social-links li{
         border-top: 1px solid #eee;
@@ -417,20 +420,20 @@ All this is done for any sub-level being entered.
     }
     
     
-    #logo{
+   /* #logo{
         width: 100%;
         max-width: 100%;
-    }
+    }*/
     
     #nav-container{
         display: none;
     }
     
-    .dl-menuwrapper{
+    /*.dl-menuwrapper{
         display: block;
         margin-bottom: 20px;
         max-width: 200px;
-    }
+    }*/
     
     .dl-menuwrapper li a:hover{
         color: #fff !important;
@@ -502,7 +505,13 @@ All this is done for any sub-level being entered.
     }
     
     .team-alternative li{
+        width: 100px;
+        height: 90px;
+    }
+
+    .team-alternative li img{
         width: 100%;
+        height: 100%;
     }
     
     .team-member-hover .team-member-info .position{
@@ -660,8 +669,6 @@ All this is done for any sub-level being entered.
     }
     
     .copyright-container p{
-        text-align: center;
-        width: 100%;
         margin-bottom: 10px;
     }
 }
@@ -706,25 +713,25 @@ All this is done for any sub-level being entered.
         margin-left: 0 !important;
     }
     
-    #header, 
+   /* #header, 
     #top-bar{
         width: 430px;
-    }
+    }*/
     
-    #logo{
+    /*#logo{
         width: 100%;
         max-width: 100%;
-    }
+    }*/
     
     #nav-container{
         display: none;
     }
     
-    .dl-menuwrapper{
+    /*.dl-menuwrapper{
         display: block;
         margin-bottom: 20px;
         max-width: 220px;
-    }
+    }*/
     
     .dl-menuwrapper li a:hover{
         color: #fff !important;
@@ -789,7 +796,13 @@ All this is done for any sub-level being entered.
     }
     
     .team-alternative li{
-        width: 214px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .team-alternative li img{
+        width: 100%;
+        height: 100%;
     }
     
     .team-member-hover .team-member-info .position{
@@ -937,7 +950,6 @@ All this is done for any sub-level being entered.
     }
     
     .copyright-container p{
-        text-align: center;
         width: 100%;
         margin-bottom: 10px;
     }
@@ -1000,7 +1012,6 @@ All this is done for any sub-level being entered.
     }
     
     #logo{
-        width: 100%;
         max-width: 100%;
     }
         
@@ -1013,7 +1024,7 @@ All this is done for any sub-level being entered.
     }
     
     #nav-container{
-        width: 656px;
+        width: 76%;
         margin-left: 0;
     }
     
@@ -1130,8 +1141,14 @@ All this is done for any sub-level being entered.
         padding-top: 30px;
     }
     
-    .team-alternative li{
-        width: 173px;
+   .team-alternative li{
+        width: 170px;
+        height: 170px;
+    }
+
+    .team-alternative li img{
+        width: 100%;
+        height: 100%;
     }
     
     .team-member-hover .team-member-info .position{
@@ -1395,7 +1412,13 @@ All this is done for any sub-level being entered.
     }
     
     .team-alternative li{
-        width: 227px;
+        width: 220px;
+        height: 200px;
+    }
+
+    .team-alternative li img{
+        width: 100%;
+        height: 100%;
     }
     
     .team-member-hover .btn-medium{
