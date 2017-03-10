@@ -41,7 +41,7 @@ html[xmlns] .slides {display: block;}
 /* FlexSlider Default Theme
 *********************************/
 .flexslider {overflow:hidden; position: relative; z-index:2;}
-.flexslider.top_slider {min-height:564px; background-color:#333;}
+.flexslider.top_slider {max-height:300px !important; background-color:#333;}
 .flexslider.top_slider:before {
 	content:'';
 	position:absolute;

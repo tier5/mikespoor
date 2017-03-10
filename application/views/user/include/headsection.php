@@ -45,7 +45,10 @@
     <![endif]-->
      
 
-      <script  src="<?php echo BASE_URI;?>assets/user/js/jquery-1.9.1.js"></script> <!-- jQuery library -->  
+        <script  src="<?php echo BASE_URI;?>assets/user/js/jquery-1.12.4.min.js"></script> <!-- jQuery library --> 
+
+<script  src="http://maps.google.com/maps/api/js?sensor=true"></script> <!-- google maps -->
+
         <script  src="<?php echo BASE_URI;?>assets/user/js/jquery-migrate-1.2.1.min.js"></script> <!-- jQuery migrate -->
         <script  src="<?php echo BASE_URI;?>assets/user/js/jquery.placeholder.min.js"></script><!-- jQuery placeholder fix for old browsers -->
         <script  src="<?php echo BASE_URI;?>assets/user/js/modernizr.custom.js"></script> <!-- jQuery modernizr -->
@@ -60,18 +63,10 @@
         <script  src="<?php echo BASE_URI;?>assets/user/js/jquery.countTo.js"></script><!-- number count animation --> 
         <script  src="<?php echo BASE_URI;?>assets/user/js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto lightbox -->
         <script  src="<?php echo BASE_URI;?>assets/user/style-switcher/styleSwitcher.js"></script>
-    <script  src="<?php echo BASE_URI;?>assets/user/js/nicescroll.min.js"></script> <!-- Nice scroll Plugin -->
+        <script  src="<?php echo BASE_URI;?>assets/user/js/nicescroll.min.js"></script> <!-- Nice scroll Plugin -->
         <script  src="<?php echo BASE_URI;?>assets/user/js/include.js" ></script> <!-- jQuery custom options -->
-
-
-<script  src="assets/user/js/jquery.isotope.min.js"></script><!-- jQuery isotope plugin -->
+        <script  src="assets/user/js/jquery.isotope.min.js"></script><!-- jQuery isotope plugin -->
         <script  src="assets/user/js/portfolio.js"></script> <!-- jQuery portfolio options -->
-        
         <script  src="assets/user/sharre/jquery.sharrre-1.3.4.min.js"></script><!-- Sharre post plugin -->
-       
-
-
-        <script  src="http://maps.google.com/maps/api/js?sensor=true"></script> <!-- google maps -->
-         
 
 

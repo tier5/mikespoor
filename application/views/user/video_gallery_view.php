@@ -2,10 +2,6 @@
 <html>
     <head>
          <?php include('include/headsection.php'); ?>
-       
-     
-
-		
 
         <!--[if lt IE 9]>
             <script src="js/html5shiv.js"></script>
@@ -14,7 +10,7 @@
         <!--[if lt IE 9]>
             <script src="js/selectivizr-min.js"></script>
         <![endif]-->
-<link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
     </head>
 
     <body>
