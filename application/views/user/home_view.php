@@ -280,7 +280,7 @@
                             <ul class="services-overview">
                             <?php foreach ($offer_list as $offer ) { ?>
                                 <li>
-                                    <?php if(isset($offer['home_offer_logo']))
+                                    <?php if(isset($offer['home_offer_logo'] ))
                                     {?>
                                       <img class="triggerAnimation animated" src="uploads/home_page/offer/<?php echo $offer['home_offer_logo'];?>" alt="ceo" data-animate="fadeInLeft"/>
                                     <?php } ?>

@@ -35,7 +35,7 @@ class Banner extends CI_Controller {
 			        $photopath2 = pathinfo($_FILES['imgBanner']['name']);
 			        $extension2 = $photopath2['extension'];
 			        $source2 = $_FILES['imgBanner']['tmp_name'];
-			        $gallery_pdf1 = "banner".$_POST['txtCid'].".".$extension2;
+			        $gallery_pdf1 = time().".".$extension2;
 			        $destination2 = "assets/images/banner/".$gallery_pdf1;
 			        if(move_uploaded_file($source2,$destination2)){
 			            /*** image resize ***/
