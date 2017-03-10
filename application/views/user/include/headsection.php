@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="<?php echo BASE_URI;?>assets/user/style-switcher/styleSwitcher.css"/>
     <link href="<?php echo BASE_URI;?>assets/user/css/flexslider.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo BASE_URI;?>assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="<?php echo BASE_URI;?>assets/user/rs-plugin/css/settings.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="<?php echo BASE_URI;?>assets/user/rs-plugin/css/theme-settings.css" rel="stylesheet" type="text/css" media="screen">
     <!--/stylesheets -->
 
     <!-- prettyPhoto lightbox stylesheer -->
