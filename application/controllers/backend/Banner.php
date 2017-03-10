@@ -48,7 +48,7 @@ class Banner extends CI_Controller {
 					    $config['height']   = 300;
 					    $this->image_lib->initialize($config);
 			            /*** image resize ***/
-			            if($this->->resize()){
+			            if($this->image_lib->resize()){
 			            	$data = array(
 				                'banner_image' => $gallery_pdf1,
 				                'banner_ext' =>$extension2,
