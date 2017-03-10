@@ -22,6 +22,8 @@
     <link href="<?php echo BASE_URI;?>assets/user/rs-plugin/css/theme-settings.css" rel="stylesheet" type="text/css" media="screen">
     <!--/stylesheets -->
 
+
+    <link rel='stylesheet' href='assets/user/unitegallery/css/unite-gallery.css' type='text/css' />
     <!-- prettyPhoto lightbox stylesheer -->
     <link rel="stylesheet" href="<?php echo BASE_URI;?>assets/user/css/prettyPhoto.css" media="screen" />
     <!-- /prettyPhoto lightbox stylesheer -->
@@ -60,3 +62,16 @@
         <script  src="<?php echo BASE_URI;?>assets/user/style-switcher/styleSwitcher.js"></script>
     <script  src="<?php echo BASE_URI;?>assets/user/js/nicescroll.min.js"></script> <!-- Nice scroll Plugin -->
         <script  src="<?php echo BASE_URI;?>assets/user/js/include.js" ></script> <!-- jQuery custom options -->
+
+
+<script  src="assets/user/js/jquery.isotope.min.js"></script><!-- jQuery isotope plugin -->
+        <script  src="assets/user/js/portfolio.js"></script> <!-- jQuery portfolio options -->
+        
+        <script  src="assets/user/sharre/jquery.sharrre-1.3.4.min.js"></script><!-- Sharre post plugin -->
+       
+
+
+        <script  src="http://maps.google.com/maps/api/js?sensor=true"></script> <!-- google maps -->
+         
+
+
