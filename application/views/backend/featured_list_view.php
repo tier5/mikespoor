@@ -174,7 +174,41 @@
                 </tbody>
                
               </table>
+
+
+
+              
             </div>
+             </div>
+          <!-- /.box -->
+            <br>
+
+              <div class="box box-primary">
+                                <h2>Background</h3>
+                                    <table id="" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th>Background Name</th>
+                                            <th>Background Title</th>
+                                            <th>Background Image</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                   
+                                    
+                                      <tr>
+                                            <td><?php echo $welcome_background['background_name'];?></td>
+                                            <td><?php echo $welcome_background['background_title'];?></td>
+                                            <td><img src="<?php echo BASE_URI.'uploads/home_page/home_background/'.$welcome_background['background_image']; ?>" width="200" height="80" ></td>
+                                            <td><a class="btn btn-primary" href="<?php echo BASE_URI;?>backend/home_page/backend_image_edit/<?php echo $welcome_background['id']; ?>"><i class="fa fa-edit"> Edit</i></a></td>
+                                      </tr>
+
+                                    
+                                    </tbody>
+                                </table>
+                             </div>
             <!-- /.box-body -->
             <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -202,8 +236,7 @@
     </div>
   </div>
          
-          </div>
-          <!-- /.box -->
+         
 
        
         </div>

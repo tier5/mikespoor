@@ -288,6 +288,7 @@ class Home_page extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Featured List';
 				$data['title']='Home Page - Featured List';
 				$data['welcome_title']=$this->home_page_model->gethometitle();
+				$data['welcome_background']=$this->home_page_model->current_info_background('welcome_background');
 				$data['bannerlist']=$this->home_page_model->getfeaturedlistmodel();
                 $this->load->view('backend/featured_list_view',$data);
 		}

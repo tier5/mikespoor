@@ -272,9 +272,13 @@
                             <?php foreach ($offer_list as $offer ) { ?>
                                 <li>
                                     <?php if(isset($offer['home_offer_logo'] ))
-                                    {?>
+                                    { 
+                                        if($offer['home_offer_logo']!=""){?>
                                       <img class="triggerAnimation animated" src="uploads/home_page/offer/<?php echo $offer['home_offer_logo'];?>" alt="ceo" data-animate="fadeInLeft"/>
-                                    <?php } ?>
+                                    <?php } else{ ?>
+                                     <img class="triggerAnimation animated"  alt="ceo" data-animate="fadeInLeft"/>
+
+                                    <?php } }?>
                                     <div class="overview-txt">
                                         <h5><?php echo $offer['home_offer_title']; ?> </h5>
                                         <?php echo htmlspecialchars_decode($offer['home_offer_content']); ?>

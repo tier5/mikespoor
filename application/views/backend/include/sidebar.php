@@ -1,31 +1,32 @@
 <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
+    
     <section class="sidebar">
-    <!-- Sidebar user panel -->
+   
     <?php
-    $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    $acarr=explode("backend/",$actual_link);
-    if(isset($acarr[1])){
-        $current_page=$acarr[1];
-    }else{
-        $current_page='dashboard';
-    } ?>
-    <!-- sidebar menu: : style can be found in sidebar.less -->
+        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $acarr=explode("backend/",$actual_link);
+        if(isset($acarr[1])){
+            $current_page=$acarr[1];
+        }else{
+            $current_page='dashboard';
+        } 
+    ?>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
+
             <li <?php if($current_page == 'dashboard') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/dashboard'; ?>"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
             
             <li class="treeview <?php if($current_page == 'home-page/feature-list' || $current_page == 'home-page' || $current_page == 'home-page/content' || $current_page == 'home-page/offer_list' || $current_page == 'home-page/my_stats') { ?> active"<?php }else{echo '"';} ?>>
                 <a href="<?php echo BASE_URI.'backend/home-page'; ?>"><i class="fa fa-bank"></i> <span>Home Page</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li <?php if($current_page == 'home-page') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page'; ?>"><i class="fa fa-list"></i> Banner List</a></li>
-<!--                     <li <?php if($current_page == 'home-page/backend_image') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/backend_image'; ?>"><i class="fa fa-list"></i> Background Image</a></li> -->
+                    <!-- <li <?php if($current_page == 'home-page/backend_image') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/backend_image'; ?>"><i class="fa fa-list"></i> Background Image</a></li> -->
                     <li <?php if($current_page == 'home-page/featured-list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/feature-list'; ?>"><i class="fa fa-list"></i> Feature List</a></li>
                     <li <?php if($current_page == 'home-page/offer_list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/offer_list'; ?>"><i class="fa fa-list"></i> What We Offer</a></li>
                     <li <?php if($current_page == 'home-page/offer_list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/my_stats'; ?>"><i class="fa fa-list"></i> My Stats</a></li>
                     <li <?php if($current_page == 'home-page/offer_list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/current_info'; ?>"><i class="fa fa-list"></i>Current Information</a></li>
                     <!-- <li <?php if($current_page == 'home-page/content') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/content'; ?>"><i class="fa fa-list"></i> Home Page Content</a></li> -->
-                
                 </ul>                  
             </li>
 
@@ -68,16 +69,15 @@
                 </ul>
             </li>
 
-           <!--  <li class="treeview<?php if($current_page == 'contact/add') { ?> active"<?php }else{echo '"';} ?>>
+            <!--  <li class="treeview<?php if($current_page == 'contact/add') { ?> active"<?php }else{echo '"';} ?>>
                 <a href="<?php echo BASE_URI.'backend/video'; ?>"><i class="fa fa-phone"></i> <span>Contact Us</span> <i class="fa fa-angle-left pull-right"></i> </a>
                 <ul class="treeview-menu">
                     <li <?php if($current_page == 'contact') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/contact'; ?>"><i class="fa fa-plus"></i> Content</a></li>               
                 </ul>
             </li> -->
 
-             <li <?php if($current_page == 'contact') { ?>class = "active"<?php } ?> >
-                    <a href="<?php echo BASE_URI.'backend/contact'; ?>"><i class="fa fa-phone"></i> Contact Us</a>              
-                
+            <li <?php if($current_page == 'contact') { ?>class = "active"<?php } ?> >
+                    <a href="<?php echo BASE_URI.'backend/contact'; ?>"><i class="fa fa-phone"></i> Contact Us</a>               
             </li>
 
             <li class="treeview<?php if($current_page == 'banner/type/1' || $current_page == 'banner/type/2' || $current_page == 'banner/type/3' || $current_page == 'banner/type/4' || $current_page == 'banner/type/5') { ?> active"<?php }else{echo '"';} ?>>
