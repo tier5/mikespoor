@@ -9,7 +9,7 @@
 
                 //REVOLUTION SLIDE
                 var revapi;
-                revapi = jQuery('.tp-banner').revolution(
+                revapi = $('.tp-banner').revolution(
                         {
                             delay: 5000,
                             startwidth: 1170,
@@ -153,9 +153,7 @@
 							?>
                         <li data-transition="fade" data-slotamount="15" data-masterspeed="1500">
                             <!-- main image -->
-                            
                             <img src="<?php echo BASE_URI.'uploads/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
-                         
                             <!-- layer 2 -->
                             <div class="tp-caption regular sfl"
                                  data-x="200"
@@ -165,26 +163,19 @@
                                  data-easing="Back.easeOut"
                                  data-endspeed="300"><img src="<?php echo BASE_URI.'uploads/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
                             </div>
-
                             <!-- layer 3 -->
-                            <div class="tp-caption list-right sfl"
+                            <!-- <div class="tp-caption list-right sfl"
                                  data-x="160"
                                  data-y="40"
                                  data-speed="600"
                                  data-start="2000"
                                  data-easing="Back.easeOut"
                                  data-endspeed="200"><?php echo stripslashes($bannerlistdata['banner_comment']); ?>
-                            </div>
-
-                           
+                            </div> -->
                         </li>
                          <?php
 							}
 							?>
-                        <!-- slide 2 start -->
-                        
-
-                        <!-- slide 3 start -->
                         
                     </ul>
                 </div><!-- .tp-banner end -->

@@ -56,16 +56,6 @@
                             <?php foreach($categorylist as $categorylistdata) { ?>
                                 <li><a href="<?php echo BASE_URI.'picture-gallery/category/'.$categorylistdata['picture_slug']; ?>" data-filter="*"><?php echo $categorylistdata['picture_title']; ?> </a></li>
                             <?php } ?>
-
-                            <?php /*?><li><a href="#" data-filter=".design">BOOK COVERS</a></li>
-                            <li><a href="#" data-filter=".photography">ILLUSTRATIONS & SPREADS</a></li>
-                            <li><a href="#" data-filter=".graphics">BLACK & WHITE</a></li>
-                            <li><a href="#" data-filter=".graphics">CHARACTERS</a></li>
-                            <li><a href="#" data-filter=".graphics">ANIMAL CHARACTERS </a></li>
-                            <li><a href="#" data-filter=".graphics">PLACES</a></li>
-                            <li><a href="#" data-filter=".graphics">SKETCHES </a></li>
-                            <li><a href="#" data-filter=".graphics">EDITORIAL ILLUSTRATIONS</a></li>
-                            <li><a href="#" data-filter=".graphics">STYLES</a></li><?php */?>
                         </ul>
                     </section>               
                 </div>
@@ -196,9 +186,9 @@
             /* ]]> */
         </script>
 		<script type='text/javascript' src='assets/user/unitegallery/js/jquery-11.0.min.js'></script>	
-	<script type='text/javascript' src='assets/user/unitegallery/js/unitegallery.min.js'></script>	
-	<script type='text/javascript' src='assets/user/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
-	<script type="text/javascript">
+	   <script type='text/javascript' src='assets/user/unitegallery/js/unitegallery.min.js'></script>	
+	   <script type='text/javascript' src='assets/user/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
+	   <script type="text/javascript">
 
 		jQuery(document).ready(function(){
 

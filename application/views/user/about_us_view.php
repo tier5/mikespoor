@@ -97,10 +97,6 @@
         font-family: fantasy;
         color:#717A8B;
       }
-
-      .popout{
-        display: none;
-      }
     </style>
 
   </head>
@@ -250,8 +246,7 @@
                       <img src="assets/timeline/timeline1.png">
                       <div class="dated"><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?>
                           <span class="popout">
-                              <h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?></h1>
-                              <p><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_content']); ?></p>
+                              <h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_content']); ?>
                           </span>
                       </div>
                     </li>
@@ -261,13 +256,12 @@
                             <?php if(sizeof($timelinelist)-1==$i)  { ?>
                              <img src="assets/timeline/timeline5.png">
                             <?php } else { ?>
-                          <img src="assets/timeline/timeline2.png">
+                            <img src="assets/timeline/timeline2.png">
                           <?php } ?>
 
                           <div class="dated"><?php echo $timelinelist[$i]['timeline_title']; ?>
                             <span class="popout">
-                              <h4><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_title']); ?></h4>
-                              <p><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_content']); ?></p>
+                              <h1><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_content']); ?>
                             </span>
                           </div>
                         </li>
@@ -281,8 +275,7 @@
                           <?php } ?>
                           <div class="dated"><?php echo $timelinelist[$i+1]['timeline_title']; ?>
                             <span class="popout">
-                              <h4><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_title']); ?></h4>
-                              <p><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_content']); ?></p>
+                              <h1><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_content']); ?>
                             </span>
                           </div>
                         </li> 
