@@ -74,7 +74,7 @@
                                         <li>
                                             <p>
                                                 <span class="strong" style="display: block;">Powered by:</span>
-                                                <img src="assets/user/img/logotr5.png" class="tr5logo" alt="tier5logo">
+                                                <img src="<?php echo BASE_URI; ?>assets/user/img/logotr5.png" class="tr5logo" alt="tier5logo">
                                             </p>
                                         </li>
                                     </ul>

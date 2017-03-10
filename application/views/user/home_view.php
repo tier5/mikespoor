@@ -226,10 +226,6 @@
                            <?php
 							}
 							?>
-                                
-
-
-                                
                             </ul><!-- #services-carousel end -->
 
                             <div class="clearfix"></div>
@@ -250,23 +246,21 @@
         <section class='page-content'>
             <div class="container">
                 <div class="row services-row">
-                    <article class="grid_2 hidden-xs">
-                    </article>
-                    <article class="grid_7">
-                        <section class="heading-bordered">
-                                <h3>What we <b>Offer</b></h3>
-                            </section>
-                    </article>
                     <article class="grid_3 hidden-xs">
+                    </article>
+                    <article class="grid_6">
+                        <section class="heading-bordered">
+                            <h3>What we <b>Offer</b></h3>
+                        </section>
+                    </article>
+                    <article class="grid_3">
+                        <section class="heading-bordered">
+                                <h3>My <b>stats</b></h3>
+                            </section>
                     </article>
                 </div>
                 <div class="row">
-                    <!-- <article class="grid_3">
-                        <img class="triggerAnimation animated" src="assets/user/img/pictures/woman-ceo.png" alt="ceo" data-animate="fadeInLeft"/>
-                    </article> -->
-
                     <article class="grid_9">
-                        
                         <div class="triggerAnimation animated" data-animate="fadeInLeft">
                             <ul class="services-overview">
                             <?php foreach ($offer_list as $offer ) { ?>
@@ -281,41 +275,12 @@
                                     </div>
                                 </li>
                             <?php  } ?>
-                           
-                                <!-- <li>
-                                    <img class="triggerAnimation animated" src="uploads/home_page/offer/" alt="ceo" data-animate="fadeInLeft"/>
-                                    <div class="overview-txt">
-                                        <h5><?php echo $homeinfo['home_offer1_title']; ?> </h5>
-                                        <?php echo htmlspecialchars_decode($homeinfo['home_offer1_content']); ?>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <img class="triggerAnimation animated" src="assets/user/img/pictures/woman-ceo.png" alt="ceo" data-animate="fadeInLeft"/>
-                                    <div class="overview-txt">
-                                        <h5><?php echo $homeinfo['home_offer2_title']; ?> </h5>
-                                         <?php echo htmlspecialchars_decode($homeinfo['home_offer2_content']); ?>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <img class="triggerAnimation animated" src="assets/user/img/pictures/woman-ceo.png" alt="ceo" data-animate="fadeInLeft"/>
-                                    <div class="overview-txt">
-                                        <h5><?php echo $homeinfo['home_offer3_title']; ?> </h5>
-                                        <?php echo htmlspecialchars_decode($homeinfo['home_offer3_content']); ?>
-                                    </div>
-                                </li> -->
                             </ul>
                         </div><!-- .triggeranimation.animated end -->
                     </article><!-- .grid_6 -->
 
                     <article class='grid_3' >
                         <div class="triggerAnimation animated" data-animate='fadeInRight'>
-                            <!-- .heading-bordered start -->
-                            <section class="heading-bordered">
-                                <h3>My <b>stats</b></h3>
-                            </section><!-- .heading-bordered end -->
-
                             <ul class='numbers-counter' >
                                 <?php foreach ($stats_list as $stats) { ?>
                                     <li style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
@@ -323,26 +288,6 @@
                                         <p><?php echo $stats['home_stats_title']; ?></p>
                                     </li style="background-color:><?php echo $companyinfo['theme_color']; ?>;">
                                <?php  } ?>
-                                <!-- <li style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
-                                    <span class='timer number' data-to='<?php echo $homeinfo['home_stat1_content']; ?>' data-speed='2000'><?php echo $homeinfo['home_stat1_content']; ?></span>
-                                    <p><?php echo $homeinfo['home_stat1_title']; ?></p>
-                                </li style="background-color:><?php echo $companyinfo['theme_color']; ?>;">
-
-                                <li style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
-                                    <span class='timer number' data-to='<?php echo $homeinfo['home_stat2_content']; ?>' data-speed='2000'><?php echo $homeinfo['home_stat2_content']; ?></span>
-                                    <p><?php echo $homeinfo['home_stat2_title']; ?></p>
-                                </li >
-
-                                <li style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
-                                    <span class='timer number' data-to='<?php echo $homeinfo['home_stat3_content']; ?>' data-speed='2000'><?php echo $homeinfo['home_stat3_content']; ?></span>
-                                    <p><?php echo $homeinfo['home_stat3_title']; ?></p>
-                                </li>
-
-                                <li style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
-                                    <span class='timer number' data-to='<?php echo $homeinfo['home_stat4_content']; ?>' data-speed='2000'><?php echo $homeinfo['home_stat4_content']; ?></span>
-                                    <p><?php echo $homeinfo['home_stat4_title']; ?></p>
-                                </li>
- -->
 
                             </ul>
                         </div><!-- .triggerAnimation.animated end -->

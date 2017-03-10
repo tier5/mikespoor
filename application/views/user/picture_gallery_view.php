@@ -2,12 +2,6 @@
 <html>
     <head>
         <?php include('include/headsection.php'); ?>
-       
-
-       
-      
-	   
-	    
     </head>
    
     <body>
@@ -16,10 +10,9 @@
         <!-- .header-wrapper end -->
 
         <!-- #page-title start -->
-        <section id="page-titlep" class="page-title-1" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;" data-stellar-background-ratio="0.5">
+        <section id="page-titlep" class="page-title-1" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
             <div class="container">
-                <div class="row">              
-                </div>
+                <div class="row"></div>
             </div>
         </section>
         <!-- #page-title end -->
@@ -56,18 +49,6 @@
                 <!-- .roe start -->
                 <div class="row">
                     <div class="grid_12 pagination">
-                        <?php /*?><ul>
-                            <li class="current-page">
-                                <span>Page 1 of 5</span>
-                            </li>
-
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#" class=" icon-double-angle-right"></a></li>
-                        </ul><?php */?>
                         <?php if($totalrec!=0) { ?>
                             <!--pagination class-->
                             <div class="page_no_area">
@@ -111,8 +92,6 @@
         <?php include('include/footer.php'); ?>
         <!-- .footer-wrapper end -->
 
-       
-
         <script>
             /* <![CDATA[ */
             jQuery(document).ready(function($) {
@@ -147,10 +126,10 @@
 
             /* ]]> */
         </script>
-	<script type='text/javascript' src='assets/user/unitegallery/js/jquery-11.0.min.js'></script>   
-       <script type='text/javascript' src='assets/user/unitegallery/js/unitegallery.min.js'></script>   
-       <script type='text/javascript' src='assets/user/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
-	   <script type="text/javascript">
+	    <script type='text/javascript' src='assets/user/unitegallery/js/jquery-11.0.min.js'></script>   
+        <script type='text/javascript' src='assets/user/unitegallery/js/unitegallery.min.js'></script>   
+        <script type='text/javascript' src='assets/user/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
+	    <script type="text/javascript">
 
 		jQuery(document).ready(function(){
 
@@ -159,7 +138,6 @@
 			});
 
 		});
-		
-	</script>
+	   </script>
     </body>
 </html>
