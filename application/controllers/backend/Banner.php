@@ -48,7 +48,7 @@ class Banner extends CI_Controller {
 					    $config['height']   = 300;
 					    $this->image_lib->initialize($config);
 			            /*** image resize ***/
-			            if($this->image_lib->resize()){
+			            if($this->->resize()){
 			            	$data = array(
 				                'banner_image' => $gallery_pdf1,
 				                'banner_ext' =>$extension2,
@@ -67,7 +67,7 @@ class Banner extends CI_Controller {
 								exit;
 							}
 			            } else {
-			            	$_SESSION['errormsg']='Seems to be some problem. Try Again';
+			            	$_SESSION['errormsg']=$this->image_lib->display_errors();
 							header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
 							exit;
 			            }
