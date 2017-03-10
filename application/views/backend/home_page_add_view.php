@@ -129,13 +129,13 @@
                   <img src="<?php if(isset($bannerinfo['banner_front_image'])){echo BASE_URI.'uploads/'.$bannerinfo['banner_front_image'];} ?>" id="tprofile" width="200" height="80"/>
                  <p class="help-block" style="font-size:12px;"><i>Image should be of size 726 X 457 px.</i></p>
                 </div>
-                <div class="form-group">
+               <!--  <div class="form-group">
                   <label for="exampleInputFile">Banner Comment</label>
                    <textarea id="editor1" name="editor1" rows="10" cols="120">
                                            <?php if(isset($bannerinfo['banner_comment'])){echo stripslashes($bannerinfo['banner_comment']);} ?>
                     </textarea>
-                </div>
-                <div class="form-group">
+                </div> -->
+                <!-- <div class="form-group">
                   <label for="exampleInputFile">Speach Bubble shape in Banner</label><br/>
                   <select id="bble_shape" name="bble_shape" required>
                      <option value=" ">--Select Shape--</option>
@@ -143,7 +143,7 @@
                      <option value="circle" <?php if(isset($bannerinfo['banner_comment'])){ if($bannerinfo['banner_comment_shape']=="circle"){ echo "selected";} }?>>Circle</option>
                      <option value="square" <?php if(isset($bannerinfo['banner_comment'])){ if($bannerinfo['banner_comment_shape']=="square"){ echo "selected";  }}?>>Square</option>
                   </select>
-                </div>
+                </div> -->
                 
               </div>
               <!-- /.box-body -->

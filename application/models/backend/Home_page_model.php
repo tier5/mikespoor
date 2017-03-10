@@ -63,8 +63,8 @@ class Home_page_model extends CI_Model {
                     'banner_title' => trim(addslashes($_POST['txtTitle'])),
                     'banner_image' => $gallery_pdf1,
 					'banner_front_image' => $gallery_pdf2,
-					'banner_comment' => addslashes($_POST['editor1']),
-					'banner_comment_shape'=>$_POST['bble_shape'],
+					'banner_comment' => "No",
+					'banner_comment_shape'=>"1",
                     'addedBy' => $_SESSION['usersession'],
 					'status' => '1',
 					'addedOn' => $entdate,
@@ -202,8 +202,8 @@ class Home_page_model extends CI_Model {
              'banner_title' => trim(addslashes($_POST['txtTitle'])),
                     'banner_image' => $gallery_pdf1,
 					'banner_front_image' => $gallery_pdf2,
-					'banner_comment' => addslashes($_POST['editor1']),
-					'banner_comment_shape'=>$_POST['bble_shape'],
+					//'banner_comment' => addslashes($_POST['editor1']),
+					//'banner_comment_shape'=>$_POST['bble_shape'],
                     'addedBy' => $_SESSION['usersession'],
 					'updatedOn' => $entdate
              );
