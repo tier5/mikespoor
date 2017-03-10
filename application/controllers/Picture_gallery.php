@@ -63,6 +63,7 @@ class Picture_Gallery extends CI_Controller {
 			$this->load->model('backend/picture_model');
 			$data['categorylist']=$this->picture_model->fixedbannerlistmodel();
 			$this->load->model('backend/picture_gallery_model');
+			
 			$data['gallerylist']=$this->picture_gallery_model->paginationsort($getpage);
 	        $data['totalrec']=$this->picture_gallery_model->countactivepicture();
 	        $data['nowpage']=$getpage;
