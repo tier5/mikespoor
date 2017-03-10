@@ -4,7 +4,16 @@ class Picture_Gallery extends CI_Controller {
         public function __construct()
         {
                 parent::__construct();
+
+                $this->load->model('backend/login_model');
+                $this->load->model('backend/picture_model');
                 // Your own constructor code
+                $this->load->model('backend/picture_model');
+                $this->load->model('backend/school_visit_model');
+                $this->load->model('backend/seo_settings_model');
+			    $this->load->model('backend/banner_model');
+			    $this->load->model('backend/school_visit_blog_model');
+			    $this->load->model('backend/picture_gallery_model');
         }
         
 		public function index()
@@ -30,6 +39,8 @@ class Picture_Gallery extends CI_Controller {
 
 			$data['metainfo']=$this->seo_settings_model->getmetainfomodel(3);
 		    $this->load->view('user/picture_gallery_view',$data);
+
+
 		}
 
 		public function category($getid)
@@ -63,7 +74,6 @@ class Picture_Gallery extends CI_Controller {
 			$this->load->model('backend/picture_model');
 			$data['categorylist']=$this->picture_model->fixedbannerlistmodel();
 			$this->load->model('backend/picture_gallery_model');
-			
 			$data['gallerylist']=$this->picture_gallery_model->paginationsort($getpage);
 	        $data['totalrec']=$this->picture_gallery_model->countactivepicture();
 	        $data['nowpage']=$getpage;

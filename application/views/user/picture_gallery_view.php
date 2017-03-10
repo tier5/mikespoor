@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <base href="<?php echo BASE_URI; ?>">
 <title><?php echo $title; ?></title>
@@ -40,7 +39,7 @@
         
 
     <link rel='stylesheet' href='assets/user/unitegallery/css/unite-gallery.css' type='text/css' />
-
+    
     </head>
 <link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
     <body>
@@ -51,9 +50,7 @@
         <!-- .header-wrapper end -->
 
         <!-- #page-title start -->
-
-         <section id="page-titlep" class="page-title-1" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
-
+        <section id="page-titlep" class="page-title-1" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
             <div class="container">
                 <div class="row"></div>
             </div>
@@ -105,9 +102,10 @@
         
         <?php
         
-       
+        
         foreach($gallerylist as $gallerylistdata)
         {
+            
         ?>
         <a href="http://unitegallery.net">
         <img alt="<?php echo $gallerylistdata['gpicture_title']; ?>"
@@ -144,7 +142,6 @@
                 <!-- .roe start -->
                 <div class="row">
                     <div class="grid_12 pagination">
-
                         <?php /*?><ul>
                             <li class="current-page">
                                 <span>Page 1 of 5</span>
@@ -201,11 +198,9 @@ $pagination->setTotalRecords($total_records);
             </div><!-- .container end -->
         </section><!-- .page-content end -->
 
-
         <!-- .footer-wrapper start -->
         <?php include('include/footer.php'); ?>
         <!-- .footer-wrapper end -->
-
 
         <!-- scripts -->
         <script  src="assets/user/js/jquery-1.9.1.js"></script> <!-- jQuery library -->  
@@ -255,6 +250,16 @@ $pagination->setTotalRecords($total_records);
             });
             /* ]]> */
         </script>
-
+        <script type='text/javascript' src='assets/user/unitegallery/js/jquery-11.0.min.js'></script>   
+    <script type='text/javascript' src='assets/user/unitegallery/js/unitegallery.min.js'></script>  
+    <script type='text/javascript' src='assets/user/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery("#gallery").unitegallery({
+                tiles_type:"nested"
+            });
+        });
+        
+    </script>
     </body>
 </html>
