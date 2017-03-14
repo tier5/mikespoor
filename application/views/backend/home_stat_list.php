@@ -76,7 +76,7 @@
                             <div class="box box-primary">
                               <div >
                                 <br>
-                                <!-- <a class="btn btn-primary" href="<?php //echo BASE_URI.'backend/home-page/add_edit_stats'; ?>"><i class="fa fa-plus">Add New Stats </i></a> -->
+                                 <a class="btn btn-primary" href="<?php echo BASE_URI.'backend/home-page/add_edit_stats'; ?>"><i class="fa fa-plus">Add New Stats </i></a> 
                                 <br>
                               </div>
                               <br>
