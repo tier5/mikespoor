@@ -251,15 +251,12 @@ $pagination->setTotalRecords($total_records);
             /* ]]> */
         </script>
         <script type='text/javascript' src='assets/user/unitegallery/js/jquery-11.0.min.js'></script>   
-    <script type='text/javascript' src='assets/user/unitegallery/js/unitegallery.min.js'></script>  
-    <script type='text/javascript' src='assets/user/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function(){
-            jQuery("#gallery").unitegallery({
-                tiles_type:"nested"
+        <script type='text/javascript' src='assets/user/unitegallery/js/unitegallery.min.js'></script>  
+        <script type='text/javascript' src='assets/user/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#gallery").unitegallery();
             });
-        });
-        
-    </script>
+        </script>
     </body>
 </html>
