@@ -153,7 +153,7 @@
 							?>
                         <li data-transition="fade" data-slotamount="15" data-masterspeed="1500">
                             <!-- main image -->
-                            <img src="<?php echo BASE_URI.'uploads/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                            <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                             <!-- layer 2 -->
                             <div class="tp-caption regular sfl"
                                  data-x="200"
@@ -161,7 +161,7 @@
                                  data-speed="600"
                                  data-start="1500"
                                  data-easing="Back.easeOut"
-                                 data-endspeed="300"><img src="<?php echo BASE_URI.'uploads/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
+                                 data-endspeed="300"><img src="<?php echo BASE_URI.'uploads/home_page/banner/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
                             </div>
                             <!-- layer 3 -->
                             <!-- <div class="tp-caption list-right sfl"

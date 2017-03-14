@@ -121,8 +121,8 @@
                 <tr>
                   <td><?php echo $cnt; ?></td>
                   <td><?php echo $bannerlistdata['banner_title']; ?></td>
-                  <td><img src="<?php echo 'uploads/'.$bannerlistdata['banner_image']; ?>" width="120" height="50"/></td>
-                   <td><img src="<?php echo 'uploads/'.$bannerlistdata['banner_front_image']; ?>" width="120" height="50"/></td>
+                  <td><img src="<?php echo 'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" width="120" height="50"/></td>
+                   <td><img src="<?php echo 'uploads/home_page/banner/'.$bannerlistdata['banner_front_image']; ?>" width="120" height="50"/></td>
                   <td> 
                   
                   <?php

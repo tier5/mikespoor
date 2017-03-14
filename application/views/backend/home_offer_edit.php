@@ -91,7 +91,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Offer Logo</label>
                                             <input type="file" class="form-control" name="offer_logo" placeholder="Enter Feature Title" value="" <?php if($feature=='Add') { echo "required";}?>>
-                                            Image size should less than 2 MB & 3500 X 2300 px.
+                                            Image size should less than 2 MB & 3500px X 2300 px.
                                             <br><br>
                                             <?php if(!empty($offer_list['home_offer_logo'])){ ?>
                                             <img src="<?php if(!empty($offer_list['home_offer_logo'])){echo BASE_URI.'/uploads/home_page/offer/'.$offer_list['home_offer_logo'];} ?>" id="profile" width="200" height="80"/>

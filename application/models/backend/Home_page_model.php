@@ -34,6 +34,7 @@ class Home_page_model extends CI_Model {
 		}
 		public function addbannermodel()
 		{
+			$this->load->library('image_lib');
 					$timezone = 'GMT';
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
@@ -41,12 +42,44 @@ class Home_page_model extends CI_Model {
 			$gallery_pdf2='';
 			  if($_FILES['imgBanner']['name']!="")
 	           {	
-		         $photopath2 = pathinfo($_FILES['imgBanner']['name']);
+		         /*$photopath2 = pathinfo($_FILES['imgBanner']['name']);
 		         $extension2 = $photopath2['extension'];
 		         $source2 = $_FILES['imgBanner']['tmp_name'];
 		         $gallery_pdf1 = time().".".$extension2;
 		         $destination2 = "uploads/".$gallery_pdf1;
-		          move_uploaded_file($source2,$destination2);
+		          move_uploaded_file($source2,$destination2);*/
+                $photopath2 = pathinfo($_FILES['imgBanner']['name']);
+		        $extension2 = $photopath2['extension'];
+		        $source2 = $_FILES['imgBanner']['tmp_name'];
+		        $gallery_pdf1 =time()."_".$_POST['txtCid'].".".$extension2;
+		        $destination2 = "uploads/home_page/banner/".$gallery_pdf1;
+		        if(move_uploaded_file($source2,$destination2)){
+		            /*** image resize ***/
+					$config['image_library'] = 'gd2';
+				    $config['source_image'] = "uploads/home_page/banner/".$gallery_pdf1;
+				    $config['new_image'] ='uploads/home_page/banner/thumb/'.$gallery_pdf1;
+				    $config['maintain_ratio'] = TRUE;
+				    //$config['width']     = 75;
+				    $config['height']   = 457;
+
+				   
+				    $this->image_lib->initialize($config);
+				    if(!$this->image_lib->resize())
+				    {
+				    	return false;
+				    	exit;
+				    }
+		        } else{
+                     return false;
+                     exit;
+		        }
+
+
+
+
+
+
+
 	           }
 			   
 			    if($_FILES['imgFBanner']['name']!="")
@@ -55,7 +88,7 @@ class Home_page_model extends CI_Model {
 		         $extension3 = $photopath3['extension'];
 		         $source3 = $_FILES['imgFBanner']['tmp_name'];
 		         $gallery_pdf2 = time().".".$extension3;
-		         $destination3 = "uploads/".$gallery_pdf2;
+		         $destination3 = "uploads/home_page/banner/".$gallery_pdf2;
 		          move_uploaded_file($source3,$destination3);
 	           }
 			   
@@ -83,6 +116,7 @@ class Home_page_model extends CI_Model {
 		}
 		public function addfeaturemodel()
 		{
+			$this->load->library('image_lib');
 			$timezone = 'GMT';
 	if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 	$entdate = date('Y-m-d H:i:s');
@@ -160,13 +194,45 @@ class Home_page_model extends CI_Model {
 		}
 		public function editbannermodel()
 		{
+			$this->load->library('image_lib');
 			$timezone = 'GMT';
-	if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
-	$entdate = date('Y-m-d H:i:s');
+			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
+			$entdate = date('Y-m-d H:i:s');
 			$gallery_pdf1='';
 			$gallery_pdf2='';
-			if($_FILES['imgBanner']['name']!="")
-	          {	
+
+			if($_FILES['imgBanner']['name']!="") {	
+		        //unlink("uploads/home_page/banner/".$_POST['hid_gallery_pdf1']);
+		        $photopath2 = pathinfo($_FILES['imgBanner']['name']);
+		        $extension2 = $photopath2['extension'];
+		        $source2 = $_FILES['imgBanner']['tmp_name'];
+		        $gallery_pdf1 =time()."_".$_POST['txtCid'].".".$extension2;
+		        $destination2 = "uploads/home_page/banner/".$gallery_pdf1;
+		        if(move_uploaded_file($source2,$destination2)){
+		            /*** image resize ***/
+					$config['image_library'] = 'gd2';
+				    $config['source_image'] = "uploads/home_page/banner/".$gallery_pdf1;
+				    $config['new_image'] ='uploads/home_page/banner/thumb/'.$gallery_pdf1;
+				    $config['maintain_ratio'] = TRUE;
+				    //$config['width']     = 75;
+				    $config['height']   = 457;
+
+				   
+				    $this->image_lib->initialize($config);
+				    if(!$this->image_lib->resize())
+				    {
+				    	return false;
+				    	exit;
+				    }
+		        } else{
+                     return false;
+                     exit;
+		        }
+	        } else {
+                $gallery_pdf1 = $_POST['hid_gallery_pdf1'];
+	        }
+			/*if($_FILES['imgBanner']['name']!="")
+	        {	
 		        unlink("uploads/".$_POST['hid_gallery_pdf1']);
 		        $photopath2 = pathinfo($_FILES['imgBanner']['name']);
 		        $extension2 = $photopath2['extension'];
@@ -175,11 +241,11 @@ class Home_page_model extends CI_Model {
 		       $destination2 = "uploads/".$gallery_pdf1;
 		
 		        move_uploaded_file($source2,$destination2);
-	          }
-	         else
-	          {
+	        }
+	        else
+	        {
 		         $gallery_pdf1 = $_POST['hid_gallery_pdf1'];
-	          }
+	          }*/
 			  
 			  if($_FILES['imgFBanner']['name']!="")
 	          {	
@@ -188,7 +254,7 @@ class Home_page_model extends CI_Model {
 		        $extension3 = $photopath3['extension'];
 		        $source3 = $_FILES['imgFBanner']['tmp_name'];
 		       $gallery_pdf2 = time().".".$extension3;
-		       $destination3 = "uploads/".$gallery_pdf2;
+		       $destination3 = "uploads/home_page/banner/".$gallery_pdf2;
 		
 		        move_uploaded_file($source3,$destination3);
 	          }

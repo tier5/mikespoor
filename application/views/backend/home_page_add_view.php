@@ -119,15 +119,15 @@
                   <label for="exampleInputFile">Banner Background Image</label>
                   <input type="file" id="prfbtn" name="imgBanner"><br/>
                  
-                  <img src="<?php if(isset($bannerinfo['banner_image'])){echo BASE_URI.'uploads/'.$bannerinfo['banner_image'];} ?>" id="profile" width="200" height="80"/>
+                  <img src="<?php if(isset($bannerinfo['banner_image'])){echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerinfo['banner_image'];} ?>" id="profile" width="200" height="80"/>
               
-                 <p class="help-block" style="font-size:12px;"><i>Image should be of size 1446 X 498 px.</i></p>
+                 <p class="help-block" style="font-size:12px;"><i>Prefferable Maximum Image Size Less Than 2MB.</i></p>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Banner Foreground Image</label>
                   <input type="file" id="tprfbtn" name="imgFBanner"><br/>
-                  <img src="<?php if(isset($bannerinfo['banner_front_image'])){echo BASE_URI.'uploads/'.$bannerinfo['banner_front_image'];} ?>" id="tprofile" width="200" height="80"/>
-                 <p class="help-block" style="font-size:12px;"><i>Image should be of size 726 X 457 px.</i></p>
+                  <img src="<?php if(isset($bannerinfo['banner_front_image'])){echo BASE_URI.'uploads/home_page/banner/'.$bannerinfo['banner_front_image'];} ?>" id="tprofile" width="200" height="80"/>
+                 <p class="help-block" style="font-size:12px;"><i>Prefferable Maximum Image Size Less Than 2MB.</i></p>
                 </div>
                <!--  <div class="form-group">
                   <label for="exampleInputFile">Banner Comment</label>
