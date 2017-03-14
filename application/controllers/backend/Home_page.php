@@ -652,7 +652,7 @@ class Home_page extends CI_Controller {
 			$con['current_info_id']=$this->input->post('info_id');
             if($_FILES['info_logo']['name']!='') {
 
-				$config['upload_path'] = './uploads/home_page/home_background/';
+				$config['upload_path'] = './uploads/home_page/current_info/';
 				$config['file_name'] = time();
 				$config['allowed_types'] = 'jpg|jpeg|gif|png';
 				$config['max_size'] = 5060;
