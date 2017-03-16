@@ -10,6 +10,7 @@ class Home extends CI_Controller {
                 $this->load->model('backend/review_model');
                 $this->load->model('backend/picture_gallery_model');
                 $this->load->model('backend/seo_settings_model');
+                $this->load->model('backend/theme_model');
                 $this->load->model('backend/school_visit_model');
                 $this->load->model('backend/school_visit_blog_model');
         }
@@ -17,7 +18,8 @@ class Home extends CI_Controller {
 		{
 			    
 				$data['companyinfo']=$this->login_model->getuserinfoid('1');
-			    
+			    $data['theme_color']=$this->theme_model->get_all_info('theme-color');
+				$data['font_color']=$this->theme_model->get_all_info('font-color');
 
 			    $data['title']=$data['companyinfo']['company_name'].' | Home';
 				

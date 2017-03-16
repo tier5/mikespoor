@@ -8,6 +8,9 @@ class Links_news extends CI_Controller {
         }
 		public function index()
 		{
+			     $this->load->model('backend/theme_model');
+			    $data['theme_color']=$this->theme_model->get_all_info('theme-color');
+				$data['font_color']=$this->theme_model->get_all_info('font-color');
 			    $this->load->model('backend/login_model');
 				$data['companyinfo']=$this->login_model->getuserinfoid('1');
 			    $data['title']=$data['companyinfo']['company_name'].' | Links & News';

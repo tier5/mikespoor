@@ -1,4 +1,4 @@
- <section class="footer-wrapper" style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
+ <section class="footer-wrapper" style="background-color:<?php echo $theme_color['color']; ?> ">
             <!-- .footer start -->
             <footer id="footer">
                 <!-- .container start -->
@@ -11,68 +11,68 @@
 
                             <!-- .footer-widget-container start -->
                             <div class="grid_4 footer-widget-container footer-menu">
-                                <h6>Menu</h6>
+                                <h6 style="color:<?php echo $font_color['color']; ?> !important;">Menu</h6>
                                 <ul>
-                                    <li><a href="<?php echo BASE_URI; ?>" class="footer">HOME</a></li>
-                                    <li><a href="<?php echo BASE_URI; ?>about-us" class="footer">ABOUT MIKE</a></li>
-                                    <li><a href="<?php echo BASE_URI; ?>picture-gallery" class="footer">PICTURE GALLERY</a></li>
-                                    <li><a href="<?php echo BASE_URI; ?>video-gallery" class="footer">VIDEO GALLERY</a></li>
-                                    <li><a href="<?php echo BASE_URI; ?>links-news" class="footer">LINKS & NEWS</a></li>
-                                    <li><a href="<?php echo BASE_URI; ?>school-visit" class="footer">SCHOOL VISIT</a></li>
-                                    <li><a href="<?php echo BASE_URI; ?>contact" class="footer">CONTACT</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>" class="footer" style="color:<?php echo $font_color['color']; ?> !important;">HOME</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>about-us" class="footer" style="color:<?php echo $font_color['color']; ?> !important;">ABOUT MIKE</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>picture-gallery" class="footer" style="color:<?php echo $font_color['color']; ?>!important;">PICTURE GALLERY</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>video-gallery" class="footer" style="color:<?php echo $font_color['color']; ?> !important;">VIDEO GALLERY</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>links-news" class="footer" style="color:<?php echo $font_color['color']; ?> !important;">LINKS & NEWS</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>school-visit" class="footer" style="color:<?php echo $font_color['color']; ?> !important;">SCHOOL VISIT</a></li>
+                                    <li><a href="<?php echo BASE_URI; ?>contact" class="footer" style="color:<?php echo $font_color['color']; ?> !important;">CONTACT</a></li>
                                 </ul>
                             </div><!-- .footer-widget-container end -->
 
                             <!-- .footer-widget-container start -->
-                            <div class="grid_4 footer-widget-container">
-                                <h6>follow us</h6>
-                                <p>Keep up to date with Mike Spoor Illustrations</p>
+                            <div class="grid_4 footer-widget-container" >
+                                <h6 style="color:<?php echo $font_color['color']; ?> !important;">follow us</h6>
+                                <p style="color:<?php echo $font_color['color']; ?> !important;" >Keep up to date with Mike Spoor Illustrations</p>
                                 <!--- .social-links start -->
                                 <ul class="social-links">
                                     <li>
-                                        <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>" class="flaticon-twitter16"></a>
+                                        <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>" class="flaticon-twitter16" ></a>
                                     </li>
 
                                     <li>
-                                        <a target="_blank" href="<?php echo $companyinfo['facebook_link']; ?>" class="flaticon-facebook25"></a>
+                                        <a target="_blank" href="<?php echo $companyinfo['facebook_link']; ?>" class="flaticon-facebook25" ></a>
                                     </li>
 
                                     <li>
-                                        <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15"></a>
+                                        <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15" ></a>
                                     </li>
                                 </ul><!-- .social-links end -->
                             </div><!-- .footer-widget-container end -->
 
                             <!-- .footer-widget-container start -->
                             <div class="grid_4 footer-widget-container">
-                            <h6>Contact info</h6>
+                            <h6 style="color:<?php echo $font_color['color']; ?> !important;">Contact info</h6>
                                 <!-- .widget.widget_text start -->
                                 <li class="widget widget_text">
                                     <ul class="contact-info-list">
                                         <li>
-                                            <p>
+                                            <p style="color:<?php echo $font_color['color']; ?> !important;">
                                                 <!-- <i class="flaticon-building8"></i> -->
-                                                <span class="strong">Address:</span>
+                                                <span class="strong" >Address:</span>
                                                 <?php echo $companyinfo['company_address']; ?>
                                             </p>
                                         </li>
 
                                         <li>
-                                            <p>
+                                            <p style="color:<?php echo $font_color['color']; ?> !important;">
                                                 <!-- <i class="flaticon-telephone66"></i> -->
                                                 <span class="strong">Telephone:</span>
                                                 <?php echo $companyinfo['contact_no2']; ?>
                                             </p>
                                         </li>
                                         <li>
-                                            <p>
+                                            <p style="color:<?php echo $font_color['color']; ?> !important;">
                                                 <!-- <i class="flaticon-arrow465"></i> -->
-                                                <a class="underlined" href="<?php echo BASE_URI; ?>contact">FIND MORE ABOUT US</a>
+                                                <a class="underlined" href="<?php echo BASE_URI; ?>contact" style="color:<?php echo $font_color['color']; ?> !important;">FIND MORE ABOUT US</a>
                                                 <i class="flaticon-arrow465"></i>
                                             </p>
                                         </li>
                                         <li>
-                                            <p>
+                                            <p style="color:<?php echo $font_color['color']; ?> !important;">
                                                 <span class="strong" style="display: block;">Powered by:</span>
                                                 <img src="<?php echo BASE_URI; ?>assets/user/img/logotr5.png" class="tr5logo" alt="tier5logo">
                                             </p>

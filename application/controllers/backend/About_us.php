@@ -52,7 +52,7 @@ class About_us extends CI_Controller {
 
 	        $this->load->view('backend/timeline_list_view',$data);
 		}
-		public function addtimeline()
+				public function addtimeline()
 		{
 			    $this->load->helper('auth_helper');
 				checkuserlogin();

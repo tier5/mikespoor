@@ -131,8 +131,8 @@
                 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Order By</label>
-                  <input type="text" class="form-control" name="txtOrder" placeholder="Enter Order Number" value="<?php if(isset($bannerinfo['orderBy'])){echo $bannerinfo['orderBy'];} ?>" required>
-                </div>
+                  <input type="text" class="form-control" name="txtOrder" placeholder="Enter Order Number" value="<?php if(isset($bannerinfo['orderBy'])){echo $bannerinfo['orderBy'];} ?>" >
+                </div> 
               </div>
               <!-- /.box-body -->
 

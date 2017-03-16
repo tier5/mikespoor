@@ -53,6 +53,17 @@ class Ajax extends CI_Controller {
             }
         }
 
+        public function update_theme()
+        {
+           
+
+            $con['color_slug']=$this->input->post('slug');
+            $data['color']=$this->input->post('color');
+
+            $update_status=$this->Ajax_model->update_theme('lm_theme',$con,$data);
+            return $update_status;
+        }
+
         
 }
 ?>

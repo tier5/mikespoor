@@ -4485,14 +4485,14 @@ li.pricing-footer{
     9. FOOTER
 ============================================================================= */
 .footer-wrapper{
-    background: #333;
+   /* background: #333;*/
     border-top: 10px solid #e5e8ec;
     width: 100%;
     display: inline-block;  
 }
 
 #footer p, footer a{
-    color: #333;
+   /* color: #333;*/
     font-size: 14px;
     margin-bottom: 5px;
 }
@@ -4501,14 +4501,14 @@ footer{
     padding: 40px 0;
 }
 
-footer h6{
+/*footer h6{
     text-transform: capitalize;
     font-size: 22px;
     background: #3f7fbc;
     padding: 10px;
     color: #fff;
 }
-
+*/
 footer ul{
     margin-bottom: 10px;
 }

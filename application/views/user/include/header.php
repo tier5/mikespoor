@@ -17,32 +17,32 @@
 	 ?>
 <div id="header-wrapper" class="clearfix" >
             <!-- .top-bar start -->
-            <section id="top-bar-wrapper" style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
+            <section id="top-bar-wrapper" style="background-color:<?php echo $theme_color['color']; ?>;">
                 <div id="top-bar" class="clearfix">
                     <ul class="contact-info">
                         <li>
-                            <i class="flaticon-telephone66"></i>
-                            <span><a href="tel:<?php echo $companyinfo['contact_no1']; ?>"><?php echo $companyinfo['contact_no1']; ?></a></span>
+                            <i class="flaticon-telephone66" style="color:<?php echo $font_color['color']; ?> !important;"></i>
+                            <span><a href="tel:<?php echo $companyinfo['contact_no1']; ?>" style="color:<?php echo $font_color['color']; ?> !important;"><?php echo $companyinfo['contact_no1']; ?></a></span>
                         </li>
 
                         <li>
-                            <i class="flaticon-envelope4"></i>
-                            <span><a href="mailto:<?php echo $companyinfo['contact_email']; ?>"><?php echo $companyinfo['contact_email']; ?></a></span>
+                            <i class="flaticon-envelope4" style="color:<?php echo $font_color['color']; ?> !important;"></i>
+                            <span><a href="mailto:<?php echo $companyinfo['contact_email']; ?>" style="color:<?php echo $font_color['color']; ?> !important;"><?php echo $companyinfo['contact_email']; ?></a></span>
                         </li>
                     </ul><!-- .contact-info end -->
 
                     <!--- .social-links start -->
                     <ul class="social-links">
                         <li>
-                            <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>" class="flaticon-twitter16"></a>
+                            <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>" class="flaticon-twitter16"  ></a>
                         </li>
 
                         <li>
-                            <a target="_blank" href="<?php echo $companyinfo['facebook_link']; ?>" class="flaticon-facebook25"></a>
+                            <a target="_blank" href="<?php echo $companyinfo['facebook_link']; ?>" class="flaticon-facebook25" ></a>
                         </li>
 
                         <li>
-                            <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15"></a>
+                            <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15" ></a>
                         </li>
 
                         <!--<li>

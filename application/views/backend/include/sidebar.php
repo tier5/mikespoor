@@ -24,8 +24,8 @@
                     <!-- <li <?php if($current_page == 'home-page/backend_image') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/backend_image'; ?>"><i class="fa fa-list"></i> Background Image</a></li> -->
                     <li <?php if($current_page == 'home-page/featured-list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/feature-list'; ?>"><i class="fa fa-list"></i> Feature List</a></li>
                     <li <?php if($current_page == 'home-page/offer_list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/offer_list'; ?>"><i class="fa fa-list"></i> What We Offer</a></li>
-                    <li <?php if($current_page == 'home-page/offer_list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/my_stats'; ?>"><i class="fa fa-list"></i> My Stats</a></li>
-                    <li <?php if($current_page == 'home-page/offer_list') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/current_info'; ?>"><i class="fa fa-list"></i>Current Information</a></li>
+                    <li <?php if($current_page == 'home-page/my_stats') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/my_stats'; ?>"><i class="fa fa-list"></i> My Stats</a></li>
+                    <li <?php if($current_page == 'home-page/current_info') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/current_info'; ?>"><i class="fa fa-list"></i>Current Information</a></li>
                     <!-- <li <?php if($current_page == 'home-page/content') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/home-page/content'; ?>"><i class="fa fa-list"></i> Home Page Content</a></li> -->
                 </ul>                  
             </li>
@@ -100,6 +100,7 @@
             </li>
 
             <li <?php if($current_page == 'seo-settings') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/seo-settings'; ?>"> <i class="fa fa-cog"></i> <span>SEO Settings</span></a></li>
+            <li <?php if($current_page == 'theme') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/theme'; ?>"> <i class="fa fa-film"></i> <span>Theme Change</span></a></li>
             <?php /*?> <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Contact Us</span></a></li><?php */?>                    
         </ul>
     </section>

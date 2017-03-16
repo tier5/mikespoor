@@ -1,6 +1,5 @@
 <?php
 class Timeline_model extends CI_Model {
-
         public function __construct()
         {
                 parent::__construct();
@@ -27,11 +26,9 @@ class Timeline_model extends CI_Model {
 					'orderBy' => $change['orderBy']+1,
                    
                 );
-
                 $this->db->where('timeline_id', $change['timeline_id']);
                 $query=$this->db->update('lm_timeline', $data);
 			}          
-
 	        if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 	        $entdate = date('Y-m-d H:i:s');
 			
@@ -44,7 +41,6 @@ class Timeline_model extends CI_Model {
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
-
                 $query=$this->db->insert('lm_timeline', $data);
 				if($query)
 				{
@@ -91,7 +87,6 @@ class Timeline_model extends CI_Model {
 			$timezone = 'GMT';
 	        if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 	        $entdate = date('Y-m-d H:i:s');
-
             $this->db->select('*');
             $this->db->from('lm_timeline');
 			$this->db->where('timeline_id',$_POST['txtCid']);
@@ -99,7 +94,6 @@ class Timeline_model extends CI_Model {
 			$row = $query->row_array(); 
 			$old_position=$row['orderBy'];
 			$new_pisition=$_POST['txtOrder'];
-
 			if($old_position>$new_pisition){
           
             $this->db->select('*');
@@ -116,13 +110,11 @@ class Timeline_model extends CI_Model {
 					'orderBy' => $change['orderBy']+1,
                    
                 );
-
                 $this->db->where('timeline_id', $change['timeline_id']);
                 $query=$this->db->update('lm_timeline', $data);
 			}
 	
             }else if($new_pisition>$old_position){
-
             $this->db->select('*');
             $this->db->from('lm_timeline');
 			$this->db->where('orderBy >=', $old_position); 
@@ -136,11 +128,9 @@ class Timeline_model extends CI_Model {
 					'orderBy' => $change['orderBy']-1,
                    
                 );
-
                 $this->db->where('timeline_id', $change['timeline_id']);
                 $query=$this->db->update('lm_timeline', $data);
 			}
-
             }
 			$data=array(
                     'timeline_title' => trim(addslashes($_POST['txtTitle'])),
@@ -149,7 +139,6 @@ class Timeline_model extends CI_Model {
                     'addedBy' => $_SESSION['usersession'],
 					'updatedOn' => $entdate
                 );
-
             $this->db->where('timeline_id', $_POST['txtCid']);
             $query=$this->db->update('lm_timeline', $data);
 			if($query){
@@ -178,7 +167,6 @@ class Timeline_model extends CI_Model {
                     'addedBy' => $_SESSION['usersession'],
 					'updatedOn' => $entdate
              );
-
              $this->db->where('timeline_id', $getid);
              $query=$this->db->update('lm_timeline', $data);
 			 if($query)
@@ -205,10 +193,8 @@ class Timeline_model extends CI_Model {
 					return false;
 				}
 		}
-
 		public function first_event()
 		{
-
 			$this->db->select('`timeline_id`, `timeline_title`, `timeline_content`, `orderBy`, `status`, `addedBy`, `addedOn`, `updatedOn`');
             $this->db->from('lm_timeline');
             $this->db->limit(1);

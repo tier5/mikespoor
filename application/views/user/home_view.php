@@ -183,7 +183,7 @@
         </div><!-- .tp-wrapper end -->
 
         <!-- .page-content start -->
-        <section class="page-content background-black" style="background:<?php echo $companyinfo['theme_color']; ?>">
+        <section class="page-content background-black" style="background:<?php echo $theme_color['color']; ?>">
             <!-- .container start -->
             <div class="container">
                 <!-- .row start -->
@@ -191,7 +191,7 @@
                     <article class="grid_12">
                         <div class="triggerAnimation animated" data-animate="fadeInUp">
                             <div class="note no-bottom-margin">
-                                <h4><?php echo $welcome_title['title']; ?></h4>
+                                <h4 style="color:<?php echo $font_color['color']; ?> !important;" ><?php echo $welcome_title['title']; ?></h4>
                                 
                             </div>
                         </div><!-- .triggerAnimation.animated end -->
@@ -287,10 +287,10 @@
                         <div class="triggerAnimation animated" data-animate='fadeInRight'>
                             <ul class='numbers-counter' >
                                 <?php foreach ($stats_list as $stats) { ?>
-                                    <li style="background-color:<?php echo $companyinfo['theme_color']; ?>;">
-                                        <span class='timer number' data-to='<?php echo $stats['home_stats_content']; ?>' data-speed='2000'><?php echo $stats['home_stats_content']; ?></span>
-                                        <p><?php echo $stats['home_stats_title']; ?></p>
-                                    </li style="background-color:><?php echo $companyinfo['theme_color']; ?>;">
+                                    <li style="background-color:<?php echo $theme_color['color']; ?>">
+                                        <span class='timer number' data-to='<?php echo $stats['home_stats_content']; ?>' data-speed='2000' style="color:<?php echo $font_color['color']; ?>"><?php echo $stats['home_stats_content']; ?></span>
+                                        <p style="color:<?php echo $font_color['color']; ?>"><?php echo $stats['home_stats_title']; ?></p>
+                                    </li >
                                <?php  } ?>
 
                             </ul>

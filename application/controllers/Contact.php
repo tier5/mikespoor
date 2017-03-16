@@ -11,7 +11,9 @@ class Contact extends CI_Controller {
 			    $this->load->model('backend/login_model');
 				$data['companyinfo']=$this->login_model->getuserinfoid('1');
 			    $data['title']=$data['companyinfo']['company_name'].' | Contact Us';
-				
+				$this->load->model('backend/theme_model');
+			    $data['theme_color']=$this->theme_model->get_all_info('theme-color');
+				$data['font_color']=$this->theme_model->get_all_info('font-color');
 				$this->load->model('backend/cms_model');
 				$data['contactinfo']=$this->cms_model->getcmsinfomodel('8');
 				$this->load->model('backend/home_page_model');

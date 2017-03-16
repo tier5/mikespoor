@@ -36,6 +36,19 @@ class Ajax_model extends CI_Model {
 			$delete=$this->db->delete($table); 
 			return $delete;
         }
+
+
+        public function update_theme($table,$con,$data)
+        {
+          
+            $d=$this->db->where($con);
+            $result=$this->db->update($table,$data);
+            if($result){
+                return true;
+            }else{
+                return false;
+            }
+        }
 }
 
 ?>

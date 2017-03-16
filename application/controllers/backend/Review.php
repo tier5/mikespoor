@@ -72,6 +72,20 @@ class Review extends CI_Controller {
 						exit;
 				}
 		}
+
+		public   function theme()
+		{
+			$this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/login_model');
+			$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
+			$data['companyinfo']=$this->login_model->getuserinfoid('1');
+		    $data['headtitle']=$data['companyinfo']['company_name'].' | Testimonial';
+			
+			$data['title']='Theme';
+            $this->load->view('backend/theme_view',$data);
+		}
+
 		public function editbanner()
 		{
 			    $this->load->helper('auth_helper');
