@@ -29,7 +29,7 @@ class Video_gallery_model extends CI_Model {
 
 	            $configVideo['upload_path'] = 'uploads/video/';
 	            $configVideo['max_size'] = '102400000';
-	            $configVideo['allowed_types'] = 'avi|flv|wmv|mp3|3gp';
+	            $configVideo['allowed_types'] = 'avi|flv|wmv|mp4|mp3';
 	            $configVideo['overwrite'] = FALSE;
 	            $configVideo['remove_spaces'] = TRUE;
 	            $video_name = time();
@@ -48,7 +48,10 @@ class Video_gallery_model extends CI_Model {
 
             if($_POST['txtURL'])
             {
-                $videname=trim(addslashes($_POST['txtURL']));
+               
+            	$url=(explode("?v=",(trim($_POST['txtURL']))));
+            	
+                $videname=$url[1];
 	            $type='1';
             }
 			
@@ -138,7 +141,7 @@ class Video_gallery_model extends CI_Model {
 
 	            $configVideo['upload_path'] = 'uploads/video/';
 	            $configVideo['max_size'] = '102400000';
-	            $configVideo['allowed_types'] = 'avi|flv|wmv|mp3|3gp';
+	            $configVideo['allowed_types'] = 'avi|flv|wmv|mp4|mp3';
 	            $configVideo['overwrite'] = FALSE;
 	            $configVideo['remove_spaces'] = TRUE;
 	            $video_name = time();
@@ -157,7 +160,10 @@ class Video_gallery_model extends CI_Model {
 
             if($_POST['txtURL'])
             {
-                $data['gvideo_url']=trim(addslashes($_POST['txtURL']));
+            	
+            	$url=(explode("?v=",(trim($_POST['txtURL']))));
+            	
+                $data['gvideo_url']=$url[1];//trim(addslashes($_POST['txtURL']));
 	            $data['video_type']='1';
             }
 			

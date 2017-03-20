@@ -83,12 +83,34 @@
                             <?php /*?><iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ctugo5EJuns" frameborder="0" allowfullscreen></iframe><?php */?>
                             <figure class="portfolio-img-container">
                                 <div class="portfolio-img">
-                                    <iframe width="100%" height="280" src="https://www.youtube.com/embed/<?php echo $gallerylistdata['gvideo_url']; ?>" frameborder="0" allowfullscreen></iframe>
 
-                                    <!-- .portfolio-img-hover end -->
+                                  
 
-                                </div>
+                                <?php if(isset($gallerylistdata['gvideo_url']) && ($gallerylistdata['video_type']==1) ){ ?>
+                                      
+                                         <iframe width="100%" height="280" src="https://www.youtube.com/embed/<?php echo $gallerylistdata['gvideo_url']; ?>" frameborder="0" allowfullscreen></iframe>
+                                           
+                                     
+                                    <?php } ?>
 
+                              
+                                <?php if(isset($gallerylistdata['gvideo_url']) && ($gallerylistdata['video_type']==2) ){ ?>
+                                      
+                                        <?php 
+                                        $ext=substr($gallerylistdata['gvideo_url'], strrpos($gallerylistdata['gvideo_url'], '.') + 1);
+
+
+                                        ?>
+                                        <video width="100%" height="280"  controls>
+                                          <source src="<?php echo BASE_URI?>uploads/video/<?php echo $gallerylistdata['gvideo_url'];?>" type="video/<?php echo $ext; ?>">
+                                      
+                            
+                                        </video>
+                                            
+                                           
+                                     
+                                    <?php } ?>
+                                  </div>
                                 <figcaption>
                                     <a class="title" href="portfoliosingle.html">On the top of the world</a>
                                     

@@ -167,15 +167,24 @@
                  <input type="text" class="form-control" id="txtURL"  name="txtURL" placeholder="Enter Video URL" value="<?php if(isset($bannerinfo['gvideo_url'])){echo $bannerinfo['gvideo_url'];} ?>" style="display:none;" >
                  <?php if(isset($bannerinfo['gvideo_url']) && ($bannerinfo['video_type']==1) ){ ?>
                   <br>
-                  <iframe width="400" height="250" src="<?php echo $bannerinfo['gvideo_url'];?>?autoplay=1" frameborder="0" allowfullscreen></iframe>
+
+                  <iframe src="https://www.youtube.com/embed/<?php echo $bannerinfo['gvideo_url']; ?>" frameborder="0" width="400" height="200"></iframe>
                 <?php } ?>
                  <?php if(isset($bannerinfo['gvideo_url']) && ($bannerinfo['video_type']==2) ){ ?>
                   <br>
-                 <video width="320" height="240" controls autoplay>
-                        <source src="<?php echo BASE_URI?>uploads/video/<?php echo $bannerinfo['gvideo_url'];?>" type="video/3gp">
+                    <?php 
+                    $ext=substr($bannerinfo['gvideo_url'], strrpos($bannerinfo['gvideo_url'], '.') + 1);
+
+
+                    ?>
+                    <video width="320" height="240" controls>
+                      <source src="<?php echo BASE_URI?>uploads/video/<?php echo $bannerinfo['gvideo_url'];?>" type="video/<?php echo $ext; ?>">
+                  
+                    Your browser does not support the video tag.
+                    </video>
+                        
                        
-                        Your browser does not support the video tag.
-                  </video> 
+                 
                 <?php } ?>
                   
                 </div> 
