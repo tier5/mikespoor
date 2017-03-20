@@ -47,8 +47,11 @@ class Video_gallery extends CI_Controller {
 		}
 		public function addbanner()
 		{
+
+			
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
+				
 				$res=$this->video_gallery_model->addbannermodel();
 				if($res)
 				{
@@ -63,8 +66,7 @@ class Video_gallery extends CI_Controller {
 						$_SESSION['successmsg']='Video gallery information inserted successfully';
 						header('location:'.BASE_URI.'backend/video_gallery/add');
 						exit;
-					}
-					
+					}		
 				}
 				else
 				{
@@ -72,6 +74,7 @@ class Video_gallery extends CI_Controller {
 						header('location:'.BASE_URI.'backend/video_gallery/add');
 						exit;
 				}
+				
 		}
 		public function editbanner()
 		{

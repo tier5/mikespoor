@@ -48,7 +48,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
+        <li><a href="<?php echo BASE_URI.'backend/dashboard'; ?>"><i class="fa fa-home"></i> Dashboard</a></li>
        
       </ol>
     </section>

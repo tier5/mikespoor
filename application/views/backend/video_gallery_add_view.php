@@ -30,10 +30,49 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="assets/admin/dist/css/skins/_all-skins.min.css">
+  <style type="text/css">
+   .fa-file-video-o {
+    font-size: 50px;
+    cursor: pointer;
+   }
+   
+   
 
+   
+  </style>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $('.upload_video').click(function(){
+       
+        $('.upload-option').show();
+      });
+
+      $('.video_upload').click(function(){
+           $('#txtURL').hide();
+           $('#txtURL').val("");
+           $('.help-block').hide();
+           $('#txtVideo').show();
+           $('#txtVideo').click();
+      });
+
+      $('.link_upload').click(function(){
+         $('#txtVideo').hide("");
+         $('#txtVideo').hide();
+           $('#txtURL').show();
+           $('.help-block').show();
+      });
+
+      
+  });
+
+
+  </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -70,7 +109,7 @@
 	?>
     <div class="alert alert-success" id="success-alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Success!</strong> <?php echo $_SESSION['successmsg']; ?>
+    <strong>Success!</strong> <?php print_r($_SESSION['successmsg']); ?>
     </div>
     <?php
 	unset($_SESSION['successmsg']);
@@ -80,7 +119,7 @@
 	?>
     <div class="alert alert-danger" id="success-alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Error!</strong> <?php echo $_SESSION['errormsg']; ?>
+    <strong>Error!</strong> <?php print_r( $_SESSION['errormsg']); ?>
     </div>
     <?php
 	unset($_SESSION['errormsg']);
@@ -116,10 +155,30 @@
                 </div>
                 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Video URL</label>
-                  <input type="text" class="form-control" name="txtURL" placeholder="Enter Video URL" value="<?php if(isset($bannerinfo['gvideo_url'])){echo $bannerinfo['gvideo_url'];} ?>" required>
-                   <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p>
-                </div>
+                  <label for="exampleInputEmail1">Video Upload</label>
+                  <br>
+                  <a class="upload_video"><i class="fa fa-file-video-o " title="Upload Video"></i></a>
+                  <div class="upload-option" style="display:none";>
+                    <a class="video_upload">Upload From Device</a>
+                    <br>
+                    <a class="link_upload">Youtube Video </a>
+                  </div>
+                  <input type="file" class="form-control" name="txtVideo" id="txtVideo" style="display:none;">     
+                 <input type="text" class="form-control" id="txtURL"  name="txtURL" placeholder="Enter Video URL" value="<?php if(isset($bannerinfo['gvideo_url'])){echo $bannerinfo['gvideo_url'];} ?>" style="display:none;" >
+                 <?php if(isset($bannerinfo['gvideo_url']) && ($bannerinfo['video_type']==1) ){ ?>
+                  <br>
+                  <iframe width="400" height="250" src="<?php echo $bannerinfo['gvideo_url'];?>?autoplay=1" frameborder="0" allowfullscreen></iframe>
+                <?php } ?>
+                 <?php if(isset($bannerinfo['gvideo_url']) && ($bannerinfo['video_type']==2) ){ ?>
+                  <br>
+                 <video width="320" height="240" controls autoplay>
+                        <source src="<?php echo BASE_URI?>uploads/video/<?php echo $bannerinfo['gvideo_url'];?>" type="video/3gp">
+                       
+                        Your browser does not support the video tag.
+                  </video> 
+                <?php } ?>
+                  
+                </div> 
                
                  <div class="form-group">
                   <label for="exampleInputFile">Description</label>

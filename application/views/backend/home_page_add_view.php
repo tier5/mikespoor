@@ -49,9 +49,10 @@
         <?php echo $title; ?>
        
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
-        <li class="active">Home Page</li>
+       <ol class="breadcrumb">
+         <li><a href="<?php echo BASE_URI.'backend/dashboard'; ?>"><i class="fa fa-home"></i> Dashboard</a></li>
+        <li ><a href="<?php echo BASE_URI.'backend/home-page'; ?>">Home Page > Banner List</a></li>
+        <li class="active" ><a href="<?php if($feature=='Add'){echo BASE_URI.'backend/home-page/add';}else{echo BASE_URI.'backend/home-page/edit/'.$bannerinfo['banner_id'];} ?>"><?php if($feature=='Add') { echo "Add Banner";}else{ echo " Edit Banner";}?></a></li>
       </ol>
     </section>
 
