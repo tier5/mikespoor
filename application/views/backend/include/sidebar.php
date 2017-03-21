@@ -48,14 +48,13 @@
                 </ul>
             </li>
                                  
-            <li class="treeview<?php if($current_page == 'video_gallery/add' || $current_page == 'video_gallery' || $current_page == 'video_banner/add' || $current_page == 'video_banner') { ?> active"<?php }else{echo '"';} ?>>
-                <a href="<?php echo BASE_URI.'backend/video'; ?>"><i class="fa fa-video-camera"></i> <span>Video Gallery</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li <?php if($current_page == 'video_gallery' || $current_page == 'video_gallery/add') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/video_gallery'; ?>"><i class="fa fa-plus"></i> Video List</a></li>
-                    <li <?php if($current_page == 'video_banner' || $current_page == 'video_banner/add') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/video_banner'; ?>"><i class="fa fa-plus"></i> Video Banner</a></li>
-                </ul>
-            </li>
-                                  
+            <li class="<?php if($current_page == 'video_gallery/add' || $current_page == 'video_gallery' || $current_page == 'video_banner/add' || $current_page == 'video_banner') { ?> active"<?php }else{echo '"';} ?>>
+              <!--  <a href="<?php echo BASE_URI.'backend/video_gallery'; ?>"><i class="fa fa-video-camera"></i> <span>Video Gallery</span> <i class="fa fa-angle-left pull-right"></i></ a>
+                 <ul class="treeview-menu">
+                    <li <?php if($current_page == 'video_gallery' || $current_page == 'video_gallery/add') { ?>class = "active"<?php } ?>>--><a href="<?php echo BASE_URI.'backend/video_gallery'; ?>"><i class="fa fa-plus"></i> Video List</a></li>
+                   <!-- <li <?php if($current_page == 'video_banner' || $current_page == 'video_banner/add') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/video_banner'; ?>"><i class="fa fa-plus"></i> Video Banner</a></li>
+                </ul> -->
+            </li>                
             <li class="treeview<?php if($current_page == 'link-news') { ?> active"<?php }else{echo '"';} ?>>
                <!--  <a href="<?php echo BASE_URI.'backend/link-news'; ?>"><i class="fa fa-link"></i> <span>Link & News</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
