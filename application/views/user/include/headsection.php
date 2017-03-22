@@ -44,7 +44,7 @@
         <script src="js/selectivizr-min.js"></script>
     <![endif]-->
      
-
+        <link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
         <script  src="<?php echo BASE_URI;?>assets/user/js/jquery-1.12.4.min.js"></script> <!-- jQuery library --> 
 
 <script  src="http://maps.google.com/maps/api/js?sensor=true"></script> <!-- google maps -->

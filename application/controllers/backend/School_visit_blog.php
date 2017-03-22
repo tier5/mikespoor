@@ -17,6 +17,8 @@ class School_visit_blog extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | School Visit Blog Page';
 				$data['title']='School Visit Blog';
 				$data['bannerlist']=$this->school_visit_blog_model->getbannerlistmodel();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/school_visit_blog_view',$data);
         }
 		public function add()
@@ -31,6 +33,8 @@ class School_visit_blog extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | School Visit Blog Page';
 				$data['title']='School Visit Blog - Add New';
 				$data['feature']="Add";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/school_visit_blog_add_view',$data);
 		}
 		public function edit($getid)
@@ -46,6 +50,8 @@ class School_visit_blog extends CI_Controller {
 				$data['title']='School Visit Blog - Edit';
 				$data['bannerinfo']=$this->school_visit_blog_model->getbannerinfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/school_visit_blog_add_view',$data);
 		}
 		public function addbanner()

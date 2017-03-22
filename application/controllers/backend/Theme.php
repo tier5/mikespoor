@@ -19,6 +19,8 @@ class Theme extends CI_Controller {
 				$data['companyinfo']=$this->login_model->getuserinfoid('1');
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Picture Category';
 				$data['title']='Theme';
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/theme_view',$data);
         }
 		

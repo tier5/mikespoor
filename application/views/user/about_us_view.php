@@ -98,45 +98,14 @@
         color:#717A8B;
       }
     </style>
-
+    
   </head>
   <body>
     <!-- .header-wrapper start -->
     <?php include('include/header.php'); ?>
     <!-- .header-wrapper end -->
-    <?php /*?><section id="home" class="padbot0">
-  		<!-- TOP SLIDER -->
-  		<div class="flexslider top_slider" >
-        <?php if($companyinfo['video_status']){?>
-    			<ul class="slides">
-            <?php foreach($videobannerlist as $videobannerdata){?>
-    					<li class="slide1">
-    						<div class="flex_caption1">
-    							<p class="title1 captionDelay2 FromTop" style="color:#FFF;"><?php echo $videobannerdata['video_banner_title']; ?></p>
-    							<p class="title4 captionDelay7 FromBottom" style="color:#FFF;"><?php echo htmlspecialchars_decode($videobannerdata['video_banner_content']); ?></p>
-    						</div>
-    					</li>
-            <?php } ?>
-    			</ul>
-    		<?php } ?>
-    		<!-- VIDEO BACKGROUND -->
-        <a name="P2" class="player" id="P2" data-property="{videoURL:'<?php echo $companyinfo['video_banner']; ?>',containment:'.top_slider',autoPlay:true, mute:true, startAt:0, opacity:1}"></a>
-        <!-- /VIDEO BACKGROUND -->
-  		</div>
-      <!-- //TOP SLIDER -->
-		</section><?php */?>
-    <!-- #page-title start -->
-    <section id="page-title" class="page-title-1" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
-        <div class="container">
-            <div class="row">
-                <div class="grid_12">
-                    <div class="breadcrumbs triggerAnimation animated" data-animate="fadeInUp">
-                        
-                    </div>
-                </div><!-- .grid_8 end -->
-            </div><!-- .row end -->
-        </div><!-- .container end -->
-    </section><!-- #page-title end -->
+
+    <?php include('include/headerbanner.php'); ?>
     <br/>
     <?php if($aboutinfo['cms_choice']=='0'){?>
     <!-- .page-content start -->
@@ -150,47 +119,19 @@
               <ul class="team-alternative">
                 <li class="team-member">
                   <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage1']; ?>" alt="team member image"/>
-                  <div class="team-member-hover">
-                    <div class="mask"></div>
-                    <div class="team-member-info">
-                      <h5>Alicia Stewark</h5>
-                      <span class="position">Company CEO</span>
-                      <a href="#" class="btn-medium empty white">Read more</a>
-                    </div>
-                  </div>
+                  
                 </li>
                 <li class="team-member">
                   <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage2']; ?>" alt="team member image"/>
-                  <div class="team-member-hover">
-                    <div class="mask"></div>
-                    <div class="team-member-info">
-                        <h5>Peter Brown</h5>
-                        <span class="position">Senior web developer</span>
-                        <a href="#" class="btn-medium empty white">Read more</a>
-                    </div>
-                  </div>
+                 
                 </li>
                 <li class="team-member">
                   <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage3']; ?>" alt="team member image"/>
-                  <div class="team-member-hover">
-                    <div class="mask"></div>
-                    <div class="team-member-info">
-                      <h5>Brooke Felther</h5>
-                      <span class="position">Customer relations</span>
-                      <a href="#" class="btn-medium empty white">Read more</a>
-                    </div>
-                  </div>
+                  
                 </li>
                 <li class="team-member">
                   <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage4']; ?>" alt="team member image"/>
-                  <div class="team-member-hover">
-                    <div class="mask"></div>
-                    <div class="team-member-info">
-                      <h5>Tom Harting</h5>
-                      <span class="position">Senior manager</span>
-                      <a href="#" class="btn-medium empty white">Read more</a>
-                    </div>
-                  </div>
+                  
                 </li>                                
               </ul>
             </div><!-- .triggerAnimation.animated end -->

@@ -18,6 +18,8 @@ class Picture_gallery extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Picture Gallery Page';
 				$data['title']='Picture Gallery';
 				$data['bannerlist']=$this->picture_gallery_model->getbannerlistmodel();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/picture_gallery_view',$data);
         }
 
@@ -33,6 +35,8 @@ class Picture_gallery extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Picture Gallery Page';
 				$data['title']='Picture Gallery - Add New';
 				$data['feature']="Add";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/picture_gallery_add_view',$data);
 		}
 
@@ -49,6 +53,8 @@ class Picture_gallery extends CI_Controller {
 				$data['title']='Picture Gallery - Edit';
 				$data['bannerinfo']=$this->picture_gallery_model->getbannerinfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/picture_gallery_add_view',$data);
 		}
 

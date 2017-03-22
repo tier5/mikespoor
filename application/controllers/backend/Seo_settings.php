@@ -17,6 +17,8 @@ class Seo_settings extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | SEO Settings';
 				$data['title']='SEO Settings';
 				$data['metalist']=$this->seo_settings_model->getmetalistmodel();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/seo_settings_view',$data);
         }
 		public function edit($getid)
@@ -30,6 +32,8 @@ class Seo_settings extends CI_Controller {
 				$data['title']='SEO Settings - Edit';
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/seo_edit_view',$data);
 		}
 		

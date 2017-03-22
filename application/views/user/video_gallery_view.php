@@ -3,14 +3,7 @@
     <head>
          <?php include('include/headsection.php'); ?>
 
-        <!--[if lt IE 9]>
-            <script src="js/html5shiv.js"></script>
-        <![endif]-->
-
-        <!--[if lt IE 9]>
-            <script src="js/selectivizr-min.js"></script>
-        <![endif]-->
-    <link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
+    
     </head>
 
     <body>
@@ -21,39 +14,8 @@
 
 		
 		<!-- HOME -->
-		<section id="home" class="padbot0">
-				
-			<!-- TOP SLIDER -->
-			<div class="flexslider top_slider" >
-             <?php
-			 if($companyinfo['video_status'])
-			 {
-			 ?>
-				<ul class="slides">
-                   <?php
-				   foreach($videobannerlist as $videobannerdata)
-				   {
-				   ?>
-					<li class="slide1">
-						<div class="flex_caption1">
-							<p class="title1 captionDelay2 FromTop" style="color:#FFF;"><?php echo $videobannerdata['video_banner_title']; ?></p>
-							
-							<p class="title4 captionDelay7 FromBottom" style="color:#FFF;"><?php echo htmlspecialchars_decode($videobannerdata['video_banner_content']); ?></p>
-						</div>
-					</li>
-                    <?php
-				   }
-				   ?>
-					
-				</ul>
-				<?php
-			 }
-			 ?>
-				<!-- VIDEO BACKGROUND -->
-              <a name="P2" class="player" id="P2" data-property="{videoURL:'<?php echo $companyinfo['video_banner']; ?>',containment:'.top_slider',autoPlay:true, mute:true, startAt:0, opacity:1}"></a>
-              <!-- //VIDEO BACKGROUND -->
-			</div><!-- //TOP SLIDER -->
-		</section><!-- //HOME -->
+        <?php include('include/headerbanner.php'); ?>
+		
 		
 		
         <!-- #page-title start -->
@@ -211,46 +173,7 @@ $pagination->setTotalRecords($total_records);
       
          
 		 
-	<script src="assets/user/js/js/jquery.flexslider-min.js" type="text/javascript"></script>
 	
-	<script src="assets/user/js/js/jquery.mb.YTPlayer.js" type="text/javascript"></script>
-	
-	<script src="assets/user/js/js/mynewscript.js" type="text/javascript"></script>
-        <script>
-            /* <![CDATA[ */
-            jQuery(document).ready(function($) {
-                'use strict';
-
-                // PRETTYPHOTO LIGHTBOX START
-                if(jQuery().prettyPhoto) {
-					piPrettyphoto(); 
-				}
-    
-				function piPrettyphoto(){
-					$("a[data-gal^='prettyPhoto']").prettyPhoto({
-						social_tools: false,
-						hook: 'data-gal'
-					});
-				}  
-
-                //JQUERY SHARRE PLUGIN END
-                $('.sharre-facebook').sharrre({
-                    share: {
-                        facebook: true
-                    },
-                    enableHover: false,
-                    enableTracking: true,
-                    click: function(api, options) {
-                        api.simulateClick();
-                        api.openPopup('facebook');
-                    }
-                });
-
-            });
-
-            /* ]]> */
-        </script>
-        
         
         
     </body>

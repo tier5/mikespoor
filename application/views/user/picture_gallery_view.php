@@ -50,11 +50,7 @@
         <!-- .header-wrapper end -->
 
         <!-- #page-title start -->
-        <section id="page-titlep" class="page-title-1" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
-            <div class="container">
-                <div class="row"></div>
-            </div>
-        </section>
+        <?php include('include/headerbanner.php'); ?>
 
         <!-- .page-content start -->
         <section class="page-content">

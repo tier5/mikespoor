@@ -17,6 +17,8 @@ class Home_page extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
 				$data['title']='Home Page - Banner List';
 				$data['bannerlist']=$this->home_page_model->getbannerlistmodel();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/home_page_view',$data);
         }
 		public function add()
@@ -29,6 +31,8 @@ class Home_page extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
 				$data['title']='Home Page Banner - Add New';
 				$data['feature']="Add";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/home_page_add_view',$data);
 		}
 		public function addfeature()
@@ -41,6 +45,8 @@ class Home_page extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
 				$data['title']='Feature List - Add New';
 				$data['feature']="Add";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/featured_list_add_view',$data);
 		}
 		public function edit($getid)
@@ -54,6 +60,8 @@ class Home_page extends CI_Controller {
 				$data['title']='Home Page Banner - Edit';
 				$data['bannerinfo']=$this->home_page_model->getbannerinfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/home_page_add_view',$data);
 		}
 		public function editfeature($getid)
@@ -67,6 +75,8 @@ class Home_page extends CI_Controller {
 				$data['title']='Feature List - Edit';
 				$data['bannerinfo']=$this->home_page_model->getfeatureinfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/featured_list_add_view',$data);
 		}
 		public function addbanner()
@@ -256,6 +266,8 @@ class Home_page extends CI_Controller {
 				$data['title']='Content ';
 				$data['bannerinfo']=$this->home_page_model->getcmsinfomodel(1);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/home_content_view',$data);
 		}
 		public function contentedit()
@@ -290,6 +302,8 @@ class Home_page extends CI_Controller {
 				$data['welcome_title']=$this->home_page_model->gethometitle();
 				$data['welcome_background']=$this->home_page_model->current_info_background('welcome_background');
 				$data['bannerlist']=$this->home_page_model->getfeaturedlistmodel();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/featured_list_view',$data);
 		}
 
@@ -303,6 +317,8 @@ class Home_page extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Featured List';
 				$data['title']='Home Page - Offer List';
 				$data['offer_list']=$this->home_page_model->get_all_offer();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/home_offer_list',$data);
 		}
 
@@ -322,6 +338,8 @@ class Home_page extends CI_Controller {
 		    	$data['title']='Home Page - Add Offer';
 				$data['feature']="Add";
 		    }
+		    $this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
 			$data['offer_list']=$this->home_page_model->get_selected_offer($offer_id);
             $this->load->view('backend/home_offer_edit',$data);
 		}
@@ -490,6 +508,8 @@ class Home_page extends CI_Controller {
 			$data['companyinfo']=$this->login_model->getuserinfoid('1');
 		    $data['headtitle']=$data['companyinfo']['company_name'].' | Featured List';
 			$data['title']='Home Page - My Stats';
+			$this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
 			$data['stats']=$this->home_page_model->get_all_stats();
             $this->load->view('backend/home_stat_list',$data);
 		}
@@ -568,6 +588,8 @@ class Home_page extends CI_Controller {
 			$data['title']='Home Page - Current Information';
 			$data['current_info_background']=$this->home_page_model->current_info_background('current_info');
 			$data['current_info']=$this->home_page_model->get_all_current_info();
+			$this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
             $this->load->view('backend/home_current_info_list',$data);
              
 
@@ -746,6 +768,8 @@ class Home_page extends CI_Controller {
 		    $data['headtitle']=$data['companyinfo']['company_name'].' | Featured List';
             $data['home_background']=$this->home_background_model->getallbackground();
 		    $data['title']='Home Page - Background Image';
+		    $this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
             $this->load->view('backend/home_backend_image',$data);
 		}
 
@@ -768,7 +792,8 @@ class Home_page extends CI_Controller {
 		        $data['title']='Home Page -Add Background Image';
 		    }
             $data['home_background']=$this->home_background_model->get_selected_background($id);
-            
+            $this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
             $this->load->view('backend/home_backend_edit',$data);
 		}
 

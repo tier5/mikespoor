@@ -17,6 +17,8 @@ class Review extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Testimonial';
 				$data['title']='Testimonial';
 				$data['bannerlist']=$this->review_model->getbannerlistmodel();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/review_view',$data);
         }
 		public function add()
@@ -29,6 +31,8 @@ class Review extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Testimonial';
 				$data['title']='Testimonial - Add New';
 				$data['feature']="Add";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/review_add_view',$data);
 		}
 		public function edit($getid)
@@ -42,6 +46,8 @@ class Review extends CI_Controller {
 				$data['title']='Testimonial - Edit';
 				$data['bannerinfo']=$this->review_model->getbannerinfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/review_add_view',$data);
 		}
 		public function addbanner()
@@ -81,7 +87,8 @@ class Review extends CI_Controller {
 			$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
 			$data['companyinfo']=$this->login_model->getuserinfoid('1');
 		    $data['headtitle']=$data['companyinfo']['company_name'].' | Testimonial';
-			
+			$this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
 			$data['title']='Theme';
             $this->load->view('backend/theme_view',$data);
 		}

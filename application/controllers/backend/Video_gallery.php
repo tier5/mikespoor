@@ -16,7 +16,8 @@ class Video_gallery extends CI_Controller {
 				$data['companyinfo']=$this->login_model->getuserinfoid('1');
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Video Gallery Page';
 				$data['title']='Video Gallery';
-				
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
 				$data['bannerlist']=$this->video_gallery_model->getbannerlistmodel();
                 $this->load->view('backend/video_gallery_view',$data);
         }
@@ -30,6 +31,8 @@ class Video_gallery extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Video Gallery Page';
 				$data['title']='Video Gallery - Add New';
 				$data['feature']="Add";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/video_gallery_add_view',$data);
 		}
 		public function edit($getid)
@@ -43,6 +46,8 @@ class Video_gallery extends CI_Controller {
 				$data['title']='Video Gallery - Edit';
 				$data['bannerinfo']=$this->video_gallery_model->getbannerinfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/video_gallery_add_view',$data);
 		}
 		public function addbanner()

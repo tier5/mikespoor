@@ -70,10 +70,49 @@
                                             <input type="text" class="form-control" name="txtTitle" placeholder="Enter Banner Title" value="<?php if(isset($bannerinfo['banner_title'])){echo $bannerinfo['banner_title'];} ?>" required readonly>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputFile">Image</label>
-                                            <input type="file" id="prfbtn" name="imgBanner"><br/>
-                                            <img src="<?php if(!empty($bannerinfo['banner_image'])){echo BASE_URI.'assets/images/banner/thumb/'.$bannerinfo['banner_image'];} ?>" id="profile" width="200" height="80"/>
-                                            <p class="help-block" style="font-size:12px;"><i>Image should be of size 570 X 452 px. Only files with JPG and JPEG allowed.</i></p>
+                                            <label for="exampleInputFile">Banner Type</label>
+                                            <select class="form-control" id="banner_type" name="banner_type" onchange="change_upload_option()" required>
+                                                <option value="">--Select--</option>
+                                                <option value="1" <?php if((isset($bannerinfo['banner_type']) && ($bannerinfo['banner_type']=='1'))){echo "selected";}?>>Image</option>
+                                                <option value="2" <?php if((isset($bannerinfo['banner_type']) && ($bannerinfo['banner_type']=='2'))){echo "selected";}?>>Video</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group"  id="image_upload" style="<?php if((isset($bannerinfo['banner_type']) && ($bannerinfo['banner_type']=='1') && (isset($bannerinfo['banner_image'])))){ echo"display:block";} else {echo"display:none";}?>">
+                                           <input type="file" id="prfbtn" name="imgBanner" class="form-control" >
+                                            <br/>
+                                            <img src="<?php if(!empty($bannerinfo['banner_image'])){echo BASE_URI.'assets/images/banner/thumb/'.$bannerinfo['banner_image'];} ?>" id="profile" width="200" height="80" />
+                                        </div>
+
+                                        <div class="form-group"  id="video_upload" style="<?php if((isset($bannerinfo['banner_type']) && ($bannerinfo['banner_type']=='2') && (isset($bannerinfo['banner_image'])))){ echo"display:block";} else {echo"display:none";}?>">
+                                           <input type="radio" name="video_type" value="1" <?php if( ($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='1')){ echo"checked";}?>>Upload From Device
+                                           <input type="radio" name="video_type" value="2" <?php if( ($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='2')){ echo"checked";}?>>Yotube url
+                                            
+                                        </div>
+                                        
+                                        <div class="form-group" id="video_upload_section" style="<?php if( ($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='1')){ echo "display:block";}else {echo "display:none";}?>">
+                                            <input type="file" class="form-control" id="upload_video" name="upload_video"><br/>
+                                              <?php 
+                                                  $ext=substr($bannerinfo['banner_image'], strrpos($bannerinfo['banner_image'], '.') + 1);
+                                              ?>
+                                             <video width="320" height="240" controls>
+                                                  <source src="<?php echo BASE_URI?>assets/images/banner/<?php echo $bannerinfo['banner_image'];?>" type="video/<?php echo $ext; ?>">
+                  
+                                              </video>
+
+                                        </div>
+                                         <div class="form-group"  id="url_section" style="<?php if( ($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='2')){ echo "display:block";}else {echo "display:none";}?>">
+                                            <input type="text" class="form-control" id="url_upload" name="url_upload" value="<?php if (($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='2') && (isset($bannerinfo['banner_image']))){ echo $bannerinfo['banner_image']; } ?>"><br/>
+                                            <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p>
+                                            <?php if (($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='2') && (isset($bannerinfo['banner_image']))){ 
+                                              
+                                              $url=explode("?v=",(trim($bannerinfo['banner_image'])));
+              
+                                              $videname=$url[1];
+                                              ?> 
+                                               <iframe src="https://www.youtube.com/embed/<?php echo $videname; ?>" frameborder="0" width="400" height="200"></iframe>
+                                            <?php } ?> 
+                                              
                                         </div>
                                     </div>
                                     <div class="box-footer">                           
@@ -114,6 +153,7 @@
         <script src="assets/admin/dist/js/app.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="assets/admin/dist/js/demo.js"></script>
+        
         <script>
           $(function () {
             $("#example1").DataTable();
@@ -143,7 +183,37 @@
             $("#prfbtn").change(function(){
                 readURL(this);
             });
+
+            $(document).on("change","input[type=radio]",function(){
+                var video_type=$('[name="video_type"]:checked').val();
+                if(video_type==1){
+                    $('#video_upload_section').show();
+                    $('#upload_video').click();
+                    $('#url_section').hide();
+                } else if(video_type==2){
+                    $('#video_upload_section').hide();
+                    $('#url_section').show();
+                }else{
+                    $('#video_upload_section').hide();
+                    $('#url_section').hide();  
+                }
+            });
         	});
+
+          function change_upload_option()
+          {
+             var banner_type=$('#banner_type').val();
+              if(banner_type==1){
+                $('#image_upload').show();
+                $('#video_upload').hide();
+              } else if(banner_type==2){
+                $('#image_upload').hide();
+                $('#video_upload').show();
+              }else{
+                $('#image_upload').hide();
+                $('#video_upload').hide();
+              }
+          }
         </script>
         <script>
 

@@ -18,6 +18,8 @@ class Contact extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Contact Us';
 				$data['title']='Contact Us';
 				$data['bannerinfo']=$this->cms_model->getcmsinfomodel('8');
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/contact_view',$data);
         }
 		public function editcms()

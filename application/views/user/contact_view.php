@@ -39,17 +39,7 @@
          <?php include('include/header.php'); ?><!-- .header-wrapper end -->
 
         <!-- #page-title start -->
-        <section id="page-title" class="page-title-5" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
-            <div class="container">
-                <div class="row">
-                    <div class="grid_12">
-                        <div class="breadcrumbs triggerAnimation animated" data-animate="fadeInUp">
-                            
-                        </div>
-                    </div><!-- .grid_8 end -->
-                </div><!-- .row end -->
-            </div><!-- .container end -->
-        </section><!-- #page-title end -->
+        <?php include('include/headerbanner.php'); ?>
 
         <!-- .page-content start -->
         <section class="page-content">

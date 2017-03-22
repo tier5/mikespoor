@@ -8,11 +8,20 @@ class Banner_model extends CI_Model {
         }
 		public function getcmsinfomodel($getid)
 		{
-			$this->db->select('`banner_id`, `banner_name`, `banner_slug`, `banner_title`, `banner_image`, `banner_ext`, `updatedOn`');
+			$this->db->select('`banner_id`, `banner_name`, `banner_slug`, `banner_title`, `banner_image`,`banner_type`, `banner_ext`, `updatedOn`');
             $this->db->from('lm_banner');
 			$this->db->where('banner_id',$getid);
 			$query = $this->db->get();
 			$row = $query->row_array();
+			return $row;
+		}
+
+		public function get_all_banner()
+		{
+			$this->db->select('`banner_id`, `banner_name`, `banner_slug`, `banner_title`, `banner_image`,`banner_type`, `banner_ext`, `updatedOn`');
+            $this->db->from('lm_banner');
+			$query = $this->db->get();
+			$row = $query->result_array();
 			return $row;
 		}
 
@@ -69,7 +78,7 @@ class Banner_model extends CI_Model {
 
 		public function getbannerbyslug($slug)
 		{
-			$this->db->select('`banner_id`, `banner_name`, `banner_slug`, `banner_title`, `banner_image`, `banner_ext`, `updatedOn`');
+			$this->db->select('`banner_id`, `banner_name`, `banner_slug`, `banner_title`, `banner_image`,`banner_type`, `banner_ext`, `updatedOn`');
             $this->db->from('lm_banner');
 			$this->db->where('banner_slug',$slug);
 			$query = $this->db->get();

@@ -17,6 +17,8 @@ class Site_settings extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Site Settings';
 				$data['title']='Site Settings';
 				$data['userinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/site_settings_view',$data);
         }
 		public function editsite()

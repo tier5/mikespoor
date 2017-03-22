@@ -21,6 +21,8 @@ class Dashboard extends CI_Controller {
 				$data['imagecount']=$this->picture_gallery_model->countpicture();
 				$this->load->model('backend/school_visit_blog_model');
 				$data['blogcount']=$this->school_visit_blog_model->countschool_visit_blog();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/dashboard_view',$data);
         }
 		

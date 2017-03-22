@@ -6,6 +6,7 @@ class About_us extends CI_Controller {
                 parent::__construct();
 				$this->load->model('backend/cms_model');
 				$this->load->model('backend/timeline_model');
+				$this->load->model('backend/banner_model');
                 // Your own constructor code
         }
         public function index()
@@ -18,6 +19,7 @@ class About_us extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | About Us';
 				$data['title']='About Us';
 				$data['bannerinfo']=$this->cms_model->getcmsinfomodel('1');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/about_us_view',$data);
         }
 		public function editcms()
@@ -49,10 +51,11 @@ class About_us extends CI_Controller {
 			$data['title']='About Us - Timeline';
 			$this->load->model('backend/timeline_model');
 			$data['bannerlist']=$this->timeline_model->getfeaturedlistmodel();
-
+            $data['inner_page_banner']=$this->banner_model->get_all_banner();
 	        $this->load->view('backend/timeline_list_view',$data);
 		}
-				public function addtimeline()
+
+	    public function addtimeline()
 		{
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
@@ -62,8 +65,10 @@ class About_us extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Timeline';
 				$data['title']='Timeline List - Add New';
 				$data['feature']="Add";
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/timeline_list_add_view',$data);
 		}
+
 		public function edittimeline($getid)
 		{
 			    $this->load->helper('auth_helper');
@@ -77,6 +82,7 @@ class About_us extends CI_Controller {
 				$this->load->model('backend/timeline_model');
 				$data['bannerinfo']=$this->timeline_model->getfeatureinfomodel($getid);
 				$data['feature']="Edit";
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/timeline_list_add_view',$data);
 		}
 		public function addnewtimeline()

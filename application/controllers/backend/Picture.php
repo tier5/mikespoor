@@ -17,6 +17,8 @@ class Picture extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Picture Category';
 				$data['title']='Picture Category';
 				$data['bannerlist']=$this->picture_model->getbannerlistmodel();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/picture_view',$data);
         }
 		public function add()
@@ -29,6 +31,8 @@ class Picture extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Picture Category';
 				$data['title']='Picture Category - Add New';
 				$data['feature']="Add";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/picture_add_view',$data);
 		}
 		public function edit($getid)
@@ -42,6 +46,8 @@ class Picture extends CI_Controller {
 				$data['title']='Picture Category - Edit';
 				$data['bannerinfo']=$this->picture_model->getbannerinfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/picture_add_view',$data);
 		}
 		public function addbanner()

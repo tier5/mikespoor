@@ -17,6 +17,8 @@ class Video_banner extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Video Banner Category';
 				$data['title']='Video Banner Category';
 				$data['bannerlist']=$this->video_banner_model->getbannerlistmodel();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/video_banner_view',$data);
         }
 		public function add()
@@ -29,6 +31,8 @@ class Video_banner extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Video Banner Category';
 				$data['title']='Video Banner Category - Add New';
 				$data['feature']="Add";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/video_banner_add_view',$data);
 		}
 		public function edit($getid)
@@ -42,6 +46,8 @@ class Video_banner extends CI_Controller {
 				$data['title']='Video Banner Category - Edit';
 				$data['bannerinfo']=$this->video_banner_model->getbannerinfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/video_banner_add_view',$data);
 		}
 		public function addbanner()

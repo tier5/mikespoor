@@ -17,6 +17,8 @@ class Change_password extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | User Profile';
 				$data['title']='User Profile';
 				$data['userinfo']=$this->login_model->getmemberinfoid($_SESSION['usersession']);
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/change_password_view',$data);
         }
 		public function editsite()

@@ -27,6 +27,8 @@ class Video_Gallery extends CI_Controller {
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(4);
+				 $this->load->model('backend/banner_model');
+                $data['banner']=$this->banner_model->getbannerbyslug('video_gallery');
 			    $this->load->view('user/video_gallery_view',$data);
 		}
 		
@@ -51,6 +53,8 @@ class Video_Gallery extends CI_Controller {
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(4);
+				$this->load->model('backend/banner_model');
+                $data['banner']=$this->banner_model->getbannerbyslug('video_gallery');
 				 $this->load->view('user/video_gallery_view',$data);
 		
 	   }

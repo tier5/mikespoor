@@ -17,6 +17,8 @@ class Gallery extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Gallery Page';
 				$data['title']='Gallery Page - Car\'s List';
 				$data['bannerlist']=$this->gallery_model->getbannerlistmodel();
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/gallery_view',$data);
         }
 		public function add()
@@ -29,6 +31,8 @@ class Gallery extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Gallery Page';
 				$data['title']='Gallery Page - Add New';
 				$data['feature']="Add";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/gallery_add_view',$data);
 		}
 		public function edit($getid)
@@ -42,6 +46,8 @@ class Gallery extends CI_Controller {
 				$data['title']='Gallery Page - Edit';
 				$data['bannerinfo']=$this->gallery_model->getbannerinfomodel($getid);
 				$data['feature']="Edit";
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/gallery_add_view',$data);
 		}
 		public function addbanner()

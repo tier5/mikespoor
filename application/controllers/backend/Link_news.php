@@ -17,6 +17,8 @@ class Link_news extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | Link & News';
 				$data['title']='Link & News';
 				$data['bannerinfo']=$this->cms_model->getcmsinfomodel('7');
+				$this->load->model('backend/banner_model');
+				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/link_news_view',$data);
         }
 		public function editcms()

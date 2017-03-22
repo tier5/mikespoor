@@ -81,14 +81,17 @@
                     <a href="<?php echo BASE_URI.'backend/contact'; ?>"><i class="fa fa-phone"></i> Contact Us</a>               
             </li>
 
-            <li class="treeview<?php if($current_page == 'banner/type/1' || $current_page == 'banner/type/2' || $current_page == 'banner/type/3' || $current_page == 'banner/type/4' || $current_page == 'banner/type/5') { ?> active"<?php }else{echo '"';} ?>>
+            <li class="treeview<?php if($current_page == 'banner/type/1' || $current_page == 'banner/type/2' || $current_page == 'banner/type/3' || $current_page == 'banner/type/4' || $current_page == 'banner/type/5'|| $current_page == 'banner/type/6') { ?> active"<?php }else{echo '"';} ?>>
                 <a href="<?php echo BASE_URI.'backend/banner/1'; ?>"><i class="fa fa-briefcase"></i> <span>Banner Management</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li <?php if($current_page == 'banner/type/1') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/banner/type/1'; ?>"><i class="fa fa-list"></i> About Us</a></li>
+                    <?php foreach ($inner_page_banner as $banner) { ?>
+                        <li <?php if($current_page == 'banner/type/'.$banner['banner_id']) { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/banner/type/'.$banner['banner_id']; ?>"><i class="fa fa-list"></i> <?php echo $banner['banner_name'];?></a></li>
+                    <?php } ?>
+                   <!--  <li <?php if($current_page == 'banner/type/1') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/banner/type/1'; ?>"><i class="fa fa-list"></i> About Us</a></li>
                     <li <?php if($current_page == 'banner/type/2') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/banner/type/2'; ?>"><i class="fa fa-list"></i> Picture Gallery</a></li>
                     <li <?php if($current_page == 'banner/type/3') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/banner/type/3'; ?>"><i class="fa fa-list"></i> Link & News</a></li>
                     <li <?php if($current_page == 'banner/type/4') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/banner/type/4'; ?>"><i class="fa fa-list"></i> School Visit</a></li>
-                    <li <?php if($current_page == 'banner/type/5') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/banner/type/5'; ?>"><i class="fa fa-list"></i> Contact Us</a></li>
+                    <li <?php if($current_page == 'banner/type/5') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/banner/type/5'; ?>"><i class="fa fa-list"></i> Contact Us</a></li> -->
                 </ul>
             </li>
 
