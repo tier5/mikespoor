@@ -82,6 +82,7 @@
                                            <input type="file" id="prfbtn" name="imgBanner" class="form-control" >
                                             <br/>
                                             <img src="<?php if(!empty($bannerinfo['banner_image'])){echo BASE_URI.'assets/images/banner/thumb/'.$bannerinfo['banner_image'];} ?>" id="profile" width="200" height="80" />
+                                            <p class="help-block" style="font-size:12px;"><i>Image Size Should Less Than 3MB</u></i></p>
                                         </div>
 
                                         <div class="form-group"  id="video_upload" style="<?php if((isset($bannerinfo['banner_type']) && ($bannerinfo['banner_type']=='2') && (isset($bannerinfo['banner_image'])))){ echo"display:block";} else {echo"display:none";}?>">
@@ -99,6 +100,7 @@
                                                   <source src="<?php echo BASE_URI?>assets/images/banner/<?php echo $bannerinfo['banner_image'];?>" type="video/<?php echo $ext; ?>">
                   
                                               </video>
+                                              <p class="help-block" style="font-size:12px;"><i>Prefferable format mp4</u></i></p>
 
                                         </div>
                                          <div class="form-group"  id="url_section" style="<?php if( ($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='2')){ echo "display:block";}else {echo "display:none";}?>">
@@ -206,12 +208,19 @@
               if(banner_type==1){
                 $('#image_upload').show();
                 $('#video_upload').hide();
+                $('#video_upload_section').hide();
+                $('#url_section').hide();
+                $('#prfbtn').click();
               } else if(banner_type==2){
                 $('#image_upload').hide();
                 $('#video_upload').show();
+                $('#video_upload_section').hide();
+                $('#url_section').hide();
               }else{
                 $('#image_upload').hide();
                 $('#video_upload').hide();
+                $('#video_upload_section').hide();
+                $('#url_section').hide();
               }
           }
         </script>

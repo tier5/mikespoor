@@ -12,50 +12,31 @@
     </section><!-- #page-title end -->
 <?php } ?>
 
-
 <?php if((isset($banner['banner_type'])) && ($banner['banner_type']=='2') ){  
-    if((isset($banner['banner_ext'])) && ($banner['banner_ext']=='1') ){?>
-                          <?php 
-                    $ext=substr($banner['banner_image'], strrpos($banner['banner_image'], '.') + 1);
-
-
-                    ?>
-                    <section class="video-container">
-                    <video min-width="100%" height="300px" autoplay>
-                      <source src="<?php echo BASE_URI?>assets/images/banner/<?php echo $banner['banner_image'];?>" type="video/<?php echo $ext; ?>">
-                  
-                    </video>
-                    </section>
+    if((isset($banner['banner_ext'])) && ($banner['banner_ext']=='1') ){
+    $ext=substr($banner['banner_image'], strrpos($banner['banner_image'], '.') + 1); ?>
+    <section  >
+        <video height="300px" width="100%" autoplay>
+            <source src="<?php echo BASE_URI?>assets/images/banner/<?php echo $banner['banner_image'];?>" type="video/<?php echo $ext; ?>">
+        </video>
+    </section>
     <?php }
-    if((isset($banner['banner_ext']))&& ($banner['banner_ext']=='2') ){?>
-			
-									
-								
-								<?php 
-					                                              $url=explode("?v=",(trim($banner['banner_image'])));
-					              
-					                                              $videname=$url[1]; 
-                                                                 echo $videname;
-					                                              ?>
+    if((isset($banner['banner_ext']))&& ($banner['banner_ext']=='2') ){
+	    $url=explode("?v=",(trim($banner['banner_image'])));
+		$videname=$url[1]; ?>
+        <section id="home" class="padbot0">
+            <div class="flexslider top_slider" >
+                <a name="P2" class="player" id="P2" data-property="{videoURL:'<?php echo $videname; ?>',containment:'.top_slider',autoPlay:true, mute:true, startAt:0, opacity:1}"></a>
+            </div>
+        </section>			                                             
+	<?php }
+} ?>
+<style type="text/css">
+video { 
+  
+  object-fit: fill;
+}
 
-					                                             
-	<?php }?>
-				             
-
-							<section id="home" class="padbot0">
-				
-			
-			<div class="flexslider top_slider" >
-             
-			
-              <a name="P2" class="player" id="P2" data-property="{videoURL:'<?php echo $companyinfo['video_banner']; ?>',containment:'.top_slider',autoPlay:true, mute:true, startAt:0, opacity:1}"></a>
-             
-			</div>
-		</section>
-
-
-
-<?php } ?>
-
+</style>
      
 		 

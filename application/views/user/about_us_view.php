@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <?php include('include/headsection.php'); ?>
-
     <style>
       .apoint{
       	cursor:pointer;
@@ -98,290 +97,121 @@
         color:#717A8B;
       }
     </style>
-    
-  </head>
-  <body>
-    <!-- .header-wrapper start -->
-    <?php include('include/header.php'); ?>
-    <!-- .header-wrapper end -->
-
-    <?php include('include/headerbanner.php'); ?>
-    <br/>
-    <?php if($aboutinfo['cms_choice']=='0'){?>
-    <!-- .page-content start -->
-    <section class="page-content">
-    <!-- .container start -->
-      <div class="container">
-        <!-- .row start -->
-        <div class="row">
-          <div class="grid_6">
-            <div class="triggerAnimation animated" data-animate="fadeInLeft">
-              <ul class="team-alternative">
-                <li class="team-member">
-                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage1']; ?>" alt="team member image"/>
-                  
-                </li>
-                <li class="team-member">
-                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage2']; ?>" alt="team member image"/>
-                 
-                </li>
-                <li class="team-member">
-                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage3']; ?>" alt="team member image"/>
-                  
-                </li>
-                <li class="team-member">
-                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage4']; ?>" alt="team member image"/>
-                  
-                </li>                                
-              </ul>
-            </div><!-- .triggerAnimation.animated end -->
-          </div><!-- .grid_6 end -->
-          <!-- .grid_6 start -->
-          <article class="grid_6">
-              <div class="triggerAnimation animated" data-animate="fadeInRight">
-                  <section class="heading-bordered">
-                      <h3><?php echo $aboutinfo['cms_title']; ?> </h3>
-                  </section><!-- .heading-bordered end -->
-                  <?php echo htmlspecialchars_decode($aboutinfo['cms_content']); ?>
-              </div><!-- .triggerAnimation.animated end -->
-          </article>
-          <!-- .grid_6 end -->
-        </div>
-        <!-- .row end -->
-      </div>
-      <!-- .container end -->
-    </section>
-    <?php } else if($aboutinfo['cms_choice']=='1'){ ?>
-    <section class="page-content">
-      <!-- .container start -->
-      <div class="container">
-        <!-- .row start -->
-        <div class="row">
-          <div class="grid_12" align="center">
-            <div id="pdf">
-              <object width="90%" height="1425" type="application/pdf" data="assets/images/sample.pdf?#view=FitH&scrollbar=0&toolbar=0&navpanes=0" id="pdf_content">
-                <p>It appears your Web browser is not configured to display PDF files.</p>
-              </object>
-            </div>
-          </div>
-          <!-- .grid_6 end -->
-          <!-- .grid_6 start -->   
-        </div><!-- .row end -->
-      </div><!-- .container end -->
-    </section>
-    <?php } ?>
-    <!-- .page-content end -->
-    <!-- .page-content start -->
-    <section class="page-content parallax parallax-1" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row">
-          <article class="grid_12 timeline">
-            <section class="heading-centered triggerAnimation animated" data-animate="bounceIn">
-              <h2 style="margin-bottom:32px;"><?php echo $aboutinfo['cms_title']; ?> </h2>
-              <?php echo htmlspecialchars_decode($aboutinfo['cms_fcontent']); ?>
-              <br>
+    </head>
+    <body>
+      <?php include('include/header.php'); ?>
+      <?php include('include/headerbanner.php'); ?>
+      <br>
+      <?php if($aboutinfo['cms_choice']=='0'){?>
+      <section class="page-content">
+          <div class="container">
               <div class="row">
-                <div class="grid_12" align="center">
-                  <ul>
-                    <li>
-                      <img src="assets/timeline/timeline1.png">
-                      <div class="dated"><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?>
-                          <span class="popout">
-                              <h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_content']); ?>
-                          </span>
+                  <div class="grid_6">
+                      <div class="triggerAnimation animated" data-animate="fadeInLeft">
+                          <ul class="team-alternative">
+                              <li class="team-member">
+                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage1']; ?>" alt="team member image"/>
+                              </li>
+                              <li class="team-member">
+                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage2']; ?>" alt="team member image"/>
+                              </li>
+                              <li class="team-member">
+                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage3']; ?>" alt="team member image"/>
+                              </li>
+                              <li class="team-member">
+                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage4']; ?>" alt="team member image"/>
+                              </li>                                
+                          </ul>
                       </div>
-                    </li>
-                    <?php for ($i=1 ; $i<=sizeof($timelinelist); $i++){?>
-                         <?php if(isset($timelinelist[$i])){ ?>
-                          <li>
-                            <?php if(sizeof($timelinelist)-1==$i)  { ?>
-                             <img src="assets/timeline/timeline5.png">
-                            <?php } else { ?>
-                            <img src="assets/timeline/timeline2.png">
-                          <?php } ?>
-
-                          <div class="dated"><?php echo $timelinelist[$i]['timeline_title']; ?>
-                            <span class="popout">
-                              <h1><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_content']); ?>
-                            </span>
-                          </div>
-                        </li>
-                        <?php } ?>
-                         <?php if(isset($timelinelist[$i+1])){ ?>
-                        <li> 
-                          <?php if(sizeof($timelinelist)-1==$i+1) {?>
-                             <img src="assets/timeline/timeline6.png">
-                            <?php } else { ?>
-                          <img src="assets/timeline/timeline3.png">
-                          <?php } ?>
-                          <div class="dated"><?php echo $timelinelist[$i+1]['timeline_title']; ?>
-                            <span class="popout">
-                              <h1><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_content']); ?>
-                            </span>
-                          </div>
-                        </li> 
-                        <?php } ?>
-
-                      <?php $i=$i+1; } ?>
-                   <!--  <?php foreach($timelinelist as $timeline) {?>
-                         <li>
-                          <img src="assets/timeline/timeline2.png">
-                          <div class="dated"><?php echo $timeline[' timeline_title']; ?>
-                            <span class="popout">
-                              <h1><?php echo $timeline[' timeline_title']; ?></h1>
-                              <p><?php echo $timeline['timeline_content']; ?></p>
-                            </span>
-                          </div>
-                        </li> 
-                    <?php } ?> -->
-                   <!--  <li>
-                      <img src="assets/timeline/timeline2.png">
-                      <div class="dated">1940
-                        <span class="popout">
-                          <h1>1940</h1>
-                          <p>Now to Ashford with more space to set up my studio. </p>
-                        </span>
+                  </div>
+                  <article class="grid_6">
+                      <div class="triggerAnimation animated" data-animate="fadeInRight">
+                            <section class="heading-bordered">
+                                <h3><?php echo $aboutinfo['cms_title']; ?> </h3>
+                            </section>
+                            <?php echo htmlspecialchars_decode($aboutinfo['cms_content']); ?> 
                       </div>
-                    </li>
-                    <li>
-                      <img src="assets/timeline/timeline3.png">
-                      <div class="dated">1950
-                        <span class="popout">
-                          <h1>1950</h1>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        </span>
-                      </div>
-                    </li>
-                    <li>
-                      <img src="assets/timeline/timeline4.png">
-                      <div class="dated">1960
-                        <span class="popout">
-                          <h1>1950</h1>
-                          <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer .</p>
-                        </span>
-                      </div>
-                    </li> -->
-                    <!--  <li>
-                      <img src="assets/timeline/timeline_end.png">
-                    </li>  -->
-                  </ul>
-                </div>
+                  </article>
               </div>
-            </section>
-          </article>
+          </div>
+      </section>
+      <?php } else if($aboutinfo['cms_choice']=='1'){?>
+      <section class="page-content">
+          <div class="container">
+              <div class="row">
+                  <div class="grid_12" align="center">
+                      <div id="pdf">
+                          <object width="90%" height="1425" type="application/pdf" data="assets/images/sample.pdf?#view=FitH&scrollbar=0&toolbar=0&navpanes=0" id="pdf_content">
+                            <p>It appears your Web browser is not configured to display PDF files.</p>
+                          </object>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <?php } ?>
+      <section class="page-content parallax parallax-1" data-stellar-background-ratio="0.5">
+          <div class="container">
+              <div class="row">
+                  <article class="grid_12 timeline">
+                      <section class="heading-centered triggerAnimation animated" data-animate="bounceIn">
+                      <h2 style="margin-bottom:32px;"><?php echo $aboutinfo['cms_title']; ?> </h2>
+                      <?php echo htmlspecialchars_decode($aboutinfo['cms_fcontent']); ?>
+                      <br>
+                      <div class="row">
+                        <div class="grid_12" align="center">
+                          <ul>
+                            <li>
+                              <img src="assets/timeline/timeline1.png">
+                              <div class="dated"><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?>
+                                <span class="popout">
+                                  <h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_content']); ?>
+                                </span>
+                              </div>
+                            </li>
+                            <?php for ($i=1 ; $i<=sizeof($timelinelist); $i++){?>
+                            <?php if(isset($timelinelist[$i])){ ?>
+                            <li>
+                            <?php if(sizeof($timelinelist)-1==$i)  { ?>
+                              <img src="assets/timeline/timeline5.png">
+                              <?php } else { ?>
+                              <img src="assets/timeline/timeline2.png">
+                              <?php } ?>
+                              <div class="dated"><?php echo $timelinelist[$i]['timeline_title']; ?>
+                                <span class="popout">
+                                  <h1><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_content']); ?>
+                                </span>
+                              </div>
+                            </li>
+                            <?php } ?>
+                            <?php if(isset($timelinelist[$i+1])){ ?>
+                            <li> 
+                              <?php if(sizeof($timelinelist)-1==$i+1) {?>
+                                 <img src="assets/timeline/timeline6.png">
+                                <?php } else { ?>
+                              <img src="assets/timeline/timeline3.png">
+                              <?php } ?>
+                              <div class="dated"><?php echo $timelinelist[$i+1]['timeline_title']; ?>
+                                <span class="popout">
+                                  <h1><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_content']); ?>
+                                </span>
+                              </div>
+                            </li> 
+                            <?php } ?>
+                            <?php $i=$i+1; } ?>
+                            </ul>
+                          </div>
+                        </div>
+                      </section>
+                    </article>
+                  </div>
+                </div>
+              </section>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <?php include('include/footer.php'); ?>
 
-  </article><!-- .grid_12 end -->
-</div><!-- .row end -->
-
-                <!-- .row start -->
-                <!-- .row end -->
-            </div><!-- .container end -->
-        </section><!-- .page-content end -->
-
-        <!-- .page-content end -->
-
-        <!-- .page-content.parallax start -->
-        <!-- .page-content.parallax.parallax-2 end -->
-
-        <!-- .page-content end -->
-
-        <!-- .footer-wrapper start -->
-        <?php include('include/footer.php'); ?><!-- .footer-wrapper end -->
-
-        <!-- scripts -->
-        <!-- scripts -->
-        <script  src="assets/user/js/jquery-1.9.1.js"></script> <!-- jQuery library -->  
-        <script  src="assets/user/js/jquery-migrate-1.2.1.min.js"></script> <!-- jQuery migrate -->
-        <script  src="assets/user/js/jquery.placeholder.min.js"></script><!-- jQuery placeholder fix for old browsers -->
-        <script  src="assets/user/js/modernizr.custom.js"></script> <!-- jQuery modernizr -->
-        <script  src="assets/user/js/jquery.dlmenu.js"></script><!-- responsive navigation -->
-        <script  src="assets/user/js/waypoints.min.js"></script><!-- js for animating content -->
-        <script  src="assets/user/js/retina-1.1.0.min.js"></script><!-- retina ready script -->
-        <script  src="assets/user/js/jquery.stellar.min.js"></script><!-- parallax scrolling -->
-        <script  src="assets/user/js/jquery.isotope.min.js"></script><!-- jQuery isotope plugin -->
-        <script  src="assets/user/js/portfolio.js"></script> <!-- jQuery portfolio options -->
-        <script  src="assets/user/js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto lightbox -->
-        <script  src="assets/user/js/jquery.tweetscroll.js"></script> <!-- jQuery tweetscroll plugin -->
-        <script  src="assets/user/sharre/jquery.sharrre-1.3.4.min.js"></script><!-- Sharre post plugin -->
-        <script  src="assets/user/style-switcher/styleSwitcher.js"></script>
-		<script  src="assets/user/js/nicescroll.min.js"></script> <!-- Nice scroll Plugin -->
-        <script  src="assets/user/js/include.js"></script> <!-- jQuery custom options -->
-         
-		 
-	<script src="assets/user/js/js/jquery.flexslider-min.js" type="text/javascript"></script>
-	
-	<script src="assets/user/js/js/jquery.mb.YTPlayer.js" type="text/javascript"></script>
-	
-	<script src="assets/user/js/js/mynewscript.js" type="text/javascript"></script>
-        <script>
-            /* <![CDATA[ */
-            jQuery(document).ready(function($) {
-                'use strict';
-
-                // PRETTYPHOTO LIGHTBOX START
-                if(jQuery().prettyPhoto) {
-					piPrettyphoto(); 
-				}
-    
-				function piPrettyphoto(){
-					$("a[data-gal^='prettyPhoto']").prettyPhoto({
-						social_tools: false,
-						hook: 'data-gal'
-					});
-				}  
-
-                //JQUERY SHARRE PLUGIN END
-                $('.sharre-facebook').sharrre({
-                    share: {
-                        facebook: true
-                    },
-                    enableHover: false,
-                    enableTracking: true,
-                    click: function(api, options) {
-                        api.simulateClick();
-                        api.openPopup('facebook');
-                    }
-                });
-
-            });
-
-            /* ]]> */
-        </script>
- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-   <script>
-  $( function() {
-    $( document ).tooltip({
-      items: "img, [data-geo], [title]",
-      content: function() {
-        var element = $( this );
-		
-		
-        if ( element.is( "[data-geo]" ) ) {
-          var text = element.text();
-		  var tad=element.attr( "go" );
-		  var cont=$('#'+tad).html();
-          return cont;
-        }
-       
-      }
-    });
-  } );
-  </script>
-<style>
-  .ui-tooltip {
-    padding: 10px 20px;
-    color: white;
-    border-radius: 10px;
-    font-size: 14px;
-    text-transform: uppercase;
-    box-shadow: 0 0 7px black;
-  }
-  </style>
     </body>
 </html>
