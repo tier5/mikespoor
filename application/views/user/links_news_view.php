@@ -14,39 +14,42 @@
 
         <!-- #page-title start -->
        <?php include('include/headerbanner.php'); ?>
-
+       <br><br>
         <!-- .page-content start -->
         <section class="page-content">
 
             <!-- .container start -->
             <div class="container">
                 <!-- .row start -->
-                <div class="row">
-                    <!-- .grid_6 start -->
-                    <article class="grid_6">
-                        <div class="triggerAnimation animated" data-animate='fadeInLeft'>
-                            <img src='<?php echo BASE_URI.'uploads/'.$cmsinfo['cms_image']; ?>' alt='team member single image'/>
+                
+                    <?php foreach ($all_link as $link ) { ?>
+                    <div class="row">
+                        <div class="col-md-12">
+                           <section class="heading-bordered">
+                                <h3><?php echo $link['link_name'];?></h3>
+                            </section>
                         </div>
-                    </article><!-- .grid_6 end -->
+                        <article class="grid_4">
+                           <div class="triggerAnimation animated" data-animate='fadeInLeft'>
+                            <img src='<?php echo BASE_URI;?>uploads/link_news/thumb/<?php echo $link["link_logo"];?>' alt='Link Logo'/>
+                        </div>
+                        </article>
 
-                    <!-- .grid_6 start -->
-                    <article class="grid_6">
-
+                        <article class="grid_8">
+                           
                         <div class="triggerAnimation animated" data-animate='fadeInRight'>
-                            <!-- .heading-bordered start -->
-                            <section class="heading-bordered">
-                                <h3>Link & News</h3>
-                            </section><!-- .heading-bordered end -->
+                          
+                           
+                            <?php echo htmlspecialchars_decode($link['link_content']); ?>
 
-                            <?php echo htmlspecialchars_decode($cmsinfo['cms_content']); ?>
-
-                            <!-- .team-social-links end -->
-                        </div><!-- .triggerAnimation.animated end -->
-                    </article><!-- .grid_6 end --> 
-                </div><!-- .row end -->
-
+                            
+                        </div>
+                        </article>
+                         </div>
+                    <?php } ?>
+                   
                 <!-- .row start --><!-- .row end -->
-            </div><!-- .container end -->
+           <!-- .container end -->
         </section><!-- .page-content end -->
 
         <!-- .footer-wrapper start -->

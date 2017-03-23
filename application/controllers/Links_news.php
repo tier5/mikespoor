@@ -4,6 +4,7 @@ class Links_news extends CI_Controller {
         public function __construct()
         {
                 parent::__construct();
+                $this->load->model('backend/link_model');
                 // Your own constructor code
         }
 		public function index()
@@ -26,6 +27,7 @@ class Links_news extends CI_Controller {
 				$this->load->model('backend/banner_model');
                 $data['banner']=$this->banner_model->getbannerbyslug('link_news');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(5);
+				$data['all_link']=$this->link_model->all_link();
 			    $this->load->view('user/links_news_view',$data);
 		}
 }

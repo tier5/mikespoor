@@ -51,7 +51,8 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
-        <li class="active">Link & News</li>
+        <li class="#">Link & News</li>
+        <li class="active"><?php echo $title; ?></li>
       </ol>
     </section>
 
@@ -90,60 +91,40 @@
             <!-- form start -->
            
              <div class="box box-primary">
-                              <div >
-                                <br>
-                                <a class="btn btn-primary" href="<?php echo BASE_URI.'backend/link-news/add_edit_link_news'; ?>"><i class="fa fa-plus">Add Link & News </i></a>
-                                <br>
-                              </div>
-                              <br> 
-            <!-- /.box-header --><?php $i=1;?>
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Link Name</th>
-                  <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <?php foreach ($all_link as $key ) { ?>
-                    <tr>
-                        <td><?php echo $i;?></td>
-                        <td><?php echo $key['link_name'];?></td>
-                        <td><a class="btn btn-primary btn-md" title="Edit" href="<?php echo BASE_URI.'backend/link-news/add_edit_link_news/'.$key['linkid']; ?>"><i class="fa fa-edit"> Edit</i></a> <a class="btn btn-danger btn-md" title="Delete" id="delete_home_offer" onclick="delete_links(<?php echo $key['linkid']; ?>)" ><i class="fa fa-trash"> Delete</i></a></td>
-                    </tr>
-                  <?php $i=$i+1; } ?>
-                </tbody>
-              </table>
-              </div>
-            <!-- <input type="hidden" name="txtCid" value="<?php if(isset($bannerinfo['cms_id'])){echo $bannerinfo['cms_id'];} ?>"/>
-            <input type="hidden" name="hid_gallery_pdf1" id="hid_gallery_pdf1" value="<?php if(isset($bannerinfo['cms_image'])){echo $bannerinfo['cms_image'];} ?>" />
+              <?php if($feature=="Edit"){?>
+                <form action="<?php echo BASE_URI.'backend/link-news/edit_link_news'; ?>" method="post" enctype="multipart/form-data">
+              <?php } if($feature=="Add") { ?>
+              <form action="<?php echo BASE_URI.'backend/link-news/add_link_news'; ?>" method="post" enctype="multipart/form-data">
+              <?php } ?>
+            <input type="hidden" name="txtCid" value="<?php if(isset($link_details['linkid'])){echo $link_details['linkid'];} ?>"/>
+        
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Page Title</label>
-                  <input type="text" class="form-control" name="txtTitle" placeholder="Enter Banner Title" value="<?php if(isset($bannerinfo['cms_title'])){echo $bannerinfo['cms_title'];} ?>" required>
+                  <label for="exampleInputEmail1">Link Title</label>
+                  <input type="text" class="form-control" name="txtTitle" placeholder="Enter Banner Title" value="<?php if(isset($link_details['link_name'])){echo $link_details['link_name'];} ?>" required>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">Image</label>
+                  <label for="exampleInputFile">Link Logo</label>
                   <input type="file" id="prfbtn" name="imgBanner"><br/>
-                  <img src="<?php if(!empty($bannerinfo['cms_image'])){echo BASE_URI.'uploads/'.$bannerinfo['cms_image'];} ?>" id="profile" width="200" height="80"/>
+                  <img src="<?php if(!empty($link_details['link_logo'])){echo BASE_URI.'uploads/link_news/'.$link_details['link_logo'];} ?>" id="profile" width="200" height="80"/>
                   <p class="help-block" style="font-size:12px;"><i>Image should be of size 570 X 452 px.</i></p>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">Page Content</label>
+                  <label for="exampleInputFile">Link Content</label>
                    <textarea id="editor1" name="editor1" rows="10" cols="120">
-                                           <?php if(isset($bannerinfo['cms_content'])){echo $bannerinfo['cms_content'];} ?>
+                                           <?php if(isset($link_details['link_content'])){echo $link_details['link_content'];} ?>
                     </textarea>
                 </div>
               </div>
               <!-- /.box-body -->
 
+              <div class="box-footer">
             
-            <!-- /.box-body -->
-         
-          </div>
-          <!-- /.box -->
-
+                 <button type="submit" class="btn btn-primary" value="list" name="btnSave">Save</button>
+                 
+           
+              </div>
+</form>     
        
         </div>
         <!--/.col (left) -->
