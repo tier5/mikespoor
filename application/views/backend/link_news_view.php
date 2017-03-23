@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="assets/admin/plugins/daterangepicker/daterangepicker-bs3.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
+  <link href="https://cdn.jsdelivr.net/sweetalert2/6.1.1/sweetalert2.min.css"; rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -190,6 +190,7 @@
 <script src="assets/admin/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="assets/admin/dist/js/demo.js"></script>
+ <script src="https://cdn.jsdelivr.net/sweetalert2/6.1.1/sweetalert2.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable();
@@ -234,6 +235,45 @@
             
             reader.readAsDataURL(input.files[0]);
         }
+    }
+
+    function delete_links(link_id)
+    {
+      swal({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, delete it!',
+                  cancelButtonText: 'No, cancel!',
+                  confirmButtonClass: 'btn btn-success',
+                  cancelButtonClass: 'btn btn-danger',
+                  buttonsStyling: false
+              }).then(function () {
+                $.ajax({
+                url: 'backend/ajax/delete_link',
+                type: "post",
+                data:{link_id:link_id},
+                success: function(response)
+                {
+                   window.location.reload();
+                }
+                });
+                  
+              $('#myModal').modal('show');
+                      }, function (dismiss) {
+                          // dismiss can be 'cancel', 'overlay',
+                          // 'close', and 'timer'
+                          if (dismiss === 'cancel') {
+                              swal(
+                                      'Cancelled',
+                                      'Offer is safe :)',
+                                      'error'
+                              )
+                  }
+              });
     }
     $(document).ready(function(){
     $("#tprfbtn").change(function(){

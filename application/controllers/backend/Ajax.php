@@ -64,6 +64,18 @@ class Ajax extends CI_Controller {
             return $update_status;
         }
 
+        public function delete_link()
+        {
+             $con['linkid']=$this->input->post('link_id');
+
+            $current_info=$this->Ajax_model->delete('lm_link',$con);
+            if($current_info){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         
 }
 ?>
