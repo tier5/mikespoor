@@ -34,7 +34,10 @@
                     <!--- .social-links start -->
                     <ul class="social-links">
                         <li>
-                            <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>" class="flaticon-twitter16"  ></a>
+                            <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>"  class="flaticon-twitter16">
+                                
+
+                            </a>
                         </li>
 
                         <li>

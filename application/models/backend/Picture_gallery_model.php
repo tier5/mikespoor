@@ -5,6 +5,7 @@ class Picture_gallery_model extends CI_Model {
         {
                 parent::__construct();
 				$this->load->database();
+				$this->load->library('image_lib');
         }
 		public function countpicture()
 		{
@@ -27,7 +28,21 @@ class Picture_gallery_model extends CI_Model {
 		         $source2 = $_FILES['imgBanner']['tmp_name'];
 		         $gallery_pdf1 = time().".".$extension2;
 		         $destination2 = "uploads/".$gallery_pdf1;
-		          move_uploaded_file($source2,$destination2);
+		         
+		          if(move_uploaded_file($source2,$destination2)){
+			           	$config['image_library'] = 'gd2';
+					    $config['source_image'] = "uploads/picture/".$gallery_pdf1;
+					    $config['new_image'] ='uploads/picture/thumb/'.$gallery_pdf1;
+					   // $config['maintain_ratio'] = TRUE;
+					    $config['width']   = 388;
+					    $config['height']   = 388;
+					    $this->image_lib->initialize($config);
+			            if(!$this->image_lib->resize()){
+							return false;
+			            } 
+		        } else {
+		           return false;
+			    }
 	           }
 	
 			$slugvalue=createSlug($_POST['txtTitle']);
@@ -104,28 +119,41 @@ class Picture_gallery_model extends CI_Model {
 		public function editbannermodel()
 		{
 			$timezone = 'GMT';
-	if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
-	$entdate = date('Y-m-d H:i:s');
-	$this->load->helper('function');
+			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
+			$entdate = date('Y-m-d H:i:s');
+			$this->load->helper('function');
 			$slugvalue=createSlug($_POST['txtTitle']);
-			
-			 $gallery_pdf1='';
+
+			$gallery_pdf1='';
 			$gallery_pdf2='';
 			if($_FILES['imgBanner']['name']!="")
-	          {	
-		        unlink("uploads/".$_POST['hid_destination_pdf1']);
+	        {	
+		       
 		        $photopath2 = pathinfo($_FILES['imgBanner']['name']);
 		        $extension2 = $photopath2['extension'];
 		        $source2 = $_FILES['imgBanner']['tmp_name'];
-		       $gallery_pdf1 = time().".".$extension2;
-		       $destination2 = "uploads/".$gallery_pdf1;
-		
-		        move_uploaded_file($source2,$destination2);
-	          }
-	         else
-	          {
-		         $gallery_pdf1 = $_POST['hid_destination_pdf1'];
-	          }
+		        $gallery_pdf1 = time().".".$extension2;
+		        $destination2 = "uploads/picture/".$gallery_pdf1;
+		       
+		        if(move_uploaded_file($source2,$destination2)){
+			           	$config['image_library'] = 'gd2';
+					    $config['source_image'] = "uploads/picture/".$gallery_pdf1;
+					    $config['new_image'] ='uploads/picture/thumb/'.$gallery_pdf1;
+					   // $config['maintain_ratio'] = TRUE;
+					    $config['width']   = 388;
+					    $config['height']   = 388;
+					    $this->image_lib->initialize($config);
+			            if(!$this->image_lib->resize()){
+							return false;
+			            } 
+		        } else {
+		           return false;
+			    }
+	        }
+	        else
+	        {
+		        $gallery_pdf1 = $_POST['hid_destination_pdf1'];
+	        }
 			
 			$data = array(
                     'gpicture_title' => trim(addslashes($_POST['txtTitle'])),

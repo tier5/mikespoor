@@ -135,7 +135,7 @@
                 <div class="form-group">
                   <label for="exampleInputFile">Image</label>
                   <input type="file" id="prfbtn" name="imgBanner"><br/>
-                  <img src="<?php if(isset($bannerinfo['gpicture_image'])){echo BASE_URI.'uploads/'.$bannerinfo['gpicture_image'];} ?>" id="profile" width="200" height="80"/>
+                  <img src="<?php if(isset($bannerinfo['gpicture_image'])){echo BASE_URI.'uploads/picture/thumb/'.$bannerinfo['gpicture_image'];} ?>" id="profile" width="200" height="80"/>
                  
                 </div>
                

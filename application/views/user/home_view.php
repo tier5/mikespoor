@@ -363,7 +363,7 @@
                                     <figure class="portfolio-img-container">
                                         <div class="portfolio-img">
 
-                                            <img src="<?php echo BASE_URI.'uploads/'.$gallerylistdata['gpicture_image']; ?>" alt="portfolio image"/>
+                                            <img src="<?php echo BASE_URI.'uploads/picture/thumb/'.$gallerylistdata['gpicture_image']; ?>" alt="portfolio image"/>
 
 
                                             <div class="portfolio-img-hover">
