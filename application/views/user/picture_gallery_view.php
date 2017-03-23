@@ -96,7 +96,7 @@
         <a href="http://unitegallery.net">
         <img alt="<?php echo $gallerylistdata['gpicture_title']; ?>"
              src="<?php echo BASE_URI.'uploads/'.$gallerylistdata['gpicture_image']; ?>"
-             data-image="<?php echo BASE_URI.'uploads/'.$gallerylistdata['gpicture_image']; ?>"
+             data-image="<?php echo BASE_URI.'uploads/picture/'.$gallerylistdata['gpicture_image']; ?>"
              data-description="This is a Lemon Slice"
              style="display:none">
         </a>
