@@ -7,6 +7,7 @@
 				$this->load->model('backend/banner_model');
                 // Your own constructor code
         }
+
         public function type($getid)
         {
 			    $this->load->helper('auth_helper');
@@ -53,17 +54,17 @@
 	                        ); 
 			            } else {
 			            	$_SESSION['errormsg']=$this->image_lib->display_errors();
-							header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
+							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 							exit;
 			            }
 		            } else {
 		            	$_SESSION['errormsg']=$_FILES;
-						header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
+						header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 						exit;
 			        }
 		        }else {
             		$_SESSION['errormsg']="Upload Image";
-					header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
+					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 					exit();
                 }
 			} else if(isset($_POST['banner_type']) && ($_POST['banner_type']=='2')){
@@ -82,7 +83,7 @@
 			            $this->upload->initialize($configVideo);
 			            if (!$this->upload->do_upload('upload_video')) {
 			                $_SESSION['errormsg']=$this->upload->display_errors();
-							header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
+							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 							exit;
 			            } else {
 			            	$data = array(
@@ -94,7 +95,7 @@
 			            }
 		            }else{
 		            	$_SESSION['errormsg']="Choose A video";
-						header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
+						header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 						exit;
 		            }
 				} else if(isset($_POST['video_type']) && ($_POST['video_type']=='2')) {
@@ -108,13 +109,13 @@
 	                ); 
 				} else{
 					$_SESSION['errormsg']="Select A Video Type And Set Video According That";
-					header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
+					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 					exit;
 				}
 
             }else {
                 	$_SESSION['errormsg']="Select Banner Type";
-					header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
+					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 					exit;
             }
 
@@ -123,85 +124,13 @@
             $query=$this->banner_model->update('lm_banner', $con,$data);
 			if($query){
 				$_SESSION['successmsg']='Banner updated successfully';
-				header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
+				header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 				exit;
 			} else {
 				$_SESSION['errormsg']='Seems to be some problem. Try Again';
-				header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
+				header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 				exit;
 			}
-                //print_r($_POST);
-				/*$this->load->library('image_lib');
-			    $timezone = 'GMT';
-			    if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
-				$entdate = date('Y-m-d H:i:s');
-				$gallery_pdf1='';
-				if($_FILES['imgBanner']['name']!="") {	
-			        unlink("assets/images/banner/".$_POST['hid_gallery_pdf1']);
-			        $photopath2 = pathinfo($_FILES['imgBanner']['name']);
-			        $extension2 = $photopath2['extension'];
-			        $source2 = $_FILES['imgBanner']['tmp_name'];
-			        $gallery_pdf1 = time().".".$extension2;
-			        $destination2 = "assets/images/banner/".$gallery_pdf1;
-			        if(move_uploaded_file($source2,$destination2)){
-			           						$config['image_library'] = 'gd2';
-					    $config['source_image'] = "assets/images/banner/".$gallery_pdf1;
-					    $config['new_image'] ='assets/images/banner/thumb/'.$gallery_pdf1;
-					    //$config['create_thumb'] = TRUE;
-					    $config['maintain_ratio'] = TRUE;
-					    //$config['width']     = 75;
-					    $config['height']   = 300;
-					    $this->image_lib->initialize($config);
-			            
-			            if($this->image_lib->resize()){
-			            	$data = array(
-				                'banner_image' => $gallery_pdf1,
-				                'banner_ext' =>$extension2,
-								'updatedOn' => $entdate
-	                        );
-                            $con['banner_id']=$_POST['txtCid'];
-				            
-				            $query=$this->banner_model->update('lm_banner', $con,$data);
-							if($query){
-								$_SESSION['successmsg']='Banner updated successfully';
-								header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
-								exit;
-							} else {
-								$_SESSION['errormsg']='Seems to be some problem. Try Again';
-								header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
-								exit;
-							}
-			            } else {
-			            	$_SESSION['errormsg']=$this->image_lib->display_errors();
-							header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
-							exit;
-			            }
-		            } else {
-		            	$_SESSION['errormsg']=$_FILES;
-						header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
-						exit;
-			        }
-		        } else {
-			        $_SESSION['errormsg']='Select A File To Upload.';
-					header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
-					exit;
-		        }
-			  
-			*/
-				/*$res=$this->banner_model->editbannermodel();
-				if($res)
-				{
-						$_SESSION['successmsg']='Banner updated successfully';
-						header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
-						exit;
-					
-				}
-				else
-				{
-					    $_SESSION['errormsg']='Seems to be some problem. Try Again';
-						header('location:'.BASE_URI.'backend/banner/type/'.$_REQUEST['txtCid']);
-						exit;
-				}*/
 		}
 		
 
