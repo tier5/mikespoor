@@ -155,14 +155,16 @@
                             <!-- main image -->
                             <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                             <!-- layer 2 -->
+                            <?php if(isset($bannerlistdata['banner_front_image'])){ ?>
                             <div class="tp-caption regular sfl"
                                  data-x="200"
                                  data-y="50"
                                  data-speed="600"
                                  data-start="1500"
                                  data-easing="Back.easeOut"
-                                 data-endspeed="300"><img src="<?php echo BASE_URI.'uploads/home_page/banner/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
+                                 data-endspeed="300"><img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
                             </div>
+                            <?php } ?>
                             <!-- layer 3 -->
                             <!-- <div class="tp-caption list-right sfl"
                                  data-x="160"

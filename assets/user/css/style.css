@@ -398,7 +398,7 @@ b{
     background: #45423d;
     width: 50px;
     height: 50px;
-    border-left: 1px solid #eee;
+   /* border-left: 1px solid #eee;*/
     vertical-align: bottom;
 }
 
@@ -430,7 +430,7 @@ b{
 }
 
 #top-bar .social-links li:last-child{
-    border-right: 1px solid #eee;
+   /* border-right: 1px solid #eee;*/
 }
 
 .social-links.presentation li a{

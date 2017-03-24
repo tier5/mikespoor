@@ -58,8 +58,8 @@ class Home_page_model extends CI_Model {
 					$config['image_library'] = 'gd2';
 				    $config['source_image'] = "uploads/home_page/banner/".$gallery_pdf1;
 				    $config['new_image'] ='uploads/home_page/banner/thumb/'.$gallery_pdf1;
-				    $config['maintain_ratio'] = TRUE;
-				    //$config['width']     = 75;
+				   // $config['maintain_ratio'] = TRUE;
+				    $config['width']     = 735;
 				    $config['height']   = 457;
 
 				   
@@ -90,6 +90,30 @@ class Home_page_model extends CI_Model {
 		         $gallery_pdf2 = time().".".$extension3;
 		         $destination3 = "uploads/home_page/banner/".$gallery_pdf2;
 		          move_uploaded_file($source3,$destination3);
+
+
+		          if(move_uploaded_file($source3,$destination3)){
+		            /*** image resize ***/
+					$config2['image_library'] = 'gd2';
+				    $config2['source_image'] = "uploads/home_page/banner/".$gallery_pdf2;
+				    $config2['new_image'] ='uploads/home_page/banner/thumb/'.$gallery_pdf2;
+				    $config['maintain_ratio'] = TRUE;
+				    $config2['width']     = 350;
+				    //$config2['height']   = 350;
+
+				   
+				    $this->image_lib->initialize($config2);
+				    if(!$this->image_lib->resize())
+				    {
+				    	return false;
+				    	exit;
+				    }
+		        } else{
+                     return false;
+                     exit;
+		        }
+	           } else {
+	           	  $gallery_pdf2="";
 	           }
 			   
 			    $data = array(
@@ -213,8 +237,8 @@ class Home_page_model extends CI_Model {
 					$config['image_library'] = 'gd2';
 				    $config['source_image'] = "uploads/home_page/banner/".$gallery_pdf1;
 				    $config['new_image'] ='uploads/home_page/banner/thumb/'.$gallery_pdf1;
-				    $config['maintain_ratio'] = TRUE;
-				    //$config['width']     = 75;
+				    //$config['maintain_ratio'] = TRUE;
+				    $config['width']     = 735;
 				    $config['height']   = 457;
 
 				   
@@ -249,14 +273,33 @@ class Home_page_model extends CI_Model {
 			  
 			  if($_FILES['imgFBanner']['name']!="")
 	          {	
-		        unlink("uploads/".$_POST['hid_gallery_pdf2']);
+		       // unlink("uploads/".$_POST['hid_gallery_pdf2']);
 		        $photopath3 = pathinfo($_FILES['imgFBanner']['name']);
 		        $extension3 = $photopath3['extension'];
 		        $source3 = $_FILES['imgFBanner']['tmp_name'];
 		       $gallery_pdf2 = time().".".$extension3;
 		       $destination3 = "uploads/home_page/banner/".$gallery_pdf2;
-		
-		        move_uploaded_file($source3,$destination3);
+                if(move_uploaded_file($source3,$destination3)){
+		            
+					$config2['image_library'] = 'gd2';
+				    $config2['source_image'] = "uploads/home_page/banner/".$gallery_pdf2;
+				    $config2['new_image'] ='uploads/home_page/banner/thumb/'.$gallery_pdf2;
+				    $config['maintain_ratio'] = TRUE;
+				    $config2['width']     = 350;
+				    //$config2['height']   = 400;
+
+
+				   
+				    $this->image_lib->initialize($config2);
+				    if(!$this->image_lib->resize())
+				    {
+				    	return false;
+				    	exit;
+				    }
+		        } else{
+                     return false;
+                     exit;
+		        }
 	          }
 	         else
 	          {
