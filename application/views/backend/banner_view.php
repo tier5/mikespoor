@@ -60,7 +60,7 @@
                                         <strong>Error!</strong> <?php print_r( $_SESSION['errormsg']); ?>
                                     </div>
                                 <?php unset($_SESSION['errormsg']); } ?>
-                                <form action="<?php echo BASE_URI.'backend/banner/editbanner'; ?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo BASE_URI;?>backend/banner/editbanner/<?php echo $bannerinfo["banner_id"];?>" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="txtCid" value="<?php if(isset($bannerinfo['banner_id'])){echo $bannerinfo['banner_id'];} ?>"/>
                                     <input type="hidden" name="hid_gallery_pdf1" id="hid_gallery_pdf1" value="<?php if(isset($bannerinfo['banner_image'])){echo $bannerinfo['banner_image'];} ?>" />
 
