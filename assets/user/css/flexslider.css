@@ -55,6 +55,16 @@ html[xmlns] .slides {display: block;}
 	background-size:auto 100%;
 	-webkit-background-size:auto 100%;
 }
+
+.flexslider.top_slider iframe.playerBox, .flexslider.top_slider video{
+	width: 500px;
+    height: 100%;
+    display: block;
+    margin: auto;
+    border: 10px solid #000;
+    border-top: 0;
+    border-bottom: 0;
+}
 .flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
 .loading .flex-viewport { max-height: 300px; }
 .flexslider .slides { zoom: 1; }
@@ -526,6 +536,11 @@ html[xmlns] .slides {display: block;}
 	
 	.top_slider .slide_btn {padding:15px 20px 15px 5px; width:auto; left:auto; right:15px; margin:0;}
 	.top_slider .slide_btn:before {right:5px; font-size:18px; top:-7px;}
+
+	.flexslider.top_slider iframe.playerBox, .flexslider.top_slider video {
+	    width: 100%;
+	    border: none;
+	}
 	
 	
 }
