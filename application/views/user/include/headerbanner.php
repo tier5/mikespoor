@@ -1,3 +1,19 @@
+<?php if($current_page=='picture-gallery') { ?>
+    <section>
+
+
+    </section>
+<?php }  else if($current_page=='video-gallery') {?>
+<section>
+
+
+    </section>
+<?php }  else if($current_page=='links-news') {?>
+<section>
+
+
+    </section>
+<?php }else { ?>
 <?php if((isset($banner['banner_type']) && ($banner['banner_type']=='1') && (isset($banner['banner_image'])))){  ?>
 <section id="page-title" class="page-title-1" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
         <div class="container">
@@ -33,7 +49,9 @@
             </div>
         </section>			                                             
 	<?php }
-} ?>
+}  }?>
+
+
 <style type="text/css">
 video { 
   
