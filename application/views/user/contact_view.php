@@ -112,9 +112,7 @@
                                     <label><span class="text-color">*</span> Message:</label>
                                     <textarea name="txtComment" rows="5" class="wpcf7-textarea" id="contact-message" required></textarea>
                                 </fieldset>
-
                                 <input type="submit" class="subbtn" value="Submit" />
-
                             </form><!-- wpcf7 end -->
                         </div><!-- .animated.fadeInRight end -->
                     </article><!-- .grid_6 end -->

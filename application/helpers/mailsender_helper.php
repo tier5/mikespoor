@@ -26,5 +26,4 @@ function mailsend($to,$from,$subject,$template,$message)
 			return false;
 		}
 }
-
 ?>

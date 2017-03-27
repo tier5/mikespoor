@@ -75,14 +75,14 @@ class Contact extends CI_Controller {
 				$utemplate='contact';
 				$ures=mailsend($uto,$ufrom,$usubject,$utemplate,$umessage);
 						$_SESSION['successmsg']='Your mail has been send successfully. We will contact you soon.';
-						header('location:'.DOMAIN.'contact');
+						header('location:'.BASE_URI.'contact');
 						exit;
 					
 				}
 				else
 				{
 					    $_SESSION['errormsg']='Seems to be some problem. Try Again';
-						header('location:'.DOMAIN.'contact');
+						header('location:'.BASE_URI.'contact');
 						exit;
 				}
 		}
