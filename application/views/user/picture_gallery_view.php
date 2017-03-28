@@ -14,14 +14,16 @@
 
                 <!-- .row start -->
                 <div class="row portfolio-filters triggerAnimation animated" data-animate="fadeInDown">
+
                     <section class="grid_12">
-                        <ul id="filters">
+                        <ul id="filter-pic">
                         <li class="active"><a href="<?php echo BASE_URI.'picture-gallery'; ?>" data-filter="*">All </a></li>
+                        
                         <?php
                         foreach($categorylist as $categorylistdata)
                         {
                         ?>
-                            <li><a href="<?php echo BASE_URI.'picture-gallery/category/'.$categorylistdata['picture_slug']; ?>" data-filter="*"><?php echo $categorylistdata['picture_title']; ?> </a></li>
+                            <li><a href="<?php echo BASE_URI.'picture-gallery/category/'.$categorylistdata['picture_slug']; ?>"><?php echo $categorylistdata['picture_title']; ?> </a></li>
                             <?php
                         }
                         ?>

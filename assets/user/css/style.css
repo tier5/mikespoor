@@ -2902,6 +2902,50 @@ li.pricing-footer{
     margin: 0 auto;
 }
 
+   #filter-pic li {
+    float: left;
+    padding: 0 10px;
+    margin-right: 0;
+    border-right: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+#filter-pic li .item-number{
+    background: #eee;
+    min-width: 25px;
+    min-height: 25px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 10px;
+    font-family: 'Raleway', Arial, sans-serif;
+    padding-top: 1px;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+#filter-pic li a{
+    font-family: 'UNVR57W', Arial, sans-serif;
+    font-size:14px;
+    text-transform: uppercase;
+}
+
+#filter-pic li.active .item-number, 
+#filter-pic li:hover .item-number{
+    color: #fff;
+}
+
+#filter-pic li:last-child{
+    border-right: none;
+}
+
 #filters li {
     float: left;
     padding: 0 10px;
@@ -5024,4 +5068,12 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     #filters li a{
         font-size: 12px;
     }
+
+
+    
+    #filter-pic li a{
+        font-size: 12px;
+    }
+
+ 
 }
