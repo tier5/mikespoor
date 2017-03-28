@@ -61,7 +61,7 @@
                                     </div>
                                 <?php unset($_SESSION['errormsg']); } ?>
                                 <form action="<?php echo BASE_URI;?>backend/banner/editbanner/<?php echo $bannerinfo["banner_id"];?>" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="txtCid" value="<?php if(isset($bannerinfo['banner_id'])){echo $bannerinfo['banner_id'];} ?>"/>
+                                    <input type="hidden" name="txtCid" value="<?php if(isset($bannerinfo['banner_slug'])){echo $bannerinfo['banner_slug'];} ?>"/>
                                     <input type="hidden" name="hid_gallery_pdf1" id="hid_gallery_pdf1" value="<?php if(isset($bannerinfo['banner_image'])){echo $bannerinfo['banner_image'];} ?>" />
 
                                     <div class="box-body">    
@@ -72,9 +72,9 @@
                                         <div class="form-group">
                                             <label for="exampleInputFile">Banner Type</label>
                                             <select class="form-control" id="banner_type" name="banner_type" onchange="change_upload_option()" required>
-                                                <option value="">--Select--</option>
+                                               
                                                 <option value="1" <?php if((isset($bannerinfo['banner_type']) && ($bannerinfo['banner_type']=='1'))){echo "selected";}?>>Image</option>
-                                                <option value="2" <?php if((isset($bannerinfo['banner_type']) && ($bannerinfo['banner_type']=='2'))){echo "selected";}?>>Video</option>
+                                               
                                             </select>
                                         </div>
 
@@ -83,38 +83,6 @@
                                             <br/>
                                             <img src="<?php if(!empty($bannerinfo['banner_image'])){echo BASE_URI.'assets/images/banner/thumb/'.$bannerinfo['banner_image'];} ?>" id="profile" width="200" height="80" />
                                             <p class="help-block" style="font-size:12px;"><i>Image Size Should Less Than 3MB</u></i></p>
-                                        </div>
-
-                                        <div class="form-group"  id="video_upload" style="<?php if((isset($bannerinfo['banner_type']) && ($bannerinfo['banner_type']=='2') && (isset($bannerinfo['banner_image'])))){ echo"display:block";} else {echo"display:none";}?>">
-                                           <input type="radio" name="video_type" value="1" <?php if( ($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='1')){ echo"checked";}?>>Upload From Device
-                                           <input type="radio" name="video_type" value="2" <?php if( ($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='2')){ echo"checked";}?>>Yotube url
-                                            
-                                        </div>
-                                        
-                                        <div class="form-group" id="video_upload_section" style="<?php if( ($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='1')){ echo "display:block";}else {echo "display:none";}?>">
-                                            <input type="file" class="form-control" id="upload_video" name="upload_video"><br/>
-                                              <?php 
-                                                  $ext=substr($bannerinfo['banner_image'], strrpos($bannerinfo['banner_image'], '.') + 1);
-                                              ?>
-                                             <video width="320" height="240" controls>
-                                                  <source src="<?php echo BASE_URI?>assets/images/banner/<?php echo $bannerinfo['banner_image'];?>" type="video/<?php echo $ext; ?>">
-                  
-                                              </video>
-                                              <p class="help-block" style="font-size:12px;"><i>Prefferable format mp4</u></i></p>
-
-                                        </div>
-                                         <div class="form-group"  id="url_section" style="<?php if( ($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='2')){ echo "display:block";}else {echo "display:none";}?>">
-                                            <input type="text" class="form-control" id="url_upload" name="url_upload" value="<?php if (($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='2') && (isset($bannerinfo['banner_image']))){ echo $bannerinfo['banner_image']; } ?>"><br/>
-                                            <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p>
-                                            <?php if (($bannerinfo['banner_type']=='2') && ($bannerinfo['banner_ext']=='2') && (isset($bannerinfo['banner_image']))){ 
-                                              
-                                              $url=explode("?v=",(trim($bannerinfo['banner_image'])));
-              
-                                              $videname=$url[1];
-                                              ?> 
-                                               <iframe src="https://www.youtube.com/embed/<?php echo $videname; ?>" frameborder="0" width="400" height="200"></iframe>
-                                            <?php } ?> 
-                                              
                                         </div>
                                     </div>
                                     <div class="box-footer">                           

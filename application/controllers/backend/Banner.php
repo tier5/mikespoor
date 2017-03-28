@@ -5,6 +5,7 @@
         {
                 parent::__construct();
 				$this->load->model('backend/banner_model');
+				$this->load->library('image_lib');
                 // Your own constructor code
         }
 
@@ -19,20 +20,26 @@
 				//$data['title']='Banner';
 				$this->load->model('backend/banner_model');
 				$data['inner_page_banner']=$this->banner_model->get_all_banner();
-				$data['bannerinfo']=$this->banner_model->getcmsinfomodel($getid);
-                $this->load->view('backend/banner_view',$data);
+				if($getid=='about' || $getid=='video_gallery' || $getid=='school_visit')
+				{
+                    $data['banner_slug']=$getid;
+                    $data['bannerinfo']=$this->banner_model->allbanner($getid);
+                    $this->load->view('backend/banner_view_video',$data);
+				}else{
+					$data['bannerinfo']=$this->banner_model->getcmsinfomodel($getid);
+					$this->load->view('backend/banner_view',$data);
+			   }
+               
         }
 		public function editbanner(){
 		    $this->load->helper('auth_helper');
 			checkuserlogin();
-			$timezone = 'GMT';
-		    if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
-			$entdate = date('Y-m-d H:i:s');
-
+			$timezone = 'GMT'; if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone); $entdate = date('Y-m-d H:i:s');
+            
             if(isset($_POST['banner_type']) && ($_POST['banner_type']=='1') ){
+            	/******Image Upload******/
 				if($_FILES['imgBanner']['name']!=""){	
-					$this->load->library('image_lib');
-					$gallery_pdf1='';
+					
 			        $photopath2 = pathinfo($_FILES['imgBanner']['name']);
 			        $extension2 = $photopath2['extension'];
 			        $source2 = $_FILES['imgBanner']['tmp_name'];
@@ -49,9 +56,22 @@
 							$data = array(
 				                'banner_image' => $gallery_pdf1,
 				                'banner_type'=>'1',
+				                'banner_focus'=>'0',
 				                'banner_ext' =>$extension2,
 								'updatedOn' => $entdate
-	                        ); 
+	                        );
+	                        $con['banner_slug']=$_POST['txtCid'];
+				            
+				            $query=$this->banner_model->update('lm_banner', $con,$data);
+							if($query){
+								$_SESSION['successmsg']='Banner updated successfully';
+								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+								exit;
+							} else {
+								$_SESSION['errormsg']='Seems to be some problem. Try Again';
+								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+								exit;
+							} 
 			            } else {
 			            	$_SESSION['errormsg']=$this->image_lib->display_errors();
 							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
@@ -67,8 +87,10 @@
 					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 					exit();
                 }
-			} else if(isset($_POST['banner_type']) && ($_POST['banner_type']=='2')){
-				if(isset($_POST['video_type']) && ($_POST['video_type']=='1')){
+                /******Image Upload******/
+			} 
+				
+				/*if(isset($_POST['video_type']) && ($_POST['video_type']=='1')){
                     if (isset($_FILES['upload_video']['name']) && $_FILES['upload_video']['name'] != '') {
 			            $photopath2 = pathinfo($_FILES['upload_video']['name']);
 					    $extension2 = $photopath2['extension'];
@@ -99,8 +121,7 @@
 						exit;
 		            }
 				} else if(isset($_POST['video_type']) && ($_POST['video_type']=='2')) {
-	            	/*$url=(explode("?v=",(trim($_POST['url_upload']))));
-	                $videname=$url[1];*/
+	            	
 	                $data = array(
 				                'banner_image' => $_POST['url_upload'],
 				                'banner_type'=>'2',
@@ -118,20 +139,130 @@
 					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 					exit;
             }
+*/
+            
+		
+	}
 
-            $con['banner_id']=$_POST['txtCid'];
-				            
-            $query=$this->banner_model->update('lm_banner', $con,$data);
-			if($query){
-				$_SESSION['successmsg']='Banner updated successfully';
-				header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
-				exit;
-			} else {
-				$_SESSION['errormsg']='Seems to be some problem. Try Again';
-				header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
-				exit;
-			}
-		}
+	public function editbanner_video()
+	{
+		
+		 $this->load->helper('auth_helper');
+			checkuserlogin();
+			$timezone = 'GMT'; if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone); $entdate = date('Y-m-d H:i:s');
+            
+            if(isset($_POST['banner_type']) && ($_POST['banner_type']=='2') ){
+
+            	if(isset($_POST['first_id']))
+            	{
+            		if($_POST['banner_focus']=='1'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		 $data = array(
+				                'banner_image' => $_POST['first_url'],
+				                'banner_type'=>'2',
+				                'banner_focus'=>$banner_focus,
+				                'banner_ext' =>'2',
+								'updatedOn' => $entdate
+	                        );
+	                        $con['banner_id']=$_POST['first_id'];
+	                        $query=$this->banner_model->update('lm_banner', $con,$data);
+							if(!$query){
+								$_SESSION['errormsg']='Seems to be some problem. Try Again';
+								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+								exit;
+							} 
+            	}
+
+            	if(isset($_POST['second_id']))
+            	{
+            		if($_POST['banner_focus']=='2'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		 $data1 = array(
+				                'banner_image' => $_POST['second_url'],
+				                'banner_type'=>'2',
+				                'banner_focus'=>$banner_focus,
+				                'banner_ext' =>'2',
+								'updatedOn' => $entdate
+	                        );
+	                        $con1['banner_id']=$_POST['second_id'];
+	                        $query=$this->banner_model->update('lm_banner', $con1,$data1);
+							if(!$query){
+								$_SESSION['errormsg']='Seems to be some problem. Try Again';
+								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+								exit;
+							} 
+            	}
+
+            	if(isset($_POST['third_id']))
+            	{
+            		if($_POST['banner_focus']=='3'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		 $data2 = array(
+				                'banner_image' => $_POST['third_url'],
+				                'banner_type'=>'2',
+				                'banner_focus'=>$banner_focus,
+				                'banner_ext' =>'2',
+								'updatedOn' => $entdate
+	                        );
+	                        $con2['banner_id']=$_POST['third_id'];
+	                        $query=$this->banner_model->update('lm_banner', $con2,$data2);
+							if(!$query){
+								$_SESSION['errormsg']='Seems to be some problem. Try Again';
+								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+								exit;
+							} 
+            	}
+
+            	if(isset($_POST['fourth_id']))
+            	{
+            		if($_POST['banner_focus']=='4'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		 $data3 = array(
+				                'banner_image' => $_POST['fourth_url'],
+				                'banner_type'=>'2',
+				                'banner_focus'=>$banner_focus,
+				                'banner_ext' =>'2',
+								'updatedOn' => $entdate
+	                        );
+	                        $con3['banner_slug']=$_POST['fourth_id'];
+	                        $query=$this->banner_model->update('lm_banner', $con3,$data3);
+							if(!$query){
+								$_SESSION['errormsg']='Seems to be some problem. Try Again';
+								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+								exit;
+							} 
+            	}
+
+            	if(isset($_POST['fifth_id']))
+            	{
+            		if($_POST['banner_focus']=='5'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		 $data4 = array(
+				                'banner_image' => $_POST['fifth_url'],
+				                'banner_type'=>'2',
+				                'banner_focus'=>$banner_focus,
+				                'banner_ext' =>'2',
+								'updatedOn' => $entdate
+	                        );
+	                        $con4['banner_id']=$_POST['fifth_id'];
+	                        $query=$this->banner_model->update('lm_banner', $con4,$data4);
+							if(!$query){
+								$_SESSION['errormsg']='Seems to be some problem. Try Again';
+								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+								exit;
+							} 
+            	}
+
+            	$_SESSION['successmsg']='Banner updated successfully';
+								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+								exit;
+
+            	/*$data = array(
+				                'banner_image' => $gallery_pdf1,
+				                'banner_type'=>'1',
+				                'banner_focus'=>'0',
+				                'banner_ext' =>$extension2,
+								'updatedOn' => $entdate
+	                        );
+	                        $con['banner_slug']=$_POST['txtCid'];*/
+
+            }
+	}
 		
 
 }
