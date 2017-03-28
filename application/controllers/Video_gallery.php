@@ -28,7 +28,10 @@ class Video_Gallery extends CI_Controller {
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(4);
 				 $this->load->model('backend/banner_model');
-                $data['banner']=$this->banner_model->getbannerbyslug('video_gallery');
+                $data['banner']=$this->banner_model->getallbannerbyslug('video_gallery');
+                $data['focus_banner']=$this->banner_model->getmiddlebannerbyslug('video_gallery');
+
+           
 			    $this->load->view('user/video_gallery_view',$data);
 		}
 		

@@ -174,11 +174,11 @@
 
             	if(isset($_POST['second_id']))
             	{
-            		if($_POST['banner_focus']=='2'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		if($_POST['banner_focus']=='2'){ $banner_focus2='1'; }else { $banner_focus2='0'; }
             		 $data1 = array(
 				                'banner_image' => $_POST['second_url'],
 				                'banner_type'=>'2',
-				                'banner_focus'=>$banner_focus,
+				                'banner_focus'=>$banner_focus2,
 				                'banner_ext' =>'2',
 								'updatedOn' => $entdate
 	                        );
@@ -193,11 +193,11 @@
 
             	if(isset($_POST['third_id']))
             	{
-            		if($_POST['banner_focus']=='3'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		if($_POST['banner_focus']=='3'){ $banner_focus3='1'; }else { $banner_focus3='0'; }
             		 $data2 = array(
 				                'banner_image' => $_POST['third_url'],
 				                'banner_type'=>'2',
-				                'banner_focus'=>$banner_focus,
+				                'banner_focus'=>$banner_focus3,
 				                'banner_ext' =>'2',
 								'updatedOn' => $entdate
 	                        );
@@ -212,11 +212,11 @@
 
             	if(isset($_POST['fourth_id']))
             	{
-            		if($_POST['banner_focus']=='4'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		if($_POST['banner_focus']=='4'){ $banner_focus4='1'; }else { $banner_focus4='0'; }
             		 $data3 = array(
 				                'banner_image' => $_POST['fourth_url'],
 				                'banner_type'=>'2',
-				                'banner_focus'=>$banner_focus,
+				                'banner_focus'=>$banner_focus4,
 				                'banner_ext' =>'2',
 								'updatedOn' => $entdate
 	                        );
@@ -231,11 +231,11 @@
 
             	if(isset($_POST['fifth_id']))
             	{
-            		if($_POST['banner_focus']=='5'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		if($_POST['banner_focus']=='5'){ $banner_focus5='1'; }else { $banner_focus5='0'; }
             		 $data4 = array(
 				                'banner_image' => $_POST['fifth_url'],
 				                'banner_type'=>'2',
-				                'banner_focus'=>$banner_focus,
+				                'banner_focus'=>$banner_focus5,
 				                'banner_ext' =>'2',
 								'updatedOn' => $entdate
 	                        );

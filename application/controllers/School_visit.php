@@ -28,9 +28,12 @@ class School_visit extends CI_Controller {
 				$data['picturecatlist']=$this->school_visit_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/school_visit_blog_model');
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
-				$data['banner']=$this->banner_model->getbannerbyslug('school_visit');
+				
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(6);
+				 $data['banner']=$this->banner_model->getallbannerbyslug('school_visit');
+                $data['focus_banner']=$this->banner_model->getmiddlebannerbyslug('school_visit');
+			
 			    $this->load->view('user/school_visit_view',$data);
 		}
 		public function category($getid)

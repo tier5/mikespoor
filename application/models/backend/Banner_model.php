@@ -87,6 +87,28 @@ class Banner_model extends CI_Model {
 			return $row;
 		}
 
+		public function getallbannerbyslug($slug)
+		{
+			$this->db->select('*');
+            $this->db->from('lm_banner');
+            $this->db->where('banner_slug',$slug);
+			$this->db->where('banner_focus','0');
+			$query = $this->db->get();
+			$row = $query->result_array();
+			return $row;
+		}
+
+		public function getmiddlebannerbyslug($slug)
+		{
+			$this->db->select('*');
+            $this->db->from('lm_banner');
+            $this->db->where('banner_slug',$slug);
+			$this->db->where('banner_focus','1');
+			$query = $this->db->get();
+			$row = $query->row_array();
+			return $row;
+		}
+
 		public function update($table,$con,$data)
         {
             $this->db->where($con);

@@ -26,7 +26,8 @@ class About_us extends CI_Controller {
                 $this->load->model('backend/timeline_model');
 
                 $this->load->model('backend/banner_model');
-                $data['banner']=$this->banner_model->getbannerbyslug('about');
+                $data['banner']=$this->banner_model->getallbannerbyslug('about');
+                $data['focus_banner']=$this->banner_model->getmiddlebannerbyslug('about');
                 $this->load->model('backend/timeline_model');
 
              
