@@ -1,43 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <?php include('include/headsection.php'); ?>
-        <script type='text/javascript' src='<?php echo BASE_URI;?>assets/user/unitegallery/js/jquery-11.0.min.js'></script>   
-        <script type='text/javascript' src='<?php echo BASE_URI;?>assets/user/unitegallery/js/unitegallery.min.js'></script>  
-        <script type='text/javascript' src='<?php echo BASE_URI;?>assets/user/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function(){
-                jQuery("#gallery").unitegallery();
-            });
-          
-            jQuery(document).ready(function($) {
-                'use strict';
-                // PRETTYPHOTO LIGHTBOX START
-                if(jQuery().prettyPhoto) {
-                    piPrettyphoto(); 
-                }
-    
-                function piPrettyphoto(){
-                    $("a[data-gal^='prettyPhoto']").prettyPhoto({
-                        social_tools: false,
-                        hook: 'data-gal'
-                    });
-                }  
-                //JQUERY SHARRE PLUGIN END
-                $('.sharre-facebook').sharrre({
-                    share: {
-                        facebook: true
-                    },
-                    enableHover: false,
-                    enableTracking: true,
-                    click: function(api, options) {
-                        api.simulateClick();
-                        api.openPopup('facebook');
-                    }
-                });
-            });
-                </script>
-
+      <?php include('include/headsection.php'); ?> 
     </head>
     <body>
       <?php include('include/header.php'); ?>

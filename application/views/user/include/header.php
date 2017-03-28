@@ -120,7 +120,7 @@
                 </section><!-- #nav-container end -->
 
                 <!-- #dl-menu.dl-menuwrapper start -->
-                <div id="dl-menu" class='dl-menuwrapper'>
+                <div class='dl-menuwrapper'>
                     <button class="dl-trigger">Open Menu</button>
                     <ul class="dl-menu">
                         <li>
@@ -161,3 +161,4 @@
             </header>
             <!-- .header end -->        
         </div>
+

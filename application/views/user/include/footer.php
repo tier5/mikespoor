@@ -102,43 +102,52 @@
 
             <a href="#" class="scroll-up">Scroll</a>
         </section>
-        <script src="assets/user/js/js/jquery.flexslider-min.js" type="text/javascript"></script>
+    <script src="assets/user/js/js/jquery.flexslider-min.js" type="text/javascript"></script>
     
     <script src="assets/user/js/js/jquery.mb.YTPlayer.js" type="text/javascript"></script>
     
     <script src="assets/user/js/js/mynewscript.js" type="text/javascript"></script>
         <script>
             /* <![CDATA[ */
-            jQuery(document).ready(function($) {
-                'use strict';
+            $(document).ready(function() {
+                // 'use strict';
 
                 // PRETTYPHOTO LIGHTBOX START
-                if(jQuery().prettyPhoto) {
-                    piPrettyphoto(); 
-                }
+                // if(jQuery().prettyPhoto) {
+                //     piPrettyphoto(); 
+                // }
     
-                function piPrettyphoto(){
-                    $("a[data-gal^='prettyPhoto']").prettyPhoto({
-                        social_tools: false,
-                        hook: 'data-gal'
-                    });
-                }  
+                // function piPrettyphoto(){
+                //     $("a[data-gal^='prettyPhoto']").prettyPhoto({
+                //         social_tools: false,
+                //         hook: 'data-gal'
+                //     });
+                // }  
 
-                //JQUERY SHARRE PLUGIN END
-                $('.sharre-facebook').sharrre({
-                    share: {
-                        facebook: true
-                    },
-                    enableHover: false,
-                    enableTracking: true,
-                    click: function(api, options) {
-                        api.simulateClick();
-                        api.openPopup('facebook');
-                    }
+               
+                // $('.sharre-facebook').sharrre({
+                //     share: {
+                //         facebook: true
+                //     },
+                //     enableHover: false,
+                //     enableTracking: true,
+                //     click: function(api, options) {
+                //         api.simulateClick();
+                //         api.openPopup('facebook');
+                //     }
+                // });
+
+                $('.dl-trigger').click(function(){
+                    $('.dl-menu').toggleClass("dl-menuopen");
                 });
 
             });
 
             /* ]]> */
         </script>
-        
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#gallery").unitegallery();
+            });
+        </script>

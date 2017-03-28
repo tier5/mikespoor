@@ -2902,11 +2902,12 @@ li.pricing-footer{
     margin: 0 auto;
 }
 
-#filters li{
+#filters li {
     float: left;
-    padding-right: 20px;
-    margin-right: 20px;
+    padding: 0 10px;
+    margin-right: 0;
     border-right: 1px solid #ddd;
+    margin-bottom: 10px;
 }
 
 #filters li .item-number{
@@ -4788,6 +4789,12 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     top: 62%;
 }
 
+@media screen and (min-width: 992px){
+    .hidden-lg{
+        display: none;
+    }
+}
+
 @media screen and (min-width: 992px) and (max-width: 1199px){
     .timeline ul li{
         height: 180px;
@@ -4828,6 +4835,9 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px){
+    .hidden-sm{
+        display: none;
+    }
     .timeline ul li{
         height: 140px;
     }
@@ -4895,6 +4905,15 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     .copyright-container a{
         font-size: 11px;
         margin-right: 5px;
+    }
+
+    #filters li {
+        padding: 0;
+        margin-right: 20px;
+        border: none;
+        width: 45%;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #ccc;
     }
 }
 
@@ -4991,6 +5010,18 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
         padding-bottom: 10px;
         display: block;
         text-align: left;
+        font-size: 12px;
+    }
+    #filters li {
+        padding: 0;
+        margin-right: 0;
+        border: none;
+        width: 100%;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #filters li a{
         font-size: 12px;
     }
 }

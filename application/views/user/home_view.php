@@ -255,10 +255,10 @@
                             <h3>What we <b>Offer</b></h3>
                         </section>
                     </article>
-                    <article class="grid_3">
+                    <article class="grid_3 hidden-xs">
                         <section class="heading-bordered">
-                                <h3>My <b>stats</b></h3>
-                            </section>
+                            <h3>My <b>stats</b></h3>
+                        </section>
                     </article>
                 </div>
                 <div class="row">
@@ -286,6 +286,9 @@
                     </article><!-- .grid_6 -->
 
                     <article class='grid_3' >
+                        <section class="heading-bordered hidden-sm hidden-lg">
+                            <h3>My <b>stats</b></h3>
+                        </section>
                         <div class="triggerAnimation animated" data-animate='fadeInRight'>
                             <ul class='numbers-counter' >
                                 <?php foreach ($stats_list as $stats) { ?>
