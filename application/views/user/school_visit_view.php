@@ -1,53 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <base href="<?php echo BASE_URI; ?>">
-<title><?php echo $title; ?></title>
-        <meta name="description" content="<?php echo $metainfo['meta_description'];?>" />
-<meta name="keywords" content="<?php echo $metainfo['meta_keywords'];?>" />
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width">
-
-        <!-- stylesheets -->
-          <link rel="stylesheet" href="assets/user/css/grid.css" />
-        <link rel="stylesheet" href="assets/user/css/style.css" />
-        <link rel="stylesheet" href="assets/user/css/darkblue.css" />
-        <link rel="stylesheet" href="assets/user/css/responsive.css" />
-        <link rel="stylesheet" href="assets/user/css/animate.css" />
-        <link rel="stylesheet" href="assets/user/css/retina.css" />
-            <link href="assets/user/css/flexslider.css" rel="stylesheet" type="text/css" />
-        <!-- prettyPhoto lightbox stylesheer -->
-        <link rel="stylesheet" href="assets/user/css/prettyPhoto.css" media="screen" />
-
-        <!-- google web fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900,200,100' rel='stylesheet' type='text/css'>
-
-		
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <!-- Icons -->
-        <link rel="stylesheet" href="assets/user/pixons/style.css" />
-        <link rel="stylesheet" href="assets/user/iconsfont/iconsfont.css" />
-
-        <link rel="stylesheet" href="assets/user/style-switcher/styleSwitcher.css"/>
-
-        <!--[if lt IE 9]>
-            <script src="js/html5shiv.js"></script>
-        <![endif]-->
-
-        <!--[if lt IE 9]>
-            <script src="js/selectivizr-min.js"></script>
-        <![endif]-->
-<link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
+        <?php include('include/headsection.php'); ?>
     </head>
 
     <body>
-        <!-- style switcher start --><!-- style switcher end -->
-        
-        <!-- .header-wrapper start -->
-         <?php include('include/header.php'); ?><!-- .header-wrapper end -->
-     <?php include('include/headerbanner.php'); ?>
-     <br><br>
+    <!-- .header-wrapper start -->
+    <?php include('include/header.php'); ?><!-- .header-wrapper end -->
+    <?php include('include/headerbanner.php'); ?>
         <!-- #page-title start -->
        <?php /*?> <section id="page-title" class="page-title-4">
             <div class="container">
@@ -59,9 +19,10 @@
                     </div><!-- .grid_8 end -->
                 </div><!-- .row end -->
             </div><!-- .container end -->
-        </section><?php */?><!-- #page-title end -->
-<?php
-	 $df=$companyinfo['date_format'];
+        </section><?php */?>
+    <!-- #page-title end -->
+    <?php
+	$df=$companyinfo['date_format'];
 	date_default_timezone_set($companyinfo['time_zone']);
 	?>
         <!-- .page-content start -->
@@ -212,11 +173,6 @@ $pagination->setTotalRecords($total_records);
 
                         <!-- .aside_widgets start -->
                         <ul class="aside_widgets">
-
-                            <!-- .widget.widget_search start --><!-- .widget.widget_search end -->
-
-                            <!-- .widget.pi_recent_posts start --><!-- .pi_recent_posts end -->
-
                             <!-- .widget_categories start -->
                             <li class="widget widget_categories">
                                 <h6>blog categories</h6>
@@ -234,11 +190,6 @@ $pagination->setTotalRecords($total_records);
                                     
                                 </ul>  
                             </li><!-- .widget_categories end -->
-
-                            <!-- .widget.widget_recent_comments start --><!-- .widget.widget_recent_comments end -->
-
-                            <!-- .social-feed start --><!-- .social-feed end -->
-
                         </ul><!-- .aside_widgets end -->
                   </aside><!-- .grid_3.aside-right end -->
               </div><!-- .row end -->
@@ -246,65 +197,7 @@ $pagination->setTotalRecords($total_records);
         </section><!-- .page-content end -->
 
         <!-- .footer-wrapper start -->
-         <?php include('include/footer.php'); ?><!-- .footer-wrapper end -->
+        <?php include('include/footer.php'); ?><!-- .footer-wrapper end -->
 
-        <!-- scripts -->
-        <script  src="assets/user/js/jquery-1.9.1.js"></script> <!-- jQuery library -->  
-        <script  src="assets/user/js/jquery-migrate-1.2.1.min.js"></script> <!-- jQuery migrate -->
-        <script  src="assets/user/js/jquery.placeholder.min.js"></script><!-- jQuery placeholder fix for old browsers -->
-        <script  src="assets/user/js/modernizr.custom.js"></script> <!-- jQuery modernizr -->
-        <script  src="assets/user/js/jquery.dlmenu.js"></script><!-- responsive navigation -->
-        <script  src="assets/user/js/waypoints.min.js"></script><!-- js for animating content -->
-        <script  src="assets/user/js/retina-1.1.0.min.js"></script><!-- retina ready script -->
-        <script  src="assets/user/js/jquery.stellar.min.js"></script><!-- parallax scrolling -->
-        <script  src="assets/user/js/jquery.isotope.min.js"></script><!-- jQuery isotope plugin -->
-        <script  src="assets/user/js/portfolio.js"></script> <!-- jQuery portfolio options -->
-        <script  src="assets/user/js/jquery.prettyPhoto.js"></script> <!-- prettyPhoto lightbox -->
-        <script  src="assets/user/js/jquery.tweetscroll.js"></script> <!-- jQuery tweetscroll plugin -->
-        <script  src="assets/user/sharre/jquery.sharrre-1.3.4.min.js"></script><!-- Sharre post plugin -->
-        <script  src="assets/user/style-switcher/styleSwitcher.js"></script>
-		<script  src="assets/user/js/nicescroll.min.js"></script> <!-- Nice scroll Plugin -->
-        <script  src="assets/user/js/include.js"></script> <!-- jQuery custom options -->
-         
-		 
-	<script src="assets/user/js/js/jquery.flexslider-min.js" type="text/javascript"></script>
-	
-	<script src="assets/user/js/js/jquery.mb.YTPlayer.js" type="text/javascript"></script>
-	
-	<script src="assets/user/js/js/mynewscript.js" type="text/javascript"></script>
-        <script>
-            /* <![CDATA[ */
-            jQuery(document).ready(function($) {
-                'use strict';
-
-                // PRETTYPHOTO LIGHTBOX START
-                if(jQuery().prettyPhoto) {
-					piPrettyphoto(); 
-				}
-    
-				function piPrettyphoto(){
-					$("a[data-gal^='prettyPhoto']").prettyPhoto({
-						social_tools: false,
-						hook: 'data-gal'
-					});
-				}  
-
-                //JQUERY SHARRE PLUGIN END
-                $('.sharre-facebook').sharrre({
-                    share: {
-                        facebook: true
-                    },
-                    enableHover: false,
-                    enableTracking: true,
-                    click: function(api, options) {
-                        api.simulateClick();
-                        api.openPopup('facebook');
-                    }
-                });
-
-            });
-
-            /* ]]> */
-        </script>
     </body>
 </html>
