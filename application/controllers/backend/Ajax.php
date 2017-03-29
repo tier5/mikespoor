@@ -76,6 +76,67 @@ class Ajax extends CI_Controller {
             }
         }
 
+        public function get_school_details()
+        {
+            $school_id=$this->input->post('school_id');
+            $school_details=$this->Ajax_model->get_school_details($school_id);
+            echo json_encode($school_details);
+        }
+
+
+        public function update_school()
+        {   
+            $this->load->helper('function');
+
+            $timezone = 'GMT';
+    if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
+    $entdate = date('Y-m-d H:i:s');
+
+             $slugvalue=createSlug($this->input->post('school_name'));
+             $con['school_visit_id']=$this->input->post('school_id');
+             $data['school_visit_title']=$this->input->post('school_name');
+             $data['school_visit_slug']=$slugvalue;
+             $data['updatedOn']=$entdate;
+        
+             $update_school=$this->Ajax_model->edit_school_name($con, $data);
+             if($update_school)
+             {
+                $_SESSION['successmsg']='School Name Updated successfully';
+               
+             }
+             else{
+                $_SESSION['errormsg']='Seems to be some problem. Try Again';
+              }
+        }
+
+        public function add_new_school()
+        {
+             $this->load->helper('function');
+              $timezone = 'GMT';
+             if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
+             $entdate = date('Y-m-d H:i:s');
+
+             $slugvalue=createSlug($this->input->post('school_name'));
+            
+             $data['school_visit_title']=$this->input->post('school_name');
+             $data['school_visit_slug']=$slugvalue;
+             $data['status']='1';
+             $data['school_visit_featured']='0';
+             $data['addedBy']=$_SESSION['usersession'];
+             $data['addedOn']=$entdate;
+             $data['updatedOn']=$entdate;
+        
+             $update_school=$this->Ajax_model->insert('lm_school_visit', $data);
+             if($update_school)
+             {
+                $_SESSION['successmsg']='School Name Added successfully';
+               
+             }
+             else{
+                $_SESSION['errormsg']='Seems to be some problem. Try Again';
+              }
+        }
+
         
 }
 ?>

@@ -4,6 +4,7 @@ class Contact extends CI_Controller {
         public function __construct()
         {
                 parent::__construct();
+                $this->load->helper('function_helper');
                 // Your own constructor code
         }
 		public function index()

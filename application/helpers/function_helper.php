@@ -14,4 +14,11 @@ function createSlug($data)	{
 	
 	return trim($data,'-');
 }
+
+
+ function check_page($page)
+     {
+        $pos = strpos($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],$page);
+        return $pos;
+     }
 ?>

@@ -18,6 +18,8 @@ class School_visit_blog_model extends CI_Model {
 			$entdate = date('Y-m-d H:i:s');
 			$this->load->helper('function');
 			
+			$myDateTime = DateTime::createFromFormat('m/d/Y', $_POST['datepicker']);
+            $newDateString = $myDateTime->format('Y-m-d');
 			$gallery_pdf1='';
 					$gallery_pdf2='';
 					  if($_FILES['imgBanner']['name']!="")
@@ -36,12 +38,13 @@ class School_visit_blog_model extends CI_Model {
 					'gschool_visit_blog_slug' => $slugvalue,
 					'gschool_visit_blog_image' => $gallery_pdf1,
 					'school_visit_id' => $_POST['selCategory'],
+					'gschool_visit_date' =>$newDateString,
 					'gschool_visit_blog_content' => htmlspecialchars($_POST['editor1']),
 					'gschool_visit_blog_content2' => htmlspecialchars($_POST['editor2']),
 					'gschool_visit_blog_content3' => htmlspecialchars($_POST['editor3']),
 					'gschool_visit_blog_main' => htmlspecialchars($_POST['editor4']),
                     'addedBy' => $_SESSION['usersession'],
-					'status' => '0',
+					'status' => '1',
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -58,7 +61,7 @@ class School_visit_blog_model extends CI_Model {
 		}
 		public function getbannerlistmodel()
 		{
-			$this->db->select('`gschool_visit_blog_id`, `gschool_visit_blog_title`, `school_visit_id`, `gschool_visit_blog_slug`, `gschool_visit_blog_image`, `gschool_visit_blog_content`, `gschool_visit_blog_content2`, `gschool_visit_blog_content3`, `gschool_visit_blog_main`, `status`, `gschool_visit_blog_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit_blog');
 			$query = $this->db->get();
 			$row = $query->result_array();
@@ -67,7 +70,7 @@ class School_visit_blog_model extends CI_Model {
 		
 		public function getactivebannerlistmodel()
 		{
-			$this->db->select('`gschool_visit_blog_id`, `gschool_visit_blog_title`, `school_visit_id`, `gschool_visit_blog_slug`, `gschool_visit_blog_image`, `gschool_visit_blog_content`, `gschool_visit_blog_content2`, `gschool_visit_blog_content3`, `gschool_visit_blog_main`, `status`, `gschool_visit_blog_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit_blog');
 			$this->db->where('status',1);
 			$query = $this->db->get();
@@ -77,7 +80,7 @@ class School_visit_blog_model extends CI_Model {
 		
 		public function getfeaturedbannerlistmodel()
 		{
-			$this->db->select('`gschool_visit_blog_id`, `gschool_visit_blog_title`, `school_visit_id`, `gschool_visit_blog_slug`, `gschool_visit_blog_image`, `gschool_visit_blog_content`, `gschool_visit_blog_content2`, `gschool_visit_blog_content3`, `gschool_visit_blog_main`, `status`, `gschool_visit_blog_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit_blog');
 			$this->db->where('gschool_visit_blog_featured',1);
 			$this->db->where('status',1);
@@ -88,7 +91,7 @@ class School_visit_blog_model extends CI_Model {
 		}
 		public function getbannerinfomodel($getid)
 		{
-			$this->db->select('`gschool_visit_blog_id`, `gschool_visit_blog_title`, `school_visit_id`, `gschool_visit_blog_slug`, `gschool_visit_blog_image`, `gschool_visit_blog_content`, `gschool_visit_blog_content2`, `gschool_visit_blog_content3`, `gschool_visit_blog_main`, `status`, `gschool_visit_blog_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit_blog');
 			$this->db->where('gschool_visit_blog_id',$getid);
 			$query = $this->db->get();
@@ -97,7 +100,7 @@ class School_visit_blog_model extends CI_Model {
 		}
 		public function getbannerslugmodel($getid)
 		{
-			$this->db->select('`gschool_visit_blog_id`, `gschool_visit_blog_title`, `school_visit_id`, `gschool_visit_blog_slug`, `gschool_visit_blog_image`, `gschool_visit_blog_content`, `gschool_visit_blog_content2`, `gschool_visit_blog_content3`, `gschool_visit_blog_main`, `status`, `gschool_visit_blog_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit_blog');
 			$this->db->where('gschool_visit_blog_slug',$getid);
 			$query = $this->db->get();
@@ -106,10 +109,26 @@ class School_visit_blog_model extends CI_Model {
 		}
 		public function bloglistmodel($getid)
 		{
-			$this->db->select('`gschool_visit_blog_id`, `gschool_visit_blog_title`, `school_visit_id`, `gschool_visit_blog_slug`, `gschool_visit_blog_image`, `gschool_visit_blog_content`, `gschool_visit_blog_content2`, `gschool_visit_blog_content3`, `gschool_visit_blog_main`, `status`, `gschool_visit_blog_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit_blog');
 			$this->db->where('school_visit_id',$getid);
 			$this->db->where('status', '1');
+			$query = $this->db->get();
+			$row = $query->result_array();
+			return $row;
+		}
+
+		public function bloglistmodelonepage($getid,$page)
+		{
+
+           $start=($page-1) * 6;
+	
+
+			$this->db->select('*');
+            $this->db->from('lm_school_visit_blog');
+			$this->db->where('school_visit_id',$getid);
+			$this->db->where('status', '1');
+			$this->db->limit(6,$start);
 			$query = $this->db->get();
 			$row = $query->result_array();
 			return $row;
@@ -122,6 +141,9 @@ class School_visit_blog_model extends CI_Model {
 	$this->load->helper('function');
 			$slugvalue=createSlug($_POST['txtTitle']);
 			
+			$myDateTime = DateTime::createFromFormat('m/d/Y', $_POST['datepicker']);
+            $newDateString = $myDateTime->format('Y-m-d');
+
 			 $gallery_pdf1='';
 			$gallery_pdf2='';
 			if($_FILES['imgBanner']['name']!="")
@@ -145,6 +167,7 @@ class School_visit_blog_model extends CI_Model {
 					'gschool_visit_blog_slug' => $slugvalue,
 					'school_visit_id' => $_POST['selCategory'],
 					'gschool_visit_blog_image' => $gallery_pdf1,
+					'gschool_visit_date' =>$newDateString,
 					'gschool_visit_blog_content' => htmlspecialchars($_POST['editor1']),
 					'gschool_visit_blog_content2' => htmlspecialchars($_POST['editor2']),
 					'gschool_visit_blog_content3' => htmlspecialchars($_POST['editor3']),
@@ -253,7 +276,7 @@ class School_visit_blog_model extends CI_Model {
 		}
 		public function fixedbannerlistmodel()
 		{
-			$this->db->select('`gschool_visit_blog_id`, `gschool_visit_blog_title`, `school_visit_id`, `gschool_visit_blog_slug`, `gschool_visit_blog_image`, `gschool_visit_blog_content`, `gschool_visit_blog_content2`, `gschool_visit_blog_content3`, `gschool_visit_blog_main`, `status`, `gschool_visit_blog_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit_blog');
 			$this->db->where('status', '1');
 			$this->db->limit(6,0);
@@ -265,7 +288,7 @@ class School_visit_blog_model extends CI_Model {
 		public function paginationsort($cntid)
 	    {
 		$start=($cntid-1) * 6;
-		$this->db->select('`gschool_visit_blog_id`, `gschool_visit_blog_title`, `school_visit_id`, `gschool_visit_blog_slug`, `gschool_visit_blog_image`, `gschool_visit_blog_content`, `gschool_visit_blog_content2`, `gschool_visit_blog_content3`, `gschool_visit_blog_main`, `status`, `gschool_visit_blog_featured`, `addedBy`, `addedOn`, `updatedOn`');
+		$this->db->select('*');
 		$this->db->from('lm_school_visit_blog');
 		$this->db->where('status',1);
 		$this->db->limit(6,$start);

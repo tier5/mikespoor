@@ -33,10 +33,10 @@
 
                 <!-- .row start -->
                 <div class="row">
-
+                     
                     <!-- .grid_9.blog-posts start -->
                     <ul class="grid_9 blog-posts blog-post-small-image triggerAnimation animated" data-animate="fadeInLeft">
-                      
+                       
                       <?php
 					  if(count($gallerylist)>0)
 					  {
@@ -62,8 +62,8 @@
                                 <div class="post-info-container">
                                     <ul class="date-category">
                                         <li class="post-date">
-                                            <span class="day"><?php echo date('d',strtotime($gallerylistdata['addedOn']. " GMT")) ?></span>
-                                            <span class="month"><?php echo date('M',strtotime($gallerylistdata['addedOn']. " GMT")) ?></span>
+                                            <span class="day"><?php echo date('d',strtotime($gallerylistdata['gschool_visit_date']. " GMT")) ?></span>
+                                            <span class="month"><?php echo date('M',strtotime($gallerylistdata['gschool_visit_date']. " GMT")) ?></span>
                                         </li>
 
                                         <li class="post-category">
@@ -78,7 +78,7 @@
 
                                         <ul class="post-meta">
                                             <li class="flaticon-calendar52">
-                                                <span><?php echo date('M d, Y',strtotime($gallerylistdata['addedOn'])) ?></span>
+                                                <span><?php echo date('M d, Y',strtotime($gallerylistdata['gschool_visit_date'])) ?></span>
                                             </li>
                                             
 
@@ -140,8 +140,13 @@ else
 
 $pagination = new Pagination();
 
+if(isset($catagory) && $catagory)
+{ 
+    $linkto = BASE_URI."school-visit/category/".$catagory."/%s";
+} else {
+    $linkto = BASE_URI."school-visit/page/%s";
+}
 
-$linkto = BASE_URI."school-visit/page/%s";
 
 $pagination->setLink($linkto);
 
@@ -175,10 +180,10 @@ $pagination->setTotalRecords($total_records);
                         <ul class="aside_widgets">
                             <!-- .widget_categories start -->
                             <li class="widget widget_categories">
-                                <h6>blog categories</h6>
+                                <h6>School Categories</h6>
 
                                 <ul>
-                                <li><a href="<?php echo BASE_URI.'school-visit'; ?>">All</a></li>
+                                <li><a href="<?php echo BASE_URI.'school-visit'; ?>">All Schools</a></li>
                                 <?php
 								foreach($categorylist as $category_listdata)
 								{

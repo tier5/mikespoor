@@ -49,6 +49,40 @@ class Ajax_model extends CI_Model {
                 return false;
             }
         }
+
+        public function get_school_details($school_id)
+        {
+            $this->db->select('*');
+            $this->db->from('lm_school_visit');
+            $this->db->where('school_visit_id',$school_id);
+            $query = $this->db->get();
+            $row = $query->row_array();
+            return $row;
+        }
+
+        public function edit_school_name($con, $data)
+        {
+            $this->db->where($con);
+            $query=$this->db->update("lm_school_visit", $data);
+            if($query){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function insert($table,$data)
+        {
+            $query=$this->db->insert($table, $data);
+            if($query){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        
+        
 }
 
 ?>

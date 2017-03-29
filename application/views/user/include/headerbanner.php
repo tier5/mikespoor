@@ -1,6 +1,7 @@
 
-<?php if($current_page=='about-us' || $current_page=='video-gallery' || $current_page=='school-visit') {?>
+<?php if($current_page=='about-us' || $current_page=='video-gallery'   || $current_page=='school-visit'  || $current_page=='links-news' || check_page('school-visit/page') >0 || check_page('school-visit/category') >0 || check_page('video-gallery/page') >0 ) {?>
 <section class="video-banner">
+    
     <div class="container-fluid">
         <div class="row">
            <div class="col-md-3 no-margin hidden-xs">

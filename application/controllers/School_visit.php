@@ -6,6 +6,7 @@ class School_visit extends CI_Controller {
                 parent::__construct();
                 // Your own constructor code
                 $this->load->model('backend/banner_model');
+                $this->load->helper('function_helper');
         }
 		public function index()
 		{
@@ -36,10 +37,14 @@ class School_visit extends CI_Controller {
 			
 			    $this->load->view('user/school_visit_view',$data);
 		}
-		public function category($getid)
+		public function category($getid,$page='')
 		{
-
-			 $this->load->model('backend/theme_model');
+                if($page){
+                	$page=$page;
+                } else{
+                	$page=1;
+                }
+			    $this->load->model('backend/theme_model');
 			    $data['theme_color']=$this->theme_model->get_all_info('theme-color');
 				$data['font_color']=$this->theme_model->get_all_info('font-color');
 			    $this->load->model('backend/login_model');
@@ -51,13 +56,15 @@ class School_visit extends CI_Controller {
 				$this->load->model('backend/video_banner_model');
 				$data['videobannerlist']=$this->video_banner_model->getactivebannerlistmodel();
 				$this->load->model('backend/school_visit_blog_model');
-				$data['gallerylist']=$this->school_visit_blog_model->bloglistmodel($data['categoryinfo']['school_visit_id']);
-				$data['totalrec']=1;
-				$data['nowpage']=1;
+				$data['gallerylist']=$this->school_visit_blog_model->bloglistmodelonepage($data['categoryinfo']['school_visit_id'],$page);
+				$data['totalrec']=count($this->school_visit_blog_model->bloglistmodel($data['categoryinfo']['school_visit_id']));
+				$data['nowpage']=$page;
+				$data['catagory']=$getid;
 				$this->load->model('backend/school_visit_model');
 				$data['picturecatlist']=$this->school_visit_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/school_visit_blog_model');
-				$data['banner']=$this->banner_model->getbannerbyslug('school_visit');
+				 $data['banner']=$this->banner_model->getallbannerbyslug('school_visit');
+                $data['focus_banner']=$this->banner_model->getmiddlebannerbyslug('school_visit');
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(6);
@@ -81,7 +88,8 @@ class School_visit extends CI_Controller {
 		       $data['totalrec']=$this->school_visit_blog_model->countactiveschool_visit_blog();
 		        $data['nowpage']=$getpage;
 				$this->load->model('backend/school_visit_model');
-				$data['banner']=$this->banner_model->getbannerbyslug('school_visit');
+				$data['banner']=$this->banner_model->getallbannerbyslug('school_visit');
+                $data['focus_banner']=$this->banner_model->getmiddlebannerbyslug('school_visit'); 
 				$data['picturecatlist']=$this->school_visit_model->getfeaturedbannerlistmodel();
 				$this->load->model('backend/school_visit_blog_model');
 				$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();

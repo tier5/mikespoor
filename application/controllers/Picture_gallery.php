@@ -14,6 +14,7 @@ class Picture_Gallery extends CI_Controller {
 			    $this->load->model('backend/picture_gallery_model');
 			    $this->load->model('backend/theme_model');
 			    $this->load->model('backend/seo_settings_model');
+			    $this->load->helper('function_helper');
         }
         
 		public function index()

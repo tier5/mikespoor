@@ -94,7 +94,7 @@
                                       <tr>
                                           <td><?php echo $cnt;?></td>
                                           <td><?php echo $stat['home_stats_title'];?></td>
-                                          <td> <a class="btn btn-primary btn-md" title="Edit" href="<?php echo BASE_URI.'backend/home-page/add_edit_stats/'.$stat['stats_id']; ?>"><i class="fa fa-edit"> Edit</i></a> <!-- <a class="btn btn-danger btn-md" title="Delete" id="delete_home_offer" onclick="delete_home_offer(<?php //echo $stat['stats_id']; ?>)" ><i class="fa fa-trash"> Delete</i></a> --></td>
+                                          <td> <a class="btn btn-primary btn-md" title="Edit" href="<?php echo BASE_URI.'backend/home-page/add_edit_stats/'.$stat['stats_id']; ?>"><i class="fa fa-edit"> Edit</i></a> <a class="btn btn-danger btn-md" title="Delete" id="delete_home_offer" onclick="delete_home_offer(<?php echo $stat['stats_id']; ?>)" ><i class="fa fa-trash"> Delete</i></a> </td>
                                       </tr>
 
                                     <?php  $cnt=$cnt+1; } ?>

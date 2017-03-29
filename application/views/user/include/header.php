@@ -1,8 +1,8 @@
 <?php
 	  
 	 $actual_link = basename($_SERVER["REQUEST_URI"]);
-	 //$acarr=explode("backend/",$actual_link);
-	 
+	
+	
 	 if(isset($actual_link))
 	 {
 		 $current_page=$actual_link;
@@ -12,8 +12,11 @@
 	 {
 		  $current_page='home';
 	 }
-	
-	 //echo "<h1>".$current_page."</h1>";
+
+    
+	/*echo $_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"];*/
+ 
+
 	 ?>
 <div id="header-wrapper" class="clearfix" >
             <!-- .top-bar start -->
@@ -67,7 +70,7 @@
                     <nav id="nav">
                         <ul>
                             <li>
-                                <a href="<?php echo BASE_URI; ?>">HOME</a>
+                                <a href="<?php echo BASE_URI; ?>">HOME  </a>
                               
                             </li>
 

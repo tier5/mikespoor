@@ -36,8 +36,8 @@
                             <!-- .post-info start -->
                             <ul class="post-info">
                                 <li class="post-date">
-                                    <span class="day"><?php echo date('d',strtotime($bloginfo['addedOn']. " GMT")) ?></span>
-                                            <span class="month"><?php echo date('M',strtotime($bloginfo['addedOn']. " GMT")) ?></span>
+                                    <span class="day"><?php echo date('d',strtotime($bloginfo['gschool_visit_date']. " GMT")) ?></span>
+                                            <span class="month"><?php echo date('M',strtotime($bloginfo['gschool_visit_date']. " GMT")) ?></span>
                                 </li>
 
                                 <li class="post-category">
@@ -53,7 +53,7 @@
 
                                 <ul class="post-meta">
                                     <li class="flaticon-calendar52">
-                                        <span><?php echo date('M d, Y',strtotime($bloginfo['addedOn']. " GMT")); ?></span>
+                                        <span><?php echo date('M d, Y',strtotime($bloginfo['gschool_visit_date']. " GMT")); ?></span>
                                     </li>
                                     
 

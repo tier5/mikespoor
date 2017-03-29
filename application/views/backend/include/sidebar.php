@@ -65,7 +65,7 @@
             <li class="treeview<?php if($current_page == 'school_visit/add' || $current_page == 'school_visit' || $current_page == 'school_visit_blog/add' || $current_page == 'school_visit/blog' || $current_page == 'school_visit_blog') { ?> active"<?php }else{echo '"';} ?>>
                 <a href="<?php echo BASE_URI.'backend/video'; ?>"><i class="fa fa-comments-o"></i> <span>School Visit</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li <?php if($current_page == 'school_visit' || $current_page == 'school_visit/add') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/school_visit'; ?>"><i class="fa fa-plus"></i> Category</a></li>
+                    <li <?php if($current_page == 'school_visit' || $current_page == 'school_visit/add') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/school_visit'; ?>"><i class="fa fa-plus"></i> School Lists</a></li>
                     <li <?php if($current_page == 'school_visit_blog' || $current_page == 'school_visit_blog/add') { ?>class = "active"<?php } ?>><a href="<?php echo BASE_URI.'backend/school_visit_blog'; ?>"><i class="fa fa-plus"></i> School Visit Blog</a></li>
                 </ul>
             </li>

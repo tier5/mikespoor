@@ -20,7 +20,7 @@
 				//$data['title']='Banner';
 				$this->load->model('backend/banner_model');
 				$data['inner_page_banner']=$this->banner_model->get_all_banner();
-				if($getid=='about' || $getid=='video_gallery' || $getid=='school_visit')
+				if($getid=='about' || $getid=='video_gallery' || $getid=='school_visit' || $getid=='link_news')
 				{
                     $data['banner_slug']=$getid;
                     $data['bannerinfo']=$this->banner_model->allbanner($getid);

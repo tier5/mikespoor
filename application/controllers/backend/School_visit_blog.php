@@ -84,6 +84,8 @@ class School_visit_blog extends CI_Controller {
 		}
 		public function editbanner()
 		{
+
+			
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
 				$res=$this->school_visit_blog_model->editbannermodel();

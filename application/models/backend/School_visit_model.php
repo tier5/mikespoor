@@ -40,7 +40,7 @@ class School_visit_model extends CI_Model {
 		}
 		public function getbannerlistmodel()
 		{
-			$this->db->select('`school_visit_id`, `school_visit_title`, `school_visit_slug`, `school_visit_image`, `school_visit_content`, `status`, `school_visit_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit');
 			$query = $this->db->get();
 			$row = $query->result_array();
@@ -48,7 +48,7 @@ class School_visit_model extends CI_Model {
 		}
 		public function school_visitlistmodel($getid)
 		{
-			$this->db->select('`gschool_visit_id`, `gschool_visit_title`, `school_visit_id`, `gschool_visit_slug`, `gschool_visit_image`, `gschool_visit_content`, `status`, `gschool_visit_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit_gallery');
 			$this->db->where('status',1);
 			$this->db->where('school_visit_id',$getid);
@@ -79,7 +79,7 @@ class School_visit_model extends CI_Model {
 		}
 		public function getactivebannerlistmodel()
 		{
-			$this->db->select('`school_visit_id`, `school_visit_title`, `school_visit_slug`, `school_visit_image`, `school_visit_content`, `status`, `school_visit_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit');
 			$this->db->where('status',1);
 			$query = $this->db->get();
@@ -89,7 +89,7 @@ class School_visit_model extends CI_Model {
 		
 		public function getfeaturedbannerlistmodel()
 		{
-			$this->db->select('`school_visit_id`, `school_visit_title`, `school_visit_slug`, `school_visit_image`, `school_visit_content`, `status`, `school_visit_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit');
 			//$this->db->where('school_visit_featured',1);
 			$this->db->where('status',1);
@@ -100,7 +100,7 @@ class School_visit_model extends CI_Model {
 		}
 		public function getbannerinfomodel($getid)
 		{
-			$this->db->select('`school_visit_id`, `school_visit_title`, `school_visit_slug`, `school_visit_image`, `school_visit_content`, `status`, `school_visit_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit');
 			$this->db->where('school_visit_id',$getid);
 			$query = $this->db->get();
@@ -109,7 +109,7 @@ class School_visit_model extends CI_Model {
 		}
 		public function getbannerslugmodel($getid)
 		{
-			$this->db->select('`school_visit_id`, `school_visit_title`, `school_visit_slug`, `school_visit_image`, `school_visit_content`, `status`, `school_visit_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit');
 			$this->db->where('school_visit_slug',$getid);
 			$query = $this->db->get();
@@ -234,7 +234,7 @@ class School_visit_model extends CI_Model {
 		}
 		public function fixedbannerlistmodel()
 		{
-			$this->db->select('`school_visit_id`, `school_visit_title`, `school_visit_slug`, `school_visit_image`, `school_visit_content`, `status`, `school_visit_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_school_visit');
 			$this->db->where('status', '1');
 			$this->db->limit(12,0);
@@ -246,14 +246,15 @@ class School_visit_model extends CI_Model {
 		public function paginationsort($cntid)
 	    {
 		$start=($cntid-1) * 12;
-		$this->db->select('`school_visit_id`, `school_visit_title`, `school_visit_slug`, `school_visit_image`, `school_visit_content`, `status`, `school_visit_featured`, `addedBy`, `addedOn`, `updatedOn`');
+		$this->db->select('*');
 		$this->db->from('lm_school_visit');
 		$this->db->where('status',1);
 		$this->db->limit(12,$start);
 		$query = $this->db->get();
 		return $query->result_array();
 	    }
-		
+
+	    
 
 }
 ?>

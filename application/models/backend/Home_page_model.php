@@ -35,19 +35,12 @@ class Home_page_model extends CI_Model {
 		public function addbannermodel()
 		{
 			$this->load->library('image_lib');
-					$timezone = 'GMT';
+			$timezone = 'GMT';
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
-			$gallery_pdf1='';
-			$gallery_pdf2='';
-			  if($_FILES['imgBanner']['name']!="")
-	           {	
-		         /*$photopath2 = pathinfo($_FILES['imgBanner']['name']);
-		         $extension2 = $photopath2['extension'];
-		         $source2 = $_FILES['imgBanner']['tmp_name'];
-		         $gallery_pdf1 = time().".".$extension2;
-		         $destination2 = "uploads/".$gallery_pdf1;
-		          move_uploaded_file($source2,$destination2);*/
+
+			if($_FILES['imgBanner']['name']!=""){	
+		         
                 $photopath2 = pathinfo($_FILES['imgBanner']['name']);
 		        $extension2 = $photopath2['extension'];
 		        $source2 = $_FILES['imgBanner']['tmp_name'];
@@ -62,10 +55,8 @@ class Home_page_model extends CI_Model {
 				    $config['width']     = 735;
 				    $config['height']   = 457;
 
-				   
 				    $this->image_lib->initialize($config);
-				    if(!$this->image_lib->resize())
-				    {
+				    if(!$this->image_lib->resize()) {
 				    	return false;
 				    	exit;
 				    }
@@ -74,25 +65,17 @@ class Home_page_model extends CI_Model {
                      exit;
 		        }
 
-
-
-
-
-
-
-	           }
-			   
 			    if($_FILES['imgFBanner']['name']!="")
-	           {	
-		         $photopath3 = pathinfo($_FILES['imgFBanner']['name']);
-		         $extension3 = $photopath3['extension'];
-		         $source3 = $_FILES['imgFBanner']['tmp_name'];
-		         $gallery_pdf2 = time().".".$extension3;
-		         $destination3 = "uploads/home_page/banner/".$gallery_pdf2;
-		          move_uploaded_file($source3,$destination3);
+	            {	
+		         	$photopath3 = pathinfo($_FILES['imgFBanner']['name']);
+		         	$extension3 = $photopath3['extension'];
+		         	$source3 = $_FILES['imgFBanner']['tmp_name'];
+		         	$gallery_pdf2 = time()."_front.".$extension3;
+		         	$destination3 = "uploads/home_page/banner/".$gallery_pdf2;
+		         	
 
 
-		          if(move_uploaded_file($source3,$destination3)){
+		           if(move_uploaded_file($source3,$destination3)){
 		            /*** image resize ***/
 					$config2['image_library'] = 'gd2';
 				    $config2['source_image'] = "uploads/home_page/banner/".$gallery_pdf2;
@@ -135,6 +118,10 @@ class Home_page_model extends CI_Model {
 				}
 				else
 				{
+					return false;
+				}
+
+				} else {
 					return false;
 				}
 		}

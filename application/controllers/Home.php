@@ -13,6 +13,7 @@ class Home extends CI_Controller {
                 $this->load->model('backend/theme_model');
                 $this->load->model('backend/school_visit_model');
                 $this->load->model('backend/school_visit_blog_model');
+                $this->load->helper('function_helper');
         }
 		public function index()
 		{

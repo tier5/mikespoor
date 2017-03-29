@@ -90,10 +90,10 @@
             
             <!-- /.box-header -->
             <div class="box-header">
-              <h3 class="box-title">Category List</h3>
+              <h3 class="box-title">School List</h3>
 
               <div class="box-tools pull-right">
-                <a class="btn btn-block btn-primary btn-xs" href="<?php echo BASE_URI.'backend/school_visit/add'; ?>"><i class="fa fa-plus"></i> Add New</a>
+                <a class="btn btn-block btn-primary btn-xs" onclick="add_school()"><i class="fa fa-plus"></i> Add New</a>
               </div>
               <!-- /.box-tools -->
             </div>
@@ -103,7 +103,7 @@
                 <thead>
                 <tr>
                   <th>#</th>
-                  <th>Category Title</th>
+                  <th>School Name</th>
                  
                   <th>Featured</th>
                   <th>Status</th>
@@ -155,7 +155,7 @@
 				  ?>
                    </td>
                   <td>
-                  <a class="btn btn-primary btn-xs" title="Edit" href="<?php echo BASE_URI.'backend/school_visit/edit/'.$bannerlistdata['school_visit_id']; ?>"><i class="fa fa-edit"></i></a>
+                  <a class="btn btn-primary btn-xs" title="Edit" onclick="edit_school(<?php echo $bannerlistdata['school_visit_id']?>)"><i class="fa fa-edit"></i></a>
                   <a class="btn btn-danger btn-xs" title="Delete" onclick="return confirm('Are you sure you want to delete this banner?');" href="<?php echo BASE_URI.'backend/school_visit/delete/'.$bannerlistdata['school_visit_id']; ?>"><i class="fa fa-trash"></i></a>
                   </td>
                 </tr>
@@ -183,10 +183,32 @@
 
        
         </div>
-        <!--/.col (left) -->
-        <!-- right column -->
-        
-        <!--/.col (right) -->
+        <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit School Name</h4>
+        </div>
+        <div class="modal-body">
+          School Name
+          <input type="hidden" id="school_id" name="school_id">
+          
+           <textarea cols="20" rows="3"  id="welcome_title" class="form-control"></textarea>
+           <br>
+          <span id="submit">  
+           
+          </span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
       </div>
 
     </section>
@@ -243,7 +265,72 @@
 <script>
 	$("#success-alert").fadeTo(2000, 500).fadeOut(500, function(){
                $("#success-alert").alert('close');
-                });   
+                }); 
+
+  function edit_school(school_id)
+  {
+    $.ajax({
+        url: 'backend/ajax/get_school_details',
+        type: "post",
+        data:{school_id:school_id},
+        success: function(response)
+        {
+            /*console.log(response);*/
+            response = $.parseJSON(response);     
+            $('#school_id').val(response.school_visit_id);
+            $('#welcome_title').val(response.school_visit_title);
+            $('#submit').html('<button class="btn btn-success" onclick="update_school_name('+school_id+')"> Save Change</button>');
+        }
+      });
+      $('#myModal').modal('show');
+      
+  } 
+
+  function update_school_name(school_id)
+  {
+  
+      var school_name=($('#welcome_title').val().trim());
+      if(school_name){
+     $.ajax({
+        url: 'backend/ajax/update_school',
+        type: "post",
+        data:{school_id:school_id, school_name:school_name},
+        success: function(response)
+        {
+          //console.log(response);
+          window.location.reload();
+        }
+      });
+   }
+  }
+
+
+
+  function add_school()
+  {
+    $('#submit').html('<button class="btn btn-success" onclick="add_new_school()"> Add School</button>');
+        
+      $('#myModal').modal('show');
+      
+  }
+
+  function add_new_school()
+  {
+
+      var school_name=($('#welcome_title').val().trim());
+      if(school_name){
+     $.ajax({
+        url: 'backend/ajax/add_new_school',
+        type: "post",
+        data:{school_name:school_name},
+        success: function(response)
+        {
+          //console.log(response);
+          window.location.reload();
+        }
+      });
+   }
+  }
 	</script>
 </body>
 </html>
