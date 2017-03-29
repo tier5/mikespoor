@@ -102,11 +102,11 @@
 
             <a href="#" class="scroll-up">Scroll</a>
         </section>
-    <script src="assets/user/js/js/jquery.flexslider-min.js" type="text/javascript"></script>
+    <script src="<?php echo BASE_URI; ?>assets/user/js/js/jquery.flexslider-min.js" type="text/javascript"></script>
     
-    <script src="assets/user/js/js/jquery.mb.YTPlayer.js" type="text/javascript"></script>
+    <script src="<?php echo BASE_URI; ?>assets/user/js/js/jquery.mb.YTPlayer.js" type="text/javascript"></script>
     
-    <script src="assets/user/js/js/mynewscript.js" type="text/javascript"></script>
+    <script src="<?php echo BASE_URI; ?>assets/user/js/js/mynewscript.js" type="text/javascript"></script>
         <script>
             /* <![CDATA[ */
             $(document).ready(function() {

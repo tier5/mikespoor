@@ -23,7 +23,7 @@
     <!--/stylesheets -->
 
 
-    <link rel='stylesheet' href='assets/user/unitegallery/css/unite-gallery.css' type='text/css' />
+    <link rel='stylesheet' href='<?php echo BASE_URI;?>assets/user/unitegallery/css/unite-gallery.css' type='text/css' />
     <!-- prettyPhoto lightbox stylesheer -->
     <link rel="stylesheet" href="<?php echo BASE_URI;?>assets/user/css/prettyPhoto.css" media="screen" />
     <!-- /prettyPhoto lightbox stylesheer -->
@@ -44,7 +44,7 @@
         <script src="js/selectivizr-min.js"></script>
     <![endif]-->
      
-    <link href="assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="<?php echo BASE_URI;?>assets/user/css/flaticon.css" rel="stylesheet" type="text/css" media="screen">
     <script  src="<?php echo BASE_URI;?>assets/user/js/jquery-1.12.4.min.js"></script> <!-- jQuery library --> 
     
 

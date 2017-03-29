@@ -133,11 +133,11 @@
                 $(function() {
                     //google maps
 
-                    var yourStartLatLng = new google.maps.LatLng(40.74843, -73.985655);
+                   /* var yourStartLatLng = new google.maps.LatLng(40.74843, -73.985655);
                     $('.map_canvas').gmap({'center': yourStartLatLng, 'zoom': 13, 'disableDefaultUI': true, 'callback': function() {
                             var self = this;
                             self.addMarker({'position': this.get('map').getCenter()});
-                        }});
+                        }});*/
                 }); // GOOGLE MAPS END
 
                 // CONTACT FORM AJAX SUBMIT START
