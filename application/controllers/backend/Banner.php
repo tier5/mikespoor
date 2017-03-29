@@ -212,7 +212,7 @@
 
             	if(isset($_POST['fourth_id']))
             	{
-            		if($_POST['banner_focus']=='4'){ $banner_focus4='1'; }else { $banner_focus4='0'; }
+            		if($_POST['banner_focus']=='4'){ $banner_focus4='1'; } else { $banner_focus4='0'; }
             		 $data3 = array(
 				                'banner_image' => $_POST['fourth_url'],
 				                'banner_type'=>'2',
@@ -220,7 +220,9 @@
 				                'banner_ext' =>'2',
 								'updatedOn' => $entdate
 	                        );
-	                        $con3['banner_slug']=$_POST['fourth_id'];
+	                        $con3['banner_id']=$_POST['fourth_id'];
+	                        print_r($data3);
+	                        exit;
 	                        $query=$this->banner_model->update('lm_banner', $con3,$data3);
 							if(!$query){
 								$_SESSION['errormsg']='Seems to be some problem. Try Again';
