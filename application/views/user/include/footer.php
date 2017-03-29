@@ -26,7 +26,7 @@
                             <!-- .footer-widget-container start -->
                             <div class="grid_4 footer-widget-container" >
                                 <h6 style="color:<?php echo $font_color['color']; ?> !important;">follow us</h6>
-                                <p style="color:<?php echo $font_color['color']; ?> !important;" >Keep up to date with Mike Spoor Illustrations</p>
+                               <!--  <p style="color:<?php echo $font_color['color']; ?> !important;" >Keep up to date with Mike Spoor Illustrations</p> -->
                                 <!--- .social-links start -->
                                 <ul class="social-links">
                                     <li>
@@ -64,13 +64,13 @@
                                                 <?php echo $companyinfo['contact_no2']; ?>
                                             </p>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <p style="color:<?php echo $font_color['color']; ?> !important;">
-                                                <!-- <i class="flaticon-arrow465"></i> -->
+                                                
                                                 <a class="underlined" href="<?php echo BASE_URI; ?>contact" style="color:<?php echo $font_color['color']; ?> !important;">FIND MORE ABOUT US</a>
                                                 <i class="flaticon-arrow465"></i>
                                             </p>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <p style="color:<?php echo $font_color['color']; ?> !important;">
                                                 <span class="strong" style="display: block;">Powered by:</span>

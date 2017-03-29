@@ -58,7 +58,7 @@
             <!-- #header start -->
             <header id="header" class="clearfix">
                 <section id="logo">
-                    <a href="index.html">
+                    <a href="<?php echo BASE_URI; ?>">
                         <img src="<?php echo BASE_URI.'uploads/'.$companyinfo['company_logo']; ?>" title="<?php echo $companyinfo['company_name']; ?>" alt="company logo"/>
                     </a>
                 </section>
