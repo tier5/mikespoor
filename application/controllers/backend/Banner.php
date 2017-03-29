@@ -221,8 +221,7 @@
 								'updatedOn' => $entdate
 	                        );
 	                        $con3['banner_id']=$_POST['fourth_id'];
-	                        print_r($data3);
-	                        exit;
+	                        
 	                        $query=$this->banner_model->update('lm_banner', $con3,$data3);
 							if(!$query){
 								$_SESSION['errormsg']='Seems to be some problem. Try Again';
