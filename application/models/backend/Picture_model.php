@@ -48,7 +48,7 @@ class Picture_model extends CI_Model {
 		}
 		public function picturelistmodel($getid)
 		{
-			$this->db->select('`gpicture_id`, `gpicture_title`, `picture_id`, `gpicture_slug`, `gpicture_image`, `gpicture_content`, `status`, `gpicture_featured`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_picture_gallery');
 			$this->db->where('status',1);
 			$this->db->where('picture_id',$getid);

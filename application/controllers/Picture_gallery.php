@@ -69,6 +69,26 @@ class Picture_Gallery extends CI_Controller {
 			$data['metainfo']=$this->seo_settings_model->getmetainfomodel(3);
 			$this->load->view('user/picture_gallery_view',$data);
 	    }
+
+	    public function category_picture()
+	    {
+	    	$category=$this->input->post('catagory');
+	    	$gallerylist=$this->picture_model->picturelistmodel($category);
+	    	
+	    	$result="";
+
+	    	if(count($gallerylist)>0){ 
+                foreach($gallerylist as $gallerylistdata) { 
+                $result.= '<a href="http://unitegallery.net">
+                                <img alt="'.$gallerylistdata['gpicture_title'].'" src="'. BASE_URI.'uploads/picture/'.$gallerylistdata['gpicture_image'].'" data-image="'.BASE_URI.'uploads/picture/'.$gallerylistdata['gpicture_image'].'" data-description="This is a Lemon Slice" style="display:none">
+                            </a>';
+                }  
+            } else { 
+             $result= ' <h3>No Picures Found</h3>' ;          
+            } 
+
+            print_r($result);
+	    }
 	   
 	   
 }
