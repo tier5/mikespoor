@@ -30,8 +30,10 @@ class About_us extends CI_Controller {
                 $data['banner']=$this->banner_model->getallbannerbyslug('about');
                 $data['focus_banner']=$this->banner_model->getmiddlebannerbyslug('about');
                 $this->load->model('backend/timeline_model');
+                $data['abouttitle']=$this->cms_model->getcmsinfomodel('9');
+                $data['aboutcontent']=$this->cms_model->getcmsinfomodel('10');
+                $data['aboutlink']=$this->cms_model->getcmsinfomodel('11');
 
-             
 				$data['timelinelist']=$this->timeline_model->getactivefeaturedlistmodel();
 				$this->load->model('backend/seo_settings_model');
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(2);

@@ -60,92 +60,76 @@ class Cms_model extends CI_Model {
 		public function editaboutcmsmodel($getid)
 		{
 			$timezone = 'GMT';
-	if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
-	$entdate = date('Y-m-d H:i:s');
+	        if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
+	        $entdate = date('Y-m-d H:i:s');
 			$gallery_pdf1='';
 			$gallery_pdf2='';
 			$gallery_pdf3='';
 			$gallery_pdf4='';
 			$gallery_pdf5='';
-			if($_FILES['imgXBanner']['name']!="")
-	          {	
+
+
+			if($_FILES['imgXBanner']['name']!=""){	
 		        unlink("uploads/".$_POST['hid_gallery_pdf1']);
 		        $photopath1 = pathinfo($_FILES['imgXBanner']['name']);
 		        $extension1 = $photopath1['extension'];
 		        $source1 = $_FILES['imgXBanner']['tmp_name'];
-		       $gallery_pdf1 = time().".".$extension1;
-		       $destination1 = "uploads/".$gallery_pdf1;
-		
+		        $gallery_pdf1 = time()."_1.".$extension1;
+		        $destination1 = "uploads/".$gallery_pdf1;
 		        move_uploaded_file($source1,$destination1);
-	          }
-	         else
-	          {
+	        }else{
 		         $gallery_pdf1 = $_POST['hid_gallery_pdf1'];
-	          }
+	        }
 			  
-			  if($_FILES['imgYBanner']['name']!="")
-	          {	
+			if($_FILES['imgYBanner']['name']!=""){	
 		        unlink("uploads/".$_POST['hid_gallery_pdf2']);
 		        $photopath2 = pathinfo($_FILES['imgYBanner']['name']);
 		        $extension2 = $photopath2['extension'];
 		        $source2 = $_FILES['imgYBanner']['tmp_name'];
-		       $gallery_pdf2 = time().".".$extension2;
-		       $destination2 = "uploads/".$gallery_pdf2;
+		        $gallery_pdf2 = time()."_2.".$extension2;
+		        $destination2 = "uploads/".$gallery_pdf2;
 		
 		        move_uploaded_file($source2,$destination2);
-	          }
-	         else
-	          {
-		         $gallery_pdf2 = $_POST['hid_gallery_pdf2'];
-	          }
+	        }else {
+		        $gallery_pdf2 = $_POST['hid_gallery_pdf2'];
+	        }
 			  
-			  if($_FILES['imgZBanner']['name']!="")
-	          {	
+			if($_FILES['imgZBanner']['name']!=""){	
 		        unlink("uploads/".$_POST['hid_gallery_pdf3']);
 		        $photopath3 = pathinfo($_FILES['imgZBanner']['name']);
 		        $extension3 = $photopath3['extension'];
 		        $source3 = $_FILES['imgZBanner']['tmp_name'];
-		       $gallery_pdf3 = time().".".$extension3;
-		       $destination3 = "uploads/".$gallery_pdf3;
-		
+		        $gallery_pdf3 = time()."_3.".$extension3;
+		        $destination3 = "uploads/".$gallery_pdf3;
 		        move_uploaded_file($source3,$destination3);
-	          }
-	         else
-	          {
-		         $gallery_pdf3 = $_POST['hid_gallery_pdf3'];
-	          }
+	        } else {
+		        $gallery_pdf3 = $_POST['hid_gallery_pdf3'];
+	        }
 			  
-			  if($_FILES['imgWBanner']['name']!="")
-	          {	
+			if($_FILES['imgWBanner']['name']!=""){	
 		        unlink("uploads/".$_POST['hid_gallery_pdf4']);
 		        $photopath4 = pathinfo($_FILES['imgWBanner']['name']);
 		        $extension4 = $photopath4['extension'];
 		        $source4 = $_FILES['imgWBanner']['tmp_name'];
-		       $gallery_pdf4 = time().".".$extension4;
-		       $destination4 = "uploads/".$gallery_pdf4;
-		
+		        $gallery_pdf4 = time()."_4.".$extension4;
+		        $destination4 = "uploads/".$gallery_pdf4;
 		        move_uploaded_file($source4,$destination4);
-	          }
-	         else
-	          {
-		         $gallery_pdf4 = $_POST['hid_gallery_pdf4'];
-	          }
+	        } else {
+		        $gallery_pdf4 = $_POST['hid_gallery_pdf4'];
+	        }
 			  
-			  if($_FILES['pdfFile']['name']!="")
-	          {	
+			if($_FILES['pdfFile']['name']!=""){	
 		        unlink("uploads/".$_POST['hid_gallery_pdf5']);
 		        $photopath5 = pathinfo($_FILES['pdfFile']['name']);
 		        $extension5 = $photopath5['extension'];
 		        $source5 = $_FILES['pdfFile']['tmp_name'];
-		       $gallery_pdf5 = time().".".$extension5;
-		       $destination5 = "uploads/".$gallery_pdf5;
+		        $gallery_pdf5 = time().".".$extension5;
+		        $destination5 = "uploads/".$gallery_pdf5;
 		
 		        move_uploaded_file($source5,$destination5);
-	          }
-	         else
-	          {
-		         $gallery_pdf5 = $_POST['hid_gallery_pdf5'];
-	          }
+	        } else{
+		        $gallery_pdf5 = $_POST['hid_gallery_pdf5'];
+	        }
 			 
 			$data = array(
                     'cms_title' => trim(addslashes($_POST['txtTitle'])),
@@ -159,18 +143,67 @@ class Cms_model extends CI_Model {
 					'cms_ftitle' => trim(addslashes($_POST['txtFTitle'])),
 					'cms_fcontent' => htmlspecialchars($_POST['feditor1']),
 					'updatedOn' => $entdate
-             );
+            );
+            
+            $data1 = array(
+                  
+                    'cms_aimage1' => $this->input->post('first_title'),
+					'cms_aimage2' => $this->input->post('second_title'),
+					'cms_aimage3' => $this->input->post('third_title'),
+					'cms_aimage4' => $this->input->post('fourth_title'),
+					'updatedOn' => $entdate
+            );
 
-             $this->db->where('cms_id', $_POST['txtCid']);
-             $query=$this->db->update('lm_cms', $data);
-			 if($query)
-				{
-					return true;
-				}
-				else
-				{
+            $data2 = array(
+                  
+                    'cms_aimage1' => $this->input->post('first_content'),
+					'cms_aimage2' => $this->input->post('second_content'),
+					'cms_aimage3' => $this->input->post('third_content'),
+					'cms_aimage4' => $this->input->post('fourth_content'),
+					'updatedOn' => $entdate
+            );
+
+            $data3 = array(
+                  
+                    'cms_aimage1' => $this->input->post('first_link'),
+					'cms_aimage2' => $this->input->post('second_link'),
+					'cms_aimage3' => $this->input->post('third_link'),
+					'cms_aimage4' => $this->input->post('fourth_link'),
+					'updatedOn' => $entdate
+            );
+
+
+            $this->db->where('cms_id', $_POST['txtCid']);
+            $query=$this->db->update('lm_cms', $data);
+			if($query){
+				$this->db->where('cms_id', $_POST['pictire_title']);
+	            $query1=$this->db->update('lm_cms', $data1);
+				if($query1){
+					
+					$this->db->where('cms_id', $_POST['pictire_content']);
+		            $query2=$this->db->update('lm_cms', $data2);
+					if($query2){
+						
+						$this->db->where('cms_id', $_POST['pictire_link']);
+			            $query3=$this->db->update('lm_cms', $data3);
+						if($query3){
+								return true;
+						}else{
+							return false;
+						}
+							
+					}else{
+						return false;
+					}				
+				}else{
 					return false;
-				}
+				}		
+			}else{
+				return false;
+			}
+
+
+           
 		}
 		
 		public function editcontactmodel($getid)

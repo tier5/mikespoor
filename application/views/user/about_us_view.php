@@ -108,18 +108,56 @@
               <div class="row">
                   <div class="grid_6">
                       <div class="triggerAnimation animated" data-animate="fadeInLeft">
-                          <ul class="team-alternative">
-                              <li class="team-member">
-                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage1']; ?>" alt="team member image"/>
+                          <ul class="team-alternative row">
+
+                              <li class="team-member ">
+                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage1']; ?>" alt="team member image" height="220" width="285"/>
+                                  <div class="team-member-hover">
+                                        <div class="mask"></div>
+
+                                        <div class="team-member-info">
+                                            <h5><?php echo $abouttitle['cms_aimage1'];?></h5>
+                                            <span class="position"><?php echo $aboutcontent['cms_aimage1'];?></span>
+                                            <a href="<?php echo $aboutlink['cms_aimage1'];?>" class="btn-medium empty white" target="_blank">Read more</a>
+                                        </div>
+                                  </div>
                               </li>
                               <li class="team-member">
-                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage2']; ?>" alt="team member image"/>
+                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage2']; ?>" alt="team member image" height="220" width="285"/>
+                                  <div class="team-member-hover">
+                                        <div class="mask"></div>
+
+                                        <div class="team-member-info">
+                                            <h5><?php echo $abouttitle['cms_aimage2'];?></h5>
+                                            <span class="position"><?php echo $aboutcontent['cms_aimage2'];?></span>
+                                            <a href="<?php echo $aboutlink['cms_aimage2'];?>" class="btn-medium empty white" target="_blank">Read more</a>
+                                        </div>
+                                  </div>
+                              </li>
+
+                              <li class="team-member">
+                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage3']; ?>" alt="team member image" height="220" width="285"/>
+                                  <div class="team-member-hover">
+                                        <div class="mask"></div>
+
+                                        <div class="team-member-info">
+                                            <h5><?php echo $abouttitle['cms_aimage3'];?></h5>
+                                            <span class="position"><?php echo $aboutcontent['cms_aimage3'];?></span>
+                                            <a href="<?php echo $aboutlink['cms_aimage3'];?>" class="btn-medium empty white" target="_blank">Read more</a>
+                                        </div>
+                                  </div>
                               </li>
                               <li class="team-member">
-                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage3']; ?>" alt="team member image"/>
-                              </li>
-                              <li class="team-member">
-                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage4']; ?>" alt="team member image"/>
+                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage4']; ?>" alt="team member image" height="220" width="285"/>
+                                  <div class="team-member-hover">
+                                        <div class="mask"></div>
+
+                                        <div class="team-member-info">
+                                            <h5><?php echo $abouttitle['cms_aimage4'];?></h5>
+                                            <span class="position"><?php echo $aboutcontent['cms_aimage4'];?></span>
+                                            <a href="<?php echo $aboutlink['cms_aimage4'];?>" class="btn-medium empty white" target="_blank">Read more</a>
+                                        </div>
+                                  </div>
                               </li>                                
                           </ul>
                       </div>

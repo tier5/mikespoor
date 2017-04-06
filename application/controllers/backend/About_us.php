@@ -19,6 +19,9 @@ class About_us extends CI_Controller {
 			    $data['headtitle']=$data['companyinfo']['company_name'].' | About Us';
 				$data['title']='About Us';
 				$data['bannerinfo']=$this->cms_model->getcmsinfomodel('1');
+				$data['abouttitle']=$this->cms_model->getcmsinfomodel('9');
+                $data['aboutcontent']=$this->cms_model->getcmsinfomodel('10');
+                $data['aboutlink']=$this->cms_model->getcmsinfomodel('11');
 				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/about_us_view',$data);
         }

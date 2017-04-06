@@ -99,10 +99,13 @@
             <input type="hidden" name="hid_gallery_pdf3" id="hid_gallery_pdf3" value="<?php if(isset($bannerinfo['cms_aimage3'])){echo $bannerinfo['cms_aimage3'];} ?>" />
             <input type="hidden" name="hid_gallery_pdf4" id="hid_gallery_pdf4" value="<?php if(isset($bannerinfo['cms_aimage4'])){echo $bannerinfo['cms_aimage4'];} ?>" />
             <input type="hidden" name="hid_gallery_pdf5" id="hid_gallery_pdf5" value="<?php if(isset($bannerinfo['cms_pdf'])){echo $bannerinfo['cms_pdf'];} ?>" />
+            <input type="hidden" name="pictire_title" id="pictire_title" value="<?php if(isset($abouttitle['cms_id'])){echo $abouttitle['cms_id'];} ?>" />
+            <input type="hidden" name="pictire_content" id="pictire_content" value="<?php if(isset($aboutcontent['cms_id'])){echo $aboutcontent['cms_id'];} ?>" />
+            <input type="hidden" name="pictire_link" id="pictire_link" value="<?php if(isset($aboutlink['cms_id'])){echo $aboutlink['cms_id'];} ?>" />
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Page Type</label><br/>
-                   <input type="radio" name="txtType" value="1" <?php if($bannerinfo['cms_choice']=='1')echo"checked"; ?>> PDF Format   <input type="radio" name="txtType" value="0" <?php if($bannerinfo['cms_choice']=='0')echo"checked"; ?>> Page Format 
+                  <!--  <input type="radio" name="txtType" value="1" <?php if($bannerinfo['cms_choice']=='1')echo"checked"; ?>> PDF Format  -->  <input type="radio" name="txtType" value="0" <?php if($bannerinfo['cms_choice']=='0')echo"checked"; ?>> Page Format 
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -117,7 +120,11 @@
                   <label for="exampleInputFile">Image 1</label>
                   <input type="file" id="prfxbtn" name="imgXBanner"><br/>
                   <img src="<?php if(!empty($bannerinfo['cms_aimage1'])){echo BASE_URI.'uploads/'.$bannerinfo['cms_aimage1'];} ?>" id="xprofile" width="200" height="80"/>
-                  <p class="help-block" style="font-size:12px;"><i>Image should be of size 248 X 216 px.</i></p>
+                  <p class="help-block" style="font-size:12px;"><i>Prefferable Image Size 248 X 216 px.</i></p>
+                  <input type="text" name="first_title" class="form-control" placeholder="Enter First Picture Title" value="<?php echo $abouttitle['cms_aimage1'];?>" required><br>
+                  <input type="text" name="first_content" class="form-control" placeholder="Enter First Picture Content" value="<?php echo $aboutcontent['cms_aimage1'];?>" required ><br>
+                  <input type="text" name="first_link" class="form-control" placeholder="Enter First Link" required value="<?php echo $aboutlink['cms_aimage1'];?>">
+                  <p class="help-block" style="font-size:12px;"><i>Link Should be https://www.google.com</i></p>
                 </div>
                   </div>
                   <div class="col-sm-6">
@@ -125,7 +132,11 @@
                   <label for="exampleInputFile">Image 2</label>
                   <input type="file" id="prfybtn" name="imgYBanner"><br/>
                   <img src="<?php if(!empty($bannerinfo['cms_aimage2'])){echo BASE_URI.'uploads/'.$bannerinfo['cms_aimage2'];} ?>" id="yprofile" width="200" height="80"/>
-                  <p class="help-block" style="font-size:12px;"><i>Image should be of size 248 X 216 px.</i></p>
+                  <p class="help-block" style="font-size:12px;"><i>Prefferable Image Size 248 X 216 px.</i></p>
+                  <input type="text" name="second_title" class="form-control" placeholder="Enter Second Picture Title" required value="<?php echo $abouttitle['cms_aimage2'];?>"><br>
+                  <input type="text" name="second_content" class="form-control" placeholder="Enter Second Picture Content" value="<?php echo $aboutcontent['cms_aimage2'];?>" required ><br>
+                  <input type="text" name="second_link" class="form-control" placeholder="Enter Second Link" value="<?php echo $aboutlink['cms_aimage2'];?>" required >
+                  <p class="help-block" style="font-size:12px;"><i>Link Should be https://www.google.com</i></p>
                 </div>
                   </div>
                 </div>
@@ -136,7 +147,11 @@
                   <label for="exampleInputFile">Image 3</label>
                   <input type="file" id="prfzbtn" name="imgZBanner"><br/>
                   <img src="<?php if(!empty($bannerinfo['cms_aimage3'])){echo BASE_URI.'uploads/'.$bannerinfo['cms_aimage3'];} ?>" id="zprofile" width="200" height="80"/>
-                   <p class="help-block" style="font-size:12px;"><i>Image should be of size 248 X 216 px.</i></p>
+                   <p class="help-block" style="font-size:12px;"><i>Prefferable Image Size 248 X 216 px.</i></p>
+                   <input type="text" name="third_title" class="form-control" placeholder="Enter Third Picture Title" required value="<?php echo $abouttitle['cms_aimage3'];?>"><br>
+                  <input type="text" name="third_content" class="form-control" placeholder="Enter Third Picture Content" required value="<?php echo $aboutcontent['cms_aimage3'];?>"><br>
+                  <input type="text" name="third_link" class="form-control" placeholder="Enter Third Link" value="<?php echo $aboutlink['cms_aimage3'];?>" required >
+                  <p class="help-block" style="font-size:12px;"><i>Link Should be https://www.google.com</i></p>
                 </div>
                   </div>
                   <div class="col-sm-6">
@@ -144,7 +159,11 @@
                   <label for="exampleInputFile">Image 4</label>
                   <input type="file" id="prfwbtn" name="imgWBanner"><br/>
                   <img src="<?php if(!empty($bannerinfo['cms_aimage4'])){echo BASE_URI.'uploads/'.$bannerinfo['cms_aimage4'];} ?>" id="wprofile" width="200" height="80"/>
-                  <p class="help-block" style="font-size:12px;"><i>Image should be of size 248 X 216 px.</i></p>
+                  <p class="help-block" style="font-size:12px;"><i>Prefferable Image Size 248 X 216 px.</i></p>
+                   <input type="text" name="fourth_title" class="form-control" placeholder="Enter Fourth Picture Title" required value="<?php echo $abouttitle['cms_aimage4'];?>"><br>
+                  <input type="text" name="fourth_content" class="form-control" placeholder="Enter Fourth Picture Content" value="<?php echo $aboutcontent['cms_aimage4'];?>" required ><br>
+                  <input type="text" name="fourth_link" class="form-control" placeholder="Enter Fourth Link" required value="<?php echo $aboutlink['cms_aimage4'];?>">
+                  <p class="help-block" style="font-size:12px;"><i>Link Should be https://www.google.com</i></p>
                 </div>
                   </div>
                 </div>
