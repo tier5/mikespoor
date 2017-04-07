@@ -4752,7 +4752,7 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 }
 
 .timeline ul li img{
-    position: absolute;
+   /* position: absolute;*/
     max-width: 100%;
     height: auto;
     top: 0;

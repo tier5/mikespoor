@@ -229,10 +229,14 @@
     
     <!-- CK Editor -->
 
-  <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
+ <!--  <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script> -->
+
+
  
 <!-- Bootstrap WYSIHTML5 -->
 <script src="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+
 <script>
   /*$(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
@@ -241,12 +245,25 @@
     //bootstrap WYSIHTML5 - text editor
     $(".textarea").wysihtml5();
   });*/
-$(function(){
+/*$(function(){
   tinymce.init({ 
    selector: "textarea.editor1",
   });
 
+});*/
+CKEDITOR.replace( 'editor1',
+{
+  filebrowserBrowseUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/ckfinder.html',
+  filebrowserImageBrowseUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/ckfinder.html?type=Images',
+  filebrowserFlashBrowseUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/ckfinder.html?type=Flash',
+  filebrowserUploadUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+  filebrowserImageUploadUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+  filebrowserFlashUploadUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
 });
+
+
+var editor = CKEDITOR.replace( 'editor1' );
+CKFinder.setupCKEditor( editor, '<?php  echo BASE_URI; ?>assets/ckfinder/' );
 </script>
 </body>
 </html>

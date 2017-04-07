@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <base href="<?php echo BASE_URI; ?>">
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title><?php echo $headtitle; ?> |  <?php echo $bannerinfo['banner_name']; ?></title>
-      <!-- Tell the browser to be responsive to screen width -->
-      <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-      <!-- Bootstrap 3.3.6 -->
-      <link rel="stylesheet" href="assets/admin/bootstrap/css/bootstrap.min.css">
-      <!-- Font Awesome -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-      <!-- DataTables -->
-      <link rel="stylesheet" href="assets/admin/plugins/datatables/dataTables.bootstrap.css">
-      <!-- Ionicons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-      <!-- Theme style -->
-      <link rel="stylesheet" href="assets/admin/dist/css/AdminLTE.min.css">
-      <!-- AdminLTE Skins. Choose a skin from the css/skins
-           folder instead of downloading all of them to reduce the load. -->
-      <link rel="stylesheet" href="assets/admin/dist/css/skins/_all-skins.min.css">
-      <!-- iCheck -->
-      <link rel="stylesheet" href="assets/admin/plugins/iCheck/flat/blue.css">
-      <!-- Morris chart -->
-      <link rel="stylesheet" href="assets/admin/plugins/morris/morris.css">
-      <!-- jvectormap -->
-      <link rel="stylesheet" href="assets/admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-      <!-- Date Picker -->
-      <link rel="stylesheet" href="assets/admin/plugins/datepicker/datepicker3.css">
-      <!-- Daterange picker -->
-      <link rel="stylesheet" href="assets/admin/plugins/daterangepicker/daterangepicker-bs3.css">
-      <!-- bootstrap wysihtml5 - text editor -->
-      <link rel="stylesheet" href="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <base href="<?php echo BASE_URI; ?>">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title><?php echo $headtitle; ?> |  <?php echo $bannerinfo['banner_name']; ?></title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="assets/admin/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="assets/admin/plugins/datatables/dataTables.bootstrap.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="assets/admin/dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="assets/admin/dist/css/skins/_all-skins.min.css">
+        <!-- iCheck -->
+        <link rel="stylesheet" href="assets/admin/plugins/iCheck/flat/blue.css">
+        <!-- Morris chart -->
+        <link rel="stylesheet" href="assets/admin/plugins/morris/morris.css">
+        <!-- jvectormap -->
+        <link rel="stylesheet" href="assets/admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+        <!-- Date Picker -->
+        <link rel="stylesheet" href="assets/admin/plugins/datepicker/datepicker3.css">
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="assets/admin/plugins/daterangepicker/daterangepicker-bs3.css">
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link rel="stylesheet" href="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
             <?php include("include/header.php"); ?>
             <?php include("include/sidebar.php"); ?>
             <div class="content-wrapper">
-                
                 <section class="content">
                     <div class="row">
                         <div class="col-md-12">
@@ -54,63 +53,100 @@
                                         <strong>Error!</strong> <?php print_r( $_SESSION['errormsg']); ?>
                                     </div>
                                 <?php unset($_SESSION['errormsg']); } ?>
+
+
                                 <form action="<?php echo BASE_URI;?>backend/banner/editbanner_video" method="post" enctype="multipart/form-data">
                                     <div class="box-body">    
-                                       <!--  <div class="form-group">
+                                        <!--  <div class="form-group">
                                             <label for="exampleInputEmail1">Banner Title</label>
                                             <input type="text" class="form-control" name="txtTitle" placeholder="Enter Banner Title" value="<?php if(isset($bannerinfo['banner_title'])){echo $bannerinfo['banner_title'];} ?>" required readonly>
                                         </div> -->
-
                                         <input type="hidden" name="txtCid" value="<?php echo $banner_slug;?>">
+
                                         <div class="form-group">
                                             <label for="exampleInputFile">Banner Type</label>
-                                            <select class="form-control" id="banner_type" name="banner_type" required>  
-                                            <option value="2" selected >Video</option>   
+                                            <select class="form-control" id="banner_type" name="banner_type" required ">  
+                                                <option value="1"   <?php if($bannerinfo[0]['banner_type']=='1') { echo "selected"; }?>>Image</option>   
+                                                <option value="2" <?php if($bannerinfo[0]['banner_type']=='2') { echo "selected"; }?> >Video</option>   
                                             </select>
                                         </div>
+                                      
+                                        <input type="hidden" class="form-control" id="first_id" name="first_id" value="<?php echo $bannerinfo[0]['banner_id'];?>">
+                                        <div class="form-group upload-url" style="display:   <?php if($bannerinfo[0]['banner_type']=='2') { echo "block"; } else{ echo "none"; } ?>" >
+                                            <label for="exampleInputFile">Video 1.</label><br>
+                                            <input type="radio" name="banner_focus" value="1" <?php if($bannerinfo[0]['banner_focus']=='1' && $bannerinfo[0]['banner_type']=='2' )  { echo "checked"; } ?>>Make The Video Middle<br/>
+                                            <input type="text" class="form-control" id="first_url" name="first_url" value="<?php  if($bannerinfo[0]['banner_type']=='2' )  { echo $bannerinfo[0]['banner_image'];}?>">
+                                            <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p> 
+                                        </div>
+                                        
+                                        <div class="form-group upload-pics"  style="display:   <?php if($bannerinfo[0]['banner_type']=='1') { echo "block"; }else{ echo "none"; } ?>"  >
+                                            <label for="exampleInputFile">Picture 1.</label><br>
+                                            <input type="radio" name="banner_focus"  value="1" <?php if($bannerinfo[0]['banner_focus']=='1' && $bannerinfo[0]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Picture Middle
+                                            <input type="file" class="form-control" id="first_pic" name="first_pic" >
+                                            <input type="hidden" class="form-control" id="first_pic_prev" name="first_pic_prev" value="<?php if($bannerinfo[0]['banner_type']=='1' )  { echo $bannerinfo[0]['banner_image']; } ?>">
+                                        </div>
+                                       
 
-                                         <div class="form-group upload-url" >
-                                          <label for="exampleInputFile">Video 1.</label><br>
-                                          <input type="radio" name="banner_focus" id="banner_focus" value="1" <?php if($bannerinfo[0]['banner_focus']=='1' )  { echo "checked"; } ?>>Make The Video Middle
-                                            <input type="hidden" class="form-control" id="first_id" name="first_id" value="<?php echo $bannerinfo[0]['banner_id'];?>"><br/>
-                                            <input type="text" class="form-control" id="first_url" name="first_url" value="<?php echo $bannerinfo[0]['banner_image'];?>">
-                                            <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p>
-                                            
+                                        <input type="hidden" class="form-control" id="second_id" name="second_id" value="<?php echo $bannerinfo[1]['banner_id'];?>">
+                                        <div class="form-group upload-url" style="display:   <?php if($bannerinfo[1]['banner_type']=='2') { echo "block"; }else{ echo "none"; } ?>" >
+                                            <label for="exampleInputFile">Video 2.</label><br>
+                                            <input type="radio" name="banner_focus"  value="2" <?php if($bannerinfo[1]['banner_focus']=='1'  && $bannerinfo[1]['banner_type']=='2' )  { echo "checked"; } ?>>Make The Video Middle<br/>
+                                            <input type="text" class="form-control" id="second_url" name="second_url" value="<?php if($bannerinfo[1]['banner_type']=='2' )  { echo $bannerinfo[1]['banner_image'];}?>">
+                                            <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p> 
                                         </div>
-                                        <div class="form-group upload-url" >
-                                          <label for="exampleInputFile">Video 2.</label><br>
-                                          <input type="radio" name="banner_focus" id="banner_focus"  value="2" <?php if($bannerinfo[1]['banner_focus']=='1' )  { echo "checked"; } ?>>Make The Video Middle
-                                            <input type="hidden" class="form-control" id="second_id" name="second_id" value="<?php echo $bannerinfo[1]['banner_id'];?>"><br/>
-                                            <input type="text" class="form-control" id="second_url" name="second_url" value="<?php echo $bannerinfo[1]['banner_image'];?>">
+                                         
+                                        <div class="form-group upload-pics" style="display:   <?php if($bannerinfo[1]['banner_type']=='1') { echo "block"; }else{ echo "none"; } ?>">
+                                            <label for="exampleInputFile">Picture 2.</label><br>
+                                            <input type="radio" name="banner_focus" value="2" <?php if($bannerinfo[1]['banner_focus']=='1' && $bannerinfo[1]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Picture Middle
+                                            <input type="file" class="form-control" id="second_pic" name="second_pic">
+                                            <input type="hidden" class="form-control" id="second_pic_prev" name="second_pic_prev" value="<?php if($bannerinfo[1]['banner_type']=='1' )  { echo $bannerinfo[1]['banner_image']; } ?>">
+                                        </div>
+                                         
+
+                                        <input type="hidden" class="form-control" id="third_id" name="third_id" value="<?php echo $bannerinfo[2]['banner_id'];?>">
+                                        <div class="form-group upload-url"  style="display:   <?php if($bannerinfo[2]['banner_type']=='2') { echo "block"; } else{ echo "none"; }?>">
+                                            <label for="exampleInputFile">Video 3.</label><br>
+                                            <input type="radio" name="banner_focus" id="banner_focus" value="3" <?php if($bannerinfo[2]['banner_focus']=='1' && $bannerinfo[2]['banner_type']=='2' )  { echo "checked"; } ?>>Make The Video Middle<br/>
+                                            <input type="text" class="form-control" id="third_url" name="third_url" value="<?php if($bannerinfo[2]['banner_type']=='2' )  { echo $bannerinfo[2]['banner_image'];}?>">
                                             <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p>
-                                            
+                                        </div>
+  
+                                        <div class="form-group upload-pics"  style="display:   <?php if($bannerinfo[2]['banner_type']=='1') { echo "block"; }else{ echo "none"; } ?>">
+                                            <label for="exampleInputFile">Picture 3.</label><br>
+                                            <input type="radio" name="banner_focus" value="3" <?php if($bannerinfo[2]['banner_focus']=='1' && $bannerinfo[2]['banner_type']=='1')  { echo "checked"; } ?>>Make The Picture Middle
+                                            <input type="file" class="form-control" id="third_pic" name="third_pic">  
+                                            <input type="hidden" class="form-control" id="third_pic_prev" name="third_pic_prev" value="<?php if($bannerinfo[2]['banner_type']=='1' )  { echo $bannerinfo[2]['banner_image']; } ?>">
                                         </div>
 
-                                        <div class="form-group upload-url" >
-                                          <label for="exampleInputFile">Video 3.</label><br>
-                                          <input type="radio" name="banner_focus" id="banner_focus" value="3" <?php if($bannerinfo[2]['banner_focus']=='1' )  { echo "checked"; } ?>>Make The Video Middle
-                                             <input type="hidden" class="form-control" id="third_id" name="third_id" value="<?php echo $bannerinfo[2]['banner_id'];?>"><br/>
-                                            <input type="text" class="form-control" id="third_url" name="third_url" value="<?php echo $bannerinfo[2]['banner_image'];?>">
-                                            <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p>
-                                            
+                                        <input type="hidden" class="form-control" id="fourth_id" name="fourth_id" value="<?php echo $bannerinfo[3]['banner_id'];?>"><br/>
+                                        <div class="form-group upload-url" style="display:   <?php if($bannerinfo[3]['banner_type']=='2') { echo "block"; }else{ echo "none"; } ?>">
+                                            <label for="exampleInputFile">Video 4.</label><br>
+                                            <input type="radio" name="banner_focus"  id="banner_focus" value="4"  <?php if($bannerinfo[3]['banner_focus']=='1' && $bannerinfo[3]['banner_type']=='2' )  { echo "checked"; } ?>>Make The Video Middle<br>
+                                            <input type="text" class="form-control" id="fourth_url" name="fourth_url" value="<?php if($bannerinfo[3]['banner_type']=='2' )  {  echo $bannerinfo[3]['banner_image'];}?>">
+                                            <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p>   
                                         </div>
-                                        <div class="form-group upload-url" >
-                                           <label for="exampleInputFile">Video 4.</label><br>
-                                           <input type="radio" name="banner_focus"  id="banner_focus" value="4"  <?php if($bannerinfo[3]['banner_focus']=='1' )  { echo "checked"; } ?>>Make The Video Middle
-                                            <input type="hidden" class="form-control" id="fourth_id" name="fourth_id" value="<?php echo $bannerinfo[3]['banner_id'];?>"><br/>
-                                            <input type="text" class="form-control" id="fourth_url" name="fourth_url" value="<?php echo $bannerinfo[3]['banner_image'];?>">
+                                      
+                                        <div class="form-group upload-pics" style="display:   <?php if($bannerinfo[3]['banner_type']=='1') { echo "block"; } else{ echo "none"; }?>" >
+                                            <label for="exampleInputFile">Picture 4.</label><br>
+                                            <input type="radio" name="banner_focus" value="4" <?php if($bannerinfo[3]['banner_focus']=='1'  && $bannerinfo[3]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Picture Middle
+                                            <input type="file" class="form-control" id="fourth_pic" name="fourth_pic" >
+                                            <input type="hidden" class="form-control" id="fourth_pic_prev" name="fourth_pic_prev" value="<?php if($bannerinfo[3]['banner_type']=='1' )  { echo $bannerinfo[3]['banner_image']; } ?>"> 
+                                        </div>
+                                        
+                                        <input type="hidden" class="form-control" id="fifth_id" name="fifth_id" value="<?php echo $bannerinfo[4]['banner_id'];?>">
+                                        <div class="form-group upload-url " style="display:   <?php if($bannerinfo[4]['banner_type']=='2' ) { echo "block"; }else{ echo "none"; } ?>">
+                                            <label for="exampleInputFile">Video 5.</label><br>
+                                            <input type="radio" name="banner_focus" id="banner_focus" value="5" <?php if($bannerinfo[4]['banner_focus']=='1'  && $bannerinfo[4]['banner_type']=='2')  { echo "checked"; } ?> >Make The Video Middle<br>
+                                            <input type="text" class="form-control" id="fifth_url" name="fifth_url" value="<?php if($bannerinfo[4]['banner_type']=='2' )  {  echo $bannerinfo[4]['banner_image'];}?>">
                                             <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p>
-                                            
                                         </div>
 
-                                        <div class="form-group upload-url" >
-                                          <label for="exampleInputFile">Video 5.</label><br>
-                                          <input type="radio" name="banner_focus" id="banner_focus" value="5" <?php if($bannerinfo[4]['banner_focus']=='1' )  { echo "checked"; } ?> >Make The Video Middle
-                                            <input type="hidden" class="form-control" id="fifth_id" name="fifth_id" value="<?php echo $bannerinfo[4]['banner_id'];?>"><br/>
-                                            <input type="text" class="form-control" id="fifth_url" name="fifth_url" value="<?php echo $bannerinfo[4]['banner_image'];?>">
-                                            <p class="help-block" style="font-size:12px;"><i>https://www.youtube.com/watch?v=<u>kKXTFJV-S1o</u></i></p>
+                                        <div class="form-group upload-pics"  style="display:   <?php if($bannerinfo[4]['banner_type']=='1') { echo "block"; }else{ echo "none"; } ?>">
+                                            <label for="exampleInputFile">Picture 5.</label><br>
+                                            <input type="radio" name="banner_focus" value="5" <?php if($bannerinfo[4]['banner_focus']=='1'  && $bannerinfo[4]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Picture Middle
+                                            <input type="file" class="form-control" id="fifth_pic" name="fifth_pic" >
+                                            <input type="hidden" class="form-control" id="fifth_pic_prev" name="fifth_pic_prev" value="<?php if($bannerinfo[4]['banner_type']=='1' )  { echo $bannerinfo[4]['banner_image']; } ?>"> 
                                         </div>
-                                     
                                     </div>
                                     <div class="box-footer">                           
                                         <button type="submit" class="btn btn-primary" value="list" name="btnSave">Save</button>
@@ -195,29 +231,22 @@
                     $('#url_section').hide();  
                 }
             });
-        	});
-
-          function change_upload_option()
-          {
+        	
+              $('#banner_type').on("change",function(){
+            
              var banner_type=$('#banner_type').val();
               if(banner_type==1){
-                $('#image_upload').show();
-                $('#video_upload').hide();
-                $('#video_upload_section').hide();
-                $('#url_section').hide();
-                $('#prfbtn').click();
+                $('.upload-pics').show();
+                $('.upload-url').hide();
               } else if(banner_type==2){
-                $('#image_upload').hide();
-                $('#video_upload').show();
-                $('#video_upload_section').hide();
-                $('#url_section').hide();
+                $('.upload-pics').hide();
+                $('.upload-url').show();
               }else{
-                $('#image_upload').hide();
-                $('#video_upload').hide();
-                $('#video_upload_section').hide();
-                $('#url_section').hide();
+                $('.upload-pics').hide();
+                $('.upload-url').hide();
               }
-          }
+          });
+          });
         </script>
         <script>
 

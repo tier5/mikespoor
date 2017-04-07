@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <?php include('include/headsection.php'); ?>
-         <script>
-            /* <![CDATA[ */
+        <?php include('include/headsection.php'); ?>
+        <script>
             jQuery(document).ready(function($) {
                 'use strict';
-
-                //REVOLUTION SLIDE
                 var revapi;
-                revapi = $('.tp-banner').revolution(
-                        {
+                revapi = $('.tp-banner').revolution({
                             delay: 5000,
                             startwidth: 1170,
                             startheight: 500,
                             hideThumbs: 10,
                             fullWidth: "on",
                             forceFullWidth: "on",
-                            navigationType: "none" // bullet, thumb, none
-                        });
+                            navigationType: "none"
+                });
 
                 $('.numbers-counter').waypoint(function() {
                     // NUMBERS COUNTER START
@@ -116,37 +112,15 @@
 
 
             });
-
-            /* ]]> */
         </script> 
     </head>
 
     <body>
-        <!-- style switcher start -->
-        <!--<section id="style-switcher" class="">
-            <section id="styles-container">
-                <section>
-                    <h6>Layout Style</h6>
-                    <ul class="layout-list">
-                        <li class="elvyre-boxed"><a href="../boxed/index.html">Boxed Layout</a></li>
-                        <li class="elvyre-stretched active"><a href="#">Wide Layout</a></li>
-                    </ul>
-                </section>
-
-            </section>
-            <a href="#" id="styles-button"><div id="switcher-logo"></div></a>
-        </section>--><!-- style switcher end -->
-        
-        <!-- .header-wrapper start -->
-        <?php include('include/header.php'); ?><!-- .header-wrapper end -->
-
-        <!-- .tp-wrapper start -->
+        <?php include('include/header.php'); ?>
         <div class="tp-wrapper no-bottom-margin">
-            <!-- .tp-banner-container start -->
             <div class="tp-banner-container">
                 <div class="tp-banner">
-                    <ul>
-                        <!-- slide 2 start -->
+                    <ul>                                                                                                                                                                                                                                                                                                    
                         <?php
 							foreach($bannerlist as $bannerlistdata)
 							{
@@ -155,7 +129,7 @@
                             <!-- main image -->
                             <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                             <!-- layer 2 -->
-                            <?php if(isset($bannerlistdata['banner_front_image'])){ ?>
+                            <?php if(isset($bannerlistdata['banner_front_image'] )){ ?>
                             <div class="tp-caption regular sfl"
                                  data-x="200"
                                  data-y="50"
