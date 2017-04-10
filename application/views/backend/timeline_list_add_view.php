@@ -127,6 +127,7 @@
                    <textarea id="editor1" name="editor1" rows="10" cols="120" class="editor1">
                         <?php if(isset($bannerinfo['timeline_content'])){echo $bannerinfo['timeline_content'];} ?>
                     </textarea>
+                    <p class="help-block" style="font-size:12px;"><i> If you want to upload image then click on image tab, a popup will come, there click on upload, browse the image and click <b>"Send it to server"</b>. Next you can see the preview of image, you can change hight and image of the picture. Then Click <b>"OK"</b>. </i></p>
                 </div>
                 
                 <div class="form-group">
@@ -253,6 +254,10 @@
 });*/
 CKEDITOR.replace( 'editor1',
 {
+
+  removeButtons: 'Source,Link,Table',
+   disallowedContent:'img{border*,margin*}',
+       
   filebrowserBrowseUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/ckfinder.html',
   filebrowserImageBrowseUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/ckfinder.html?type=Images',
   filebrowserFlashBrowseUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/ckfinder.html?type=Flash',

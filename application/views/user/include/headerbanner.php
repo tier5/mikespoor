@@ -42,7 +42,7 @@
                      </div>
                 <?php } ?>
          </div> 
-         <div class="col-md-6 no-margin">
+         <div class="col-md-6 no-margin" style="padding: 5px 0;">
           <?php if($focus_banner['banner_type']=='2'){ ?>
              <div class="middle-vdo">
                <?php 

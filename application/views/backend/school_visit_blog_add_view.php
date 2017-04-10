@@ -81,7 +81,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Category</label>
-                 <select class="form-control select2" name="selCategory" id="selCategory">
+                 <select class="form-control select2" name="selCategory" id="selCategory" required>
                     <option value="">Select Category</option>
                     <?php
 					if(count($categorylist)>0)
@@ -254,10 +254,26 @@
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
-    CKEDITOR.replace('editor1');
-	CKEDITOR.replace('editor2');
-	CKEDITOR.replace('editor3');
-	CKEDITOR.replace('editor4');
+    CKEDITOR.replace('editor1',{
+     
+    removeButtons: 'Source,Image,Table',
+
+});
+	CKEDITOR.replace('editor2',{
+     
+    removeButtons: 'Source,Image,Table',
+
+});
+	CKEDITOR.replace('editor3',{
+     
+    removeButtons: 'Source,Image,Table',
+
+});
+	CKEDITOR.replace('editor4',{
+     
+    removeButtons: 'Source,Image,Table',
+
+});
     //bootstrap WYSIHTML5 - text editor
     $(".textarea").wysihtml5();
      //$("#datepicker").datepicker();

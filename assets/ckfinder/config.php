@@ -245,7 +245,12 @@ that are not safe under an IIS web server.
 */
 $config['DisallowUnsafeCharacters'] = false;
 
+
+
 /*
+
+
+
 If you have iconv enabled (visit http://php.net/iconv for more information),
 you can use this directive to specify the encoding of file names in your
 system. Acceptable values can be found at:
@@ -334,6 +339,8 @@ sent in the cookie
 https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet#Double_Submit_Cookies
 */
 $config['EnableCsrfProtection'] = true;
+
+
 
 
 include_once "plugins/imageresize/plugin.php";

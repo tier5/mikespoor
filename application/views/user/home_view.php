@@ -129,7 +129,7 @@
                             <!-- main image -->
                             <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                             <!-- layer 2 -->
-                            <?php if(isset($bannerlistdata['banner_front_image'] )){ ?>
+                            <?php if(isset($bannerlistdata['banner_front_image']) && ($bannerlistdata['banner_front_image']!='')){ ?>
                             <div class="tp-caption regular sfl"
                                  data-x="200"
                                  data-y="50"

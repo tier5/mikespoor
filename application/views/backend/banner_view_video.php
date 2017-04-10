@@ -65,9 +65,9 @@
 
                                         <div class="form-group">
                                             <label for="exampleInputFile">Banner Type</label>
-                                            <select class="form-control" id="banner_type" name="banner_type" required ">  
+                                            <select class="form-control" id="banner_type" name="banner_type" required >  
                                                 <option value="1"   <?php if($bannerinfo[0]['banner_type']=='1') { echo "selected"; }?>>Image</option>   
-                                                <option value="2" <?php if($bannerinfo[0]['banner_type']=='2') { echo "selected"; }?> >Video</option>   
+                                                <option value="2" <?php if($bannerinfo[0]['banner_type']=='2') { echo "selected"; }?>>Video</option>   
                                             </select>
                                         </div>
                                       
@@ -147,6 +147,11 @@
                                             <input type="file" class="form-control" id="fifth_pic" name="fifth_pic" >
                                             <input type="hidden" class="form-control" id="fifth_pic_prev" name="fifth_pic_prev" value="<?php if($bannerinfo[4]['banner_type']=='1' )  { echo $bannerinfo[4]['banner_image']; } ?>"> 
                                         </div>
+                                             <div class="form-group">
+                                        <p>Which Video/Image you will mark as middle, it will come on middle rest of the video/image will come according there number(Left top, Left Buttom, Right Top, Right Buttom).</p>
+                                        <p>Suppose You Made Image.4/Video.4 As Middel Then Video.1/Image.1 will be Left top, Video.2/Image.2 will be  Left Buttom, Video.3/Image.3 will be  Right Top, Video.5/Image.5 will be  Right Buttom </p>
+                                        <p>Same as You Made Image.2/Video.2 As Middel Then Video.1/Image.1 will be Left top, Video.3/Image.3 will be  Left Buttom, Video.4/Image.4 will be  Right Top, Video.5/Image.5 will be  Right Buttom</p>
+                                         </div>
                                     </div>
                                     <div class="box-footer">                           
                                         <button type="submit" class="btn btn-primary" value="list" name="btnSave">Save</button>

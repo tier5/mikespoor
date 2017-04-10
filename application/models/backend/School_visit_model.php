@@ -19,7 +19,7 @@ class School_visit_model extends CI_Model {
 	$this->load->helper('function');
 			$slugvalue=createSlug($_POST['txtTitle']);
 			    $data = array(
-                    'school_visit_title' => trim(addslashes($_POST['txtTitle'])),
+                    'school_visit_title' => trim(($_POST['txtTitle'])),
 					'school_visit_slug' => $slugvalue,
 					'school_visit_content' => htmlspecialchars($_POST['editor1']),
                     'addedBy' => $_SESSION['usersession'],
