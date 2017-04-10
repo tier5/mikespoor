@@ -105,7 +105,7 @@
                   <th>#</th>
                   <th>Image Title</th>
                  
-                  <th>Featured</th>
+                 <!--  <th>Featured</th> -->
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -122,7 +122,7 @@
                   <td><?php echo $cnt; ?></td>
                   <td><?php echo $bannerlistdata['gvideo_title']; ?></td>
                  
-                   <td>
+                  <!--  <td>
                    <?php
 				  if($bannerlistdata['gvideo_featured'])
 				  {
@@ -137,7 +137,7 @@
                       <?php
 				  }
 				  ?>
-                  </td>
+                  </td> -->
                   <td> 
                   <?php
 				  if($bannerlistdata['status'])

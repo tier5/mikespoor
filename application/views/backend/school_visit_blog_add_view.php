@@ -107,6 +107,7 @@
                 <div class="form-group">
                   <label for="exampleInputFile">Date Of Visit</label>
                   <input type="test" class="form-control" id="datepicker" name="datepicker" value="<?php if(isset($bannerinfo['gschool_visit_date'])){  $date = explode('-', $bannerinfo['gschool_visit_date']);    echo $date[1]."/".$date[2]."/".$date[0]; } ?>" required> 
+                   <p class="help-block" style="font-size:12px;"><i>Date Should Be mm/dd/yyyy format.(Like 1st April,2017 will be 04/01/2017)</i></p>
                 </div>
                
                  <div class="form-group">
@@ -259,7 +260,7 @@
 	CKEDITOR.replace('editor4');
     //bootstrap WYSIHTML5 - text editor
     $(".textarea").wysihtml5();
-     $("#datepicker").datepicker();
+     //$("#datepicker").datepicker();
   });
 </script>
 <script>
