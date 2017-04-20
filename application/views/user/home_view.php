@@ -203,9 +203,9 @@
 							}
 							?>
                             </ul><!-- #services-carousel end -->
-
+                            <?php $feature_info=count($featurelist);?>
                             <div class="clearfix"></div>
-                            <ul class="carousel-nav">
+                            <ul class="carousel-nav" style="display:<?php if($feature_info < 4){ echo "none"; }?>">
                                 <li>
                                     <a class="c_prev" href="#"></a> 
                                 </li>
@@ -296,9 +296,9 @@
 
                 <!-- .row start -->
                 <div class="row">
+                     <?php $count_info=count($current_info);?>
                     <?php foreach ($current_info as $info) { ?>
-
-                    <article class="grid_4">
+                    <article class="<?php if($count_info=='1'){ echo 'grid_12';} elseif($count_info=='2'){ echo 'grid_6';} else{echo 'grid_4';}?>">
                         <div class="triggerAnimation animated" data-animate="fadeInLeft">
                             <section class="process-box">
                                 <div class="img-container">
@@ -329,15 +329,17 @@
                 </div><!-- .roe end -->
 
                 <!-- .row start -->
-                <div class='row'> 
+                <div class='row'>
+                   <?php $gallery_info=count($gallerylist);?>
                     <article class="grid_12">
                         <article class="portfolio-carousel triggerAnimation animated" data-animate="fadeInUp">
                             <ul id="portfolio-carousel" class="carousel-li">
                             <?php
+                            $gallerylistcount=count($gallerylist);
 							foreach($gallerylist as $gallerylistdata)
 							{
 							?>
-                                <li class="isotope-item">
+                                <li class="isotope-item"  >
 
                                     <figure class="portfolio-img-container">
                                         <div class="portfolio-img">
@@ -375,7 +377,7 @@
                             </ul>
 
                             <div class="clearfix"></div>
-                            <ul class="carousel-nav">
+                            <ul class="carousel-nav" style="display:<?php if($gallerylistcount < 4){ echo "none"; }?>">
                                 <li>
                                     <a class="c_prev_2" href="#"></a> 
                                 </li>

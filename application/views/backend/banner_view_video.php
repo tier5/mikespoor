@@ -32,6 +32,12 @@
         <link rel="stylesheet" href="assets/admin/plugins/daterangepicker/daterangepicker-bs3.css">
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <style type="text/css">
+        .form-control{
+            padding: 0px !important;
+        }
+
+        </style>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
