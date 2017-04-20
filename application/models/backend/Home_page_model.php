@@ -51,9 +51,9 @@ class Home_page_model extends CI_Model {
 					$config['image_library'] = 'gd2';
 				    $config['source_image'] = "uploads/home_page/banner/".$gallery_pdf1;
 				    $config['new_image'] ='uploads/home_page/banner/thumb/'.$gallery_pdf1;
-				   // $config['maintain_ratio'] = TRUE;
-				    $config['width']     = 1024;
-				    $config['height']   = 500;
+				    //$config['maintain_ratio'] = TRUE;
+				    $config['width']     = 1400;
+				    $config['height']   = 450;
 
 				    $this->image_lib->initialize($config);
 				    if(!$this->image_lib->resize()) {
@@ -225,8 +225,8 @@ class Home_page_model extends CI_Model {
 				    $config['source_image'] = "uploads/home_page/banner/".$gallery_pdf1;
 				    $config['new_image'] ='uploads/home_page/banner/thumb/'.$gallery_pdf1;
 				    //$config['maintain_ratio'] = TRUE;
-				    $config['width']     = 1024;
-				    $config['height']   = 500;
+				    $config['width']     = 1400;
+				    $config['height']   = 450;
 
 				   
 				    $this->image_lib->initialize($config);

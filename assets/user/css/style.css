@@ -4209,7 +4209,7 @@ li.pricing-footer{
 }
 
 .footer-widget-container li.widget:last-child{
-    margin-bottom: 70px;
+   /*margin-bottom: 70px;*/
 }
 
 
@@ -4784,6 +4784,8 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     opacity: 0;
     visibility: hidden;
     transition: 0.5s;
+    max-height: 130px;
+    overflow-y:auto;
 }
 
 .timeline ul li .popout h1{
@@ -4988,6 +4990,18 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 
     .services-overview li{
         padding-left: 0;
+
+    }
+    .timeline ul li .popout p {
+        font-size: 10px;
+        word-wrap: break-word;
+        line-height: 15px;
+    }
+    
+    .timeline ul li .popout {
+        width: 100%;
+        padding: 5px;
+        right: 0;
     }
 
 }
