@@ -122,7 +122,7 @@
                  
                   <img src="<?php if(isset($bannerinfo['banner_image'])){echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerinfo['banner_image'];} ?>" id="profile" width="200" height="80"/>
               
-                 <p class="help-block" style="font-size:12px;"><i>Prefferable Maximum Image Size Less Than 2MB.</i></p>
+                 <p class="help-block" style="font-size:12px;"><i>Prefferable Maximum Image Size Less Than 2MB(1400 x 500).</i></p>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Banner Foreground Image</label>

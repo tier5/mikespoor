@@ -141,7 +141,7 @@
                                          
                                             <label for="exampleInputEmail1">Background Image</label>
                                             <input type="file" class="form-control" name="background_image" id='background_image' required>
-                                             <p class="help-block" style="font-size:12px;"><i>Prefferable Maximum Image Size Less Than 2MB(1400 X 500).</i></p>
+                                             <p class="help-block" style="font-size:12px;"><i>Prefferable Maximum Image Size Less Than 2MB.</i></p>
                                            <br>
                                             <img id="blah" src="<?php echo BASE_URI.'uploads/home_page/home_background/'.$home_background['background_image']; ?>" alt="Selected Background Image" style="width: 400px; height: 200px;"/>
                                         </div>
