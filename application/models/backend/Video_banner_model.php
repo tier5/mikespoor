@@ -119,20 +119,19 @@ class Video_banner_model extends CI_Model {
 		public function editbannermodel()
 		{
 			$timezone = 'GMT';
-	if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
-	$entdate = date('Y-m-d H:i:s');
-	$this->load->helper('function');
+	        if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
+	        $entdate = date('Y-m-d H:i:s');
+	        $this->load->helper('function');
 			$slugvalue=createSlug($_POST['txtTitle']);
 			
-			 
-			
 			$data = array(
-                    'video_banner_title' => trim(addslashes($_POST['txtTitle'])),
-					'video_banner_slug' => $slugvalue,
-					'video_banner_content' => htmlspecialchars($_POST['editor1']),
-                    'addedBy' => $_SESSION['usersession'],
-					'updatedOn' => $entdate
-             );
+                'video_banner_title' => trim(addslashes($_POST['txtTitle'])),
+                'video_banner_title' => trim(addslashes($_POST['txtTitle'])),
+				'video_banner_slug' => $slugvalue,
+				'video_banner_content' => htmlspecialchars($_POST['editor1']),
+                'addedBy' => $_SESSION['usersession'],
+				'updatedOn' => $entdate
+            );
 
              $this->db->where('video_banner_id', $_POST['txtCid']);
              $query=$this->db->update('lm_video_banner', $data);

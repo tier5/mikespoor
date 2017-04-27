@@ -5,6 +5,7 @@ class Video_gallery_model extends CI_Model {
         {
                 parent::__construct();
 				$this->load->database();
+			    $this->load->helper('function');
         }
 		public function countvideo()
 		{
@@ -18,7 +19,7 @@ class Video_gallery_model extends CI_Model {
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
 			$this->load->helper('function');
-			$slugvalue=createSlug($_POST['txtTitle']);
+			$slugvalue=createSlug($this->input->post('txtTitle'));
            
 
 
@@ -46,22 +47,22 @@ class Video_gallery_model extends CI_Model {
 	            }
             }
 
-            if($_POST['txtURL'])
+            if($this->input->post('txtURL'))
             {
                
-            	$url=(explode("?v=",(trim($_POST['txtURL']))));
+            	//$url=(explode("?v=",(trim($this->input->post('txtURL')))));
             	
-                $videname=$url[1];
+                $videname=$this->input->post('txtURL');
 	            $type='1';
             }
 			
 			    $data = array(
 
-                    'gvideo_title' => trim(addslashes($_POST['txtTitle'])),
+                    'gvideo_title' => trim(addslashes($this->input->post('txtTitle'))),
 					'gvideo_slug' => $slugvalue,
 					'gvideo_url' => $videname,
 					'video_type'=>$type,
-					'gvideo_content' => htmlspecialchars($_POST['editor1']),
+					'gvideo_content' => htmlspecialchars($this->input->post('editor1')),
                     'addedBy' => $_SESSION['usersession'],
 					'status' => '1',
 					'addedOn' => $entdate,
@@ -126,65 +127,62 @@ class Video_gallery_model extends CI_Model {
 			$row = $query->row_array();
 			return $row;
 		}
-		public function editbannermodel()
-		{
+
+		public function editbannermodel(){
 			$timezone = 'GMT';
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
-			$this->load->helper('function');
-			$slugvalue=createSlug($_POST['txtTitle']);
-			
-			if (isset($_FILES['txtVideo']['name']) && $_FILES['txtVideo']['name'] != '') {
-	           
-	            $photopath2 = pathinfo($_FILES['txtVideo']['name']);
-			    $extension2 = $photopath2['extension'];
+			$slugvalue=createSlug($this->input->post('txtTitle'));
+			/*$video_type=$this->input->post('video_type');*/
 
-	            $configVideo['upload_path'] = 'uploads/video/';
-	            $configVideo['max_size'] = '102400000';
-	            $configVideo['allowed_types'] = 'avi|flv|wmv|mp4|mp3';
-	            $configVideo['overwrite'] = FALSE;
-	            $configVideo['remove_spaces'] = TRUE;
-	            $video_name = time();
-	            $configVideo['file_name'] = $video_name.".".$extension2;
+			/*if($video_type =='2'){
+				
+				if (isset($_FILES['txtVideo']['name']) && $_FILES['txtVideo']['name'] != '') {
+	            	$photopath2 = pathinfo($_FILES['txtVideo']['name']);
+			    	$extension2 = $photopath2['extension'];
+	            	$configVideo['upload_path'] = 'uploads/video/';
+	            	$configVideo['max_size'] = '102400000';
+	            	$configVideo['allowed_types'] = 'mp4';
+	            	$configVideo['overwrite'] = FALSE;
+	            	$configVideo['remove_spaces'] = TRUE;
+	            	$video_name = time();
+	            	$configVideo['file_name'] = $video_name.".".$extension2;
+	            	$this->load->library('upload', $configVideo);
+	            	$this->upload->initialize($configVideo);
+	            	if (!$this->upload->do_upload('txtVideo')) {
+	            		return false;
+	            	} else {
+	                	$data['gvideo_url']=$configVideo['file_name'];
+	                }
+                }else{
+                	$data['gvideo_url']=trim($this->input->post('prevvideo'));
+                	if(!$data['gvideo_url']){
+                		return false;
+                	}
+                }
+        	}else{*/
+            	if($this->input->post('txtURL')){
+                	$data['gvideo_url']=$this->input->post('txtURL');//trim(addslashes($_POST['txtURL']));
+            	} else{
+            		return false;
+            	}
+		    /*}*/
 
-	            $this->load->library('upload', $configVideo);
-	            $this->upload->initialize($configVideo);
-	            if (!$this->upload->do_upload('txtVideo')) {
-	            	return false;
-	               /* return $this->upload->display_errors();*/
-	            } else {
-	                $data['gvideo_url']=$configVideo['file_name'];
-	                $data['video_type']='2';
-	            }
-            }
-
-            if($_POST['txtURL'])
-            {
-            	
-            	$url=(explode("?v=",(trim($_POST['txtURL']))));
-            	
-                $data['gvideo_url']=$url[1];//trim(addslashes($_POST['txtURL']));
-	            $data['video_type']='1';
-            }
-			
 			$data['gvideo_title']=trim(addslashes($_POST['txtTitle']));
 			$data['gvideo_slug']=$slugvalue;
+			$data['video_type']=1;
 			$data['gvideo_content'] = htmlspecialchars($_POST['editor1']);
 			$data['addedBy'] = $_SESSION['usersession'];
 			$data['updatedOn'] = $entdate;
-			
-
-             $this->db->where('gvideo_id', $_POST['txtCid']);
-             $query=$this->db->update('lm_video_gallery', $data);
-			 if($query)
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+            $this->db->where('gvideo_id', $_POST['txtCid']);
+            $query=$this->db->update('lm_video_gallery', $data);
+			if($query){
+				return true;
+			}else{
+				return false;
+			}
 		}
+
 		public function statusbannermodel($getid,$getstatus)
 		{
 			 $timezone = 'GMT';
@@ -292,6 +290,16 @@ class Video_gallery_model extends CI_Model {
 		$this->db->limit(6,$start);
 		$query = $this->db->get();
 		return $query->result_array();
+	    }
+
+	    public function update($table,$data,$con){
+	    	$this->db->where('gvideo_id', $con);
+            $query=$this->db->update($table, $data);
+            if($query){
+            	return true;
+            }else{
+            	return false;
+            }
 	    }
 		
 

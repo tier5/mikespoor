@@ -48,15 +48,15 @@
 
                                   
 
-                                <?php if(isset($gallerylistdata['gvideo_url']) && ($gallerylistdata['video_type']==1) ){ ?>
-                                      
-                                         <iframe width="100%" height="280" src="https://www.youtube.com/embed/<?php echo $gallerylistdata['gvideo_url']; ?>" frameborder="0" allowfullscreen></iframe>
+                                <?php if(isset($gallerylistdata['gvideo_url']) && ($gallerylistdata['video_type']=='1') ){ ?>
+                                       <?php $url=(explode("?v=",$gallerylistdata['gvideo_url']));  ?>
+                                         <iframe width="100%" height="280" src="https://www.youtube.com/embed/<?php echo $url[1]; ?>" frameborder="0" allowfullscreen></iframe>
                                            
                                      
                                     <?php } ?>
 
                               
-                                <?php if(isset($gallerylistdata['gvideo_url']) && ($gallerylistdata['video_type']==2) ){ ?>
+                                <?php if(isset($gallerylistdata['gvideo_url']) && ($gallerylistdata['video_type']=='2') ){ ?>
                                       
                                         <?php 
                                         $ext=substr($gallerylistdata['gvideo_url'], strrpos($gallerylistdata['gvideo_url'], '.') + 1);
@@ -74,7 +74,7 @@
                                     <?php } ?>
                                   </div>
                                 <figcaption>
-                                    <a class="title" href="portfoliosingle.html">On the top of the world</a>
+                                    <a class="title"><?php  echo $gallerylistdata['gvideo_title'];?></a>
                                     
                                 </figcaption>
                             </figure>

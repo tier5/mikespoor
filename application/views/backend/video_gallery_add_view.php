@@ -43,7 +43,6 @@
    }
    
    
-
    
   </style>
   <script type="text/javascript">
@@ -52,7 +51,6 @@
        
         $('.upload-option').show();
       });
-
       $('.video_upload').click(function(){
            $('#txtURL').hide();
            $('#txtURL').val("");
@@ -60,18 +58,14 @@
            $('#txtVideo').show();
            $('#txtVideo').click();
       });
-
       $('.link_upload').click(function(){
          $('#txtVideo').hide("");
          $('#txtVideo').hide();
            $('#txtURL').show();
            $('.help-block').show();
       });
-
       
   });
-
-
   </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -104,27 +98,27 @@
           <div class="box box-primary">
            
                <?php
-	if(isset($_SESSION['successmsg']))
-	{
-	?>
+  if(isset($_SESSION['successmsg']))
+  {
+  ?>
     <div class="alert alert-success" id="success-alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Success!</strong> <?php print_r($_SESSION['successmsg']); ?>
     </div>
     <?php
-	unset($_SESSION['successmsg']);
-	}
-	else if(isset($_SESSION['errormsg']))
-	{
-	?>
+  unset($_SESSION['successmsg']);
+  }
+  else if(isset($_SESSION['errormsg']))
+  {
+  ?>
     <div class="alert alert-danger" id="success-alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Error!</strong> <?php print_r( $_SESSION['errormsg']); ?>
     </div>
     <?php
-	unset($_SESSION['errormsg']);
-	}
-	?>
+  unset($_SESSION['errormsg']);
+  }
+  ?>
             
             <!-- /.box-header -->
             <!-- form start -->
@@ -132,19 +126,19 @@
             
             <!-- /.box-header -->
             <?php
-			if($feature=='Add')
-			{
-			?>
+      if($feature=='Add')
+      {
+      ?>
             <form action="<?php echo BASE_URI.'backend/video_gallery/addbanner'; ?>" method="post" enctype="multipart/form-data">
             <?php
-			}
-			else if($feature=='Edit')
-			{
-			?>
+      }
+      else if($feature=='Edit')
+      {
+      ?>
             <form action="<?php echo BASE_URI.'backend/video_gallery/editbanner'; ?>" method="post" enctype="multipart/form-data">
             <?php
-			}
-			?>
+      }
+      ?>
             <input type="hidden" name="txtCid" value="<?php if(isset($bannerinfo['gvideo_id'])){echo $bannerinfo['gvideo_id'];} ?>"/>
             
             
@@ -156,26 +150,25 @@
                 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Video Upload</label>
+                  
                   <br>
-                  <a class="upload_video"><i class="fa fa-file-video-o " title="Upload Video"></i></a>
-                  <div class="upload-option" style="display:none";>
-                    <a class="video_upload">Upload From Device</a>
-                    <br>
-                    <a class="link_upload">Youtube Video </a>
+                  <!-- <a class="upload_video"><i class="fa fa-file-video-o " title="Upload Video"></i></a> -->
+                  <div class="upload-option" >
+                   <!--  <a class="video_upload">Upload From Device</a>
+                    <br> -->
+                   <!--  <a class="link_upload">Youtube Video </a> -->
                   </div>
-                  <input type="file" class="form-control" name="txtVideo" id="txtVideo" style="display:none;">     
-                 <input type="text" class="form-control" id="txtURL"  name="txtURL" placeholder="Enter Video URL" value="<?php if(isset($bannerinfo['gvideo_url'])){echo $bannerinfo['gvideo_url'];} ?>" style="display:none;" >
+                <!--   <input type="file" class="form-control" name="txtVideo" id="txtVideo" >     --> 
+                 <input type="text" class="form-control" id="txtURL"  name="txtURL" placeholder="Enter Video URL" value="<?php if(isset($bannerinfo['gvideo_url'])){echo $bannerinfo['gvideo_url'];} ?>" >
                  <?php if(isset($bannerinfo['gvideo_url']) && ($bannerinfo['video_type']==1) ){ ?>
                   <br>
-
-                  <iframe src="https://www.youtube.com/embed/<?php echo $bannerinfo['gvideo_url']; ?>" frameborder="0" width="400" height="200"></iframe>
+                 <?php $url=(explode("?v=",$bannerinfo['gvideo_url']));  ?>
+                  <iframe src="https://www.youtube.com/embed/<?php echo $url['1']; ?>" frameborder="0" width="400" height="200"></iframe>
                 <?php } ?>
                  <?php if(isset($bannerinfo['gvideo_url']) && ($bannerinfo['video_type']==2) ){ ?>
                   <br>
                     <?php 
                     $ext=substr($bannerinfo['gvideo_url'], strrpos($bannerinfo['gvideo_url'], '.') + 1);
-
-
                     ?>
                     <video width="320" height="240" controls>
                       <source src="<?php echo BASE_URI?>uploads/video/<?php echo $bannerinfo['gvideo_url'];?>" type="video/<?php echo $ext; ?>">
@@ -199,22 +192,22 @@
 
               <div class="box-footer">
                <?php
-			if($feature=='Add')
-			{
-			?>
+      if($feature=='Add')
+      {
+      ?>
                 <button type="submit" class="btn btn-primary" value="list" name="btnSave">Save</button>
                 <button type="submit" class="btn btn-primary" value="new" name="btnAdd">Save and Add New</button>
                  <a class="btn btn-default" href="<?php echo BASE_URI.'backend/video_gallery'; ?>">Back To List</a>
                   <?php
-			}
-			else if($feature=='Edit')
-			{
-			?>
+      }
+      else if($feature=='Edit')
+      {
+      ?>
                  <button type="submit" class="btn btn-primary" value="list" name="btnSave">Save</button>
                  <a class="btn btn-default" href="<?php echo BASE_URI.'backend/video_gallery'; ?>">Back To List</a>
             <?php
-			}
-			?>
+      }
+      ?>
               </div>
             </form>
             <!-- /.box-body -->
@@ -283,8 +276,7 @@
   });
 </script>
 <script>
-
-	 function readURL(input) {
+   function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             
@@ -299,11 +291,10 @@
     $("#prfbtn").change(function(){
         readURL(this);
     });
-	});
+  });
 </script>
 <script>
-
-	 function readTURL(input) {
+   function readTURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             
@@ -318,7 +309,7 @@
     $("#tprfbtn").change(function(){
         readTURL(this);
     });
-	});
+  });
 </script>
 <!-- CK Editor -->
 <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
@@ -334,16 +325,16 @@
   });
 </script>
 <script>
-	$("#success-alert").fadeTo(2000, 500).fadeOut(500, function(){
+  $("#success-alert").fadeTo(2000, 500).fadeOut(500, function(){
                $("#success-alert").alert('close');
                 });   
-	</script>
+  </script>
     <script>
   $(function () {
     //Initialize Select2 Elements
     $(".select2").select2();
   });
-	</script>
+  </script>
 </body>
 </html>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

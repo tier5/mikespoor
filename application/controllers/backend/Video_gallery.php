@@ -35,8 +35,8 @@ class Video_gallery extends CI_Controller {
 				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/video_gallery_add_view',$data);
 		}
-		public function edit($getid)
-		{
+
+		public function edit($getid){
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
 				$this->load->model('backend/login_model');
@@ -81,15 +81,15 @@ class Video_gallery extends CI_Controller {
 				}
 				
 		}
-		public function editbanner()
-		{
-			    $this->load->helper('auth_helper');
+
+		public function editbanner(){
+			 $this->load->helper('auth_helper');
 				checkuserlogin();
 				$res=$this->video_gallery_model->editbannermodel();
 				if($res)
 				{
 					
-						$_SESSION['successmsg']='Video information updated successfully';
+						$_SESSION['successmsg']='Video Banner information updated successfully';
 						header('location:'.BASE_URI.'backend/video_gallery/edit/'.$_POST['txtCid']);
 						exit;
 					

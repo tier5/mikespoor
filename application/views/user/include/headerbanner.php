@@ -49,7 +49,8 @@
                     $url=explode("?v=",(trim($focus_banner['banner_image'])));
                     $videoname=$url[1];
                 ?>
-                <iframe class="playerBox" frameborder="0" arginwidth="0" marginheight="0" hspace="0" vspace="0" scrolling="no" allowfullscreen="1" title="YouTube video player" src="https://www.youtube.com/embed/<?php echo $videoname; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true"></iframe>
+                <!-- <iframe class="playerBox" frameborder="0" arginwidth="0" marginheight="0" hspace="0" vspace="0" scrolling="no" allowfullscreen="1" title="YouTube video player" src="https://www.youtube.com/embed/<?php echo $videoname; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true"></iframe> -->
+                <iframe class="playerBox" frameborder="0" arginwidth="0" marginheight="0" hspace="0" vspace="0" scrolling="no" allowfullscreen="1" title="YouTube video player" src="https://www.youtube.com/embed/<?php echo $videoname; ?>"></iframe>
              </div>
              <?php } else{ ?>
                      <div class="middle-vdo" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $focus_banner['banner_image'];?>') center center; background-size: cover;">
