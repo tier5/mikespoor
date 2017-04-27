@@ -88,7 +88,7 @@
                                         <div class="form-group upload-pics"  style="display:   <?php if($bannerinfo[0]['banner_type']=='1') { echo "block"; }else{ echo "none"; } ?>"  >
                                             <label for="exampleInputFile">Picture 1.</label><br>
                                             <input type="radio" name="banner_focus"  value="1" <?php if($bannerinfo[0]['banner_focus']=='1' && $bannerinfo[0]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Picture Middle
-                                            <input type="file" class="form-control" id="first_pic" name="first_pic" >
+                                            <input type="file"  id="first_pic" name="first_pic" >
                                             <input type="hidden" class="form-control" id="first_pic_prev" name="first_pic_prev" value="<?php if($bannerinfo[0]['banner_type']=='1' )  { echo $bannerinfo[0]['banner_image']; } ?>">
                                         </div>
                                        
@@ -104,7 +104,7 @@
                                         <div class="form-group upload-pics" style="display:   <?php if($bannerinfo[1]['banner_type']=='1') { echo "block"; }else{ echo "none"; } ?>">
                                             <label for="exampleInputFile">Picture 2.</label><br>
                                             <input type="radio" name="banner_focus" value="2" <?php if($bannerinfo[1]['banner_focus']=='1' && $bannerinfo[1]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Picture Middle
-                                            <input type="file" class="form-control" id="second_pic" name="second_pic">
+                                            <input type="file" id="second_pic" name="second_pic">
                                             <input type="hidden" class="form-control" id="second_pic_prev" name="second_pic_prev" value="<?php if($bannerinfo[1]['banner_type']=='1' )  { echo $bannerinfo[1]['banner_image']; } ?>">
                                         </div>
                                          
@@ -120,7 +120,7 @@
                                         <div class="form-group upload-pics"  style="display:   <?php if($bannerinfo[2]['banner_type']=='1') { echo "block"; }else{ echo "none"; } ?>">
                                             <label for="exampleInputFile">Picture 3.</label><br>
                                             <input type="radio" name="banner_focus" value="3" <?php if($bannerinfo[2]['banner_focus']=='1' && $bannerinfo[2]['banner_type']=='1')  { echo "checked"; } ?>>Make The Picture Middle
-                                            <input type="file" class="form-control" id="third_pic" name="third_pic">  
+                                            <input type="file"  id="third_pic" name="third_pic">  
                                             <input type="hidden" class="form-control" id="third_pic_prev" name="third_pic_prev" value="<?php if($bannerinfo[2]['banner_type']=='1' )  { echo $bannerinfo[2]['banner_image']; } ?>">
                                         </div>
 
@@ -135,7 +135,7 @@
                                         <div class="form-group upload-pics" style="display:   <?php if($bannerinfo[3]['banner_type']=='1') { echo "block"; } else{ echo "none"; }?>" >
                                             <label for="exampleInputFile">Picture 4.</label><br>
                                             <input type="radio" name="banner_focus" value="4" <?php if($bannerinfo[3]['banner_focus']=='1'  && $bannerinfo[3]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Picture Middle
-                                            <input type="file" class="form-control" id="fourth_pic" name="fourth_pic" >
+                                            <input type="file" id="fourth_pic" name="fourth_pic" >
                                             <input type="hidden" class="form-control" id="fourth_pic_prev" name="fourth_pic_prev" value="<?php if($bannerinfo[3]['banner_type']=='1' )  { echo $bannerinfo[3]['banner_image']; } ?>"> 
                                         </div>
                                         
@@ -150,7 +150,7 @@
                                         <div class="form-group upload-pics"  style="display:   <?php if($bannerinfo[4]['banner_type']=='1') { echo "block"; }else{ echo "none"; } ?>">
                                             <label for="exampleInputFile">Picture 5.</label><br>
                                             <input type="radio" name="banner_focus" value="5" <?php if($bannerinfo[4]['banner_focus']=='1'  && $bannerinfo[4]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Picture Middle
-                                            <input type="file" class="form-control" id="fifth_pic" name="fifth_pic" >
+                                            <input type="file" id="fifth_pic" name="fifth_pic" >
                                             <input type="hidden" class="form-control" id="fifth_pic_prev" name="fifth_pic_prev" value="<?php if($bannerinfo[4]['banner_type']=='1' )  { echo $bannerinfo[4]['banner_image']; } ?>"> 
                                         </div>
                                              <div class="form-group">
