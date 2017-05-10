@@ -5,6 +5,8 @@ class Video_banner_model extends CI_Model {
         {
                 parent::__construct();
 				$this->load->database();
+				$this->load->library('image_lib');
+				
         }
 		public function countvideo_banner()
 		{

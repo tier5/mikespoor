@@ -1,157 +1,129 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <base href="<?php echo BASE_URI; ?>">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php echo $headtitle; ?></title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
- <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="assets/admin/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="assets/admin/plugins/daterangepicker/daterangepicker-bs3.css">
-  <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="assets/admin/plugins/datepicker/datepicker3.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="assets/admin/plugins/iCheck/all.css">
-  <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="assets/admin/plugins/colorpicker/bootstrap-colorpicker.min.css">
-  <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="assets/admin/plugins/timepicker/bootstrap-timepicker.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="assets/admin/plugins/select2/select2.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="assets/admin/dist/css/AdminLTE.min.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="assets/admin/dist/css/skins/_all-skins.min.css">
-  <style type="text/css">
-   .fa-file-video-o {
-    font-size: 50px;
-    cursor: pointer;
-   }
-   
-   
-   
-  </style>
-  <script type="text/javascript">
-  $(document).ready(function(){
-      $('.upload_video').click(function(){
-       
-        $('.upload-option').show();
-      });
-      $('.video_upload').click(function(){
-           $('#txtURL').hide();
-           $('#txtURL').val("");
-           $('.help-block').hide();
-           $('#txtVideo').show();
-           $('#txtVideo').click();
-      });
-      $('.link_upload').click(function(){
-         $('#txtVideo').hide("");
-         $('#txtVideo').hide();
-           $('#txtURL').show();
-           $('.help-block').show();
-      });
-      
-  });
-  </script>
-</head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-
-  <?php include("include/header.php"); ?>
-  <!-- Left side column. contains the logo and sidebar -->
-  <?php include("include/sidebar.php"); ?>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        <?php echo $title; ?>
-       
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
-        <li class="active">Video Gallery</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-           
-               <?php
-  if(isset($_SESSION['successmsg']))
-  {
-  ?>
-    <div class="alert alert-success" id="success-alert">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Success!</strong> <?php print_r($_SESSION['successmsg']); ?>
-    </div>
-    <?php
-  unset($_SESSION['successmsg']);
-  }
-  else if(isset($_SESSION['errormsg']))
-  {
-  ?>
-    <div class="alert alert-danger" id="success-alert">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Error!</strong> <?php print_r( $_SESSION['errormsg']); ?>
-    </div>
-    <?php
-  unset($_SESSION['errormsg']);
-  }
-  ?>
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-           
-            
-            <!-- /.box-header -->
-            <?php
-      if($feature=='Add')
-      {
-      ?>
-            <form action="<?php echo BASE_URI.'backend/video_gallery/addbanner'; ?>" method="post" enctype="multipart/form-data">
-            <?php
-      }
-      else if($feature=='Edit')
-      {
-      ?>
-            <form action="<?php echo BASE_URI.'backend/video_gallery/editbanner'; ?>" method="post" enctype="multipart/form-data">
-            <?php
-      }
-      ?>
-            <input type="hidden" name="txtCid" value="<?php if(isset($bannerinfo['gvideo_id'])){echo $bannerinfo['gvideo_id'];} ?>"/>
-            
-            
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Video Name</label>
-                  <input type="text" class="form-control" name="txtTitle" placeholder="Enter Video Name" value="<?php if(isset($bannerinfo['gvideo_title'])){echo $bannerinfo['gvideo_title'];} ?>" required>
-                </div>
-                
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Video Upload</label>
-                  
-                  <br>
+    <head>
+        <base href="<?php echo BASE_URI; ?>">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title><?php echo $headtitle; ?></title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+       <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="assets/admin/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="assets/admin/plugins/daterangepicker/daterangepicker-bs3.css">
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="assets/admin/plugins/datepicker/datepicker3.css">
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link rel="stylesheet" href="assets/admin/plugins/iCheck/all.css">
+        <!-- Bootstrap Color Picker -->
+        <link rel="stylesheet" href="assets/admin/plugins/colorpicker/bootstrap-colorpicker.min.css">
+        <!-- Bootstrap time Picker -->
+        <link rel="stylesheet" href="assets/admin/plugins/timepicker/bootstrap-timepicker.min.css">
+        <!-- Select2 -->
+        <link rel="stylesheet" href="assets/admin/plugins/select2/select2.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="assets/admin/dist/css/AdminLTE.min.css">
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link rel="stylesheet" href="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="assets/admin/dist/css/skins/_all-skins.min.css">
+        <style type="text/css">
+         .fa-file-video-o {
+          font-size: 50px;
+          cursor: pointer;
+         }  
+        </style>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('.upload_video').click(function(){
+              $('.upload-option').show();
+            });
+            $('.video_upload').click(function(){
+                 $('#txtURL').hide();
+                 $('#txtURL').val("");
+                 $('.help-block').hide();
+                 $('#txtVideo').show();
+                 $('#txtVideo').click();
+            });
+            $('.link_upload').click(function(){
+               $('#txtVideo').hide("");
+               $('#txtVideo').hide();
+                 $('#txtURL').show();
+                 $('.help-block').show();
+            });
+        });
+        </script>
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+            <?php include("include/header.php"); ?>
+            <!-- Left side column. contains the logo and sidebar -->
+            <?php include("include/sidebar.php"); ?>
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+                  <!-- Content Header (Page header) -->
+                  <section class="content-header">
+                    <h1><?php echo $title; ?></h1>
+                    <ol class="breadcrumb">
+                      <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
+                      <li class="active">Video Gallery</li>
+                    </ol>
+                  </section>
+                  <!-- Main content -->
+                  <section class="content">
+                    <div class="row">
+                      <!-- left column -->
+                      <div class="col-md-12">
+                        <!-- general form elements -->
+                        <div class="box box-primary">
+                            <?php if(isset($_SESSION['successmsg'])) {?>
+                                <div class="alert alert-success" id="success-alert">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Success!</strong> <?php print_r($_SESSION['successmsg']); ?>
+                                </div>
+                            <?php unset($_SESSION['successmsg']); } else if(isset($_SESSION['errormsg'])) { ?>
+                                <div class="alert alert-danger" id="success-alert">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Error!</strong> <?php print_r( $_SESSION['errormsg']); ?>
+                                </div>
+                            <?php unset($_SESSION['errormsg']); } ?>
+                            <!-- /.box-header -->
+                            <?php if($feature=='Add') { ?>
+                            
+                           <?php  echo form_open_multipart(BASE_URI.'backend/video_gallery/addbanner'); ?>
+                           <!--  <form role="form" action="<?php //echo BASE_URI.'backend/video_gallery/addbanner'; ?>" method="post" enctype="multipart/form-data" > -->
+                            <?php } else if($feature=='Edit') { ?>
+                            <?php  echo form_open_multipart(BASE_URI.'backend/video_gallery/editbanner'); ?>
+                            <!-- <form role="form" action="<?php //echo BASE_URI.'backend/video_gallery/editbanner'; ?>" method="post" enctype="multipart/form-data"> -->
+                            <?php } ?>
+                                <input type="hidden" name="txtCid" value="<?php if(isset($bannerinfo['gvideo_id'])){echo $bannerinfo['gvideo_id'];} ?>"/>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Video Name*</label>
+                                        <input type="text" class="form-control" name="txtTitle" placeholder="Enter Video Name" value="<?php if(isset($bannerinfo['gvideo_title'])){echo $bannerinfo['gvideo_title'];} ?>" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Select Video Type*</label>
+                                        <select id="video_type" class="form-control" name="video_type"><option value="">--Select--</option><option value="1" <?php if(isset($bannerinfo['video_type']) && ($bannerinfo['video_type']=='1')) { echo "selected";}?>>Youtube Video</option><option value="2" <?php if(isset($bannerinfo['video_type']) && ($bannerinfo['video_type']=='2')) { echo "selected";}?>>Upload Video</option></select>
+                                    </div>
+                                    <div class="form-group" id="youtube_url" style="<?php if(isset($bannerinfo['video_type']) && ($bannerinfo['video_type']=='1')) { echo "display:block";}else{ echo "display:none";}?>">
+                                        <label for="exampleInputEmail1">Youtube Link</label>
+                                        <input type="text" class="form-control" id="txtURL"  name="txtURL" placeholder="Enter Video URL" value="<?php if(isset($bannerinfo['gvideo_url'])){echo $bannerinfo['gvideo_url'];} ?>" >
+                                    </div>
+                                    <div class="form-group" id="upload_videos" style="<?php if(isset($bannerinfo['video_type']) && ($bannerinfo['video_type']=='2')) { echo "display:block";}else{ echo "display:none";}?>">
+                                        <label for="exampleInputEmail1" >Video Upload</label>
+                                        <input type="file"  name="userfile" id="userfile" >
+                                        <p>Upload mp4 , 3gp file only</p>
+                                    </div>
+                                    <div class="form-group">    
                   <!-- <a class="upload_video"><i class="fa fa-file-video-o " title="Upload Video"></i></a> -->
                   <div class="upload-option" >
                    <!--  <a class="video_upload">Upload From Device</a>
@@ -159,7 +131,7 @@
                    <!--  <a class="link_upload">Youtube Video </a> -->
                   </div>
                 <!--   <input type="file" class="form-control" name="txtVideo" id="txtVideo" >     --> 
-                 <input type="text" class="form-control" id="txtURL"  name="txtURL" placeholder="Enter Video URL" value="<?php if(isset($bannerinfo['gvideo_url'])){echo $bannerinfo['gvideo_url'];} ?>" >
+                 
                  <?php if(isset($bannerinfo['gvideo_url']) && ($bannerinfo['video_type']==1) ){ ?>
                   <br>
                  <?php $url=(explode("?v=",$bannerinfo['gvideo_url']));  ?>
@@ -308,6 +280,21 @@
     $(document).ready(function(){
     $("#tprfbtn").change(function(){
         readTURL(this);
+    });
+    $('#video_type').on('change',function(){
+      var videotype=$('#video_type').val();
+      if(videotype){
+          if(videotype=='1'){
+              $('#upload_videos').hide();
+              $('#youtube_url').show();
+          } else {
+              $('#upload_videos').show();
+              $('#youtube_url').hide();
+          }
+      }else{
+        $('#upload_videos').hide();
+        $('#youtube_url').hide();
+      }
     });
   });
 </script>

@@ -6,6 +6,7 @@ class Video_gallery_model extends CI_Model {
                 parent::__construct();
 				$this->load->database();
 			    $this->load->helper('function');
+			    $this->load->helper('form');
         }
 		public function countvideo()
 		{
@@ -14,54 +15,56 @@ class Video_gallery_model extends CI_Model {
 		}
 		public function addbannermodel()
 		{
-          
 			$timezone = 'GMT';
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
-			$this->load->helper('function');
 			$slugvalue=createSlug($this->input->post('txtTitle'));
-           
 
+			$video_type=$this->input->post('video_type');
 
-            if (isset($_FILES['txtVideo']['name']) && $_FILES['txtVideo']['name'] != '') {
-	           
-	            $photopath2 = pathinfo($_FILES['txtVideo']['name']);
-			    $extension2 = $photopath2['extension'];
+			if($video_type =='2'){
+				
+				if (isset($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '') {
+					
+	            	$photopath2 = pathinfo($_FILES['userfile']['name']);
+			    	$extension2 = $photopath2['extension'];
+	            	$configVideo['upload_path'] = 'uploads/video/';
+	            	$configVideo['max_size'] = '102400000';
+	            	$configVideo['allowed_types'] = 'mp4|3gp';
+	            	$configVideo['overwrite'] = FALSE;
+	            	$configVideo['remove_spaces'] = TRUE;
+	            	$video_name = time();
+	            	$configVideo['file_name'] = $video_name.".".$extension2;
+	            	$this->load->library('upload', $configVideo);
+	            	$this->upload->initialize($configVideo);
+	            	if (!$this->upload->do_upload('userfile')) {
+	            		return false;
+	            	} else {
+	                	$videname=$configVideo['file_name'];
+	                }
+                }else{
+                	
+                		return false;
+                	
+                }
+        	}else if($video_type =='1'){
+            	if($this->input->post('txtURL')){
+                	$videname=$this->input->post('txtURL');//trim(addslashes($_POST['txtURL']));
+            	} else{
+            		return false;
+            	}
+		    }else{
+		    	return false;
+		    }
 
-	            $configVideo['upload_path'] = 'uploads/video/';
-	            $configVideo['max_size'] = '102400000';
-	            $configVideo['allowed_types'] = 'avi|flv|wmv|mp4|mp3';
-	            $configVideo['overwrite'] = FALSE;
-	            $configVideo['remove_spaces'] = TRUE;
-	            $video_name = time();
-	            $configVideo['file_name'] = $video_name.".".$extension2;
-
-	            $this->load->library('upload', $configVideo);
-	            $this->upload->initialize($configVideo);
-	            if (!$this->upload->do_upload('txtVideo')) {
-	            	return false;
-	               /* return $this->upload->display_errors();*/
-	            } else {
-	                $videname=$configVideo['file_name'];
-	                $type='2';
-	            }
-            }
-
-            if($this->input->post('txtURL'))
-            {
-               
-            	//$url=(explode("?v=",(trim($this->input->post('txtURL')))));
-            	
-                $videname=$this->input->post('txtURL');
-	            $type='1';
-            }
+			
 			
 			    $data = array(
 
                     'gvideo_title' => trim(addslashes($this->input->post('txtTitle'))),
 					'gvideo_slug' => $slugvalue,
 					'gvideo_url' => $videname,
-					'video_type'=>$type,
+					'video_type'=>$video_type,
 					'gvideo_content' => htmlspecialchars($this->input->post('editor1')),
                     'addedBy' => $_SESSION['usersession'],
 					'status' => '1',
@@ -129,27 +132,31 @@ class Video_gallery_model extends CI_Model {
 		}
 
 		public function editbannermodel(){
+			
+		
 			$timezone = 'GMT';
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
 			$slugvalue=createSlug($this->input->post('txtTitle'));
-			/*$video_type=$this->input->post('video_type');*/
 
-			/*if($video_type =='2'){
+			$video_type=$this->input->post('video_type');
+
+			if($video_type =='2'){
 				
-				if (isset($_FILES['txtVideo']['name']) && $_FILES['txtVideo']['name'] != '') {
-	            	$photopath2 = pathinfo($_FILES['txtVideo']['name']);
+				if (isset($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '') {
+					
+	            	$photopath2 = pathinfo($_FILES['userfile']['name']);
 			    	$extension2 = $photopath2['extension'];
 	            	$configVideo['upload_path'] = 'uploads/video/';
 	            	$configVideo['max_size'] = '102400000';
-	            	$configVideo['allowed_types'] = 'mp4';
+	            	$configVideo['allowed_types'] = 'mp4|3gp';
 	            	$configVideo['overwrite'] = FALSE;
 	            	$configVideo['remove_spaces'] = TRUE;
 	            	$video_name = time();
 	            	$configVideo['file_name'] = $video_name.".".$extension2;
 	            	$this->load->library('upload', $configVideo);
 	            	$this->upload->initialize($configVideo);
-	            	if (!$this->upload->do_upload('txtVideo')) {
+	            	if (!$this->upload->do_upload('userfile')) {
 	            		return false;
 	            	} else {
 	                	$data['gvideo_url']=$configVideo['file_name'];
@@ -160,17 +167,19 @@ class Video_gallery_model extends CI_Model {
                 		return false;
                 	}
                 }
-        	}else{*/
+        	}else if($video_type =='1'){
             	if($this->input->post('txtURL')){
                 	$data['gvideo_url']=$this->input->post('txtURL');//trim(addslashes($_POST['txtURL']));
             	} else{
             		return false;
             	}
-		    /*}*/
+		    }else{
+		    	return false;
+		    }
 
 			$data['gvideo_title']=trim(addslashes($_POST['txtTitle']));
 			$data['gvideo_slug']=$slugvalue;
-			$data['video_type']=1;
+			$data['video_type']=$video_type;
 			$data['gvideo_content'] = htmlspecialchars($_POST['editor1']);
 			$data['addedBy'] = $_SESSION['usersession'];
 			$data['updatedOn'] = $entdate;
