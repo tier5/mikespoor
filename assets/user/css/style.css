@@ -4767,9 +4767,10 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     font-weight: bold;
     font-size: 40px;
     position: absolute;
-    top: 50%;
+    top: 21%;
     margin-top: 0;
     cursor: pointer;
+    padding: 55px;
 }
 
 .timeline ul li .popout{
@@ -4813,17 +4814,19 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 }
 
 .timeline ul li:first-child .dated{
-    left: 52%;
-    top: 35%;
+    left: 45%;
+    top: 3% !important;
     right: auto !important;
 }
 
 .timeline ul li:nth-child(even) .dated{
-    left: 22%;
+    left: 13%;
+    top: 25%;
 }
 
 .timeline ul li:nth-child(odd) .dated{
-    right: 26%;
+    right: 17%;
+    top: 22%;
 }
 
 .timeline ul li:last-child{
@@ -4831,8 +4834,8 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 }
 
 .timeline ul li:last-child .dated{
-    right: 20%;
-    top: 62%;
+    right: 16%;
+    top: 28%;
 }
 
 @media screen and (min-width: 992px){
@@ -4856,14 +4859,15 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 
     .timeline ul li .dated{
         font-size: 34px;
+        padding: 42px;
     }
 
     .timeline ul li:nth-child(even) .dated {
-        left: 22%;
+        left: 13%;
     }
 
     .timeline ul li:nth-child(odd) .dated {
-        right: 25%;
+        right: 16%;
     }
 
     #nav > ul > li > a {
@@ -4898,18 +4902,19 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 
     .timeline ul li .dated{
         font-size: 30px;
+        padding: 30px;
     }
 
     .timeline ul li:nth-child(even) .dated{
-        left: 21%;
+        left: 12%;
     }
 
     .timeline ul li:nth-child(odd) .dated{
-        right: 24%;
+        right: 16%;
     }
 
     .timeline ul li:first-child .dated{
-        left: 50%;
+        left: 45%;
     }
 
     #nav > ul > li > a {
@@ -4942,6 +4947,7 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 
     .timeline ul li .dated{
         font-size: 30px;
+        padding: 40px;
     }
 
     .copyright-container p {
@@ -5018,6 +5024,7 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 
     .timeline ul li .dated{
         font-size: 20px;
+        padding: 24px;
     }
 
     .timeline ul li .popout {

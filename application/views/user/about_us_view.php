@@ -202,9 +202,9 @@
                             <li>
                               <img src="assets/timeline/timeline1.png">
                               <div class="dated"><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?>
-                                <span class="popout">
+                                <!-- <span class="popout">
                                   <h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_content']); ?>
-                                </span>
+                                </span> -->
                               </div>
                             </li>
                             <?php for ($i=1 ; $i<=sizeof($timelinelist); $i++){?>
@@ -216,9 +216,9 @@
                               <img src="assets/timeline/timeline2.png">
                               <?php } ?>
                               <div class="dated"><?php echo $timelinelist[$i]['timeline_title']; ?>
-                                <span class="popout">
+                                <!-- <span class="popout">
                                   <h1><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[$i]['timeline_content']); ?>
-                                </span>
+                                </span> -->
                               </div>
                             </li>
                             <?php } ?>
@@ -230,9 +230,9 @@
                               <img src="assets/timeline/timeline3.png">
                               <?php } ?>
                               <div class="dated"><?php echo $timelinelist[$i+1]['timeline_title']; ?>
-                                <span class="popout">
+                                <!-- <span class="popout">
                                   <h1><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[$i+1]['timeline_content']); ?>
-                                </span>
+                                </span> -->
                               </div>
                             </li> 
                             <?php } ?>
@@ -250,6 +250,23 @@
         </div>
       </section>
       <?php include('include/footer.php'); ?>
-
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.timeline ul li .dated').mouseover(function(event){
+      event.stopPropagation();
+      var addText = '_clean.png';
+      var imageSrc = $(this).parent().find("img").attr('src');
+      var newString = imageSrc.slice(0,-4);
+      $(this).parent().find("img").attr('src', newString + addText);
+      $(this).parent().find($('.dated')).css('opacity',0);
+    }).mouseout(function(event){
+      var addText = '.png';
+      var imageSrc = $(this).parent().find("img").attr('src');
+      var newString = imageSrc.slice(0,-10);
+      $(this).parent().find("img").attr('src', newString + addText);
+      $(this).parent().find($('.dated')).css('opacity',1);
+    });
+  });
+</script>
     </body>
 </html>

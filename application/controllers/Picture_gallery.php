@@ -23,6 +23,8 @@ class Picture_Gallery extends CI_Controller {
 		    $data['font_color']=$this->theme_model->get_all_info('font-color');
 			$data['companyinfo']=$this->login_model->getuserinfoid('1');
 		    $data['title']=$data['companyinfo']['company_name'].' | Picture Gallery';
+		    $this->load->model('backend/home_page_model');
+		    $data['bannerlist']=$this->home_page_model->getactivebannerlistmodel();
 			$data['categorylist']=$this->picture_model->fixedbannerlistmodel();
 			$data['gallerylist']=$this->picture_gallery_model->fixedbannerlistmodel();
 			$data['totalrec']=$this->picture_gallery_model->countactivepicture();

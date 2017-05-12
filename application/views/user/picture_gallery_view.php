@@ -2,10 +2,24 @@
 <html>
     <head>
       <?php include('include/headsection.php'); ?> 
+        <script>
+            jQuery(document).ready(function($) {
+                'use strict';
+                var revapi;
+                revapi = $('.tp-banner').revolution({
+                    delay: 5000,
+                    startwidth: 1170,
+                    startheight: 500,
+                    hideThumbs: 10,
+                    fullWidth: "on",
+                    forceFullWidth: "on",
+                    navigationType: "none"
+                });
+
+            });
+        </script>
         <script type="text/javascript">
         function get_ctatgory (catagory) {
-
-
             $.ajax({
                 url: '<?php echo BASE_URI;?>picture_gallery/category_picture',
                 type: "post",
@@ -13,16 +27,48 @@
                 success: function(response)
                 {
                     $('#gallery').html(response);
-                     $("#gallery").unitegallery();
-                      $("#page").html("");
+                    $("#gallery").unitegallery();
+                    $("#page").html("");
                 }
             });
         }
         </script>
+         
     </head>
     <body>
         <?php include('include/header.php'); ?>
-        <?php include('include/headerbanner.php'); ?>
+        <?php //include('include/headerbanner.php'); ?>
+        <div class="tp-wrapper no-bottom-margin">
+            <div class="tp-banner-container">
+                <div class="tp-banner">
+                    <ul>                                         
+                        <?php
+                            foreach($bannerlist as $bannerlistdata)
+                            {
+                        ?>
+                        <li data-transition="fade" data-slotamount="15" data-masterspeed="1500">
+                            <!-- main image -->
+                            <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
+                            <!-- layer 2 -->
+                            <?php if(isset($bannerlistdata['banner_front_image']) && ($bannerlistdata['banner_front_image']!='')){ ?>
+                            <div class="tp-caption regular sfl"
+                                 data-x="200"
+                                 data-y="50"
+                                 data-speed="600"
+                                 data-start="1500"
+                                 data-easing="Back.easeOut"
+                                 data-endspeed="300"><img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
+                            </div>
+                            <?php } ?>
+                        </li>
+                        <?php
+                            }
+                        ?>
+                        
+                    </ul>
+                </div><!-- .tp-banner end -->
+            </div><!-- .tp-banner end -->
+        </div><!-- .tp-wrapper end -->
         <section class="page-content">
             <div class="container">
                 <div class="row portfolio-filters triggerAnimation animated" data-animate="fadeInDown">
@@ -30,7 +76,6 @@
                         <ul id="filter-pic">
                             <li class="active"><a href="<?php echo BASE_URI.'picture-gallery'; ?>" data-filter="*">All </a></li>
                             <?php foreach($categorylist as $categorylistdata) { ?>
-                            <!-- <li><a href="<?php echo BASE_URI.'picture-gallery/category/'.$categorylistdata['picture_slug']; ?>"><?php echo $categorylistdata['picture_title']; ?> </a></li> -->
                             <li><a onclick="get_ctatgory('<?php echo $categorylistdata['picture_id']; ?>')"><?php echo $categorylistdata['picture_title']; ?> </a></li>
                             <?php }?>  
                         </ul>

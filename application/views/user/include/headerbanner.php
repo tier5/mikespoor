@@ -1,7 +1,6 @@
 
 <?php if($current_page=='about-us' || $current_page=='video-gallery'   || $current_page=='school-visit'  || $current_page=='links-news' || check_page('school-visit/page') >0 || check_page('school-visit/category') >0 || check_page('video-gallery/page') >0 ) {?>
 <section class="video-banner">
-    
     <div class="container-fluid">
         <div class="row">
            <div class="col-md-3 no-margin hidden-xs">
@@ -19,8 +18,8 @@
                 </div>
 
                 <?php } else{ ?>
-                     <div class="vdo vdo-top">
-                     <img src="<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[0]['banner_image'];?>">
+                     <div class="vdo vdo-top image-box">
+                        <img src="<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[0]['banner_image'];?>">
                      </div>
                 <?php } ?>
 
@@ -37,8 +36,8 @@
                     <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                 </div>
                 <?php } else{ ?>
-                     <div class="vdo vdo-top">
-                     <img src="<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[1]['banner_image'];?>">
+                     <div class="vdo vdo-top image-box">
+                        <img src="<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[1]['banner_image'];?>">
                      </div>
                 <?php } ?>
          </div> 
@@ -49,16 +48,15 @@
                     $url=explode("?v=",(trim($focus_banner['banner_image'])));
                     $videoname=$url[1];
                 ?>
-                <!-- <iframe class="playerBox" frameborder="0" arginwidth="0" marginheight="0" hspace="0" vspace="0" scrolling="no" allowfullscreen="1" title="YouTube video player" src="https://www.youtube.com/embed/<?php echo $videoname; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true"></iframe> -->
                 <iframe class="playerBox" frameborder="0" arginwidth="0" marginheight="0" hspace="0" vspace="0" scrolling="no" allowfullscreen="1" title="YouTube video player" src="https://www.youtube.com/embed/<?php echo $videoname; ?>"></iframe>
              </div>
              <?php } else{ ?>
-                     <div class="middle-vdo" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $focus_banner['banner_image'];?>') center center; background-size: cover;">
-                         
+                     <div class="middle-vdo middle-img image-box">
+                        <img src="<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $focus_banner['banner_image'];?>" class="img-responsive" alt="middle-img">
                      </div>
              <?php } ?>
         </div> 
-         <div class="col-md-3 no-margin hidden-xs">
+        <div class="col-md-3 no-margin hidden-xs">
              <div class="side-vdo">
                 <?php if($banner[2]['banner_type']=='2'){ ?>
                  <div class="vdo vdo-top">
@@ -67,13 +65,12 @@
                     $videoname3=$url3[1];
 
                     $thumbURL3 = 'http://img.youtube.com/vi/'.$videoname3.'/0.jpg';
-
                 ?>
-                     <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname3; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
+                    <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname3; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                      <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                  </div>
                  <?php } else{ ?>
-                      <div class="vdo vdo-top">
+                      <div class="vdo vdo-top image-box">
                        <img src="<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[2]['banner_image'];?>" >
                       </div>
                  <?php } ?>
@@ -91,7 +88,7 @@
                      <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                  </div>
                  <?php } else { ?>
-                  <div class="vdo vdo-bottom">
+                  <div class="vdo vdo-bottom image-box">
                    <img src="<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[3]['banner_image'];?>">
                  </div>
 
@@ -133,6 +130,53 @@ video {
             var vdoSrc = $(this).parent().find('img').attr("data-video-src");
             $(".middle-vdo iframe").attr("src",vdoSrc)
         });
-    })
+
+        var shuffleList = [
+          '<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[0]['banner_image'];?>',
+          '<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[1]['banner_image'];?>',
+          '<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $focus_banner['banner_image'];?>',
+          '<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[2]['banner_image'];?>',
+          '<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner[3]['banner_image'];?>'
+        ];
+
+        var $imgBox = $(".image-box");
+
+        function shuffle() {
+
+            for(var i=0;i<=$imgBox.length;i++) {
+
+                var $img = $imgBox.eq(i).children('img');
+                if(i == 2){
+
+                    $($img).fadeOut(function(){
+
+                        $img.attr('src', shuffleList[i]);
+                        $($img).fadeIn(200);
+                        
+                    });
+
+                } else {
+
+                    $img.attr('src', shuffleList[i]);
+
+                }
+
+                if($imgBox.length-1 == i){
+
+                    setTimeout(function() {
+
+                       shuffle();
+
+                    }, 2000);
+
+                }
+
+            }
+
+            shuffleList.push(shuffleList.shift());
+        }
+
+        shuffle();
+    });
 </script>
 		 

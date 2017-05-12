@@ -103,7 +103,7 @@ html[xmlns] .slides {display: block;}
 	position: relative;
     padding-bottom: 0;
     padding-top: 0;
-    height: 356px;
+    height: 360px;
 }
 .middle-vdo iframe {
 	position: absolute;
@@ -135,6 +135,16 @@ html[xmlns] .slides {display: block;}
 
 .video-banner .col-md-6{
 	width: 50%;
+}
+
+.middle-img img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    transform: rotateY(0deg);
 }
 
 @media screen and (min-width: 768px) {
