@@ -94,7 +94,7 @@
                     <!-- .row start -->
                     <div class="row">
                         <section class="grid_12">
-                            <p>Copyright Mikespoor 2016. All Rights Reserved.</p>
+                            <p><?php echo $companyinfo['footer_message']; ?></p>
                         </section>
                     </div><!-- .row end -->
                 </div><!-- .container end -->

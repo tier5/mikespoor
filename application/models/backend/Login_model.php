@@ -87,9 +87,9 @@ class Login_model extends CI_Model {
 					'time_format' => addslashes($_POST['selTime']),
 					'subject' => trim(addslashes($_POST['txtsubject'])),
 					'message' => trim(addslashes($_POST['txtmessage'])),
-					'video_banner' => trim(addslashes($_POST['txtVlink'])),
-					'video_status' => trim(addslashes($_POST['txtVType'])),
-					'theme_color' => $_POST['nowcolor'],
+					//'video_banner' => trim(addslashes($_POST['txtVlink'])),
+					//'video_status' => trim(addslashes($_POST['txtVType'])),
+					//'theme_color' => $_POST['nowcolor'],
                     'company_logo' => $gallery_pdf1,
 					'updatedOn' => $entdate
              );

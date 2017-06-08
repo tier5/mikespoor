@@ -31,63 +31,44 @@ class Contact extends CI_Controller {
 				$data['metainfo']=$this->seo_settings_model->getmetainfomodel(7);
 			    $this->load->view('user/contact_view',$data);
 		}
-		public function sendmail()
-		{
-			    $this->load->model('backend/login_model');
-				$data['companyinfo']=$this->login_model->getuserinfoid('1');
-			    $this->load->helper('mailsender_helper');
-				$to=$data['companyinfo']['contact_email'];
-				$from=$data['companyinfo']['contact_name']."<".stripslashes($_POST['txtEmail']).">";
-				$subject='A New Message Posted';
-				$message = '<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
-				<tr>
-					<td colspan="2">A new message has been posted. Details are below,</td>
-				</tr>
-				<tr>
-					<td colspan="2">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%">Name : </td>
-					<td width="70%" style="font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;">'.stripslashes($_POST['txtName']).'</td>
-				</tr>
-				<tr>
-					<td>Email : </td>
-					<td style="font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;">'.stripslashes($_POST['txtEmail']).'</td>
-				</tr>
-				
-				<tr>
-					<td valign="top">Comments : </td>
-					<td style="font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;">'.nl2br(stripslashes($_POST['txtComment'])).'</td>
-				</tr>
-				</table>';
-				$template='contact';
-				$res=mailsend($to,$from,$subject,$template,$message);
-				if($res)
-				{
-					    $uto=$data['companyinfo']['contact_email'];
+
+		public function sendmail(){
+		    $this->load->model('backend/login_model');
+			$data['companyinfo']=$this->login_model->getuserinfoid('1');
+		    $this->load->helper('mailsender_helper');
+			$to=$data['companyinfo']['contact_email'];
+			$from=$data['companyinfo']['contact_name']."<".stripslashes($_POST['txtEmail']).">";
+			$subject='A New Message Posted';
+			$message = 
+			'<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
+				<tr><td colspan="2">A new message has been posted. Details are below,</td></tr>
+				<tr><td colspan="2">&nbsp;</td></tr>
+				<tr><td width="30%">Name : </td><td width="70%" style="font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;">'.stripslashes($_POST['txtName']).'</td></tr>
+				<tr><td>Email : </td><td style="font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;">'.stripslashes($_POST['txtEmail']).'</td></tr>
+				<tr><td valign="top">Comments : </td><td style="font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;">'.nl2br(stripslashes($_POST['txtComment'])).'</td></tr>
+			</table>';
+
+			$template='contact';
+			$res=mailsend($to,$from,$subject,$template,$message);
+			if($res){
+				$uto=$data['companyinfo']['contact_email'];
 				$ufrom=$data['companyinfo']['contact_name']."<".stripslashes($data['companyinfo']['contact_email']).">";
 				$usubject=$data['companyinfo']['subject'];
-				$umessage = '<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
-				<tr>
-					<td>'.$data['companyinfo']['message'].'</td>
-				</tr>
-				
+				$umessage = 
+				'<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
+							<tr><td>'.$data['companyinfo']['message'].'</td></tr>
 				</table>';
 				$utemplate='contact';
 				$ures=mailsend($uto,$ufrom,$usubject,$utemplate,$umessage);
-						$_SESSION['successmsg']='Your mail has been send successfully. We will contact you soon.';
-						header('location:'.BASE_URI.'contact');
-						exit;
-					
-				}
-				else
-				{
-					    $_SESSION['errormsg']='Seems to be some problem. Try Again';
-						header('location:'.BASE_URI.'contact');
-						exit;
-				}
-		}
-		
-}
+				$_SESSION['successmsg']='Your mail has been send successfully. We will contact you soon.';
+				header('location:'.BASE_URI.'contact');
+				exit;
+			}else{
+				$_SESSION['errormsg']='Seems to be some problem. Try Again';
+				header('location:'.BASE_URI.'contact');
+				exit;
+			}
+		}	
+    }
 
 ?>
