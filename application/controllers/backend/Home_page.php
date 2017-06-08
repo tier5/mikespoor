@@ -155,6 +155,28 @@ class Home_page extends CI_Controller {
 						exit;
 				}
 		}
+
+		public function saveforeend(){
+			    $this->load->helper('auth_helper');
+				checkuserlogin();
+				$data['foreground_image_transition']=$this->input->post('transition_fore');
+				$res=$this->home_page_model->update_forground_transition($data);
+				if($res)
+				{
+					
+						$_SESSION['successmsg']='Foreground Transition Time Saved';
+						header('location:'.BASE_URI.'backend/home-page');
+						exit;
+					
+				}
+				else
+				{
+					    $_SESSION['errormsg']='Seems to be some problem. Try Again';
+						header('location:'.BASE_URI.'backend/home-page/');
+						exit;
+				}
+				
+		}
 		public function editnewfeature()
 		{
 			    $this->load->helper('auth_helper');
@@ -772,6 +794,8 @@ class Home_page extends CI_Controller {
 			$data['inner_page_banner']=$this->banner_model->get_all_banner();
             $this->load->view('backend/home_backend_image',$data);
 		}
+
+
 
 		public function backend_image_edit($id='')
 		{

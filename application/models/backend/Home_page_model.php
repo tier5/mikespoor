@@ -153,7 +153,7 @@ class Home_page_model extends CI_Model {
 		}
 		public function getbannerlistmodel()
 		{
-			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `banner_comment`, `status`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `banner_comment`,`foreground_image_transition`, `status`, `addedBy`, `addedOn`, `updatedOn`');
             $this->db->from('lm_home_banner');
 			$query = $this->db->get();
 			$row = $query->result_array();
@@ -167,6 +167,16 @@ class Home_page_model extends CI_Model {
 			$row = $query->result_array();
 			return $row;
 		}
+		public function update_forground_transition($data) {
+            
+            $query=$this->db->update('lm_home_banner',$data);
+			if($query){
+				return true;
+			}else{
+				return false;
+		    }
+        }
+
 		public function getactivefeaturedlistmodel()
 		{
 			$this->db->select('`feat_id`, `feat_title`, `feat_content`, `status`, `addedBy`, `addedOn`, `updatedOn`');
@@ -178,7 +188,7 @@ class Home_page_model extends CI_Model {
 		}
 		public function getactivebannerlistmodel()
 		{
-			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `banner_comment`, `status`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `banner_comment`, `foreground_image_transition`,`status`, `addedBy`, `addedOn`, `updatedOn`');
             $this->db->from('lm_home_banner');
 			$this->db->where('status',1);
 			$query = $this->db->get();

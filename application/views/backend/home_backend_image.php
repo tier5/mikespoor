@@ -102,7 +102,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Background Name </th>
+                                            <th>Background Name  </th>
                                             <th>Background Title</th>
                                             <th>Background Image </th>
                                             <th>Edit</th>

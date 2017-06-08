@@ -120,8 +120,11 @@
         <div class="tp-wrapper no-bottom-margin">
             <div class="tp-banner-container">
                 <div class="tp-banner">
-                    <ul>                                                                                                                                                                                                                                                                                                    
+                    <ul>              
+
+
                         <?php
+                        print_r($bannerlist);
 							foreach($bannerlist as $bannerlistdata)
 							{
 							?>
@@ -130,13 +133,13 @@
                             <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
                             <!-- layer 2 -->
                             <?php if(isset($bannerlistdata['banner_front_image']) && ($bannerlistdata['banner_front_image']!='')){ ?>
-                            <div class="tp-caption regular sfl"
-                                 data-x="200"
-                                 data-y="50"
-                                 data-speed="600"
-                                 data-start="1500"
-                                 data-easing="Back.easeOut"
-                                 data-endspeed="300"><img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
+
+                            <?php if($bannerlistdata['foreground_image_transition']==0 || $bannerlistdata['foreground_image_transition']=="0" ) { ?>
+                             <div class="tp-caption regular sfl" data-x="200" data-y="50" data-speed="0" data-start="0" data-endspeed="0">
+                            <?php }else{ ?>
+                            <div class="tp-caption regular sfl" data-x="200" data-y="50" data-speed="<?php echo $bannerlistdata['foreground_image_transition'];?>" data-start="1500" data-easing="Back.easeOut" data-endspeed="300">
+                            <?php } ?>     
+                                 <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
                             </div>
                             <?php } ?>
                             <!-- layer 3 -->
@@ -156,6 +159,7 @@
                     </ul>
                 </div><!-- .tp-banner end -->
             </div><!-- .tp-banner end -->
+            
         </div><!-- .tp-wrapper end -->
 
         <!-- .page-content start -->
