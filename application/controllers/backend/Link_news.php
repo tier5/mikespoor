@@ -183,7 +183,7 @@ class Link_news extends CI_Controller {
 					$data1['companyinfo']=$this->login_model->getuserinfoid('1');
 					$data1['newsinfo']=$this->link_model->get_link_details($query);
 					foreach ($all_subscriber as $subscriber) {
-                
+                       $data1['subscriber_info']=$subscriber;
 				    	$this->load->helper('mailsender_helper');
 						$to=$subscriber['subscriber_email'];
 						$from=$data1['companyinfo']['company_name']."<".$data1['companyinfo']['contact_email'].">";

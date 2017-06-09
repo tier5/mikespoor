@@ -505,7 +505,7 @@
                     <td valign='top' align='center'>
                       <div class="contentEditableContainer contentTextEditable">
                         <div class="contentEditable" style='color:#A8B0B6; font-size:13px;line-height: 16px;'>
-                          <p ><?php echo $companyinfo['footer_message'];?> | <a >Unsubscribe</a>
+                          <p ><?php echo $companyinfo['footer_message'];?> | <a href="http://stage.mikespoorillustrations.co.uk/links-news/un_subscribe/<?php echo $subscriber_info['subscriber_id']; ?>">Unsubscribe</a>
                           </p>
                         </div>
                       </div>

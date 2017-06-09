@@ -27,6 +27,8 @@ class Link_model extends CI_Model {
 			return $row;
 		}
 
+        
+
 		public function update($table,$con,$data)
         {
             $this->db->where($con);

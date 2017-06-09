@@ -41,6 +41,11 @@
                                         <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15" ></a>
                                     </li>
                                 </ul><!-- .social-links end -->
+                                     <span id="subscribe-msg" style="color:red"></span>
+                               <!--  <form action="" method="post" enctype="multipart/form-data"> -->
+                                    <input type="text" id="subscribe" name="subscribe">
+                                    <input type="button" value="Subscribe" class="Subscribe">
+                                <!-- </form> -->
                             </div><!-- .footer-widget-container end -->
 
                             <!-- .footer-widget-container start -->
@@ -110,6 +115,25 @@
         <script>
             /* <![CDATA[ */
             $(document).ready(function() {
+                $('.Subscribe').click(function(){
+                  var subscriber=$('#subscribe').val();
+                  if(subscriber){
+                    if(validateEmail(subscriber)){
+
+                        $.ajax({
+                            url: 'links_news/subscribe',
+                            type: "post",
+                            data:{subscribe:subscriber},
+                            success: function(data)
+                            {
+                               $("#subscribe-msg").text(response).delay(10000).fadeOut();
+                            }
+                            });
+                    }else{
+                        $("#subscribe-msg").text('This Is Not A Valied Email!').delay(10000).fadeOut();
+                    }
+                  }
+                });
                 // 'use strict';
 
                 // PRETTYPHOTO LIGHTBOX START
@@ -142,7 +166,10 @@
                 });
 
             });
-
+            function validateEmail(email) {
+                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    return re.test(email);
+            }
             /* ]]> */
         </script>
 
