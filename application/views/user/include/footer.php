@@ -28,7 +28,40 @@
                                 <h6 style="color:<?php echo $font_color['color']; ?> !important;">follow us</h6>
                                <!--  <p style="color:<?php echo $font_color['color']; ?> !important;" >Keep up to date with Mike Spoor Illustrations</p> -->
                                 <!--- .social-links start -->
-                                <ul class="social-links">
+
+
+
+                                <div class="social-btns">
+                                
+
+                                <a target="_blank" class="btn twitter" href="<?php echo $companyinfo['twitter_link']; ?>"><i class="fa fa-twitter"></i></a>
+
+                                <a target="_blank" class="btn facebook" href="<?php echo $companyinfo['facebook_link']; ?>"><i class="fa fa-facebook"></i></a>
+
+                                <a target="_blank" class="btn google" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15">
+                                    <i class="fa fa-youtube-square" aria-hidden="true"></i>
+
+                                </a>
+
+                                
+                                </div>
+
+
+                                <h6 style="color:<?php echo $font_color['color']; ?> !important;">Newsletter</h6>
+
+                                <div class="newsletter">
+                                <form>
+                                     <div class="form-group">   
+                                     <input type="email" name="" required="required">
+                                     <input type="submit" value="Submit" name="">
+                                     </div>   
+                                </form>
+
+                                </div>
+
+
+
+                               <!--  <ul class="social-links">
                                     <li>
                                         <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>" class="flaticon-twitter16" ></a>
                                     </li>
@@ -40,7 +73,7 @@
                                     <li>
                                         <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15" ></a>
                                     </li>
-                                </ul><!-- .social-links end -->
+                                </ul> -->
                             </div><!-- .footer-widget-container end -->
 
                             <!-- .footer-widget-container start -->
