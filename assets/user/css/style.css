@@ -64,6 +64,12 @@ Version: 2.1
     1. CSS RESET
 ============================================================================= */
 
+@import '//codepen.io/chrisdothtml/pen/ojLzJK.css';
+
+@import '../assets/user/csss/font-awesome.css';
+
+
+
 @font-face {
     font-family: 'UNVR57W';
     src: url('../fonts/UNVR57W.eot');
@@ -5125,3 +5131,135 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 
  
 }
+
+
+
+
+.newsletter .form-group{background: #fff; border: 1px solid #ccc;}
+.newsletter .form-group input[type="email"]{ border: none;
+border-radius: none; padding: 10px; width: 79%;}
+
+
+
+
+.newsletter .form-group input[type="submit"]{background: #000; border:none;
+color: #fff;padding: 10px 15px; width: 20%; cursor: pointer;}
+
+.newsletter .form-group input[type="submit"]:focus{background: #B65FC0;s}
+
+
+.footer-widget-container{position: relative;}
+.social-btns .btn,
+.social-btns .btn:before,
+.social-btns .btn .fa {
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+  -webkit-transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+          transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+}
+.social-btns .btn:before {
+  top: 90%;
+  left: -110%;
+}
+.social-btns .btn .fa {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+.social-btns .btn.facebook:before {
+  background-color: #3b5998;
+}
+.social-btns .btn.facebook .fa {
+  color: #fff;
+}
+.social-btns .btn.twitter:before {
+  background-color: #3cf;
+}
+.social-btns .btn.twitter .fa {
+  color: #fff;
+}
+.social-btns .btn.google:before {
+  background-color: #dc4a38;
+}
+.social-btns .btn.google .fa {
+  color: #fff;
+}
+.social-btns .btn.dribbble:before {
+  background-color: #f26798;
+}
+.social-btns .btn.dribbble .fa {
+  color: #f26798;
+}
+.social-btns .btn.skype:before {
+  background-color: #00aff0;
+}
+.social-btns .btn.skype .fa {
+  color: #00aff0;
+}
+.social-btns .btn:focus:before,
+.social-btns .btn:hover:before {
+  top: -10%;
+  left: -10%;
+}
+.social-btns .btn:focus .fa,
+.social-btns .btn:hover .fa {
+  color: #fff;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.social-btns {
+/*  height: 90px;
+  margin: auto;
+  font-size: 0;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;*/
+}
+.social-btns .btn {
+  display: inline-block;
+  background-color: #333333;
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  margin: 5px 10px 25px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 28%;
+  box-shadow: 0 5px 15px -5px rgba(0,0,0,0.1);
+  opacity: 0.99;
+  color: #fff;
+}
+.social-btns .btn:before {
+  content: '';
+  width: 120%;
+  height: 120%;
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.social-btns .btn .fa {
+  font-size: 25px;
+  vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

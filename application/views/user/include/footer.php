@@ -28,7 +28,40 @@
                                 <h6 style="color:<?php echo $font_color['color']; ?> !important;">follow us</h6>
                                <!--  <p style="color:<?php echo $font_color['color']; ?> !important;" >Keep up to date with Mike Spoor Illustrations</p> -->
                                 <!--- .social-links start -->
-                                <ul class="social-links">
+
+
+
+                                <div class="social-btns">
+                                
+
+                                <a target="_blank" class="btn twitter" href="<?php echo $companyinfo['twitter_link']; ?>"><i class="fa fa-twitter"></i></a>
+
+                                <a target="_blank" class="btn facebook" href="<?php echo $companyinfo['facebook_link']; ?>"><i class="fa fa-facebook"></i></a>
+
+                                <a target="_blank" class="btn google" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15">
+                                    <i class="fa fa-youtube-square" aria-hidden="true"></i>
+
+                                </a>
+
+                                
+                                </div>
+
+
+                                <h6 style="color:<?php echo $font_color['color']; ?> !important;">Newsletter</h6>
+
+                                <div class="newsletter">
+                                    <span id="subscribe-msg" style="color:red"></span>
+                                     <div class="form-group">   
+                                     <input type="email" id="subscribe" name="subscribe" required="required">
+                                     <input type="submit" value="Subscribe" class="Subscriber">
+                                     </div>   
+                                
+
+                                </div>
+                            
+
+
+                               <!--  <ul class="social-links">
                                     <li>
                                         <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>" class="flaticon-twitter16" ></a>
                                     </li>
@@ -40,14 +73,9 @@
                                     <li>
                                         <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15" ></a>
                                     </li>
-                                </ul><!-- .social-links end -->
-                                     <span id="subscribe-msg" style="color:red"></span>
-                               <!--  <form action="" method="post" enctype="multipart/form-data"> -->
-                                    <input type="text" id="subscribe" name="subscribe">
-                                    <input type="button" value="Subscribe" class="Subscribe">
-                                <!-- </form> -->
-                            </div><!-- .footer-widget-container end -->
 
+                            </div><!-- .footer-widget-container end -->
+                          </div>
                             <!-- .footer-widget-container start -->
                             <div class="grid_4 footer-widget-container">
                             <h6 style="color:<?php echo $font_color['color']; ?> !important;">Contact info</h6>
@@ -115,24 +143,22 @@
         <script>
             /* <![CDATA[ */
             $(document).ready(function() {
-                $('.Subscribe').click(function(){
-                  var subscriber=$('#subscribe').val();
-                  if(subscriber){
-                    if(validateEmail(subscriber)){
-
-                        $.ajax({
-                            url: 'links_news/subscribe',
-                            type: "post",
-                            data:{subscribe:subscriber},
-                            success: function(data)
-                            {
-                               $("#subscribe-msg").text(response).delay(10000).fadeOut();
-                            }
+                $('.Subscriber').click(function(){
+                    var subscriber=$('#subscribe').val();
+                    if(subscriber){
+                        if(validateEmail(subscriber)){
+                            $.ajax({
+                                url: 'links_news/subscribe',
+                                type: "post",
+                                data:{subscribe:subscriber},
+                                success: function(data){
+                                    $("#subscribe-msg").text(response).delay(10000).fadeOut();
+                                }
                             });
-                    }else{
-                        $("#subscribe-msg").text('This Is Not A Valied Email!').delay(10000).fadeOut();
+                        }else{
+                            $("#subscribe-msg").text('This Is Not A Valied Email!').delay(10000).fadeOut();
+                        }
                     }
-                  }
                 });
                 // 'use strict';
 
