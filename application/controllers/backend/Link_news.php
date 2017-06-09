@@ -7,8 +7,9 @@ class Link_news extends CI_Controller {
 		$this->load->model('backend/banner_model');
 		$this->load->model('backend/link_model');
 		$this->load->model('backend/subscribe_model');
-		$this->load->library('image_lib');
 		$this->load->model('backend/login_model');
+		
+		$this->load->library('image_lib');
         // Your own constructor code
     }
 
@@ -70,66 +71,93 @@ class Link_news extends CI_Controller {
 	}
 
 	public function edit_link_news(){
-            $this->load->helper('auth_helper');
-			checkuserlogin();
-			$all_subscriber=$this->subscribe_model->all_active_subscribers();
-			$con['linkid']=$this->input->post('txtCid');
-            if($_FILES['imgBanner']['name'])
-            {
-				$photopath2 = pathinfo($_FILES['imgBanner']['name']);
-		        $extension2 = $photopath2['extension'];
-		        $source2 = $_FILES['imgBanner']['tmp_name'];
-		        $gallery_pdf1 =time()."_".$_POST['txtCid'].".".$extension2;
-		        $destination2 = "uploads/link_news/".$gallery_pdf1;
-		        if(move_uploaded_file($source2,$destination2)){
-		            /*** image resize ***/
-					$config['image_library'] = 'gd2';
-				    $config['source_image'] = "uploads/link_news/".$gallery_pdf1;
-				    $config['new_image'] ='uploads/link_news/thumb/'.$gallery_pdf1;
-				    $config['maintain_ratio'] = TRUE;
-				    $config['height']   = 300;
+        $this->load->helper('auth_helper');
+		checkuserlogin();
+		$all_subscriber=$this->subscribe_model->all_active_subscribers();
+		$con['linkid']=$this->input->post('txtCid');
+        if($_FILES['imgBanner']['name']){
+			$photopath2 = pathinfo($_FILES['imgBanner']['name']);
+		    $extension2 = $photopath2['extension'];
+		    $source2 = $_FILES['imgBanner']['tmp_name'];
+		    $gallery_pdf1 =time()."_".$_POST['txtCid'].".".$extension2;
+		    $destination2 = "uploads/link_news/".$gallery_pdf1;
+		    if(move_uploaded_file($source2,$destination2)){
+	            /*** image resize ***/
+				$config['image_library'] = 'gd2';
+			    $config['source_image'] = "uploads/link_news/".$gallery_pdf1;
+			    $config['new_image'] ='uploads/link_news/thumb/'.$gallery_pdf1;
+			    $config['maintain_ratio'] = TRUE;
+			    $config['height']   = 300;
 
-				    $this->image_lib->initialize($config);
-				    if(!$this->image_lib->resize())
-				    {
-
-				    	$_SESSION['errormsg']='Seems to be some problem. Try Again1';
-						header('location:'.BASE_URI.'backend/link_news/add_edit_link_news/'.$con['linkid']);
-						exit;
-				    }
-				    else {
-				    	$data['link_logo']=$gallery_pdf1;
-				    }
+				$this->image_lib->initialize($config);
+				if(!$this->image_lib->resize()){
+				    $_SESSION['errormsg']='Seems to be some problem. Try Again1';
+					header('location:'.BASE_URI.'backend/link_news/add_edit_link_news/'.$con['linkid']);
+					exit;
 				}else {
+				   	$data['link_logo']=$gallery_pdf1;
+				}
+			}else {
 					$_SESSION['errormsg']='Seems to be some problem. Try Again2';
 					header('location:'.BASE_URI.'backend/link_news/add_edit_link_news/'.$con['linkid']);
 					exit;
-				}
 			}
-                 $data['link_name']=trim(($_POST['txtTitle']));
-                  $data['link_content']= htmlspecialchars($_POST['editor1']);
+		}
+        $data['link_name']=trim(($_POST['txtTitle']));
+        $data['link_content']= htmlspecialchars($_POST['editor1']);
 			
-                $query=$this->link_model->update('lm_link', $con,$data);
-				if($query)
-				{
-
-
-
-                    foreach ($all_subscriber as $subscriber) {
-                        	$data['companyinfo']=$this->login_model->getuserinfoid('1');
-		    				$this->load->helper('mailsender_helper');
-							$to=$subscriber['subscriber_email'];
-							$from=$data['companyinfo']['contact_name']."<".$data['companyinfo']['contact_email'].">";
+        $query=$this->link_model->update('lm_link', $con,$data);
+		if($query){
+			foreach ($all_subscriber as $subscriber) {
+                $data1['companyinfo']=$this->login_model->getuserinfoid('1');
+		    	$this->load->helper('mailsender_helper');
+				$to=$subscriber['subscriber_email'];
+				$from=$data1['companyinfo']['contact_name']."<".$data1['companyinfo']['contact_email'].">";
                             
-                            $subject='Newsletter';
-							$message = 
-							'<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
-								<tr><td colspan="2">A new news is updated,</td></tr>
-								
-							</table>';
+                $subject='Newsletter Updated In Mikespoor';
+                $config = Array(
+    				'mailtype' => 'html',
+				);
+				$this->load->library('email',$config );
+                $message =$this->load->view('backend/newsletter','', TRUE);
+							/*$message =$this->load->view('backend/newsletter','', TRUE); 
 
 							$template='Newsletter';
-							$res=mailsend($to,$from,$subject,$template,$message);
+							$res=mailsend($to,$from,$subject,$template,$message);*/
+
+
+
+
+
+                       
+                $this->email->from($from);
+                $this->email->to($to);
+                $this->email->subject($subject);
+                $this->email->message($message);
+                $this->email->send();
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 							
                         }
                          $_SESSION['successmsg']='Link and News Updated Successfully';
@@ -196,19 +224,33 @@ class Link_news extends CI_Controller {
 				{
 					foreach ($all_subscriber as $subscriber) {
                         	$data['companyinfo']=$this->login_model->getuserinfoid('1');
-		    				$this->load->helper('mailsender_helper');
+		    				//$this->load->helper('mailsender_helper');
 							$to=$subscriber['subscriber_email'];
 							$from=$data['companyinfo']['contact_name']."<".$data['companyinfo']['contact_email'].">";
                             
-                            $subject='A New Message Posted';
+                            /*$subject='A New Message Posted';
 							$message = 
 							'<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
 								<tr><td colspan="2">A new news is updated,</td></tr>
 								
 							</table>';
 
-							$template='Newsletter';
-							$res=mailsend($to,$from,$subject,$template,$message);
+							$template='Newsletter';*/
+							//$res=mailsend($to,$from,$subject,$template,$message);
+
+							$message = $this->load->view("backend/newsletter.php",null,True);
+
+					        $this->load->library("email");
+
+					        $this->email->from($from);
+					        $this->email->to($to); 
+
+					        $this->email->subject("Re: Contact");
+					        $this->email->message($message);    
+
+					        $this->email->send();
+
+					        echo $this->email->print_debugger();
                         }
 
 						$_SESSION['successmsg']='Link and News Updated Successfully';
