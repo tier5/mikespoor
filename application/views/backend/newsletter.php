@@ -257,14 +257,14 @@
                                                               <td align='right' valign='top' >
                                                                 <div class="contentEditableContainer contentTextEditable" style='display:inline-block;'>
                                                                   <div class="contentEditable" >
-                                                                    <a target='_blank' href="[SHOWEMAIL]" style='color:#A8B0B6;font-size:13px;text-decoration:none;'>If you have trouble viewing this email, click here.</a>
+                                                                   <!--  <a target='_blank' href="[SHOWEMAIL]" style='color:#A8B0B6;font-size:13px;text-decoration:none;'>If you have trouble viewing this email, click here.</a> -->
                                                                   </div>
                                                                 </div>
                                                               </td>
                                                               <td width='18' align='right' valign='top'>
                                                                 <div class="contentEditableContainer contentImageEditable" style='display:inline-block;'>
                                                                   <div class="contentEditable" >
-                                                                    <a target='_blank' href="[SHOWEMAIL]"><img src="images/openBrowser.png" alt='open in browser image' data-default="placeholder" width='15' height='15' style='padding-left:10px;'></a>
+                                                                    <a target='_blank' href="[SHOWEMAIL]"><img src="http://stage.mikespoorillustrations.co.uk/assets/email/openBrowser.png" alt='open in browser image' data-default="placeholder" width='15' height='15' style='padding-left:10px;'></a>
                                                                   </div>
                                                                 </div>
                                                               </td>
@@ -293,7 +293,7 @@
                                                                 </div>
                                                               </div>
                                                             </td>
-                                                            <td  width='70' style="padding-right: 14px;"> <img width="80px;" src="images/cartoon2.png" alt="img"></td>
+                                                            <td  width='70' style="padding-right: 14px;"> <img width="80px;" src="http://stage.mikespoorillustrations.co.uk/assets/email/cartoon2.png" alt="img"></td>
                                                           </tr>
                                                         </table>
                                                       </td>
@@ -312,18 +312,18 @@
                                                                   <div class='contentEditableContainer contentTextEditable'>
                                                                     <div class="contentEditable" style='color:#0F4666;font-size:15px;line-height:19px;'>
                                                                       <p style='color:#fff;'>
-                                                                      <span style="float: left; margin-right: 4px;"><img src="images/phone-receiver" alt="img"></span>&nbsp;
-                                                                      <span style="float: left; margin-right: 10px;"> 01233 643447</span>&nbsp;
-                                                                      <span style="float: left; margin-right: 4px;"><img src="images/close-envelope" ></span> 
-                                                                      <span style="float: left; margin-right: 4px;"> mike.spoor@dsl.pipex.com</span></p>
+                                                                      <span style="float: left; margin-right: 4px;"><img src="http://stage.mikespoorillustrations.co.uk/assets/email/phone-receiver.png" alt="img"></span>&nbsp;
+                                                                      <span style="float: left; margin-right: 10px;"><?php echo $companyinfo['contact_no1'];?></span>&nbsp;
+                                                                      <span style="float: left; margin-right: 4px;"><img src="http://stage.mikespoorillustrations.co.uk/assets/email/close-envelope.png" alt="img"></span> 
+                                                                      <span style="float: left; margin-right: 4px;"> <?php echo $companyinfo['contact_email'];?></span></p>
                                                                     </div>
                                                                   </div>
                                                                 </td>
                                                                 <td width='45' valign='top'>
                                                                   <div class='contentEditableContainer contentFacebookEditable'>
                                                                     <div class="contentEditable">
-                                                                    <a href="https://www.facebook.com/" target="_blank">
-                                                                      <img src="images/facebook-logo-button.png" alt='facebook' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                    <a href="<?php echo $companyinfo['facebook_link'];?>" target="_blank">
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/facebook-logo-button.png" alt='facebook' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
                                                                     </a>  
                                                                     </div>
                                                                   </div>
@@ -332,8 +332,8 @@
                                                                 <td width='45' valign='top'>
                                                                   <div class='contentEditableContainer contentTwitterEditable'>
                                                                     <div class="contentEditable">
-                                                                      <a href="https://www.flickr.com/photos/mike_spoor/" target="_blank">
-                                                                      <img src="images/twitter(1).png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      <a href="<?php echo $companyinfo['twitter_link'];?>" target="_blank">
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/twitter(1).png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
                                                                       </a>
                                                                     </div>
                                                                   </div>  
@@ -341,8 +341,8 @@
                                                                 <td width='45' valign='top'>
                                                                   <div class='contentEditableContainer contentTwitterEditable'>
                                                                     <div class="contentEditable">
-                                                                      <a href="http://stage.mikespoorillustrations.co.uk/" target="_blank">
-                                                                      <img src="images/youtube-logotype.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      <a href="<?php echo $companyinfo['youtube_link'];?>" target="_blank">
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/youtube-logotype.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
                                                                       </a>
                                                                     </div>
                                                                   </div>  
@@ -350,8 +350,8 @@
                                                                 <td width='45' valign='top'>
                                                                   <div class='contentEditableContainer contentTwitterEditable'>
                                                                     <div class="contentEditable">
-                                                                      <a href="http://stage.mikespoorillustrations.co.uk/" target="_blank">
-                                                                      <img src="images/google-plus-logo-button.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      <a href="<?php echo $companyinfo['google_link'];?>" target="_blank">
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/google-plus-logo-button.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
                                                                       </a>
                                                                     </div>
                                                                   </div>  
@@ -359,8 +359,8 @@
                                                                 <td width='45' valign='top'>
                                                                   <div class='contentEditableContainer contentTwitterEditable'>
                                                                     <div class="contentEditable">
-                                                                      <a href="http://stage.mikespoorillustrations.co.uk/" target="_blank">
-                                                                      <img src="images/skype-logo.png" alt='skype' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      <a href="<?php echo $companyinfo['linkdln_link'];?>" target="_blank">
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/linkedin-button.png" alt='Linkedin' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
                                                                       </a>
                                                                     </div>
                                                                   </div>  
@@ -386,7 +386,7 @@
                           <td>
                             <div class='contentEditableContainer contentImageEditable'>
                               <div class="contentEditable">
-                                <img class="banner" src="images/1490338959_23.jpg" alt='What we do' data-default="placeholder" data-max-width="600" width='600'  >
+                                <img class="banner" src="http://stage.mikespoorillustrations.co.uk/uploads/link_news/<?php echo $newsinfo['link_logo'];?>" alt='What we do' data-default="placeholder" data-max-width="600" width='600'  >
                               </div>
                             </div>
                           </td>
@@ -404,7 +404,7 @@
       <td align='center' valign='top' width='370' class="specbundle3">
                                   <div class='contentEditableContainer contentTextEditable'>
                                     <div class="contentEditable" style='color:#ffffff;font-size:21px;line-height:19px;'>
-                                      <p ><span class="font">June 2017 Newsletter</p>
+                                      <p ><span class="font"><?php echo $newsinfo['link_name'];?></span></p>
                                     </div>
                                   </div>
                                 </td>
@@ -458,7 +458,9 @@
                               <td align='left' valign='top'>
                                 <div class="contentEditableContainer contentTextEditable" >
                                  <div class="contentEditable" style='color:#999999;font-size:13px;line-height:19px;'>
-                                  <p >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                  <p ><?php echo htmlspecialchars_decode($newsinfo['link_content']);
+                                  
+                                  ?></p>
                                 </div>
                               </div>
                             </td>
@@ -469,7 +471,7 @@
                             <td align='right' valign='top' style='padding-bottom:8px;'>
                               <div class="contentEditableContainer contentTextEditable" >
                                <div class="contentEditable" >
-                                <a target='_blank' class='link2' href="#" style='padding:8px;background:#FED83D;font-size:13px;color:#000;text-decoration:none;font-weight:bold;'>Find out more →</a>
+                                <a target='_blank' class='link2' href="http://stage.mikespoorillustrations.co.uk/links-news" style='padding:8px;background:#FED83D;font-size:13px;color:#000;text-decoration:none;font-weight:bold;'>Find out more →</a>
                               </div>
                             </div>
                           </td>
@@ -479,29 +481,14 @@
 
                         <tr><td height='16'><hr></td></tr>
                         <tr><td height='16'>&nbsp;</td></tr>
-                        <tr style="text-align: center;">
-
-                          <td style="padding-left: 70px;">
-                          <a href="#" target="_blank">
-                            <img width="400" src="images/video.jpg" alt="video">
-                          </a>  
-                          </td>  
-                        </tr>
+                        
                         <tr><td height='16'>&nbsp;</td></tr>
 
                         <tr><td height='16'><hr></td></tr>
                         <tr><td height='16'>&nbsp;</td></tr>
 
                       </table>
-                      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" valign='top'>
-                          <tr>
-                              <td><a href="#"><img width="100" src="images/1472454677.jpg"></a></td>
-                              <td><a href="#"><img width="100" src="images/1490270679.jpg"></a></td>
-                              <td><a href="#"><img width="100" src="images/1472454724.jpg"></a></td>
-                              <td><a href="#"><img width="100" src="images/1475164059.jpg"></a></td>
-                          </tr>
-
-                      </table>
+                      
                     </td>
                     <td width='16' class="spechide">&nbsp;</td>
                   </tr>
@@ -518,7 +505,7 @@
                     <td valign='top' align='center'>
                       <div class="contentEditableContainer contentTextEditable">
                         <div class="contentEditable" style='color:#A8B0B6; font-size:13px;line-height: 16px;'>
-                          <p >Copyright Mikespoor 2016. All Rights Reserved | <a >Unsubscribe</a>
+                          <p ><?php echo $companyinfo['footer_message'];?> | <a >Unsubscribe</a>
                           </p>
                         </div>
                       </div>

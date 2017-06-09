@@ -39,8 +39,7 @@ class Contact extends CI_Controller {
 			$to=$data['companyinfo']['contact_email'];
 			$from=$data['companyinfo']['contact_name']."<".stripslashes($_POST['txtEmail']).">";
 			$subject='A New Message Posted';
-			$message = 
-			'<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
+			$message ='<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
 				<tr><td colspan="2">A new message has been posted. Details are below,</td></tr>
 				<tr><td colspan="2">&nbsp;</td></tr>
 				<tr><td width="30%">Name : </td><td width="70%" style="font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;">'.stripslashes($_POST['txtName']).'</td></tr>
