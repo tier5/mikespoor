@@ -147,12 +147,13 @@
                     var subscriber=$('#subscribe').val();
                     if(subscriber){
                         if(validateEmail(subscriber)){
+                            
                             $.ajax({
                                 url: 'links_news/subscribe',
                                 type: "post",
                                 data:{subscribe:subscriber},
                                 success: function(data){
-                                    $("#subscribe-msg").text(response).delay(10000).fadeOut();
+                                    $("#subscribe-msg").text(data).delay(10000).fadeOut();
                                 }
                             });
                         }else{

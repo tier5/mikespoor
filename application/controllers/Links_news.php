@@ -93,16 +93,15 @@ class Links_news extends CI_Controller {
 		}
 
 		public function removesub(){
-			echo "hello";
-			die;
-			/*$con['subscriber_email']=$this->input->post('subscribe');
+			
+			$con['subscriber_email']=$this->input->post('subscribe');
             $data['status']=1;
             $update=$this->subscribe_model->update("lm_subscriber",$con,$data);
             if($update){
-                  	echo "Subscription Successfull!";
+                  	echo "Unubscription Successfull!";
 			}else{
-					echo "Subscription Failed!";
-			}*/
+					echo "Unbscription Failed!";
+			}
 		}
 }
 

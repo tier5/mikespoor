@@ -14,8 +14,9 @@
             <!-- .container start -->
             <div class="container">
                 <!-- .row start -->
-                <div>
-                    <span id="unsubscribe-msg"></span>
+                <div style="text-align:center;"> 
+                    <span id="unsubscribe-msg" style="color:red;"></span>
+                    <br>
                     <input type="text" id="unsubscribe" name="unsubscribe" value="<?php if(isset($subscriber['subscriber_email']) || $subscriber['subscriber_email']){ echo $subscriber['subscriber_email'];}?>">
                     <input type="button" value="Unsubscribe" class="unsubscription">
                 </div>    
@@ -25,7 +26,7 @@
         </section><!-- .page-content end -->
 
         <!-- .footer-wrapper start -->
-        <?php include('include/footer.php'); ?><!-- .footer-wrapper end -->
+        <?php //include('include/footer.php'); ?><!-- .footer-wrapper end -->
         <script>
 
             $(document).ready(function() {
@@ -35,13 +36,13 @@
                     var subscriber=$('#unsubscribe').val().trim();
                     if(subscriber){
                         $.ajax({
-                            url: 'links_news/removesub',
+                            url: '../removesub',
                             type: "post",
                             data:{subscribe:subscriber},
                             success: function(data)
                             {
                                
-                               $("#unsubscribe-msg").text(response).delay(10000).fadeOut();
+                               $("#unsubscribe-msg").text(data).delay(10000).fadeOut();
                             }
                             });
                     }
