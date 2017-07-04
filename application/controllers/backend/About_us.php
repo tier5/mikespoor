@@ -72,8 +72,8 @@ class About_us extends CI_Controller {
                 $this->load->view('backend/timeline_list_add_view',$data);
 		}
 
-		public function edittimeline($getid)
-		{
+		public function edittimeline($getid){
+
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
 				$this->load->model('backend/login_model');
@@ -88,8 +88,9 @@ class About_us extends CI_Controller {
 				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/timeline_list_add_view',$data);
 		}
-		public function addnewtimeline()
-		{
+
+		public function addnewtimeline(){
+
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
 				$this->load->model('backend/timeline_model');
@@ -117,8 +118,8 @@ class About_us extends CI_Controller {
 						exit;
 				}
 		}
-		public function editnewtimeline()
-		{
+
+		public function editnewtimeline(){
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
 				$this->load->model('backend/timeline_model');

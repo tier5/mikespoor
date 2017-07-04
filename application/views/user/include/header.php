@@ -23,14 +23,24 @@
 
                 <ul class="social-links">
                     <li>
-                        <a target="_blank" href="<?php echo $companyinfo['twitter_link']; ?>"  class="flaticon-twitter16"></a>
+                        <a target="_blank" href="<?php echo $companyinfo['facebook_link']; ?>"  class="flaticon-facebook25"></a>
                     </li>
                     <li>
-                        <a target="_blank" href="<?php echo $companyinfo['facebook_link']; ?>" class="flaticon-facebook25" ></a>
+                        <a target="_blank" href="<?php echo $companyinfo['instagram_link']; ?>" class="flaticon-instagram3" ></a>
                     </li>
+                    <li>
+                        <a target="_blank" href="<?php echo $companyinfo['flicker_link']; ?>" class="flaticon-flickr8" ></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="<?php echo $companyinfo['linkdin_link']; ?>"  class="flaticon-linkedin10"></a>
+                    </li>
+                   
                     <li>
                         <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15" ></a>
                     </li>
+                    <!--  <li>
+                        <a target="_blank" href="<?php echo $companyinfo['facebook_link']; ?>" class="flaticon-skype112" ></a>
+                    </li> -->
                 </ul>
             </div>
         </section>

@@ -39,7 +39,7 @@ class Login_model extends CI_Model {
 		}
 		public function getuserinfoid($a)
 		{
-			$this->db->select('`company_id`, `company_name`, `company_address`, `contact_no1`, `contact_no2`, `fax_no`, `contact_email`, `sender_email`, `company_logo`, `footer_message`, `facebook_link`, `google_link`, `linkdln_link`, `youtube_link`, `twitter_link`, `time_zone`, `date_format`, `time_format`, `subject`, `message`, `video_banner`, `video_status`, `theme_color`, `addedBy`, `updatedOn`');
+			$this->db->select('*');
             $this->db->from('lm_company');
 			$this->db->where('company_id','1');
 			$query = $this->db->get();
@@ -78,10 +78,11 @@ class Login_model extends CI_Model {
 					'contact_no2' => trim(addslashes($_POST['txtphone2'])),
 					'footer_message' => addslashes($_POST['txtFmessage']),
 					'facebook_link' => addslashes($_POST['txtFlink']),
-					'google_link' => addslashes($_POST['txtGlink']),
-					'linkdln_link' => addslashes($_POST['txtLlink']),
+					'instagram_link' => addslashes($_POST['txtIlink']),
+					'linkdin_link' => addslashes($_POST['txtLlink']),
 					'youtube_link' => addslashes($_POST['txtYlink']),
-					'twitter_link' => addslashes($_POST['txtTlink']),
+					'flicker_link' => addslashes($_POST['txtFLlink']),
+					'skype_link' => addslashes($_POST['txtSlink']),
 					'time_zone' => addslashes($_POST['selTimezone']),
 					'date_format' => addslashes($_POST['selDate']),
 					'time_format' => addslashes($_POST['selTime']),

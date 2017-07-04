@@ -201,22 +201,23 @@
                         <div class="grid_12" align="center">
                           <ul>
                             <li>
-                              <img src="assets/timeline/timeline1.png">
+                              <img src="assets/timeline/timeline1.png" class="front">
                               <div class="dated"><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?>
                                 
                               </div>
                               <span class="popout">
                                 <i class="fa fa-times" aria-hidden="true"></i>
-                                <h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?></h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_content']); ?>
+                                <h1><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?></h1>
+                                  <?php echo htmlspecialchars_decode($timelinelist[0]['timeline_content']); ?>
                               </span>
                             </li>
                             <?php for ($i=1 ; $i<=sizeof($timelinelist); $i++){?>
                             <?php if(isset($timelinelist[$i])){ ?>
                             <li>
                             <?php if(sizeof($timelinelist)-1==$i)  { ?>
-                              <img src="assets/timeline/timeline5.png">
+                              <img src="assets/timeline/timeline5.png" class="front left">
                               <?php } else { ?>
-                              <img src="assets/timeline/timeline2.png">
+                              <img src="assets/timeline/timeline2.png" class="front">
                               <?php } ?>
                               <div class="dated"><?php echo $timelinelist[$i]['timeline_title']; ?>
                               </div>
@@ -229,9 +230,9 @@
                             <?php if(isset($timelinelist[$i+1])){ ?>
                             <li> 
                               <?php if(sizeof($timelinelist)-1==$i+1) {?>
-                                 <img src="assets/timeline/timeline6.png">
+                                 <img src="assets/timeline/timeline6.png" class="front right">
                                 <?php } else { ?>
-                              <img src="assets/timeline/timeline3.png">
+                              <img src="assets/timeline/timeline3.png" class="front">
                               <?php } ?>
                               <div class="dated"><?php echo $timelinelist[$i+1]['timeline_title']; ?>
                               </div>
@@ -260,9 +261,9 @@
     $('.timeline ul li .dated').mouseover(function(event){
       event.stopPropagation();
       var addText = '_clean.png';
-      var imageSrc = $(this).parent().find("img").attr('src');
+      var imageSrc = $(this).parent().find(".front").attr('src');
       var newString = imageSrc.slice(0,-4);
-      $(this).parent().find("img").attr('src', newString + addText);
+      $(this).parent().find(".front").attr('src', newString + addText);
 
       $(this).on("click",function(){
         $(this).parent().find($(".popout")).show();
@@ -272,9 +273,9 @@
       $(this).parent().find($('.dated')).css('opacity',0);
     }).mouseout(function(event){
       var addText = '.png';
-      var imageSrc = $(this).parent().find("img").attr('src');
+      var imageSrc = $(this).parent().find(".front").attr('src');
       var newString = imageSrc.slice(0,-10);
-      $(this).parent().find("img").attr('src', newString + addText);
+      $(this).parent().find(".front").attr('src', newString + addText);
       $(this).parent().find($('.dated')).css('opacity',1);
      // $(this).parent().find($(".popout")).hide();
     });

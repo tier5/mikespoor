@@ -134,7 +134,7 @@ class Timeline_model extends CI_Model {
             }
 			$data=array(
                     'timeline_title' => trim(addslashes($_POST['txtTitle'])),
-					'timeline_content' => htmlspecialchars($_POST['editor1']),
+					'timeline_content' => $_POST['editor1'],
 					'orderBy' => trim(addslashes($_POST['txtOrder'])),
                     'addedBy' => $_SESSION['usersession'],
 					'updatedOn' => $entdate

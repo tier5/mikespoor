@@ -428,7 +428,7 @@ b{
     position: relative;
 }
 
-.flaticon-twitter16:before, .flaticon-facebook25:before, .flaticon-youtube15:before{
+.flaticon-twitter16:before, .flaticon-facebook25:before, .flaticon-youtube15:before, .flaticon-instagram3:before, .flaticon-flickr8:before, .flaticon-linkedin10:before {
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -4757,14 +4757,14 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     vertical-align: top;
 }
 
-.timeline ul li img{
+/*.timeline ul li img{
     max-width: 100%;
     height: auto;
     top: 0;
     left: 0;
     margin: auto;
     width: 100%
-}
+}*/
 
 .timeline ul li .dated{
     color: #fff;
@@ -4858,8 +4858,13 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     height: 175px;
 }
 
-.timeline ul li:last-child .dated{
-    right: 16%;
+.timeline ul li:last-child .dated .left{
+    left: 9% !important;
+    top: 35% !important;
+}
+
+.timeline ul li:last-child .dated .right{
+    right: 50%;
     top: 28%;
 }
 
@@ -5143,7 +5148,7 @@ border-radius: none; padding: 10px; width: 79%;}
 
 
 .newsletter .form-group input[type="submit"]{background: #000; border:none;
-color: #fff;padding: 10px 15px; width: 20%; cursor: pointer;}
+color: #fff;padding: 10px 5px; width: 20%; cursor: pointer;}
 
 .newsletter .form-group input[type="submit"]:focus{background: #B65FC0;s}
 
@@ -5171,6 +5176,7 @@ color: #fff;padding: 10px 15px; width: 20%; cursor: pointer;}
 .social-btns .btn.facebook .fa {
   color: #fff;
 }
+
 .social-btns .btn.twitter:before {
   background-color: #3cf;
 }
@@ -5245,6 +5251,37 @@ color: #fff;padding: 10px 15px; width: 20%; cursor: pointer;}
   vertical-align: middle;
 }
 
+
+.social-btns .btn.instagram .fa {
+  color: #fff;
+}
+
+
+.social-btns .btn.flickr .fa {
+  color: #fff;
+}
+
+
+.social-btns .btn.linkedin .fa {
+  color: #fff;
+}
+
+.social-btns .btn.instagram:before {
+background-color: #C700A5;
+}
+
+.social-btns .btn.flickr:before {
+background-color: #0063DB;
+}
+
+.social-btns .btn.linkedin:before {
+background-color: #0274B3;
+}
+
+
+
+
+.
 
 
 

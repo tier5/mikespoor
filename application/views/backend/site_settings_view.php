@@ -168,20 +168,25 @@
                                                     <input type="text" class="form-control" name="txtFlink" placeholder="Enter Facebook Link" value="<?php if(isset($userinfo['facebook_link'])){echo $userinfo['facebook_link'];} ?>">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Google Plus Link</label>
-                                                    <input type="text" class="form-control" name="txtGlink" placeholder="Enter Google Plus Link" value="<?php if(isset($userinfo['google_link'])){echo $userinfo['google_link'];} ?>">
+                                                    <label for="exampleInputEmail1">Instagram Link</label>
+                                                    <input type="text" class="form-control" name="txtIlink" placeholder="Enter Google Plus Link" value="<?php if(isset($userinfo['instagram_link'])){echo $userinfo['instagram_link'];} ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Flicker Link</label>
+                                                    <input type="text" class="form-control" name="txtFLlink" placeholder="Enter Linkedin Link" value="<?php if(isset($userinfo['flicker_link'])){echo $userinfo['flicker_link'];} ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Linkedin Link</label>
-                                                    <input type="text" class="form-control" name="txtLlink" placeholder="Enter Linkedin Link" value="<?php if(isset($userinfo['linkdln_link'])){echo $userinfo['linkdln_link'];} ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Twitter Link</label>
-                                                    <input type="text" class="form-control" name="txtTlink" placeholder="Enter Twitter Link" value="<?php if(isset($userinfo['twitter_link'])){echo $userinfo['twitter_link'];} ?>">
+                                                    <input type="text" class="form-control" name="txtLlink" placeholder="Enter Twitter Link" value="<?php if(isset($userinfo['linkdin_link'])){echo $userinfo['linkdin_link'];} ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Youtube Link</label>
                                                     <input type="text" class="form-control" name="txtYlink" placeholder="Enter Youtube Link" value="<?php if(isset($userinfo['youtube_link'])){echo $userinfo['youtube_link'];} ?>">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Skype Link</label>
+                                                    <input type="text" class="form-control" name="txtSlink" placeholder="Enter Youtube Link" value="<?php if(isset($userinfo['skype_link'])){echo $userinfo['skype_link'];} ?>">
                                                 </div>
                                             </div>
 
