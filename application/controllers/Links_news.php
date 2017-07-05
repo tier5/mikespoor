@@ -68,6 +68,7 @@ class Links_news extends CI_Controller {
 		}
 
 		public function un_subscribe($id=null){
+			$ids=base64_decode($id);
 			$this->load->model('backend/theme_model');
 			$data['theme_color']=$this->theme_model->get_all_info('theme-color');
 			$data['font_color']=$this->theme_model->get_all_info('font-color');
@@ -87,7 +88,7 @@ class Links_news extends CI_Controller {
             $data['banner']=$this->banner_model->getallbannerbyslug('link_news');
             $data['focus_banner']=$this->banner_model->getmiddlebannerbyslug('link_news');
 			$data['metainfo']=$this->seo_settings_model->getmetainfomodel(5);
-			$data['subscriber']=$this->subscribe_model->check_id($id);
+			$data['subscriber']=$this->subscribe_model->check_id($ids);
 			$this->load->view('user/unsubscription',$data);
 
 		}

@@ -38,9 +38,9 @@
                     <li>
                         <a target="_blank" href="<?php echo $companyinfo['youtube_link']; ?>" class="flaticon-youtube15" ></a>
                     </li>
-                    <!--  <li>
-                        <a target="_blank" href="<?php echo $companyinfo['facebook_link']; ?>" class="flaticon-skype112" ></a>
-                    </li> -->
+                     <li>
+                        <a target="_blank" href="<?php echo $companyinfo['skype_link']; ?>" class="flaticon-skype9" ></a>
+                    </li>
                 </ul>
             </div>
         </section>

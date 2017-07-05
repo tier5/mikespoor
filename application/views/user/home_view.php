@@ -142,15 +142,6 @@
                                  <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
                             </div>
                             <?php } ?>
-                            <!-- layer 3 -->
-                            <!-- <div class="tp-caption list-right sfl"
-                                 data-x="160"
-                                 data-y="40"
-                                 data-speed="600"
-                                 data-start="2000"
-                                 data-easing="Back.easeOut"
-                                 data-endspeed="200"><?php echo stripslashes($bannerlistdata['banner_comment']); ?>
-                            </div> -->
                         </li>
                          <?php
 							}

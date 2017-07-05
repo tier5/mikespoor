@@ -39,9 +39,7 @@
                             url: '../removesub',
                             type: "post",
                             data:{subscribe:subscriber},
-                            success: function(data)
-                            {
-                               
+                            success: function(data) {
                                $("#unsubscribe-msg").text(data).delay(10000).fadeOut();
                             }
                             });
@@ -49,15 +47,6 @@
                   
                 });
             });
-
-
-
-
-
-
-
-
-
             /* <![CDATA[ */
             jQuery(document).ready(function($) {
                 'use strict';

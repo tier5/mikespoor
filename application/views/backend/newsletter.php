@@ -332,12 +332,35 @@
                                                                 <td width='45' valign='top'>
                                                                   <div class='contentEditableContainer contentTwitterEditable'>
                                                                     <div class="contentEditable">
-                                                                      <a href="<?php echo $companyinfo['twitter_link'];?>" target="_blank">
-                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/twitter(1).png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      <a href="<?php echo $companyinfo['instagram_link'];?>" target="_blank">
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/skype-logo.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
                                                                       </a>
                                                                     </div>
                                                                   </div>  
                                                                 </td>
+                                                                 <td width='10'></td>
+
+                                                                <td width='45' valign='top'>
+                                                                  <div class='contentEditableContainer contentTwitterEditable'>
+                                                                    <div class="contentEditable">
+                                                                      <a href="<?php echo $companyinfo['flicker_link'];?>" target="_blank">
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/flicker-logo.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      </a>
+                                                                    </div>
+                                                                  </div>  
+                                                                </td>
+                                                                
+                                                                 
+                                                                 <td width='10'></td>
+                                                                <td width='45' valign='top'>
+                                                                  <div class='contentEditableContainer contentTwitterEditable'>
+                                                                    <div class="contentEditable">
+                                                                      <a href="<?php echo $companyinfo['linkdin_link'];?>" target="_blank">
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/instagram-logo.png" alt='Linkedin' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      </a>
+                                                                    </div>
+                                                                  </div>  
+                                                                </td> <td width='10'></td>
                                                                 <td width='45' valign='top'>
                                                                   <div class='contentEditableContainer contentTwitterEditable'>
                                                                     <div class="contentEditable">
@@ -347,27 +370,19 @@
                                                                     </div>
                                                                   </div>  
                                                                 </td>
-                                                                <td width='45' valign='top'>
-                                                                  <div class='contentEditableContainer contentTwitterEditable'>
-                                                                    <div class="contentEditable">
-                                                                      <a href="<?php echo $companyinfo['google_link'];?>" target="_blank">
-                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/google-plus-logo-button.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
-                                                                      </a>
-                                                                    </div>
-                                                                  </div>  
-                                                                </td>
-                                                                <td width='45' valign='top'>
-                                                                  <div class='contentEditableContainer contentTwitterEditable'>
-                                                                    <div class="contentEditable">
-                                                                      <a href="<?php echo $companyinfo['linkdln_link'];?>" target="_blank">
-                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/linkedin-button.png" alt='Linkedin' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
-                                                                      </a>
-                                                                    </div>
-                                                                  </div>  
-                                                                </td>
 
                                                                 
                                                                 <td width='10'></td>
+                                                      
+                                                                <td width='45' valign='top'>
+                                                                  <div class='contentEditableContainer contentTwitterEditable'>
+                                                                    <div class="contentEditable">
+                                                                      <a href="<?php echo $companyinfo['skype_link'];?>" target="_blank">
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/skype-logo.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      </a>
+                                                                    </div>
+                                                                  </div>  
+                                                                </td>
                                                               </tr>
                                                             </table>
                                                           </td>
@@ -505,7 +520,8 @@
                     <td valign='top' align='center'>
                       <div class="contentEditableContainer contentTextEditable">
                         <div class="contentEditable" style='color:#A8B0B6; font-size:13px;line-height: 16px;'>
-                          <p ><?php echo $companyinfo['footer_message'];?> | <a href="http://stage.mikespoorillustrations.co.uk/links-news/un_subscribe/<?php echo $subscribe_info['subscriber_id']; ?>">Unsubscribe</a>
+                          <?php $id= base64_encode($subscribe_info['subscriber_id']); ?>
+                          <p ><?php echo $companyinfo['footer_message'];?> | <a href="http://stage.mikespoorillustrations.co.uk/links-news/un_subscribe/<?php echo $id; ?>">Unsubscribe</a>
                           </p>
                         </div>
                       </div>

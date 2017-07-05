@@ -153,7 +153,7 @@ class Home_page_model extends CI_Model {
 		}
 		public function getbannerlistmodel()
 		{
-			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `banner_comment`,`foreground_image_transition`, `status`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `banner_comment`,`foreground_image_transition`, `background_image_transition`,`status`, `addedBy`, `addedOn`, `updatedOn`');
             $this->db->from('lm_home_banner');
 			$query = $this->db->get();
 			$row = $query->result_array();

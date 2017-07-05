@@ -165,6 +165,7 @@
             	if(isset($_POST['first_id']) && isset($_POST['first_url']))
             	{
             		if($_POST['banner_focus']=='1'){ $banner_focus='1'; }else { $banner_focus='0'; }
+            		if(trim($_POST['first_url'])){
             		 $data = array(
 				                'banner_image' => $_POST['first_url'],
 				                'banner_type'=>'2',
@@ -178,7 +179,12 @@
 								$_SESSION['errormsg']='Seems to be some problem. Try Again';
 								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 								exit;
-							} 
+							}
+						}else{
+							$_SESSION['errormsg']='Seems to be some problem. Try Again';
+							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+							exit;
+						}
             	} else{
             		$_SESSION['errormsg']='Please Enter The First Link';
 					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
@@ -188,6 +194,7 @@
             	if(isset($_POST['second_id']) && isset($_POST['second_url']))
             	{
             		if($_POST['banner_focus']=='2'){ $banner_focus2='1'; }else { $banner_focus2='0'; }
+            		if(trim($_POST['second_url'])){
             		 $data1 = array(
 				                'banner_image' => $_POST['second_url'],
 				                'banner_type'=>'2',
@@ -201,7 +208,12 @@
 								$_SESSION['errormsg']='Seems to be some problem. Try Again';
 								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 								exit;
-							} 
+							}
+					}else{
+							$_SESSION['errormsg']='Seems to be some problem. Try Again';
+							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+							exit;
+						}
             	}else{
             		$_SESSION['errormsg']='Please Enter The Second Link';
 					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
@@ -211,6 +223,7 @@
             	if(isset($_POST['third_id']) && isset($_POST['third_url']))
             	{
             		if($_POST['banner_focus']=='3'){ $banner_focus3='1'; }else { $banner_focus3='0'; }
+            		if(trim($_POST['third_url'])){
             		 $data2 = array(
 				                'banner_image' => $_POST['third_url'],
 				                'banner_type'=>'2',
@@ -224,7 +237,12 @@
 								$_SESSION['errormsg']='Seems to be some problem. Try Again';
 								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 								exit;
-							} 
+							}
+					}else{
+							$_SESSION['errormsg']='Seems to be some problem. Try Again';
+							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+							exit;
+						}
             	}else{
             		$_SESSION['errormsg']='Please Enter The Third Link';
 					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
@@ -234,6 +252,7 @@
             	if(isset($_POST['fourth_id']) && isset($_POST['fourth_url']))
             	{
             		if($_POST['banner_focus']=='4'){ $banner_focus4='1'; } else { $banner_focus4='0'; }
+            		if(trim($_POST['fourth_url'])){
             		 $data3 = array(
 				                'banner_image' => $_POST['fourth_url'],
 				                'banner_type'=>'2',
@@ -249,6 +268,11 @@
 								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 								exit;
 							} 
+					}else{
+							$_SESSION['errormsg']='Seems to be some problem. Try Again';
+							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+							exit;
+						}
             	} else{
             		$_SESSION['errormsg']='Please Enter The Fourth Link';
 					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
@@ -258,6 +282,7 @@
             	if(isset($_POST['fifth_id']) && isset($_POST['fifth_url']))
             	{
             		if($_POST['banner_focus']=='5'){ $banner_focus5='1'; }else { $banner_focus5='0'; }
+            		if(trim($_POST['fourth_url'])){
             		 $data4 = array(
 				                'banner_image' => $_POST['fifth_url'],
 				                'banner_type'=>'2',
@@ -271,7 +296,12 @@
 								$_SESSION['errormsg']='Seems to be some problem. Try Again';
 								header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 								exit;
-							} 
+							}
+					}else{
+							$_SESSION['errormsg']='Seems to be some problem. Try Again';
+							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
+							exit;
+						} 
             	} else{
             		$_SESSION['errormsg']='Please Enter The Fifth Link';
 					header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);

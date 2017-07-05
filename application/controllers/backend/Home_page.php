@@ -1,56 +1,59 @@
 <?php
 class Home_page extends CI_Controller {
       
-	    public function __construct()
-        {
+	    public function __construct() {
+
                 parent::__construct();
 				$this->load->model('backend/home_page_model');
-                // Your own constructor code
         }
-        public function index()
-        {
-			   $this->load->helper('auth_helper');
-				checkuserlogin();
-				$this->load->model('backend/login_model');
-				$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
-				$data['companyinfo']=$this->login_model->getuserinfoid('1');
-			    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
-				$data['title']='Home Page - Banner List';
-				$data['bannerlist']=$this->home_page_model->getbannerlistmodel();
-				$this->load->model('backend/banner_model');
-				$data['inner_page_banner']=$this->banner_model->get_all_banner();
-                $this->load->view('backend/home_page_view',$data);
+
+        public function index() {
+
+		    $this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/login_model');
+			$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
+			$data['companyinfo']=$this->login_model->getuserinfoid('1');
+		    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
+			$data['title']='Home Page - Banner List';
+			$data['bannerlist']=$this->home_page_model->getbannerlistmodel();
+			$this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
+            $this->load->view('backend/home_page_view',$data);
         }
-		public function add()
-		{
-			    $this->load->helper('auth_helper');
-				checkuserlogin();
-				$this->load->model('backend/login_model');
-				$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
-				$data['companyinfo']=$this->login_model->getuserinfoid('1');
-			    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
-				$data['title']='Home Page Banner - Add New';
-				$data['feature']="Add";
-				$this->load->model('backend/banner_model');
-				$data['inner_page_banner']=$this->banner_model->get_all_banner();
-                $this->load->view('backend/home_page_add_view',$data);
+
+		public function add(){
+
+		    $this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/login_model');
+			$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
+			$data['companyinfo']=$this->login_model->getuserinfoid('1');
+		    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
+			$data['title']='Home Page Banner - Add New';
+			$data['feature']="Add";
+			$this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
+            $this->load->view('backend/home_page_add_view',$data);
 		}
-		public function addfeature()
-		{
-			    $this->load->helper('auth_helper');
-				checkuserlogin();
-				$this->load->model('backend/login_model');
-				$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
-				$data['companyinfo']=$this->login_model->getuserinfoid('1');
-			    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
-				$data['title']='Feature List - Add New';
-				$data['feature']="Add";
-				$this->load->model('backend/banner_model');
-				$data['inner_page_banner']=$this->banner_model->get_all_banner();
-                $this->load->view('backend/featured_list_add_view',$data);
+
+		public function addfeature(){
+
+		    $this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/login_model');
+			$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
+			$data['companyinfo']=$this->login_model->getuserinfoid('1');
+		    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
+			$data['title']='Feature List - Add New';
+			$data['feature']="Add";
+			$this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
+            $this->load->view('backend/featured_list_add_view',$data);
 		}
-		public function edit($getid)
-		{
+
+		public function edit($getid){
+
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
 				$this->load->model('backend/login_model');
@@ -64,23 +67,24 @@ class Home_page extends CI_Controller {
 				$data['inner_page_banner']=$this->banner_model->get_all_banner();
                 $this->load->view('backend/home_page_add_view',$data);
 		}
-		public function editfeature($getid)
-		{
-			    $this->load->helper('auth_helper');
-				checkuserlogin();
-				$this->load->model('backend/login_model');
-				$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
-				$data['companyinfo']=$this->login_model->getuserinfoid('1');
-			    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
-				$data['title']='Feature List - Edit';
-				$data['bannerinfo']=$this->home_page_model->getfeatureinfomodel($getid);
-				$data['feature']="Edit";
-				$this->load->model('backend/banner_model');
-				$data['inner_page_banner']=$this->banner_model->get_all_banner();
-                $this->load->view('backend/featured_list_add_view',$data);
+
+		public function editfeature($getid){
+
+		    $this->load->helper('auth_helper');
+			checkuserlogin();
+			$this->load->model('backend/login_model');
+			$data['memberinfo']=$this->login_model->getuserinfoid($_SESSION['usersession']);
+			$data['companyinfo']=$this->login_model->getuserinfoid('1');
+		    $data['headtitle']=$data['companyinfo']['company_name'].' | Home Page';
+			$data['title']='Feature List - Edit';
+			$data['bannerinfo']=$this->home_page_model->getfeatureinfomodel($getid);
+			$data['feature']="Edit";
+			$this->load->model('backend/banner_model');
+			$data['inner_page_banner']=$this->banner_model->get_all_banner();
+            $this->load->view('backend/featured_list_add_view',$data);
 		}
-		public function addbanner()
-		{
+
+		public function addbanner(){
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
 				$res=$this->home_page_model->addbannermodel();
@@ -177,6 +181,26 @@ class Home_page extends CI_Controller {
 				}
 				
 		}
+
+		public function savebackend(){
+			$this->load->helper('auth_helper');
+			checkuserlogin();
+			$data['background_image_transition']=$this->input->post('transition_back');
+			$res=$this->home_page_model->update_forground_transition($data);
+			if($res){
+				$_SESSION['successmsg']='Background Transition Time Saved';
+				header('location:'.BASE_URI.'backend/home-page');
+				exit;
+					
+			}else{
+			    $_SESSION['errormsg']='Seems to be some problem. Try Again';
+				header('location:'.BASE_URI.'backend/home-page/');
+				exit;
+			}	
+		}
+
+
+
 		public function editnewfeature()
 		{
 			    $this->load->helper('auth_helper');
