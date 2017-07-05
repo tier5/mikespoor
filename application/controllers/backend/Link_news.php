@@ -122,7 +122,8 @@ class Link_news extends CI_Controller {
 				);
 				$this->load->library('email',$config );
                 $message =$this->load->view('backend/newsletter',$data1, TRUE);
-						
+			    $this->email->set_newline("\r\n");
+			    $this->email->priority(3);
                 $this->email->from($from);
                 $this->email->to($to);
                 $this->email->subject($subject);
@@ -194,7 +195,8 @@ class Link_news extends CI_Controller {
 						);
 						$this->load->library('email',$config );
 		                $message =$this->load->view('backend/newsletter',$data1, TRUE);
-								
+						$this->email->set_newline("\r\n");
+			    		$this->email->priority(3);
 		                $this->email->from($from);
 		                $this->email->to($to);
 		                $this->email->subject($subject);
