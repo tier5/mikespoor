@@ -333,7 +333,7 @@
                                                                   <div class='contentEditableContainer contentTwitterEditable'>
                                                                     <div class="contentEditable">
                                                                       <a href="<?php echo $companyinfo['instagram_link'];?>" target="_blank">
-                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/skype-logo.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/instagram.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
                                                                       </a>
                                                                     </div>
                                                                   </div>  
@@ -344,7 +344,7 @@
                                                                   <div class='contentEditableContainer contentTwitterEditable'>
                                                                     <div class="contentEditable">
                                                                       <a href="<?php echo $companyinfo['flicker_link'];?>" target="_blank">
-                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/flicker-logo.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/flickr.png" alt='Twitter' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
                                                                       </a>
                                                                     </div>
                                                                   </div>  
@@ -356,7 +356,7 @@
                                                                   <div class='contentEditableContainer contentTwitterEditable'>
                                                                     <div class="contentEditable">
                                                                       <a href="<?php echo $companyinfo['linkdin_link'];?>" target="_blank">
-                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/instagram-logo.png" alt='Linkedin' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
+                                                                      <img src="http://stage.mikespoorillustrations.co.uk/assets/email/linkedin-button.png" alt='Linkedin' data-default="placeholder" data-customIcon="true" data-max-width='24' width='24' height='24' >
                                                                       </a>
                                                                     </div>
                                                                   </div>  
