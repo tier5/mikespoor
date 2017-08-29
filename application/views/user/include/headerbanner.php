@@ -139,7 +139,7 @@
                      <?php } else{ 
                          $ext=substr($focus_banner['banner_image'], strrpos($focus_banner['banner_image'], '.') + 1);
                         ?>
-                             <video class="middle-vdo">
+                             <video  width="100%" height="100%"  controls>
                                 <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $focus_banner['banner_image'];?>" type="video/<?php echo $ext; ?>">
                              </video>
 

@@ -72,7 +72,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputFile">Banner Type</label>
                                             <select class="form-control" id="banner_type" name="banner_type" required >  
-                                               <!--  <option value="1"   <?php if($bannerinfo[0]['banner_type']=='1') { echo "selected"; }?>>Upload Video</option> -->   
+                                               <option value="1"   <?php if($bannerinfo[0]['banner_type']=='1') { echo "selected"; }?>>Upload Video</option> 
                                                 <option value="2" <?php if($bannerinfo[0]['banner_type']=='2') { echo "selected"; }?>>Youtube URL</option>   
                                             </select>
                                         </div>
