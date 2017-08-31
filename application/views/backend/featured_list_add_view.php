@@ -195,19 +195,7 @@
 <script src="assets/admin/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="assets/admin/dist/js/demo.js"></script>
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
+
 
 <script>
 	$("#success-alert").fadeTo(2000, 500).fadeOut(500, function(){
@@ -223,7 +211,11 @@
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
-    CKEDITOR.replace('editor1');
+    CKEDITOR.replace('editor1',{
+     
+    removeButtons: 'Source,Image,Table',
+
+});
     //bootstrap WYSIHTML5 - text editor
     $(".textarea").wysihtml5();
   });

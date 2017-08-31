@@ -355,8 +355,18 @@
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.
-    CKEDITOR.replace('editor1');
-	CKEDITOR.replace('feditor1');
+   CKEDITOR.replace('editor1',{
+     
+    removeButtons: 'Source,Image,Table',
+
+});
+
+   CKEDITOR.replace('feditor1',{
+     
+    removeButtons: 'Source,Image,Table',
+
+});
+	
     //bootstrap WYSIHTML5 - text editor
     $(".textarea").wysihtml5();
   });
