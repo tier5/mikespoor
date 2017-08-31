@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>[SUBJECT]</title>
+        <meta http-equiv="Content-Type" content="text/html;" />
+        <title></title>
         <style type="text/css">
             body {
                 padding-top: 0 !important;
@@ -208,16 +208,7 @@
               		}
             }
         </style>
-        <script type="colorScheme" class="swatch active">
-          {
-            "name":"Default",
-            "bgBody":"F6F6F6",
-            "link":"62A9D2",
-            "color":"999999",
-            "bgItem":"ffffff",
-            "title":"555555"
-          }
-        </script>
+       
     </head>
     <body paddingwidth="0" paddingheight="0"   style="padding-top: 0; padding-bottom: 0; padding-top: 0; padding-bottom: 0; background-repeat: repeat; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased;" offset="0" toppadding="0" leftpadding="0" style="margin-left:5px; margin-right:5px; margin-top:0px; margin-bottom:0px;">
         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableContent bgBody" align="center"  style='font-family:helvetica, sans-serif;'>
