@@ -130,7 +130,7 @@
                                     break;
                                 } ?>
                                 <form action="<?php echo BASE_URI.'backend/home_page/saveforeend'; ?>" method="post">
-                                    Foregrount Transition Time
+                                    Foreground Transition Time
                                     <input type="radio" name="transition_fore" value="400" <?php if($trans=="400" || $trans==400 ){ echo "checked";}?> > 4 Sec
                                     <input type="radio" name="transition_fore" value="600" <?php if($trans=="600" || $trans==600 ){ echo "checked";}?>> 6 Sec
                                     <input type="radio" name="transition_fore" value="1200" <?php if($trans=="1200" || $trans==1200 ){ echo "checked";}?>> 12 Sec  
