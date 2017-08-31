@@ -154,9 +154,9 @@
                                             <input type="hidden" class="form-control" id="fifth_pic_prev" name="fifth_pic_prev" value="<?php if($bannerinfo[4]['banner_type']=='1' )  { echo $bannerinfo[4]['banner_image']; } ?>"> 
                                         </div>
                                              <div class="form-group">
-                                        <p>Which Video/Image you will mark as middle, it will come on middle rest of the video/image will come according there number(Left top, Left Buttom, Right Top, Right Buttom).</p>
-                                        <p>Suppose You Made Image.4/Video.4 As Middel Then Video.1/Image.1 will be Left top, Video.2/Image.2 will be  Left Buttom, Video.3/Image.3 will be  Right Top, Video.5/Image.5 will be  Right Buttom </p>
-                                        <p>Same as You Made Image.2/Video.2 As Middel Then Video.1/Image.1 will be Left top, Video.3/Image.3 will be  Left Buttom, Video.4/Image.4 will be  Right Top, Video.5/Image.5 will be  Right Buttom</p>
+                                        <p>Which Video you will mark as middle, it will come on middle rest of the video will come according there number(Left top, Left Buttom, Right Top, Right Buttom).</p>
+                                        <p>Suppose You Made Video.4 As Middel Then Video.1 will be Left top, Video.2 will be  Left Buttom, Video.3 will be  Right Top, Video.5 will be  Right Buttom </p>
+                                        <p>Same as You Made Video.2 As Middel Then Video.1 will be Left top, Video.3 will be  Left Buttom, Video.4 will be  Right Top, Video.5 will be  Right Buttom</p>
                                          </div>
                                     </div>
                                     <div class="box-footer">                           
