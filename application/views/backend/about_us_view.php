@@ -176,13 +176,7 @@
                 </div>
                   </div>
                   <div class="col-sm-6">
-                   <h3><u>PDF Format</u></h3>
-                   <div class="form-group">
-                  <label for="exampleInputFile">Select Your PDF File</label>
-                  <input type="file" id="pdfFile" name="pdfFile"><br/>
-                  <?php if(!empty($bannerinfo['cms_pdf'])){ ?><a target="_blank" href="<?php echo BASE_URI.'uploads/'.$bannerinfo['cms_pdf']; ?>">Click to Download</a><?php } ?>
-                 
-                   </div>
+                   
                   </div>
                 </div>
                 
