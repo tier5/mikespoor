@@ -48,6 +48,7 @@ class Contact extends CI_Controller {
 			</table>';
 
 			$template='contact';
+			//print_r(expression);
 			$res=mailsend($to,$from,$subject,$template,$message);
 			if($res){
 				$uto=$data['companyinfo']['contact_email'];

@@ -21,6 +21,27 @@
     -ms-transition: all 0.2s ease 0s;
     transition: all 0.2s ease 0s;
 	   }
+       .custom-alert-success {
+            background: #98FB98;
+            border: 1px solid #98FB98;
+            font-size: 15px;
+            padding-left: 10px;
+            text-align: center;
+            border-radius: 5px;
+            padding-right: 6px;
+            color: black;
+       }
+       .custom-alert-danger {
+            background: #d9534f;
+            color: #fff;
+            border: 1px solid #d9534f;
+            font-weight: bold;
+            font-size: 15px;
+            padding-left: 10px;
+            text-align: center;
+            border-radius: 5px;
+            padding-right: 6px;
+       }
 	   </style>
         <!--[if lt IE 9]>
             <script src="js/html5shiv.js"></script>
@@ -46,9 +67,27 @@
             <!-- .container start -->
             <div class="container">
                 <!-- .row start --><!-- .row end -->
-
                 <!-- .row start -->
                 <div class="row">
+                    <article class="grid_6">
+                        
+                    </article>
+                    <article class="grid_6">
+                        <?php
+                            if (isset($_SESSION['successmsg']) && !empty($_SESSION['successmsg'])) {
+                                echo "<div class='custom-alert-success triggerAnimation animated' data-animate='fadeInLeft'>".$_SESSION['successmsg']."<div>";
+                                unset($_SESSION['successmsg']);
+
+                            } 
+                            if (isset($_SESSION['errormsg']) && !empty($_SESSION['errormsg'])) {
+                                echo "<div class='custom-alert-danger triggerAnimation animated' data-animate='fadeInLeft'>".$_SESSION['errormsg']."<div>";
+                                unset($_SESSION['errormsg']);
+                            } 
+                        ?>
+                    </article>
+                </div>
+                <div class="row">
+
                     <!-- .grid_6 start -->
                     <article class="grid_6">
                         <div class="triggerAnimation animated" data-animate="fadeInLeft">
@@ -93,6 +132,7 @@
                     <article class="grid_6">
                         <div class="triggerAnimation animated" data-animate="fadeInRight">
                             <section class="heading-bordered">
+                                
                                 <h3>Send us a message</h3>
                             </section><!-- .heading-bordered end -->
 
