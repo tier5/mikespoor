@@ -23,7 +23,18 @@
     <!-- #page-title end -->
     <?php
 	$df=$companyinfo['date_format'];
-	date_default_timezone_set($companyinfo['time_zone']);
+
+    if (array_key_exists('time_zone', $companyinfo)) {
+        if ($companyinfo['time_zone']) {
+            date_default_timezone_set($companyinfo['time_zone']);
+        } else {
+            date_default_timezone_set(date_default_timezone_get());
+        }
+    } else {
+        date_default_timezone_set(date_default_timezone_get());
+    }
+    
+	//date_default_timezone_set($companyinfo['time_zone']);
 	?>
         <!-- .page-content start -->
         <section class="page-content">
