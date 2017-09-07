@@ -255,7 +255,7 @@
 CKEDITOR.replace( 'editor1',
 {
 
-  removeButtons: 'Source,Link,Table',
+  removeButtons: 'Source,Link,Table,Image',
    disallowedContent:'img{border*,margin*}',
        
   filebrowserBrowseUrl : '<?php  echo BASE_URI; ?>assets/ckfinder/ckfinder.html',
