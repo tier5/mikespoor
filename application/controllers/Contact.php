@@ -37,6 +37,7 @@ class Contact extends CI_Controller {
 			$data['companyinfo']=$this->login_model->getuserinfoid('1');
 		    $this->load->helper('mailsender_helper');
 			$to=$data['companyinfo']['contact_email'];
+			//$to="work@tier5.us";
 			$from=$data['companyinfo']['contact_name']."<".stripslashes($_POST['txtEmail']).">";
 			$subject='A New Message Posted';
 			$message ='<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
@@ -48,7 +49,6 @@ class Contact extends CI_Controller {
 			</table>';
 
 			$template='contact';
-			//print_r(expression);
 			$res=mailsend($to,$from,$subject,$template,$message);
 			if($res){
 				$uto=$data['companyinfo']['contact_email'];
