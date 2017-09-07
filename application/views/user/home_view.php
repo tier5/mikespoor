@@ -342,20 +342,19 @@
                                             <img src="<?php echo BASE_URI.'uploads/picture/thumb/'.$gallerylistdata['gpicture_image']; ?>" alt="portfolio image"/>
 
 
-                                            <div class="portfolio-img-hover">
+                                            <!-- <div class="portfolio-img-hover">
                                                 <div class="mask"></div>
 
                                                 <ul>
                                                     <li class="portfolio-zoom">
-                                                        <a href="<?php echo BASE_URI.'picture-gallery'; ?>" 
-                                                           data-gal="prettyPhoto[pp_gallery]" class="flaticon-zoom27"></a>
+                                                        
                                                     </li>
 
                                                     <li class="portfolio-single">
-                                                        <a href="<?php echo BASE_URI.'picture-gallery'; ?>" class="flaticon-external2"></a>
+                                                        
                                                     </li>
                                                 </ul>
-                                            </div><!-- .portfolio-img-hover end -->
+                                            </div> --><!-- .portfolio-img-hover end -->
 
                                         </div>
 
