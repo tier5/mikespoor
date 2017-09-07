@@ -221,7 +221,12 @@ class Home_page_model extends CI_Model {
 			$entdate = date('Y-m-d H:i:s');
 			$gallery_pdf1='';
 			$gallery_pdf2='';
+			//check if type of image is gif
+			if ($_FILES['imgBanner']['type'] == IGNORE_IMG) {
 
+				return false;
+				exit();
+			} 
 			if($_FILES['imgBanner']['name']!="") {	
 		        //unlink("uploads/home_page/banner/".$_POST['hid_gallery_pdf1']);
 		        $photopath2 = pathinfo($_FILES['imgBanner']['name']);
