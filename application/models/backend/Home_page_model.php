@@ -153,7 +153,7 @@ class Home_page_model extends CI_Model {
 		}
 		public function getbannerlistmodel()
 		{
-			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `banner_comment`,`foreground_image_transition`, `background_image_transition`,`status`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `is_bg_constant`, `banner_front_image`, `is_fg_constant`, `banner_comment`,`foreground_image_transition`, `background_image_transition`,`status`, `addedBy`, `addedOn`, `updatedOn`');
             $this->db->from('lm_home_banner');
 			$query = $this->db->get();
 			$row = $query->result_array();
@@ -188,7 +188,7 @@ class Home_page_model extends CI_Model {
 		}
 		public function getactivebannerlistmodel()
 		{
-			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `banner_comment`, `foreground_image_transition`,`status`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `is_bg_constant`, `is_fg_constant`, `banner_comment`, `foreground_image_transition`, `status`, `addedBy`, `addedOn`, `updatedOn`');
             $this->db->from('lm_home_banner');
 			$this->db->where('status',1);
 			$query = $this->db->get();
@@ -596,7 +596,44 @@ class Home_page_model extends CI_Model {
 			return $row;
         }
 
-        
-		
+		public function noTransition($data)
+		{
+			//var_dump($data);exit;
+			$payload = array(
+				'is_fg_constant' => 0,
+				'is_bg_constant' => 0,
+				'foreground_image_transition' => 0,
+				'background_image_transition' => 0
+			);
+
+			$query = $this->db->update('lm_home_banner', $payload);
+			if ($query) {
+				if (array_key_exists('bg_index', $data)) {
+					$this->changeBgConstant($data['bg_index']);
+				}
+				if (array_key_exists('fg_index', $data)) {
+					$this->changeFgConstant($data['fg_index']);
+				}
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		public function changeBgConstant($data)
+		{
+			$this->db->where('banner_id', $data);
+			return $this->db->update('lm_home_banner', array(
+				'is_bg_constant' => 1
+			));
+		}
+
+		public function changeFgConstant($data)
+		{
+			$this->db->where('banner_id', $data);
+			return $this->db->update('lm_home_banner', array(
+				'is_fg_constant' => 1
+			));
+		}
 }
 ?>

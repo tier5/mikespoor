@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="assets/admin/plugins/daterangepicker/daterangepicker-bs3.css">
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.css">
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -77,14 +78,16 @@
                                     </div>
                                 <!-- /.box-tools -->
                                 </div>
-                                <div class="box-body">
+                                <div class="box-body table-responsive">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>Banner Title</th>
                                                 <th>Background Image</th>
+                                                <th>Make Background Constant</th>
                                                 <th>Foreground Image</th>
+                                                <th>Make Foreground Constant</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -92,12 +95,18 @@
                                         <tbody>
                                             <?php $cnt=1;
                   				                  if(count($bannerlist)>0)	{
-                  					                foreach($bannerlist as $bannerlistdata){ ?>
+                  					                foreach($bannerlist as $index => $bannerlistdata){ ?>
                                             <tr>
                                                 <td><?php echo $cnt; ?></td>
                                                 <td><?php echo $bannerlistdata['banner_title']; ?></td>
                                                 <td><img src="<?php echo 'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" width="120" height="50"/></td>
+                                                <td>
+                                                    <input type="checkbox" name="is_bg_constant" class="bg-constant-selector" <?= $bannerlistdata['is_bg_constant'] ? 'checked="checked"' : null ?> data-bg-index="<?= $bannerlistdata['banner_id'] ?>" />
+                                                </td>
                                                 <td><img src="<?php echo 'uploads/home_page/banner/'.$bannerlistdata['banner_front_image']; ?>" width="120" height="50"/></td>
+                                                <td>
+                                                    <input type="checkbox" name="is_fg_constant" class="fg-constant-selector" <?= $bannerlistdata['is_fg_constant'] ? 'checked="checked"' : null ?> data-fg-index="<?= $bannerlistdata['banner_id'] ?>" />
+                                                </td>
                                                 <td>  <?php if($bannerlistdata['status']) { ?>
                                                     <a class="btn btn-success btn-xs" title="Change Status" href="<?php echo BASE_URI.'backend/home-page/changestatus/'.$bannerlistdata['banner_id'].'/'.$bannerlistdata['status']; ?>"><i class="fa fa-unlock"></i></a>
                                                     <?php } else { ?>
@@ -116,6 +125,9 @@
                                             <?php	}?>
                                         </tbody>
                                     </table>
+                                    <div class="pull-left">
+                                        <a id="save-constant-prefernce" class="btn btn-block btn-success btn-xs">Save Constant Prefernece</a>
+                                    </div>
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -133,15 +145,13 @@
                                     Foreground Transition Time
                                     <input type="radio" name="transition_fore" value="400" <?php if($trans=="400" || $trans==400 ){ echo "checked";}?> > 4 Sec
                                     <input type="radio" name="transition_fore" value="600" <?php if($trans=="600" || $trans==600 ){ echo "checked";}?>> 6 Sec
-                                    <input type="radio" name="transition_fore" value="1200" <?php if($trans=="1200" || $trans==1200 ){ echo "checked";}?>> 12 Sec  
-                                    <input type="radio" name="transition_fore" value="0" <?php if($trans=="0" || $trans==0 ){ echo "checked";}?>> Constant  
+                                    <input type="radio" name="transition_fore" value="1200" <?php if($trans=="1200" || $trans==1200 ){ echo "checked";}?>> 12 Sec 
                                     <br><br>
                                     <input class="btn btn-success" type="submit" value="Save Changes">
                                     <br><br>
                                 </form>
                             </div>
                         </div>
-
                         <div class="col-md-12">
                             <div class="box box-primary">
                                 <?php foreach($bannerlist as $bannerlistdata){ 
@@ -153,7 +163,6 @@
                                     <input type="radio" name="transition_back" value="200" <?php if($trans=="200" || $trans==200 ){ echo "checked";}?> > 2 Sec
                                     <input type="radio" name="transition_back" value="400" <?php if($trans=="400" || $trans==400 ){ echo "checked";}?>> 4 Sec
                                     <input type="radio" name="transition_back" value="600" <?php if($trans=="600" || $trans==600 ){ echo "checked";}?>> 6 Sec
-                                    <input type="radio" name="transition_back" value="001" <?php if($trans=="001" || $trans==001 ){ echo "checked";}?>> Constant  
                                     <br><br>
                                     <input class="btn btn-success" type="submit" value="Save Changes">
                                     <br><br>
@@ -196,6 +205,7 @@
     <script src="assets/admin/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="assets/admin/dist/js/demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>
     <script>
       $(function () {
         $("#example1").DataTable();
@@ -211,7 +221,86 @@
     
     	$("#success-alert").fadeTo(2000, 500).fadeOut(500, function(){
         $("#success-alert").alert('close');
-      });   
+      });
+      $(document).ready(function () {
+        $('.bg-constant-selector').click(function () {
+          if ($(this).is(':checked')) {
+            var selectedBg = $(this).data('bg-index');
+            $(".bg-constant-selector").each(function() {
+              if ($(this).data('bg-index') == selectedBg ) {
+                $(this).prop('checked', true);
+              } else {
+                $(this).prop('checked', false);
+              } 
+            });
+          } else {
+            $(".bg-constant-selector").each(function() {
+              $(this).prop('checked', false);
+            });
+          }
+        });
+        $('.fg-constant-selector').click(function () {
+          if ($(this).is(':checked')) {
+            var selectedFg = $(this).data('fg-index');
+            $(".fg-constant-selector").each(function() {
+              if ($(this).data('fg-index') == selectedFg ) {
+                $(this).prop('checked', true);
+              } else {
+                $(this).prop('checked', false);
+              } 
+            });
+          } else {
+            $(".fg-constant-selector").each(function() {
+              $(this).prop('checked', false);
+            });
+          }
+        });
+        $('#save-constant-prefernce').click(function () {
+            var selectedBg = null;
+            var selectedFg = null;
+            $(".bg-constant-selector").each(function() {
+              if ($(this).is(':checked')) {
+                selectedBg = $(this).data('bg-index');
+              } 
+            });
+            $(".fg-constant-selector").each(function() {
+              if ($(this).is(':checked')) {
+                selectedFg = $(this).data('fg-index');
+              } 
+            });
+
+            $.ajax({
+                url: '<?= BASE_URI.'backend/home-page/noTransition' ?>',
+                type: 'POST',
+                data: {
+                    bg_index: selectedBg,
+                    fg_index: selectedFg,
+                },
+                statusCode: {
+                    201: function(response) {
+                        console.log(response);
+                        swal({
+                          title: 'Success',
+                          text: response.message,
+                          type: 'success'
+                        }).then(function () {
+                            window.location.reload();
+                        });
+                    },
+                    500: function(error) {
+                        swal({
+                          title: 'Success',
+                          text: error.response.error,
+                          type: 'success'
+                        }).then(function () {
+                            window.location.reload();
+                        });
+                    }
+                }
+            });
+        });
+      });  
     </script>
+
   </body>
 </html>

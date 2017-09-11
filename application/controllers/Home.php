@@ -24,7 +24,7 @@ class Home extends CI_Controller {
 
 			    $data['title']=$data['companyinfo']['company_name'].' | Home';
 				
-				$data['bannerlist']=$this->home_page_model->getactivebannerlistmodel();
+				$data['banners']=$this->home_page_model->getactivebannerlistmodel();
 				$data['featurelist']=$this->home_page_model->getactivefeaturedlistmodel();
 				$data['homeinfo']=$this->home_page_model->getcmsinfomodel(1);
 				
@@ -44,6 +44,24 @@ class Home extends CI_Controller {
 				$data['offer_list']=$this->home_page_model->get_all_offer();
 				$data['stats_list']=$this->home_page_model->get_all_stats();
 			    
+			    $data['bannerlist'] = [];
+
+			    foreach($data['banners'] as $key => $banner) {
+			    	if ($banner['foreground_image_transition'] != 0) {
+			    		$data['bannerlist'][$key] = $banner;
+			        } else {
+			        	if ($banner['is_bg_constant'] || $banner['is_fg_constant']) {
+				            if ($banner['is_bg_constant']) {
+				                $data['bannerlist'][0]['banner_image'] = $banner['banner_image'];
+				            }
+				            if ($banner['is_fg_constant']) {
+				                $data['bannerlist'][0]['banner_front_image'] = $banner['banner_front_image'];
+				                $data['bannerlist'][0]['foreground_image_transition'] = $banner['foreground_image_transition'];
+				            }
+			        	}
+			        }
+			    }
+
                 //$data['template']='user/home_view';
 			    $this->load->view('user/home_view',$data);
 		}

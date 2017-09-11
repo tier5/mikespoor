@@ -909,8 +909,30 @@ class Home_page extends CI_Controller {
 		   
 		}
 
+        public function noTransition()
+        {
+        	$this->load->helper('auth_helper');
+			checkuserlogin();
 
+			$res = $this->home_page_model->noTransition($this->input->post());
+			if($res) {
+				$response = array(
+					'status' => true,
+					'message' => "This images will constantly appear. If you want to revert back to transition effect select none as constant and select background and foreground transition settings to change effect."
+				);
+				$responseCode = 201;
+			} else {
+				$response = array(
+					'status' => false,
+				    'error' => "Seems to be some problem. Try Again"
+				);
+				$responseCode = 500;
+			}
 
+			header('Content-Type: application/json');
+			http_response_code($responseCode);
+        	echo json_encode($response);
+        }
 
 }
 ?>

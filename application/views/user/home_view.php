@@ -124,7 +124,7 @@
 
 
                         <?php
-                        print_r($bannerlist);
+                        //print_r($bannerlist);
 							foreach($bannerlist as $bannerlistdata)
 							{
 							?>
