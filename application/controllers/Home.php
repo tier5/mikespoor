@@ -47,20 +47,32 @@ class Home extends CI_Controller {
 			    $data['bannerlist'] = [];
 
 			    foreach($data['banners'] as $key => $banner) {
-			    	if ($banner['foreground_image_transition'] != 0) {
-			    		$data['bannerlist'][$key] = $banner;
-			        } else {
-			        	if ($banner['is_bg_constant'] || $banner['is_fg_constant']) {
-				            if ($banner['is_bg_constant']) {
-				                $data['bannerlist'][0]['banner_image'] = $banner['banner_image'];
-				            }
-				            if ($banner['is_fg_constant']) {
-				                $data['bannerlist'][0]['banner_front_image'] = $banner['banner_front_image'];
-				                $data['bannerlist'][0]['foreground_image_transition'] = $banner['foreground_image_transition'];
-				            }
-			        	}
-			        }
+			    	if ($banner['constant_status'] == 0) { //None
+
+		            	$data['bannerlist'][$key] = $banner;
+
+		        	} else if ($banner['constant_status'] == 1) { //BG
+
+		            	$data['bannerlist'][$key] = $banner;
+		        		$data['bannerlist'][$key]['banner_image'] = ($this->home_page_model->getBGConstantImage())->banner_image;
+
+			    	} else if ($banner['constant_status'] == 2) { //FG
+
+		            	$data['bannerlist'][$key] = $banner;
+		        		$data['bannerlist'][$key]['banner_front_image'] = ($this->home_page_model->getFGConstantImage())->banner_front_image;
+
+			    	} else if ($banner['constant_status'] == 3) { //Both
+			    		if ($banner['is_bg_constant']) {
+			                $data['bannerlist'][0]['banner_image'] = $banner['banner_image'];
+			                $data['bannerlist'][0]['background_image_transition'] = $banner['background_image_transition'];
+		                }
+		                if ($banner['is_fg_constant']) {
+			                $data['bannerlist'][0]['banner_front_image'] = $banner['banner_front_image'];
+			                $data['bannerlist'][0]['foreground_image_transition'] = $banner['foreground_image_transition'];
+		            	}
+		            }
 			    }
+			    //echo '<pre>';print_r($data['bannerlist']);exit;
 
                 //$data['template']='user/home_view';
 			    $this->load->view('user/home_view',$data);

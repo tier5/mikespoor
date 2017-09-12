@@ -192,7 +192,7 @@ class Home_page_model extends CI_Model {
 		}
 		public function getactivebannerlistmodel()
 		{
-			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `is_bg_constant`, `is_fg_constant`, `banner_comment`, `foreground_image_transition`, `status`, `addedBy`, `addedOn`, `updatedOn`');
+			$this->db->select('`banner_id`, `banner_title`, `banner_image`, `banner_front_image`, `is_bg_constant`, `is_fg_constant`, `banner_comment`, `background_image_transition`, `foreground_image_transition`, `status`, `constant_status`, `addedBy`, `addedOn`, `updatedOn`');
             $this->db->from('lm_home_banner');
 			$this->db->where('status',1);
 			$query = $this->db->get();
@@ -602,23 +602,37 @@ class Home_page_model extends CI_Model {
 
 		public function noTransition($data)
 		{
-			//var_dump($data);exit;
 			$payload = array(
-				'is_fg_constant' => 0,
-				'is_bg_constant' => 0,
+				'background_image_transition' => 0,
 				'foreground_image_transition' => 0,
-				'background_image_transition' => 0
+				'is_bg_constant' => 0,
+				'is_fg_constant' => 0,
+				'constant_status' => 0
 			);
 
 			$query = $this->db->update('lm_home_banner', $payload);
 			if ($query) {
-				if (array_key_exists('bg_index', $data)) {
-					$this->changeBgConstant($data['bg_index']);
+				if (array_key_exists('bg_index', $data) && array_key_exists('fg_index', $data)) {
+					if (strlen(trim($data['bg_index'])) && !strlen(trim($data['fg_index']))) {
+						$this->changeBgConstant($data['bg_index']);
+						$this->changeConstantStatus(1);
+						return true;
+					} else if (strlen(trim($data['fg_index'])) && !strlen(trim($data['bg_index']))) {
+						$this->changeFgConstant($data['fg_index']);
+						$this->changeConstantStatus(2);
+						return true;
+					} else if (strlen(trim($data['fg_index'])) && strlen(trim($data['bg_index']))) {
+						$this->changeBgConstant($data['bg_index']);
+						$this->changeFgConstant($data['fg_index']);
+						$this->changeConstantStatus(3);
+						return true;
+					} else {
+						$this->changeConstantStatus(0);
+						return true;
+					}
+				} else {
+					return false;
 				}
-				if (array_key_exists('fg_index', $data)) {
-					$this->changeFgConstant($data['fg_index']);
-				}
-				return true;
 			} else {
 				return false;
 			}
@@ -638,6 +652,39 @@ class Home_page_model extends CI_Model {
 			return $this->db->update('lm_home_banner', array(
 				'is_fg_constant' => 1
 			));
+		}
+
+		public function changeConstantStatus($data)
+		{
+			$this->db->update('lm_home_banner', array(
+				'constant_status' => $data
+			));
+		}
+
+		public function getBGConstantImage()
+		{
+			$this->db->select('banner_image');
+            $this->db->from('lm_home_banner');
+            $this->db->where("is_bg_constant", 1);
+			$query = $this->db->get();
+			if ($query->num_rows() > 0) {
+			    return $query->first_row();
+			} else {
+				return $query->row();
+			}
+		}
+
+		public function getFGConstantImage()
+		{
+			$this->db->select('banner_front_image');
+            $this->db->from('lm_home_banner');
+            $this->db->where("is_fg_constant", 1);
+			$query = $this->db->get();
+			if ($query->num_rows() > 0) {
+			    return $query->first_row();
+			} else {
+				return $query->row();
+			}
 		}
 }
 ?>
