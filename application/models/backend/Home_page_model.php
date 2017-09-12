@@ -38,7 +38,11 @@ class Home_page_model extends CI_Model {
 			$timezone = 'GMT';
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
+			if ($_FILES['imgBanner']['type'] == IGNORE_IMG) {
 
+				return false;
+				exit;
+			} 
 			if($_FILES['imgBanner']['name']!=""){	
 		         
                 $photopath2 = pathinfo($_FILES['imgBanner']['name']);
@@ -225,7 +229,7 @@ class Home_page_model extends CI_Model {
 			if ($_FILES['imgBanner']['type'] == IGNORE_IMG) {
 
 				return false;
-				exit();
+				exit;
 			} 
 			if($_FILES['imgBanner']['name']!="") {	
 		        //unlink("uploads/home_page/banner/".$_POST['hid_gallery_pdf1']);
