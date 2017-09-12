@@ -38,7 +38,7 @@ class Home_page_model extends CI_Model {
 			$timezone = 'GMT';
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
-			if ($_FILES['imgBanner']['type'] == IGNORE_IMG) {
+			if ($_FILES['imgBanner']['type'] == IGNORE_IMG || $_FILES['imgFBanner']['type'] == IGNORE_IMG) {
 
 				return false;
 				exit;
@@ -226,7 +226,7 @@ class Home_page_model extends CI_Model {
 			$gallery_pdf1='';
 			$gallery_pdf2='';
 			//check if type of image is gif
-			if ($_FILES['imgBanner']['type'] == IGNORE_IMG) {
+			if ($_FILES['imgBanner']['type'] == IGNORE_IMG || $_FILES['imgFBanner']['type'] == IGNORE_IMG) {
 
 				return false;
 				exit;
