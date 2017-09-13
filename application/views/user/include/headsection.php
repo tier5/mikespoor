@@ -21,7 +21,10 @@
     <link href="<?php echo BASE_URI;?>assets/user/rs-plugin/css/settings.css" rel="stylesheet" type="text/css" media="screen">
     <link href="<?php echo BASE_URI;?>assets/user/rs-plugin/css/theme-settings.css" rel="stylesheet" type="text/css" media="screen">
     <!--/stylesheets -->
-
+    <!--slick css for home page slider-->
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URI;?>assets/user/js/slick-1.8.0/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URI;?>assets/user/js/slick-1.8.0/slick/slick-theme.css"/>
+    <!--end slick css-->
 
     <link rel='stylesheet' href='<?php echo BASE_URI;?>assets/user/unitegallery/css/unite-gallery.css' type='text/css' />
     <!-- prettyPhoto lightbox stylesheer -->
@@ -71,7 +74,10 @@
         <script  src="<?php echo BASE_URI;?>assets/user/style-switcher/styleSwitcher.js"></script>
         <script  src="<?php echo BASE_URI;?>assets/user/js/nicescroll.min.js"></script> <!-- Nice scroll Plugin -->
         <script  src="<?php echo BASE_URI;?>assets/user/js/include.js"></script> <!-- jQuery custom options -->
-        
+        <script type="text/javascript" src="<?php echo BASE_URI;?>assets/user/js/slick-1.8.0/slick/slick.min.js"></script>
+        <!--slick js for home page slider-->
+
+        <!--end slick js-->
         <script type='text/javascript' src='<?php echo BASE_URI;?>assets/user/unitegallery/js/unitegallery.min.js'></script>  
         <script type='text/javascript' src='<?php echo BASE_URI;?>assets/user/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
 
