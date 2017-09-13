@@ -87,8 +87,9 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 //define('DOMAIN', 'http://www.mikespoorillustrations.co.uk/');
 
 
-define('BASE_URI', 'http://localhost/mikespoorillustrator/');
+define('BASE_URI', 'http://mikespoor.dev');
 define('ADMIN_URL', BASE_URI."backend/");
+define('IGNORE_IMG', 'image/gif');
 
 //define('ADMIN_URL', 'http://localhost/mikespoorillustrator/backend');
 
