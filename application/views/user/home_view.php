@@ -4,18 +4,9 @@
         <?php include('include/headsection.php'); ?>
         <script>
             jQuery(document).ready(function($) {
-                'use strict';
-                var revapi;
-                revapi = $('.tp-banner').revolution({
-                            delay: 5000,
-                            startwidth: 1170,
-                            startheight: 500,
-                            hideThumbs: 10,
-                            fullWidth: "on",
-                            forceFullWidth: "on",
-                            navigationType: "none"
-                });
-
+                //slick js library for home page caraousel initialization
+                $('.background').slick();
+                $('.foreground').slick();
                 $('.numbers-counter').waypoint(function() {
                     // NUMBERS COUNTER START
                     $('.numbers').data('countToOptions', {
@@ -112,47 +103,35 @@
 
 
             });
-        </script> 
+        </script>
     </head>
 
     <body>
         <?php include('include/header.php'); ?>
-        <div class="tp-wrapper no-bottom-margin">
-            <div class="tp-banner-container">
-                <div class="tp-banner">
-                    <ul>              
-
-
-                        <?php
-                        //print_r($bannerlist);
-							foreach($bannerlist as $bannerlistdata)
-							{
-							?>
-                        <li data-transition="fade" data-slotamount="15" data-masterspeed="1500">
-                            <!-- main image -->
-                            <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
-                            <!-- layer 2 -->
-                            <?php if(isset($bannerlistdata['banner_front_image']) && ($bannerlistdata['banner_front_image']!='')){ ?>
-
-                            <?php if($bannerlistdata['foreground_image_transition']==0 || $bannerlistdata['foreground_image_transition']=="0" ) { ?>
-                             <div class="tp-caption regular sfl" data-x="200" data-y="50" data-speed="0" data-start="0" data-endspeed="0">
-                            <?php }else{ ?>
-                            <div class="tp-caption regular sfl" data-x="200" data-y="50" data-speed="<?php echo $bannerlistdata['foreground_image_transition'];?>" data-start="1500" data-easing="Back.easeOut" data-endspeed="300">
-                            <?php } ?>     
-                                 <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
-                            </div>
-                            <?php } ?>
-                        </li>
-                         <?php
-							}
-							?>
-                        
-                    </ul>
-                </div><!-- .tp-banner end -->
-            </div><!-- .tp-banner end -->
-            
-        </div><!-- .tp-wrapper end -->
-
+        <!--Slider background image start-->
+        <section class="center slider background" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed" : <?php echo $bannerlist[0]['background_image_transition']*10;?>, "arrows": true, "fade" : true}'>
+            <?php if (count($bannerlist)) { ?>
+                <?php foreach ($bannerlist as $key=>$bannerlistdata) { ?>
+                    <div>
+                        <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3"/>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        </section>
+        <!--Slider background image end-->
+        <!--Slider foreground image start-->
+        <section class="center slider foreground" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed" : <?php echo $bannerlist[0]['foreground_image_transition']*10;?>, "dots": true, "fade" : true}'>
+            <?php if (count($bannerlist)) { ?>
+                <?php foreach ($bannerlist as $key=>$bannerlistdata) { ?>
+                    <?php if (array_key_exists('banner_front_image', $bannerlistdata) && $bannerlistdata['banner_front_image']!='') { ?>
+                        <div>
+                            <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
+            <?php } ?>
+        </section>
+        <!--Slider foreground image end-->
         <!-- .page-content start -->
         <section class="page-content background-black" style="background:<?php echo $theme_color['color']; ?>">
             <!-- .container start -->

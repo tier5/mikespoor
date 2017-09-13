@@ -75,6 +75,9 @@ class Home extends CI_Controller {
 			    //echo '<pre>';print_r($data['bannerlist']);exit;
 
                 //$data['template']='user/home_view';
+                // echo "<pre>";
+                // print_r($data['bannerlist']);
+                // exit();
 			    $this->load->view('user/home_view',$data);
 		}
 		
