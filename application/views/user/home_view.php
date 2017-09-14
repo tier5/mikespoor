@@ -107,31 +107,50 @@
     </head>
 
     <body>
-        <?php include('include/header.php'); ?>
+        <?php include('include/header.php');?>
         <!--Slider background image start-->
-        <section class="center slider background" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed" : <?php echo $bannerlist[0]['background_image_transition']*10;?>, "arrows": true, "fade" : true}'>
-            <?php if (count($bannerlist)) { ?>
-                <?php foreach ($bannerlist as $key=>$bannerlistdata) { ?>
+        <!-- check for bg const -->
+        <div class="top-banner">
+            <?php if (count($filtered_arr)) { ?>
+                <section class="center slider background" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": false, "autoplaySpeed" : 0, "arrows": false, "fade" : true}'>
                     <div>
-                        <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3"/>
+                        <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$filtered_arr['banner_image']; ?>" alt="slidebg3" class="img-responsive"/>
                     </div>
-                <?php } ?>
-            <?php } ?>
-        </section>
-        <!--Slider background image end-->
-        <!--Slider foreground image start-->
-        <section class="center slider foreground" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed" : <?php echo $bannerlist[0]['foreground_image_transition']*10;?>, "dots": true, "fade" : true}'>
-            <?php if (count($bannerlist)) { ?>
-                <?php foreach ($bannerlist as $key=>$bannerlistdata) { ?>
-                    <?php if (array_key_exists('banner_front_image', $bannerlistdata) && $bannerlistdata['banner_front_image']!='') { ?>
-                        <div>
-                            <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
-                        </div>
+                </section>
+            <?php } else {?>
+                <section class="center slider background" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed" : <?php echo $bannerlist[0]['background_image_transition']*10;?>, "arrows": true, "fade" : true}'>
+                    <?php if (count($bannerlist)) { ?>
+                        <?php foreach ($bannerlist as $key=>$bannerlistdata) { ?>
+                            <div>
+                                <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" class="img-responsive"/>
+                            </div>
+                        <?php } ?>
                     <?php } ?>
-                <?php } ?>
+                </section>
             <?php } ?>
-        </section>
-        <!--Slider foreground image end-->
+            <!--Slider background image end-->
+            <!--Slider foreground image start-->
+            <?php if (count($filtered_arr_fg)) { ?>
+                <section class="center slider foreground" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": false, "autoplaySpeed" : 0, "arrows": false, "fade" : true}'>
+                    <div>
+                        <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$filtered_arr_fg['banner_front_image'];; ?>" alt="slidebg3"/>
+                    </div>
+                </section>
+            <?php } else {?>
+                <section class="center slider foreground" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed" : <?php echo $bannerlist[0]['foreground_image_transition']*10;?>, "dots": true, "fade" : true}'>
+                    <?php if (count($bannerlist)) { ?>
+                        <?php foreach ($bannerlist as $key=>$bannerlistdata) { ?>
+                            <?php if (array_key_exists('banner_front_image', $bannerlistdata) && $bannerlistdata['banner_front_image']!='') { ?>
+                                <div>
+                                    <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
+                    <?php } ?>
+                </section>
+            <?php } ?>
+            <!--Slider foreground image end-->
+        </div>
         <!-- .page-content start -->
         <section class="page-content background-black" style="background:<?php echo $theme_color['color']; ?>">
             <!-- .container start -->

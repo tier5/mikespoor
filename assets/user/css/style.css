@@ -4868,6 +4868,53 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     top: 28%;
 }
 
+.top-banner{
+    position: relative;
+    vertical-align: top;
+}
+
+.slick-slider.background .slick-slide img{
+    margin: auto;
+    width: 100%;
+    max-height: 400px;
+}
+
+.top-banner .slick-slider.foreground{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    top: 50%;
+    left: 30%;
+    right: 0;
+    bottom: auto;
+}
+.top-banner .slick-slider .slick-dots, .top-banner .slick-slider.foreground .slick-arrow{
+    display: none !important;
+}
+.top-banner .slick-slider .slick-arrow{
+    z-index: 9999;
+}
+
+.top-banner .slick-slider .slick-arrow.slick-prev{
+    left: 10px;
+}
+
+.top-banner .slick-slider .slick-arrow.slick-next{
+    right: 30px;
+}
+
+.top-banner .slick-slider .slick-prev:before,.top-banner .slick-slider .slick-next:before{
+    color: #000;
+    font-size: 40px;
+    opacity: 0.6;
+}
+
+.slick-slider.foreground .slick-slide img{
+    margin: auto;
+    max-width: 300px;
+    height: auto;
+}
+
 @media screen and (min-width: 992px){
     .hidden-lg{
         display: none;
