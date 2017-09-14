@@ -225,6 +225,8 @@
       $(document).ready(function () {
         //to check bg fg checked or not
         fgBgCheckStatus();
+        //by default some transition time selected
+        defaultSelect();
         $('.bg-constant-selector').click(function () {
           if ($(this).is(':checked')) {
             var selectedBg = $(this).data('bg-index');
@@ -336,9 +338,28 @@
             $('#fg_trans_time').hide();
 
         } else {
-            
+
             $('#fg_trans_time').show();
         }
+      }
+      function defaultSelect() {
+
+        if (!$("input[name='transition_fore']").is(':checked') && !$("input[name='transition_back']").is(':checked')) {
+            $.ajax({
+                url     : '<?= BASE_URI.'backend/home-page/setDefaultValue' ?>',
+                type    : 'POST',
+                data    : {
+                    value : 400,
+                },
+                success : function(data) {
+                    console.info(data);
+                    location.reload();
+                }
+            });
+        } else {
+            console.info('No request needed to set value');
+        }
+        
       }
     </script>
 

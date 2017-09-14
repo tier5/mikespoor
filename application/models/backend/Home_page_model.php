@@ -686,5 +686,19 @@ class Home_page_model extends CI_Model {
 				return $query->row();
 			}
 		}
+		public function setDefaultTrans($trans_time = NULL) {
+			//return $trans_time['value'];
+			if (array_key_exists('value', $trans_time) && strlen($trans_time['value'])) {
+				//return $trans_time['value'];
+				$data_update = array(
+					'background_image_transition' => $trans_time['value'],
+					'foreground_image_transition' => $trans_time['value']
+				);
+				$res = $this->db->update('lm_home_banner', $data_update);
+				return $res;
+			} else {
+				return "Missing Input Params";
+			}
+		}
 }
 ?>

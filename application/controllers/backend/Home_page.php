@@ -934,5 +934,20 @@ class Home_page extends CI_Controller {
         	echo json_encode($response);
         }
 
+        public function setDefaultValue() {
+        	$this->load->helper('auth_helper');
+        	if (checkuserlogin()) {
+        		echo 403;
+        	} else {
+        		//print_r($this->input->post());
+        		$response = $this->home_page_model->setDefaultTrans($this->input->post());
+        		if ($response == 1) {
+        			echo "Successfully set default value";
+        		} else {
+        			print_r($response);
+        		}
+        	}
+        }
+
 }
 ?>
