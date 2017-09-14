@@ -136,7 +136,7 @@
                         <!-- right column -->
                         <!--/.col (right) -->
                         <div class="col-md-12">
-                            <div class="box box-primary">
+                            <div class="box box-primary" id="fg_trans_time">
                                 <?php foreach($bannerlist as $bannerlistdata){ 
                                     $trans=$bannerlistdata['foreground_image_transition'];
                                     break;
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="box box-primary">
+                            <div class="box box-primary" id="bg_trans_time">
                                 <?php foreach($bannerlist as $bannerlistdata){ 
                                     $trans=$bannerlistdata['background_image_transition'];
                                     break;
@@ -223,6 +223,8 @@
         $("#success-alert").alert('close');
       });
       $(document).ready(function () {
+        //to check bg fg checked or not
+        fgBgCheckStatus();
         $('.bg-constant-selector').click(function () {
           if ($(this).is(':checked')) {
             var selectedBg = $(this).data('bg-index');
@@ -299,7 +301,45 @@
                 }
             });
         });
+        //hide show transition time of background
+        $('.bg-constant-selector').change(function(){
+            if (this.checked) {
+                $('#bg_trans_time').hide();
+            } else {
+                $('#bg_trans_time').show();
+            }
+        });
+        //hide show transition time of foreground
+        $('.fg-constant-selector').change(function(){
+            if (this.checked) {
+                $('#fg_trans_time').hide();
+            } else {
+                $('#fg_trans_time').show();
+            }
+        });
       });  
+      function fgBgCheckStatus() {
+        // console.log($('.bg-constant-selector').is(':checked'));
+        // console.log($('.fg-constant-selector').is(':checked'));
+        //bg hide show
+        if ($('.bg-constant-selector').is(':checked')) {
+
+            $('#bg_trans_time').hide();
+
+        } else {
+
+            $('#bg_trans_time').show();
+        }
+        //fg hide show
+        if ($('.fg-constant-selector').is(':checked')) {
+
+            $('#fg_trans_time').hide();
+
+        } else {
+            
+            $('#fg_trans_time').show();
+        }
+      }
     </script>
 
   </body>
