@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="/backend" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini" style="font-size:8px;"><?php echo $memberinfo['company_name']; ?></span>
       <!-- logo for regular state and mobile devices -->
