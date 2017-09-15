@@ -35,21 +35,29 @@ class Home_page_model extends CI_Model {
 		public function addbannermodel()
 		{
 			$this->load->library('image_lib');
+			$this->load->helper('imageHelper');
+			//print_r(isProperWH());
 			$timezone = 'GMT';
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
+			//check bg image height width = 1280x800
+			//move the image to particular directory
+			if (!imagePropertyCheck($_FILES)) {
+				return false;
+			}
 			if ($_FILES['imgBanner']['type'] == IGNORE_IMG || $_FILES['imgFBanner']['type'] == IGNORE_IMG) {
 
 				return false;
 				exit;
 			} 
-			if($_FILES['imgBanner']['name']!=""){	
-		         
-                $photopath2 = pathinfo($_FILES['imgBanner']['name']);
+			if($_FILES['imgBanner']['name']!=""){
+				$data_img_res = imagePropertyCheck($_FILES);
+				$photopath2 = pathinfo($_FILES['imgBanner']['name']);
 		        $extension2 = $photopath2['extension'];
 		        $source2 = $_FILES['imgBanner']['tmp_name'];
 		        $gallery_pdf1 =time()."_".$_POST['txtCid'].".".$extension2;
 		        $destination2 = "uploads/home_page/banner/".$gallery_pdf1;
+               	
 		        if(move_uploaded_file($source2,$destination2)){
 		            /*** image resize ***/
 					$config['image_library'] = 'gd2';

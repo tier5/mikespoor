@@ -88,6 +88,8 @@ class Home_page extends CI_Controller {
 			    $this->load->helper('auth_helper');
 				checkuserlogin();
 				$res=$this->home_page_model->addbannermodel();
+				// print_r($res);
+				// exit();
 				if($res)
 				{
 					if(isset($_POST['btnSave']) && $_POST['btnSave']=='list')
