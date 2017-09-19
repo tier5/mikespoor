@@ -1,5 +1,5 @@
 <?php
-function mailsend($to,$from,$subject,$template,$message)
+function mailsend($to,$from,$subject,$template,$message, $company_logo)
 {
 	
 	                $content='';
@@ -16,7 +16,8 @@ function mailsend($to,$from,$subject,$template,$message)
 		 $content.='</div>';
 	
          $MESSAGE_BODY1 = str_ireplace('[@@content]',$content,$MESSAGE_BODY);
-		$send=mail($ToEmail,$EmailSubject,$MESSAGE_BODY1,$mailheader);
+         $MESSAGE_BODY2 = str_ireplace('[@@image_url]', "http://stage.mikespoorillustrations.co.uk/uploads/".$company_logo, $MESSAGE_BODY1);
+		$send=mail($ToEmail,$EmailSubject,$MESSAGE_BODY2,$mailheader);
 		if($send)
 		{
 			return true;

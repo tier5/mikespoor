@@ -38,7 +38,7 @@ class Contact extends CI_Controller {
 		    $this->load->helper('mailsender_helper');
 			$to=$data['companyinfo']['contact_email'];
 			//$to="work@tier5.us";
-			$from=$data['companyinfo']['contact_name']."<".stripslashes($_POST['txtEmail']).">";
+			$from=stripslashes($_POST['txtEmail']);
 			$subject='A New Message Posted';
 			$message ='<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
 				<tr><td colspan="2">A new message has been posted. Details are below,</td></tr>
@@ -49,17 +49,18 @@ class Contact extends CI_Controller {
 			</table>';
 
 			$template='contact';
-			$res=mailsend($to,$from,$subject,$template,$message);
+
+			$res=mailsend($to,$from,$subject,$template,$message, $data['companyinfo']['company_logo']);
 			if($res){
 				$uto=$data['companyinfo']['contact_email'];
-				$ufrom=$data['companyinfo']['contact_name']."<".stripslashes($data['companyinfo']['contact_email']).">";
+				$ufrom=stripslashes($data['companyinfo']['contact_email']);
 				$usubject=$data['companyinfo']['subject'];
 				$umessage = 
 				'<table border="0" width="100%" cellspacing="2" cellpadding="2" align="center">
 							<tr><td>'.$data['companyinfo']['message'].'</td></tr>
 				</table>';
 				$utemplate='contact';
-				$ures=mailsend($uto,$ufrom,$usubject,$utemplate,$umessage);
+				$ures=mailsend($uto,$ufrom,$usubject,$utemplate,$umessage, "", "");
 				$_SESSION['successmsg']='Your mail has been send successfully. We will contact you soon.';
 				header('location:'.BASE_URI.'contact');
 				exit;
