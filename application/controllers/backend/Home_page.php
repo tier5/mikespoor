@@ -86,31 +86,31 @@ class Home_page extends CI_Controller {
 
 		public function addbanner(){
 			    $this->load->helper('auth_helper');
+			    $this->load->helper('errorMsg_helper');
 				checkuserlogin();
 				$res=$this->home_page_model->addbannermodel();
 				// print_r($res);
 				// exit();
 				if($res)
 				{
-					if(isset($_POST['btnSave']) && $_POST['btnSave']=='list')
-					{
+					if(isset($_POST['btnSave']) && $_POST['btnSave']=='list') {
+						errorCheck('backend/home-page', $res);
 						$_SESSION['successmsg']='Banner created successfully';
 						header('location:'.BASE_URI.'backend/home-page');
 						exit;
 					}
-					if(isset($_POST['btnAdd']) && $_POST['btnAdd']=='new')
-					{
+					if(isset($_POST['btnAdd']) && $_POST['btnAdd']=='new') {
+						errorCheck('backend/home-page/add', $res);
 						$_SESSION['successmsg']='Banner created successfully';
 						header('location:'.BASE_URI.'backend/home-page/add');
 						exit;
 					}
-					
 				}
 				else
 				{
-					   $_SESSION['errormsg']='Seems to be some problem. Try Again';
-						header('location:'.BASE_URI.'backend/home-page/add');
-						exit;
+					$_SESSION['errormsg']='Seems to be some problem. Try Again';
+					header('location:'.BASE_URI.'backend/home-page/add');
+					exit;
 				}
 		}
 		public function addnewfeature()

@@ -28,10 +28,10 @@ function imagePropertyCheck($file_details = NULL){
                
                 $img_size_arr =  isProperWH('assets/tmp_img_storage/'.$file_details['imgBanner']['name']);
                     //width check
-                    if ($img_size_arr[0] == 1280 || $img_size_arr[0] == "1280") {
+                    if ($img_size_arr[0] >= 1280 || $img_size_arr[0] >= "1280") {
                     //height check.
                        
-                        if ($img_size_arr[1] == 800 || $img_size_arr[1] == "800") {
+                        if ($img_size_arr[1] >= 800 || $img_size_arr[1] >= "800") {
                           
                             unlink('assets/tmp_img_storage/'.$file_details['imgBanner']['name']);
                             return true;

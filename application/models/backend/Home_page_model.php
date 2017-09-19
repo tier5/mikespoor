@@ -43,11 +43,19 @@ class Home_page_model extends CI_Model {
 			//check bg image height width = 1280x800
 			//move the image to particular directory
 			if (!imagePropertyCheck($_FILES)) {
-				return false;
+				return array(
+					'status' => false,
+					'status_code' => 403,
+					'message' => "Minium width should be minimum 1280 pixels and height should be minimum 800 pixels"
+				);
 			}
 			if ($_FILES['imgBanner']['type'] == IGNORE_IMG || $_FILES['imgFBanner']['type'] == IGNORE_IMG) {
 
-				return false;
+				return array(
+					'status' => false,
+					'status_code' => 403,
+					'message' => "Image type could not be gif or image/gif"
+				);
 				exit;
 			} 
 			if($_FILES['imgBanner']['name']!=""){
