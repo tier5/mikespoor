@@ -144,18 +144,20 @@ class Home_page extends CI_Controller {
 		public function editbanner()
 		{
 			    $this->load->helper('auth_helper');
+			    $this->load->helper('errorMsg_helper');
 				checkuserlogin();
 				$res=$this->home_page_model->editbannermodel();
 				if($res)
 				{
-					
-						$_SESSION['successmsg']='Banner updated successfully';
-						header('location:'.BASE_URI.'backend/home-page/edit/'.$_POST['txtCid']);
-						exit;
+					errorCheck('backend/home-page/edit/'.$_POST['txtCid'], $res);
+					$_SESSION['successmsg']='Banner updated successfully';
+					header('location:'.BASE_URI.'backend/home-page/edit/'.$_POST['txtCid']);
+					exit;
 					
 				}
 				else
 				{
+						errorCheck('backend/home-page/edit/'.$_POST['txtCid'], $res);
 					    $_SESSION['errormsg']='Seems to be some problem. Try Again';
 						header('location:'.BASE_URI.'backend/home-page/edit/'.$_POST['txtCid']);
 						exit;

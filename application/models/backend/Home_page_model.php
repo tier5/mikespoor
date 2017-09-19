@@ -46,7 +46,7 @@ class Home_page_model extends CI_Model {
 				return array(
 					'status' => false,
 					'status_code' => 403,
-					'message' => "Minium width should be minimum 1280 pixels and height should be minimum 800 pixels"
+					'message' => "Minimum width should be minimum 1280 pixels and height should be minimum 800 pixels"
 				);
 			}
 			if ($_FILES['imgBanner']['type'] == IGNORE_IMG || $_FILES['imgFBanner']['type'] == IGNORE_IMG) {
@@ -236,11 +236,19 @@ class Home_page_model extends CI_Model {
 		public function editbannermodel()
 		{
 			$this->load->library('image_lib');
+			$this->load->helper('imageHelper');
 			$timezone = 'GMT';
 			if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 			$entdate = date('Y-m-d H:i:s');
 			$gallery_pdf1='';
 			$gallery_pdf2='';
+			if (!imagePropertyCheck($_FILES)) {
+				return array(
+					'status' => false,
+					'status_code' => 403,
+					'message' => "Minimum width should be minimum 1280 pixels and height should be minimum 800 pixels"
+				);
+			}
 			//check if type of image is gif
 			if ($_FILES['imgBanner']['type'] == IGNORE_IMG || $_FILES['imgFBanner']['type'] == IGNORE_IMG) {
 
