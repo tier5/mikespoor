@@ -46,7 +46,7 @@ class Home_page_model extends CI_Model {
 				return array(
 					'status' => false,
 					'status_code' => 403,
-					'message' => "Minimum width should be minimum 1280 pixels and height should be minimum 800 pixels"
+					'message' => "Minimum width should be 1280 pixels and minimum height should be 800 pixels for background image."
 				);
 			}
 			if ($_FILES['imgBanner']['type'] == IGNORE_IMG || $_FILES['imgFBanner']['type'] == IGNORE_IMG) {
@@ -242,13 +242,20 @@ class Home_page_model extends CI_Model {
 			$entdate = date('Y-m-d H:i:s');
 			$gallery_pdf1='';
 			$gallery_pdf2='';
-			if (!imagePropertyCheck($_FILES)) {
-				return array(
-					'status' => false,
-					'status_code' => 403,
-					'message' => "Minimum width should be minimum 1280 pixels and height should be minimum 800 pixels"
-				);
+			// echo "<pre>";
+			// print_r($_FILES);
+			// print_r(imagePropertyCheck($_FILES));
+			// exit();
+			if (strlen($_FILES['imgBanner']['name'])) {
+				if (!imagePropertyCheck($_FILES)) {
+					return array(
+						'status' => false,
+						'status_code' => 403,
+						'message' => "Minimum width should be 1280 pixels and minimum height should be 800 pixels for background image"
+					);
+				}
 			}
+			
 			//check if type of image is gif
 			if ($_FILES['imgBanner']['type'] == IGNORE_IMG || $_FILES['imgFBanner']['type'] == IGNORE_IMG) {
 
