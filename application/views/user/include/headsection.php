@@ -25,8 +25,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URI;?>assets/user/js/slick-1.8.0/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URI;?>assets/user/js/slick-1.8.0/slick/slick-theme.css"/>
     <!--end slick css-->
-
     <link rel='stylesheet' href='<?php echo BASE_URI;?>assets/user/unitegallery/css/unite-gallery.css' type='text/css' />
+  
     <!-- prettyPhoto lightbox stylesheer -->
     <link rel="stylesheet" href="<?php echo BASE_URI;?>assets/user/css/prettyPhoto.css" media="screen" />
     <!-- /prettyPhoto lightbox stylesheer -->

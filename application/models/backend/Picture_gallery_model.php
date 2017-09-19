@@ -275,11 +275,12 @@ class Picture_gallery_model extends CI_Model {
 		
 		public function paginationsort($cntid)
 	    {
-		$start=($cntid-1) * 20;
+		$start=$cntid * 20;
+		$end = $start +20;
 		$this->db->select('`gpicture_id`, `gpicture_title`, `picture_id`, `gpicture_slug`, `gpicture_image`, `gpicture_content`, `status`, `gpicture_featured`, `addedBy`, `addedOn`, `updatedOn`');
 		$this->db->from('lm_picture_gallery');
 		$this->db->where('status',1);
-		$this->db->limit(20,$start);
+		$this->db->limit($start, $end);
 		$query = $this->db->get();
 		return $query->result_array();
 	    }

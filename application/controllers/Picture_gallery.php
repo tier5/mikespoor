@@ -57,6 +57,7 @@ class Picture_Gallery extends CI_Controller {
 
 		public function page($getpage)
 	    {
+            $this->load->model('backend/home_page_model');
 			$data['theme_color']=$this->theme_model->get_all_info('theme-color');
 			$data['font_color']=$this->theme_model->get_all_info('font-color');
 			$data['companyinfo']=$this->login_model->getuserinfoid('1');
@@ -69,6 +70,7 @@ class Picture_Gallery extends CI_Controller {
 			$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
             $data['banner']=$this->banner_model->getbannerbyslug('picture_gallery');
 			$data['metainfo']=$this->seo_settings_model->getmetainfomodel(3);
+            $data['bannerlist']=$this->home_page_model->getactivebannerlistmodel();
 			$this->load->view('user/picture_gallery_view',$data);
 	    }
 

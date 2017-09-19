@@ -2,23 +2,12 @@
 <html>
     <head>
       <?php include('include/headsection.php'); ?> 
-        <script>
-            jQuery(document).ready(function($) {
-                'use strict';
-                var revapi;
-                revapi = $('.tp-banner').revolution({
-                    delay: 5000,
-                    startwidth: 1170,
-                    startheight: 500,
-                    hideThumbs: 10,
-                    fullWidth: "on",
-                    forceFullWidth: "on",
-                    navigationType: "none"
-                });
-
-            });
-        </script>
         <script type="text/javascript">
+            $(function(){
+                $('.background').slick({
+                    autoplay : true
+                });
+            });
         function get_ctatgory (catagory) {
             $.ajax({
                 url: '<?php echo BASE_URI;?>picture_gallery/category_picture',
@@ -38,37 +27,20 @@
     <body>
         <?php include('include/header.php'); ?>
         <?php //include('include/headerbanner.php'); ?>
-        <div class="tp-wrapper no-bottom-margin">
-            <div class="tp-banner-container">
-                <div class="tp-banner">
-                    <ul>                                         
-                        <?php
-                            foreach($bannerlist as $bannerlistdata)
-                            {
-                        ?>
-                        <li data-transition="fade" data-slotamount="15" data-masterspeed="1500">
-                            <!-- main image -->
-                            <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" />
-                            <!-- layer 2 -->
-                            <?php if(isset($bannerlistdata['banner_front_image']) && ($bannerlistdata['banner_front_image']!='')){ ?>
-                            <div class="tp-caption regular sfl"
-                                 data-x="200"
-                                 data-y="50"
-                                 data-speed="600"
-                                 data-start="1500"
-                                 data-easing="Back.easeOut"
-                                 data-endspeed="300"><img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_front_image']; ?>" alt='mobile devices'/>
-                            </div>
-                            <?php } ?>
-                        </li>
-                        <?php
-                            }
-                        ?>
-                        
-                    </ul>
-                </div><!-- .tp-banner end -->
-            </div><!-- .tp-banner end -->
-        </div><!-- .tp-wrapper end -->
+        <div class="background">
+            <?php
+                foreach($bannerlist as $bannerlistdata)
+                {
+            ?>
+            <section class="center slider background">
+                <div>
+                     <img src="<?php echo BASE_URI.'uploads/home_page/banner/thumb/'.$bannerlistdata['banner_image']; ?>" alt="slidebg3" />
+                </div>
+            </section>
+        <?php
+            }
+        ?>
+        </div>
         <section class="page-content">
             <div class="container">
                 <div class="row portfolio-filters triggerAnimation animated" data-animate="fadeInDown">
