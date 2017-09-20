@@ -125,8 +125,8 @@
                                         </li> -->
                                         <li>
                                             <p style="color:<?php echo $font_color['color']; ?> !important;">
-                                                <span class="strong" style="display: block;">Powered by:</span>
-                                                <img src="<?php echo BASE_URI; ?>assets/user/img/logotr5.png" class="tr5logo" alt="tier5logo">
+                                                <span class="strong" style="display: block;">Powered by :</span>
+                                                <a href="https://tier5.us" target="_blank"><img src="<?php echo BASE_URI; ?>assets/user/img/logotr5.png" class="tr5logo" alt="tier5logo"></a>
                                             </p>
                                         </li>
                                     </ul>
