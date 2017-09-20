@@ -148,17 +148,16 @@
 		
 	}
 
-	public function editbanner_video()
-	{
+	public function editbanner_video(){
+
 		if(!$_POST['banner_focus']){
 			$_SESSION['errormsg']='Select The Video Which Will Be On Middel';
 			header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 			exit;
-
 		}
-		 $this->load->helper('auth_helper');
-			checkuserlogin();
-			$timezone = 'GMT'; if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone); $entdate = date('Y-m-d H:i:s');
+		$this->load->helper('auth_helper');
+		checkuserlogin();
+		$timezone = 'GMT'; if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone); $entdate = date('Y-m-d H:i:s');
             
             if(isset($_POST['banner_type']) && ($_POST['banner_type']=='2') ){
 
@@ -324,7 +323,7 @@
                         
 					    $config1['upload_path'] ='uploads/banner/';
 					    $config1['max_size'] = '102400';
-						$config1['allowed_types'] = 'mp4'; # add video extenstion on here
+						$config1['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 						$config1['overwrite'] = FALSE;
 						$config1['remove_spaces'] = TRUE;
                         $video_name =time();
@@ -332,6 +331,7 @@
 					    $this->load->library('upload', $config1);
 						$this->upload->initialize($config1);
 			            if(!$this->upload->do_upload('first_pic')){
+
 			            	$_SESSION['errormsg']='Seems to be some problem. Try Again';
 							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 							exit;
@@ -371,7 +371,7 @@
 
 					    $config2['upload_path'] ='uploads/banner/';
 					    $config2['max_size'] = '102400';
-						$config2['allowed_types'] = 'mp4'; # add video extenstion on here
+						$config2['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 						$config2['overwrite'] = FALSE;
 						$config2['remove_spaces'] = TRUE;
                         $video_name2 =time();
@@ -418,7 +418,7 @@
 
 					    $config3['upload_path'] ='uploads/banner/';
 					    $config3['max_size'] = '102400';
-						$config3['allowed_types'] = 'mp4'; # add video extenstion on here
+						$config3['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 						$config3['overwrite'] = FALSE;
 						$config3['remove_spaces'] = TRUE;
                         $video_name3 =time();
@@ -464,7 +464,7 @@
 
 					    $config4['upload_path'] ='uploads/banner/';
 					    $config4['max_size'] = '102400';
-						$config4['allowed_types'] = 'mp4'; # add video extenstion on here
+						$config4['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 						$config4['overwrite'] = FALSE;
 						$config4['remove_spaces'] = TRUE;
                         $video_name4 =time();
@@ -511,7 +511,7 @@
 
 					    $config5['upload_path'] ='uploads/banner/';
 					    $config5['max_size'] = '102400';
-						$config5['allowed_types'] = 'mp4'; # add video extenstion on here
+						$config5['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 						$config5['overwrite'] = FALSE;
 						$config5['remove_spaces'] = TRUE;
                         $video_name5 =time();
