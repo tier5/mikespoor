@@ -60,7 +60,7 @@ class Contact extends CI_Controller {
 							<tr><td>'.$data['companyinfo']['message'].'</td></tr>
 				</table>';
 				$utemplate='contact';
-				$ures=mailsend($uto,$ufrom,$usubject,$utemplate,$umessage, "", "");
+				$ures=mailsend($uto,$ufrom,$usubject,$utemplate,$umessage, $data['companyinfo']['company_logo']);
 				$_SESSION['successmsg']='Your mail has been send successfully. We will contact you soon.';
 				header('location:'.BASE_URI.'contact');
 				exit;
