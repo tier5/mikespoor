@@ -33,6 +33,43 @@ class Picture_Gallery extends CI_Controller {
 			$data['bloglist']=$this->school_visit_blog_model->getfeaturedbannerlistmodel();
             $data['banner']=$this->banner_model->getbannerbyslug('picture_gallery');
 			$data['metainfo']=$this->seo_settings_model->getmetainfomodel(3);
+            if (count($data['bannerlist']) != 1 && array_key_exists('is_bg_constant', $data['bannerlist'][0])) {
+                    //single const
+                    //echo "abcd";
+                    $filtered_arr = array_filter($data['bannerlist'], function($item){
+                        return $item['is_bg_constant'] == 1;
+                    });
+                    if (count($filtered_arr)) {
+                        foreach ($filtered_arr as $key => $value) {
+                            $data['filtered_arr'] = $value;
+                        }
+                    } else {
+                        $data['filtered_arr'] = array();
+                    }
+            } else {
+            //  //both const.
+                $data['filtered_arr'] = array();
+            }
+
+            //check for fg constant
+            if (count($data['bannerlist']) != 1 && array_key_exists('is_fg_constant', $data['bannerlist'][0])) {
+                //single const
+                //echo "single constant";
+                $filtered_arr_fg = array_filter($data['bannerlist'], function($item_fg) {
+                    return $item_fg['is_fg_constant'] == 1;
+                });
+                if (count($filtered_arr_fg)) {
+                    foreach ($filtered_arr_fg as $key2 => $value2) {
+                        $data['filtered_arr_fg'] = $value2;
+                    }
+                } else {
+                    $data['filtered_arr_fg'] = array();
+                }
+            } else {
+                //both const.
+                //echo "both const";
+                $data['filtered_arr_fg'] = array();
+            }
 		    $this->load->view('user/picture_gallery_view',$data);
 		}
 
