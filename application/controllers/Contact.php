@@ -52,7 +52,7 @@ class Contact extends CI_Controller {
 
 			$res=mailsend($to,$from,$subject,$template,$message, $data['companyinfo']['company_logo']);
 			if($res){
-				$uto=$data['companyinfo']['contact_email'];
+				$uto=$_POST['txtEmail'];
 				$ufrom=stripslashes($data['companyinfo']['contact_email']);
 				$usubject=$data['companyinfo']['subject'];
 				$umessage = 
