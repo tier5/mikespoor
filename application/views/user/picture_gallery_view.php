@@ -74,7 +74,7 @@
                         <ul id="filter-pic">
                             <li class="active"><a href="<?php echo BASE_URI.'picture-gallery'; ?>" data-filter="*">All </a></li>
                             <?php foreach($categorylist as $categorylistdata) { ?>
-                            <li><a onclick="get_ctatgory('<?php echo $categorylistdata['picture_id']; ?>')"><?php echo $categorylistdata['picture_title']; ?> </a></li>
+                            <li><a href="#" onclick="get_ctatgory('<?php echo $categorylistdata['picture_id']; ?>')"><?php echo $categorylistdata['picture_title']; ?> </a></li>
                             <?php }?>  
                         </ul>
                     </section>                  

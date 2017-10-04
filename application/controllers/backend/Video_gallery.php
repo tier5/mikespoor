@@ -64,9 +64,9 @@
 					$_SESSION['successmsg']='Video gallery information inserted successfully';
 					header('location:'.BASE_URI.'backend/video_gallery');
 					exit;
-				}		
+				}
 			}else{
-				$_SESSION['errormsg']='Seems to be some problem. Try Again';
+				$_SESSION['errormsg']="Try to upload a video of '.mp4' or '.3gp' file format and file size should be maximum 30 MB.";
 				header('location:'.BASE_URI.'backend/video_gallery/add');
 				exit;
 			}	

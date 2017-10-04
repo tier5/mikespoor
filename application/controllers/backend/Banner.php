@@ -99,7 +99,7 @@
 			            $photopath2 = pathinfo($_FILES['upload_video']['name']);
 					    $extension2 = $photopath2['extension'];
 			            $configVideo['upload_path'] = 'assets/images/banner/';
-			            $configVideo['max_size'] = '102400000';
+			            $configVideo['max_size'] = '30720000';
 			            $configVideo['allowed_types'] = 'avi|flv|wmv|mp4|mp3';
 			            $configVideo['overwrite'] = FALSE;
 			            $configVideo['remove_spaces'] = TRUE;
@@ -153,13 +153,13 @@
 		checkuserlogin();
 
 		if(!$_POST['banner_focus']){
-			$_SESSION['errormsg']='Select The Video Which Will Be On Middel';
+			$_SESSION['errormsg']='Select The Video Which Will Be On Middle';
 			header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 			exit;
 		}
-		
+
 		$timezone = 'GMT'; if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone); $entdate = date('Y-m-d H:i:s');
-            
+
         if(isset($_POST['banner_type']) && ($_POST['banner_type']=='2') ){
 
             if(isset($_POST['first_id']) && isset($_POST['first_url'])){
@@ -312,7 +312,7 @@
 				    $extension1 = $photopath1['extension'];
                 
 				    $config1['upload_path'] ='uploads/banner/';
-				    $config1['max_size'] = '102400';
+				    $config1['max_size'] = '30720';
 					$config1['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 					$config1['overwrite'] = FALSE;
 					$config1['remove_spaces'] = TRUE;
@@ -359,7 +359,7 @@
 				    $extension2 = $photopath2['extension'];
 
 				    $config2['upload_path'] ='uploads/banner/';
-				    $config2['max_size'] = '102400';
+				    $config2['max_size'] = '30720';
 					$config2['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 					$config2['overwrite'] = FALSE;
 					$config2['remove_spaces'] = TRUE;
@@ -405,7 +405,7 @@
 				    $extension3 = $photopath3['extension'];
 
 				    $config3['upload_path'] ='uploads/banner/';
-				    $config3['max_size'] = '102400';
+				    $config3['max_size'] = '30720';
 					$config3['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 					$config3['overwrite'] = FALSE;
 					$config3['remove_spaces'] = TRUE;
@@ -452,7 +452,7 @@
 					    $extension4 = $photopath4['extension'];
 
 					    $config4['upload_path'] ='uploads/banner/';
-					    $config4['max_size'] = '102400';
+					    $config4['max_size'] = '30720';
 						$config4['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 						$config4['overwrite'] = FALSE;
 						$config4['remove_spaces'] = TRUE;
@@ -499,7 +499,7 @@
 					    $extension5 = $photopath5['extension'];
 
 					    $config5['upload_path'] ='uploads/banner/';
-					    $config5['max_size'] = '102400';
+					    $config5['max_size'] = '30720';
 						$config5['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
 						$config5['overwrite'] = FALSE;
 						$config5['remove_spaces'] = TRUE;

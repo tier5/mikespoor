@@ -1,3 +1,4 @@
+.idea/
 /app/config/constants.php
 /app/config/database.php
-
+uploads/

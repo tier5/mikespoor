@@ -29,7 +29,7 @@ class Video_gallery_model extends CI_Model {
 	            	$photopath2 = pathinfo($_FILES['userfile']['name']);
 			    	$extension2 = $photopath2['extension'];
 	            	$configVideo['upload_path'] = 'uploads/video/';
-	            	$configVideo['max_size'] = '102400000';
+	            	$configVideo['max_size'] = '30720';
 	            	$configVideo['allowed_types'] = 'mp4|3gp';
 	            	$configVideo['overwrite'] = FALSE;
 	            	$configVideo['remove_spaces'] = TRUE;

@@ -33,7 +33,7 @@
 
                                     <?php if(isset($gallerylistdata['gvideo_url']) && ($gallerylistdata['video_type']=='2') ){ ?>
                                         <?php  $ext=substr($gallerylistdata['gvideo_url'], strrpos($gallerylistdata['gvideo_url'], '.') + 1);?>
-                                        <video width="100%" height="280"  controls>
+                                        <video width="100%" height="280" name="media" controls>
                                             <source src="<?php echo BASE_URI?>uploads/video/<?php echo $gallerylistdata['gvideo_url'];?>" type="video/<?php echo $ext; ?>">
                                         </video>
                                     <?php } ?>

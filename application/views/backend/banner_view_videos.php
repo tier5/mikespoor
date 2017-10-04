@@ -90,6 +90,7 @@
                                             <input type="radio" name="banner_focus"  value="1" <?php if($bannerinfo[0]['banner_focus']=='1' && $bannerinfo[0]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Video Middle
                                             <input type="file"  id="first_pic" name="first_pic" >
                                             <input type="hidden" class="form-control" id="first_pic_prev" name="first_pic_prev" value="<?php if($bannerinfo[0]['banner_type']=='1' )  { echo $bannerinfo[0]['banner_image']; } ?>">
+                                            <p>Upload mp4 , 3gp file only (Maximum file size should be 30 MB).</p>
                                         </div>
                                        
 
@@ -106,6 +107,7 @@
                                             <input type="radio" name="banner_focus" value="2" <?php if($bannerinfo[1]['banner_focus']=='1' && $bannerinfo[1]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Video Middle
                                             <input type="file" id="second_pic" name="second_pic">
                                             <input type="hidden" class="form-control" id="second_pic_prev" name="second_pic_prev" value="<?php if($bannerinfo[1]['banner_type']=='1' )  { echo $bannerinfo[1]['banner_image']; } ?>">
+                                            <p>Upload mp4 , 3gp file only (Maximum file size should be 30 MB).</p>
                                         </div>
                                          
 
@@ -122,6 +124,7 @@
                                             <input type="radio" name="banner_focus" value="3" <?php if($bannerinfo[2]['banner_focus']=='1' && $bannerinfo[2]['banner_type']=='1')  { echo "checked"; } ?>>Make The Video Middle
                                             <input type="file"  id="third_pic" name="third_pic">  
                                             <input type="hidden" class="form-control" id="third_pic_prev" name="third_pic_prev" value="<?php if($bannerinfo[2]['banner_type']=='1' )  { echo $bannerinfo[2]['banner_image']; } ?>">
+                                            <p>Upload mp4 , 3gp file only (Maximum file size should be 30 MB).</p>
                                         </div>
 
                                         <input type="hidden" class="form-control" id="fourth_id" name="fourth_id" value="<?php echo $bannerinfo[3]['banner_id'];?>"><br/>
@@ -137,6 +140,7 @@
                                             <input type="radio" name="banner_focus" value="4" <?php if($bannerinfo[3]['banner_focus']=='1'  && $bannerinfo[3]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Video Middle
                                             <input type="file" id="fourth_pic" name="fourth_pic" >
                                             <input type="hidden" class="form-control" id="fourth_pic_prev" name="fourth_pic_prev" value="<?php if($bannerinfo[3]['banner_type']=='1' )  { echo $bannerinfo[3]['banner_image']; } ?>"> 
+                                            <p>Upload mp4 , 3gp file only (Maximum file size should be 30 MB).</p>
                                         </div>
                                         
                                         <input type="hidden" class="form-control" id="fifth_id" name="fifth_id" value="<?php echo $bannerinfo[4]['banner_id'];?>">
@@ -152,6 +156,7 @@
                                             <input type="radio" name="banner_focus" value="5" <?php if($bannerinfo[4]['banner_focus']=='1'  && $bannerinfo[4]['banner_type']=='1' )  { echo "checked"; } ?>>Make The Video Middle
                                             <input type="file" id="fifth_pic" name="fifth_pic" >
                                             <input type="hidden" class="form-control" id="fifth_pic_prev" name="fifth_pic_prev" value="<?php if($bannerinfo[4]['banner_type']=='1' )  { echo $bannerinfo[4]['banner_image']; } ?>"> 
+                                            <p>Upload mp4 , 3gp file only (Maximum file size should be 30 MB).</p>
                                         </div>
                                              <div class="form-group">
                                         <p>Which Video you will mark as middle, it will come on middle rest of the video will come according there number(Left top, Left Buttom, Right Top, Right Buttom).</p>
@@ -277,23 +282,6 @@
                 readTURL(this);
             });
             });
-        </script>
-        <!-- CK Editor -->
-        <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-        <!-- Bootstrap WYSIHTML5 -->
-        <script src="assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-        <script>
-          $(function () {
-            // Replace the <textarea id="editor1"> with a CKEditor
-            // instance, using default configuration.
-            CKEDITOR.replace('editor1',{
-     
-    removeButtons: 'Source,Image,Table',
-
-});
-            //bootstrap WYSIHTML5 - text editor
-            $(".textarea").wysihtml5();
-          });
         </script>
         <script>
             $("#success-alert").fadeTo(2000, 500).fadeOut(500, function(){
