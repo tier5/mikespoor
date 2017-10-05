@@ -201,7 +201,11 @@
                         <div class="grid_12" align="center">
                           <ul>
                             <li>
-                              <img src="assets/timeline/timeline1.png" class="front">
+                              <img src="assets/timeline/new/1.png" class="front">
+                              <span>
+                                <img src="assets/timeline/new/1-a.png" class="front">
+                                <div class="transparent"></div>
+                              </span>
                               <div class="dated"><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?>
                                 
                               </div>
@@ -215,9 +219,17 @@
                             <?php if(isset($timelinelist[$i])){ ?>
                             <li>
                             <?php if(sizeof($timelinelist)-1==$i)  { ?>
-                              <img src="assets/timeline/timeline5.png" class="front left">
+                              <img src="assets/timeline/new/5.png" class="front left">
+                              <span>
+                                <img src="assets/timeline/new/5-a.png" class="front">
+                                <div class="transparent"></div>
+                              </span>
                               <?php } else { ?>
-                              <img src="assets/timeline/timeline2.png" class="front">
+                              <img src="assets/timeline/new/2.png" class="front">
+                              <span>
+                                <img src="assets/timeline/new/2-a.png" class="front">
+                                <div class="transparent"></div>
+                              </span>
                               <?php } ?>
                               <div class="dated"><?php echo $timelinelist[$i]['timeline_title']; ?>
                               </div>
@@ -230,9 +242,17 @@
                             <?php if(isset($timelinelist[$i+1])){ ?>
                             <li> 
                               <?php if(sizeof($timelinelist)-1==$i+1) {?>
-                                 <img src="assets/timeline/timeline6.png" class="front right">
+                                <img src="assets/timeline/new/4.png" class="front right">
+                                <span>
+                                  <img src="assets/timeline/new/4-a.png" class="front">
+                                  <div class="transparent"></div>
+                                </span>
                                 <?php } else { ?>
-                              <img src="assets/timeline/timeline3.png" class="front">
+                              <img src="assets/timeline/new/3.png" class="front">
+                              <span>
+                                <img src="assets/timeline/new/3-a.png" class="front">
+                                <div class="transparent"></div>
+                              </span>
                               <?php } ?>
                               <div class="dated"><?php echo $timelinelist[$i+1]['timeline_title']; ?>
                               </div>
@@ -260,24 +280,25 @@
   $(document).ready(function(){
     $('.timeline ul li .dated').mouseover(function(event){
       event.stopPropagation();
-      var addText = '_clean.png';
-      var imageSrc = $(this).parent().find(".front").attr('src');
-      var newString = imageSrc.slice(0,-4);
-      $(this).parent().find(".front").attr('src', newString + addText);
+      //var addText = '_clean.png';
+      //var imageSrc = $(this).parent().find(".front").attr('src');
+      //var newString = imageSrc.slice(0,-4);
+      //$(this).parent().find(".front").attr('src', newString + addText);
+      $(this).parent().find($('span .transparent')).hide();
 
       $(this).on("click",function(){
         $(this).parent().find($(".popout")).show();
         $(".timeline ul li .dated").not($(this)).parent().find($(".popout")).hide();
       });
 
-      $(this).parent().find($('.dated')).css('opacity',0);
+      $(this).css('opacity',0);
     }).mouseout(function(event){
-      var addText = '.png';
-      var imageSrc = $(this).parent().find(".front").attr('src');
-      var newString = imageSrc.slice(0,-10);
-      $(this).parent().find(".front").attr('src', newString + addText);
-      $(this).parent().find($('.dated')).css('opacity',1);
-     // $(this).parent().find($(".popout")).hide();
+      // var addText = '.png';
+      // var imageSrc = $(this).parent().find(".front").attr('src');
+      // var newString = imageSrc.slice(0,-10);
+      // $(this).parent().find(".front").attr('src', newString + addText);
+      $(this).parent().find($('span .transparent')).show();
+      $(this).css('opacity',1);
     });
 
     $(".timeline ul li .popout i").on("click",function(){
