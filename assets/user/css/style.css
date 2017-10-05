@@ -4776,6 +4776,7 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     margin-top: 0;
     cursor: pointer;
     padding: 55px;
+    z-index: 99;
 }
 
 .timeline ul li .popout{
@@ -4833,6 +4834,58 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     opacity: 1;
     visibility: visible;
 }*/
+
+.timeline ul li img{
+    z-index: 9;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.timeline ul li span{
+    position: absolute;
+    left: auto;
+    z-index: 0;
+}
+
+.timeline ul li span img{
+    position: relative;
+    width: 206px;
+    height: 170px;
+}
+
+.timeline ul li span .transparent{
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.timeline ul li:nth-child(even) span{
+    right: auto;
+    left: 12%;
+    top: 20%;
+}
+
+.timeline ul li:nth-child(odd) span{
+    right: 16%;
+    top: 20%;
+}
+
+.timeline ul li:first-child span {
+    right: 20%;
+    top: 0;
+}
+
+.timeline ul li:last-child span {
+    top: 28%;
+}
 
 .timeline ul li:first-child{
     height: 176px;
@@ -4947,6 +5000,11 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
         right: 16%;
     }
 
+    .timeline ul li span img {
+        width: 168px;
+        height: 150px;
+    }
+
     #nav > ul > li > a {
         padding: 29px 14px;
     }
@@ -4994,6 +5052,11 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
         left: 45%;
     }
 
+    .timeline ul li span img {
+        width: 130px;
+        height: 110px;
+    }
+
     #nav > ul > li > a {
         padding: 28px 8px;
         font-size: 12px;
@@ -5025,6 +5088,11 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     .timeline ul li .dated{
         font-size: 30px;
         padding: 40px;
+    }
+
+    .timeline ul li span img {
+        width: 154px;
+        height: 130px;
     }
 
     .copyright-container p {
@@ -5119,6 +5187,11 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     .timeline ul li .popout p {
         font-size: 10px;
         line-height: 20px;
+    }
+
+    .timeline ul li span img {
+        width: 96px;
+        height: 80px;
     }
 
     #top-bar .contact-info, #top-bar .social-links{
