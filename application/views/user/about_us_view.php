@@ -203,7 +203,7 @@
                             <li>
                               <img src="assets/timeline/new/1.png" class="front">
                               <span>
-                                <img src="assets/timeline/new/1-a.png" class="front">
+                                <img src="<?= strlen($timelinelist[0]['timeline_thumbnail']) ? BASE_URI.'uploads/picture/thumb/'.$timelinelist[0]['timeline_thumbnail'] : 'assets/timeline/new/1-a.png' ?>" class="front">
                                 <div class="transparent"></div>
                               </span>
                               <div class="dated"><?php echo htmlspecialchars_decode($timelinelist[0]['timeline_title']); ?>
@@ -221,13 +221,13 @@
                             <?php if(sizeof($timelinelist)-1==$i)  { ?>
                               <img src="assets/timeline/new/5.png" class="front left">
                               <span>
-                                <img src="assets/timeline/new/5-a.png" class="front">
+                                <img src="<?= strlen($timelinelist[$i]['timeline_thumbnail']) ? BASE_URI.'uploads/picture/thumb/'.$timelinelist[$i]['timeline_thumbnail'] : 'assets/timeline/new/5-a.png' ?>" class="front">
                                 <div class="transparent"></div>
                               </span>
                               <?php } else { ?>
                               <img src="assets/timeline/new/2.png" class="front">
                               <span>
-                                <img src="assets/timeline/new/2-a.png" class="front">
+                                <img src="<?= strlen($timelinelist[$i]['timeline_thumbnail']) ? BASE_URI.'uploads/picture/thumb/'.$timelinelist[$i]['timeline_thumbnail'] : 'assets/timeline/new/2-a.png' ?>" class="front">
                                 <div class="transparent"></div>
                               </span>
                               <?php } ?>
@@ -244,13 +244,13 @@
                               <?php if(sizeof($timelinelist)-1==$i+1) {?>
                                 <img src="assets/timeline/new/4.png" class="front right">
                                 <span>
-                                  <img src="assets/timeline/new/4-a.png" class="front">
+                                  <img src="<?= strlen($timelinelist[$i+1]['timeline_thumbnail']) ? BASE_URI.'uploads/picture/thumb/'.$timelinelist[$i+1]['timeline_thumbnail'] : 'assets/timeline/new/4-a.png' ?>" class="front">
                                   <div class="transparent"></div>
                                 </span>
                                 <?php } else { ?>
                               <img src="assets/timeline/new/3.png" class="front">
                               <span>
-                                <img src="assets/timeline/new/3-a.png" class="front">
+                                <img src="<?= strlen($timelinelist[$i+1]['timeline_thumbnail']) ? BASE_URI.'uploads/picture/thumb/'.$timelinelist[$i+1]['timeline_thumbnail'] : 'assets/timeline/new/3-a.png' ?>" class="front">
                                 <div class="transparent"></div>
                               </span>
                               <?php } ?>

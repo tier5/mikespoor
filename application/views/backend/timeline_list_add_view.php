@@ -129,7 +129,10 @@
                     </textarea>
                     <!-- <p class="help-block" style="font-size:12px;"><i> If you want to upload image then click on image tab, a popup will come, there click on upload, browse the image and click <b>"Send it to server"</b>. Next you can see the preview of image, you can change hight and image of the picture. Then Click <b>"OK"</b>. </i></p> -->
                 </div>
-                
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Upload Timeline Image</label>
+                  <input type="file" name="timelineThumbnail" placeholder="Upload an image" value="<?php if(isset($bannerinfo['timeline_thumbnail'])){echo $bannerinfo['timeline_thumbnail'];} ?>" >&nbsp;Image should be any of JPG, PNG file types.
+                </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Order By</label>
                   <input type="text" class="form-control" name="txtOrder" placeholder="Enter Order Number" value="<?php if(isset($bannerinfo['orderBy'])){echo $bannerinfo['orderBy'];} ?>" >

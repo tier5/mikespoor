@@ -86,6 +86,7 @@ class About_us extends CI_Controller {
 				$data['bannerinfo']=$this->timeline_model->getfeatureinfomodel($getid);
 				$data['feature']="Edit";
 				$data['inner_page_banner']=$this->banner_model->get_all_banner();
+				
                 $this->load->view('backend/timeline_list_add_view',$data);
 		}
 
