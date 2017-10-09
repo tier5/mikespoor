@@ -66,7 +66,7 @@
 					exit;
 				}
 			}else{
-				$_SESSION['errormsg']="Try to upload a video of '.mp4' or '.3gp' file format and file size should be maximum 30 MB.";
+				$_SESSION['errormsg']="Try to upload a video of '.mp4' file format and file size should be maximum 30 MB.";
 				header('location:'.BASE_URI.'backend/video_gallery/add');
 				exit;
 			}	

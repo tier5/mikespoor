@@ -25,12 +25,11 @@ class Video_gallery_model extends CI_Model {
 			if($video_type =='2'){
 				
 				if (isset($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '') {
-					
 	            	$photopath2 = pathinfo($_FILES['userfile']['name']);
 			    	$extension2 = $photopath2['extension'];
 	            	$configVideo['upload_path'] = 'uploads/video/';
 	            	$configVideo['max_size'] = '30720';
-	            	$configVideo['allowed_types'] = 'mp4|3gp';
+	            	$configVideo['allowed_types'] = 'mp4';
 	            	$configVideo['overwrite'] = FALSE;
 	            	$configVideo['remove_spaces'] = TRUE;
 	            	$video_name = time();

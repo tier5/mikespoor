@@ -6,7 +6,7 @@ class Pagination
 	var $total_records;
 	var $link;
 	
-	function Pagination($page = null, $size = null, $total_records = null)
+	public function __construct($page = null, $size = null, $total_records = null)
 
 	{
 
@@ -18,7 +18,7 @@ class Pagination
 
 	}
 
-	function setPage($page)
+	public function setPage($page)
 
 	{
 
@@ -26,7 +26,7 @@ class Pagination
 
 	}
 
-	function setSize($size)
+	public function setSize($size)
 
 	{
 
@@ -34,14 +34,14 @@ class Pagination
 
 	}
 
-	function setTotalRecords($total)
+	public function setTotalRecords($total)
 
 	{
 
 		$this->total_records = 0+$total;
 
 	}
-	function setLink($url)
+	public function setLink($url)
 
 	{
 
@@ -49,7 +49,7 @@ class Pagination
 
 	}
 
-	function getLimitSql()
+	public function getLimitSql()
 
 	{
 
@@ -59,7 +59,7 @@ class Pagination
 
 	}
 
-	function getLimit()
+	public function getLimit()
 
 	{
 
@@ -120,7 +120,7 @@ class Pagination
 	}
 
 	
-	function create_links()
+	public function create_links()
 
 	{
 		$totalItems = $this->total_records;
