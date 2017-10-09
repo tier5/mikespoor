@@ -5017,6 +5017,12 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     .copyright-container a{
         font-size: 12px;
     }
+    .newsletter .form-group input[type="email"] {
+        width: 75%;
+    }
+    .newsletter .form-group input[type="submit"] {
+        width: auto;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px){
@@ -5318,9 +5324,9 @@ color: #fff;padding: 10px 5px; width: 20%; cursor: pointer;}
 .social-btns .btn.skype:before {
   background-color: #00aff0;
 }
-.social-btns .btn.skype .fa {
+/*.social-btns .btn.skype .fa {
   color: #00aff0;
-}
+}*/
 .social-btns .btn:focus:before,
 .social-btns .btn:hover:before {
   top: -10%;
@@ -5398,10 +5404,51 @@ background-color: #0063DB;
 background-color: #0274B3;
 }
 
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    .newsletter .form-group input[type="email"] {
+        width: 75%;
+    }
+    .newsletter .form-group input[type="submit"] {
+        width: auto;
+    }
+    .social-btns .btn {
+        width: 30px;
+        height: 30px;
+        line-height: 25px;
+        margin: 5px 10px 25px 0;
+    }
+}
+@media screen and (max-width: 991px){
+    .newsletter .form-group input[type="email"], .newsletter .form-group input[type="submit"]{
+        width: 100%;
+    }
+    .slick-slider.foreground .slick-slide img {
+        max-width: 50%;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .social-btns .btn {
+        width: 28px;
+        height: 28px;
+        line-height: 25px;
+        margin: 5px 5px 20px 0;
+    }
+}
 
-
-
-.
+@media screen and (max-width: 767px){
+    #top-bar .social-links li a{
+        padding-top: 5px !important;
+    }
+    #footer h6 {
+        margin: 10px 0;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 767px){
+    #top-bar .social-links li {
+        width: 30px;
+        height: 30px;
+    }
+}
 
 
 
