@@ -4949,7 +4949,7 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 .slick-slider.background .slick-slide img{
     margin: auto;
     width: 100%;
-    min-height: 400px;
+    max-height: 450px;
     height: 100%;
 }
 
