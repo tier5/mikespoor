@@ -5419,8 +5419,11 @@ background-color: #0274B3;
     }
 }
 @media screen and (max-width: 991px){
-    .newsletter .form-group input[type="email"], .newsletter .form-group input[type="submit"]{
+    .newsletter .form-group input[type="email"]{
         width: 100%;
+    }
+    .newsletter .form-group input[type="submit"]{
+        width: auto;
     }
     .slick-slider.foreground .slick-slide img {
         max-width: 50%;
