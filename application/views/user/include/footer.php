@@ -32,37 +32,16 @@
 
 
                                 <div class="social-btns">
-
-
-                                            <a target="_blank" class="btn facebook" href="<?php echo $companyinfo['facebook_link']; ?>"><i class="fa fa-facebook"></i></a>
-                                            <a target="_blank" class="btn instagram" href="<?php echo $companyinfo['instagram_link']; ?>" class="fa fa-instagram"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                            <a target="_blank" class="btn flickr" href="<?php echo $companyinfo['flicker_link']; ?>" class="fa fa-flickr"> <i class="fa fa-flickr" aria-hidden="true"></i></a>
-
-                                             <a target="_blank" class="btn linkedin" href="<?php echo $companyinfo['linkdin_link']; ?>" class="fa fa-linkedin">
-                                            <i class="fa fa-linkedin" aria-hidden="true"></i></a>
-
-                                            
-
-                                            <a target="_blank" class="btn google" href="<?php echo $companyinfo['youtube_link']; ?>" class="fa fa-google">
-                                            <i class="fa fa-youtube-square" aria-hidden="true"></i>
-
-                                            </a>
-                                            
-                                            <a target="_blank" class="btn skype" href="<?php echo $companyinfo['skype_link']; ?>" class="fa fa-skype">
-                                            <i class="fa fa-skype" aria-hidden="true"></i>
-
-                                            </a>
-                                            
-
-                                            
-
-                                           
-
-
-
-
-
-</div>
+                                    <a target="_blank" class="btn facebook" href="<?php echo $companyinfo['facebook_link']; ?>"><i class="fa fa-facebook"></i></a>
+                                    <a target="_blank" class="btn instagram" href="<?php echo $companyinfo['instagram_link']; ?>" class="fa fa-instagram"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a target="_blank" class="btn flickr" href="<?php echo $companyinfo['flicker_link']; ?>" class="fa fa-flickr"> <i class="fa fa-flickr" aria-hidden="true"></i></a>
+                                     <a target="_blank" class="btn linkedin" href="<?php echo $companyinfo['linkdin_link']; ?>" class="fa fa-linkedin">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                    <a target="_blank" class="btn google" href="<?php echo $companyinfo['youtube_link']; ?>" class="fa fa-google">
+                                    <i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+                                    <a target="_blank" class="btn skype" href="<?php echo $companyinfo['skype_link']; ?>" class="fa fa-skype">
+                                    <i class="fa fa-skype" aria-hidden="true"></i></a>
+                                </div>
 
 
 
@@ -113,7 +92,7 @@
                                             <p style="color:<?php echo $font_color['color']; ?> !important;">
                                                 <!-- <i class="flaticon-telephone66"></i> -->
                                                 <span class="strong">Telephone:</span>
-                                                <?php echo $companyinfo['contact_no2']; ?>
+                                                <strong class="cont-info"><?php echo $companyinfo['contact_no2']; ?></strong>
                                             </p>
                                         </li>
                                         <!-- <li>

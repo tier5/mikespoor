@@ -648,7 +648,24 @@ b{
     display: none;
 }
 
+#portfolioitems li .vjs-big-play-centered .vjs-big-play-button{
+    width: 65px;
+    height: 46px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.6);
+}
 
+#portfolioitems li .vjs-big-play-centered .vjs-big-play-button:hover{
+    background: red;
+}
+
+#portfolioitems li .vjs-big-play-centered .vjs-big-play-button .vjs-icon-placeholder {
+    top: 12%;
+    position: absolute;
+    left: 20%;
+    font-size: 36px;
+}
 
 /* ========================================================================== 
     4.4. HEADER STYLE 3 (grey colored top bar)
@@ -4742,7 +4759,10 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 	font: 15px "UNVR57W",Arial,sans-serif;
 	color: #333;
 }
-
+.cont-info{
+    color: #fff;
+    font-weight: normal;
+}
 /******************** Timeline **************************/
 
 .timeline ul{
@@ -4929,7 +4949,8 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 .slick-slider.background .slick-slide img{
     margin: auto;
     width: 100%;
-    max-height: 400px;
+    min-height: 400px;
+    height: 100%;
 }
 
 .top-banner .slick-slider.foreground{
@@ -5338,16 +5359,8 @@ color: #fff;padding: 10px 5px; width: 20%; cursor: pointer;}
   -webkit-transform: scale(1);
           transform: scale(1);
 }
-.social-btns {
-/*  height: 90px;
-  margin: auto;
-  font-size: 0;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;*/
+#top-bar-wrapper .social-btns {
+    float: right;
 }
 .social-btns .btn {
   display: inline-block;
@@ -5363,6 +5376,9 @@ color: #fff;padding: 10px 5px; width: 20%; cursor: pointer;}
   box-shadow: 0 5px 15px -5px rgba(0,0,0,0.1);
   opacity: 0.99;
   color: #fff;
+}
+#top-bar-wrapper .social-btns .btn {
+    margin-bottom: 5px;
 }
 .social-btns .btn:before {
   content: '';
@@ -5417,6 +5433,10 @@ background-color: #0274B3;
         line-height: 25px;
         margin: 5px 10px 25px 0;
     }
+    .slick-slider.background .slick-slide img {
+        height: 450px;
+        max-height: 100%;
+    }
 }
 @media screen and (max-width: 991px){
     .newsletter .form-group input[type="email"]{
@@ -5436,6 +5456,10 @@ background-color: #0274B3;
         line-height: 25px;
         margin: 5px 5px 20px 0;
     }
+    .slick-slider.background .slick-slide img {
+        height: 300px;
+        max-height: 100%;
+    }
 }
 
 @media screen and (max-width: 767px){
@@ -5444,6 +5468,25 @@ background-color: #0274B3;
     }
     #footer h6 {
         margin: 10px 0;
+    }
+    #top-bar-wrapper .social-btns {
+        width: 100%;
+        text-align: center;
+    }
+    #top-bar-wrapper .social-btns .btn {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+    }
+    #top-bar .contact-info, #top-bar .social-links {
+        width: 100%;
+        max-width: 100%;
+        padding: 5px 0;
+        text-align: center;
+    }
+    .slick-slider.background .slick-slide img {
+        height: 200px;
+        max-height: 100%;
     }
 }
 @media screen and (min-width: 481px) and (max-width: 767px){
