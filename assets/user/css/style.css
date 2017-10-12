@@ -5440,6 +5440,7 @@ background-color: #0274B3;
 @media screen and (max-width: 991px){
     .newsletter .form-group input[type="email"]{
         width: 100%;
+        margin-bottom: 10px;
     }
     .newsletter .form-group input[type="submit"]{
         width: auto;
