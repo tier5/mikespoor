@@ -4759,9 +4759,9 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 	font: 15px "UNVR57W",Arial,sans-serif;
 	color: #333;
 }
-.cont-info{
+.cont-info, a.cont-info:hover{
     color: #fff;
-    font-weight: normal;
+    text-decoration: none;
 }
 /******************** Timeline **************************/
 
@@ -4956,7 +4956,7 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 .top-banner .slick-slider.foreground{
     position: absolute;
     transform: translate(-50%,-50%);
-    z-index: 999;
+    z-index: 99;
     top: 50%;
     left: 30%;
     right: 0;
@@ -4966,7 +4966,7 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
     display: none !important;
 }
 .top-banner .slick-slider .slick-arrow{
-    z-index: 9999;
+    z-index: 999;
 }
 
 .top-banner .slick-slider .slick-arrow.slick-prev{
@@ -5447,6 +5447,13 @@ background-color: #0274B3;
     }
     .slick-slider.foreground .slick-slide img {
         max-width: 35%;
+    }
+    .newsletter .form-group {
+        background: none;
+        border: none;
+    }
+    .newsletter .form-group input[type="submit"] {
+        margin-top: 10px;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 991px){

@@ -92,7 +92,7 @@
                                             <p style="color:<?php echo $font_color['color']; ?> !important;">
                                                 <!-- <i class="flaticon-telephone66"></i> -->
                                                 <span class="strong">Telephone:</span>
-                                                <strong class="cont-info"><?php echo $companyinfo['contact_no2']; ?></strong>
+                                                <a href="tel:01234567890" class="cont-info"><?php echo $companyinfo['contact_no2']; ?></a>
                                             </p>
                                         </li>
                                         <!-- <li>
