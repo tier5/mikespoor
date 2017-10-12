@@ -121,7 +121,7 @@
                                     <div class="form-group" id="upload_videos" style="<?php if(isset($bannerinfo['video_type']) && ($bannerinfo['video_type']=='2')) { echo "display:block";}else{ echo "display:none";}?>">
                                         <label for="exampleInputEmail1" >Video Upload</label>
                                         <input type="file"  name="userfile" id="userfile" >
-                                        <p>Upload mp4 , 3gp file only (Maximum file size should be 30 MB).</p>
+                                        <p>Upload mp4 file only (Maximum file size should be 30 MB).</p>
                                     </div>
                                     <div class="form-group">    
                   <!-- <a class="upload_video"><i class="fa fa-file-video-o " title="Upload Video"></i></a> -->

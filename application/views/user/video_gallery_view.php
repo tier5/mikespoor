@@ -99,12 +99,5 @@
         <!-- .footer-wrapper start -->
          <?php include('include/footer.php'); ?><!-- .footer-wrapper end -->
         <script src="http://vjs.zencdn.net/6.2.7/video.js"></script>
-        <script src="<?= BASE_URI ?>assets/user/js/videojs-flash.min.js"></script>
-        <script>
-            (function(window, videojs) {
-              var player = window.player = videojs('videojs-flash-player');
-              player.flash();
-            }(window, window.videojs));
-        </script>
     </body>
 </html>
