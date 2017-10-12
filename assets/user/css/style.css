@@ -5287,15 +5287,14 @@ footer .flaticon-twitter16:before, footer .flaticon-facebook25:before, footer .f
 
 
 
-.newsletter .form-group{background: #fff; border: 1px solid #ccc;}
-.newsletter .form-group input[type="email"]{ border: none;
-border-radius: none; padding: 10px; width: 79%;}
+/*.newsletter .form-group{background: #fff; border: 1px solid #ccc;}*/
+.newsletter .form-group input[type="email"]{ border-radius: none; padding: 10px; width: 79%; border: 1px solid #ccc; float: left;}
 
 
 
 
 .newsletter .form-group input[type="submit"]{background: #000; border:none;
-color: #fff;padding: 10px 5px; width: 20%; cursor: pointer;}
+color: #fff;padding: 10px 5px; width: 20%; cursor: pointer;    border: 1px solid #ccc;}
 
 .newsletter .form-group input[type="submit"]:focus{background: #B65FC0;s}
 
@@ -5448,10 +5447,10 @@ background-color: #0274B3;
     .slick-slider.foreground .slick-slide img {
         max-width: 35%;
     }
-    .newsletter .form-group {
+    /*.newsletter .form-group {
         background: none;
         border: none;
-    }
+    }*/
     .newsletter .form-group input[type="submit"] {
         margin-top: 10px;
     }
