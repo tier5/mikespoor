@@ -141,22 +141,30 @@
         <script>
             /* <![CDATA[ */
             $(document).ready(function() {
-                $('.Subscriber').click(function(){
-                    var subscriber=$('#subscribe').val();
-                    if(subscriber){
-                        if(validateEmail(subscriber)){
-                            
+                $('.Subscriber').click(function() {
+                    var subscriber = $('#subscribe').val();
+                    if (subscriber.length) {
+                        if (validateEmail(subscriber)) {
                             $.ajax({
                                 url: 'links_news/subscribe',
                                 type: "post",
-                                data:{subscribe:subscriber},
-                                success: function(data){
+                                data: { subscribe: subscriber },
+                                success: function(data) {
+                                    $("#subscribe-msg").css('color', 'green');
+                                    $("#subscribe-msg").show();
                                     $("#subscribe-msg").text(data).delay(10000).fadeOut();
+                                    $("#subscribe").val('');
                                 }
                             });
-                        }else{
-                            $("#subscribe-msg").text('This Is Not A Valied Email!').delay(10000).fadeOut();
+                        } else {
+                            $("#subscribe-msg").css('color', 'red');
+                            $("#subscribe-msg").show();
+                            $("#subscribe-msg").text('This Is Not A Valid Email!').delay(10000).fadeOut();
                         }
+                    } else {
+                        $("#subscribe-msg").css('color', 'red');
+                        $("#subscribe-msg").show();
+                        $("#subscribe-msg").text('Please Enter Your Email To Receive Newsletter!').delay(10000).fadeOut();
                     }
                 });
                 // 'use strict';

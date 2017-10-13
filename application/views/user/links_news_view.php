@@ -31,7 +31,9 @@
                         </div>
                         <article class="grid_4">
                            <div class="triggerAnimation animated" data-animate='fadeInLeft'>
-                            <img src='<?php echo BASE_URI;?>uploads/link_news/<?php echo $link["link_logo"];?>' alt='Link Logo'/>
+                            <?php if (strlen(trim($link["link_logo"]))) { ?>
+                                <img src='<?php echo BASE_URI;?>uploads/link_news/<?php echo $link["link_logo"];?>' alt='Link Logo'/>
+                            <?php } ?>
                         </div>
                         </article>
 
