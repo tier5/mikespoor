@@ -119,7 +119,7 @@
                      <div class="form-group">
                   <label for="exampleInputFile">Image 1</label>
                   <input type="file" id="prfxbtn" name="imgXBanner"><br/>
-                  <img src="<?php if(!empty($bannerinfo['cms_aimage1'])){echo BASE_URI.'uploads/'.$bannerinfo['cms_aimage1'];} ?>" id="xprofile" width="200" height="80"/>
+                  <img src="<?= isset($bannerinfo['cms_aimage1']) && strlen(trim($bannerinfo['cms_aimage1'])) ? BASE_URI.'uploads/'.$bannerinfo['cms_aimage1'] : BASE_URI.'assets/images/puzzle_top_left.png' ?>" id="xprofile" width="200" height="80"/>
                   <p class="help-block" style="font-size:12px;"><i>Prefferable Image Size 248 X 216 px.</i></p>
                   <input type="text" name="first_title" class="form-control" placeholder="Enter First Picture Title" value="<?php echo $abouttitle['cms_aimage1'];?>" required><br>
                   <input type="text" name="first_content" class="form-control" placeholder="Enter First Picture Content" value="<?php echo $aboutcontent['cms_aimage1'];?>" required ><br>
@@ -131,7 +131,7 @@
                   <div class="form-group">
                   <label for="exampleInputFile">Image 2</label>
                   <input type="file" id="prfybtn" name="imgYBanner"><br/>
-                  <img src="<?php if(!empty($bannerinfo['cms_aimage2'])){echo BASE_URI.'uploads/'.$bannerinfo['cms_aimage2'];} ?>" id="yprofile" width="200" height="80"/>
+                  <img src="<?= isset($bannerinfo['cms_aimage2']) && strlen(trim($bannerinfo['cms_aimage2'])) ? BASE_URI.'uploads/'.$bannerinfo['cms_aimage2'] : BASE_URI.'assets/images/puzzle_top_right.png' ?>" id="yprofile" width="200" height="80"/>
                   <p class="help-block" style="font-size:12px;"><i>Prefferable Image Size 248 X 216 px.</i></p>
                   <input type="text" name="second_title" class="form-control" placeholder="Enter Second Picture Title" required value="<?php echo $abouttitle['cms_aimage2'];?>"><br>
                   <input type="text" name="second_content" class="form-control" placeholder="Enter Second Picture Content" value="<?php echo $aboutcontent['cms_aimage2'];?>" required ><br>
@@ -146,7 +146,7 @@
                      <div class="form-group">
                   <label for="exampleInputFile">Image 3</label>
                   <input type="file" id="prfzbtn" name="imgZBanner"><br/>
-                  <img src="<?php if(!empty($bannerinfo['cms_aimage3'])){echo BASE_URI.'uploads/'.$bannerinfo['cms_aimage3'];} ?>" id="zprofile" width="200" height="80"/>
+                  <img src="<?= isset($bannerinfo['cms_aimage3']) && strlen(trim($bannerinfo['cms_aimage3'])) ? BASE_URI.'uploads/'.$bannerinfo['cms_aimage3'] : BASE_URI.'assets/images/puzzle_bottom_left.png' ?>" id="zprofile" width="200" height="80"/>
                    <p class="help-block" style="font-size:12px;"><i>Prefferable Image Size 248 X 216 px.</i></p>
                    <input type="text" name="third_title" class="form-control" placeholder="Enter Third Picture Title" required value="<?php echo $abouttitle['cms_aimage3'];?>"><br>
                   <input type="text" name="third_content" class="form-control" placeholder="Enter Third Picture Content" required value="<?php echo $aboutcontent['cms_aimage3'];?>"><br>
@@ -158,7 +158,7 @@
                   <div class="form-group">
                   <label for="exampleInputFile">Image 4</label>
                   <input type="file" id="prfwbtn" name="imgWBanner"><br/>
-                  <img src="<?php if(!empty($bannerinfo['cms_aimage4'])){echo BASE_URI.'uploads/'.$bannerinfo['cms_aimage4'];} ?>" id="wprofile" width="200" height="80"/>
+                  <img src="<?= isset($bannerinfo['cms_aimage4']) && strlen(trim($bannerinfo['cms_aimage4'])) ? BASE_URI.'uploads/'.$bannerinfo['cms_aimage4'] : BASE_URI.'assets/images/puzzle_bottom_right.png' ?>" id="wprofile" width="200" height="80"/>
                   <p class="help-block" style="font-size:12px;"><i>Prefferable Image Size 248 X 216 px.</i></p>
                    <input type="text" name="fourth_title" class="form-control" placeholder="Enter Fourth Picture Title" required value="<?php echo $abouttitle['cms_aimage4'];?>"><br>
                   <input type="text" name="fourth_content" class="form-control" placeholder="Enter Fourth Picture Content" value="<?php echo $aboutcontent['cms_aimage4'];?>" required ><br>

@@ -234,14 +234,11 @@
                             <ul class="services-overview">
                             <?php foreach ($offer_list as $offer ) { ?>
                                 <li>
-                                    <?php if(isset($offer['home_offer_logo'] ))
-                                    { 
-                                        if($offer['home_offer_logo']!=""){?>
-                                      <img class="triggerAnimation animated" src="uploads/home_page/offer/<?php echo $offer['home_offer_logo'];?>" alt="ceo" data-animate="fadeInLeft"/>
-                                    <?php } else{ ?>
-                                     <img class="triggerAnimation animated"  alt="ceo" data-animate="fadeInLeft"/>
-
-                                    <?php } }?>
+                                    <?php if (isset($offer['home_offer_logo']) && strlen(trim($offer['home_offer_logo']))) { ?>
+                                        <img class="triggerAnimation animated" src="uploads/home_page/offer/<?= $offer['home_offer_logo'] ?>" alt="ceo" data-animate="fadeInLeft"/>
+                                    <?php } else { ?>
+                                        <img class="triggerAnimation animated" alt="ceo" data-animate="fadeInLeft"/>
+                                    <?php } ?>
                                     <div class="overview-txt">
                                         <h5><?php echo $offer['home_offer_title']; ?> </h5>
                                         <?php echo htmlspecialchars_decode($offer['home_offer_content']); ?>
@@ -273,7 +270,7 @@
         </section><!-- .page-content end -->
 
         <!-- .page-content.parallax start -->
-        <section class="page-content parallax parallax-2" style="background: url(<?php echo BASE_URI;?>uploads/home_page/home_background/<?php echo $current_info_banner['background_image']; ?> );
+        <section class="page-content parallax parallax-2" <?php if (isset($current_info_banner['background_image']) && strlen(trim($current_info_banner['background_image']))) { ?> style="background: url(<?php echo BASE_URI;?>uploads/home_page/home_background/<?php echo $current_info_banner['background_image']; ?> <?php } ?> );
     background-size: cover;">
             <!-- .container start -->
             <div class="container">
@@ -295,7 +292,7 @@
                         <div class="triggerAnimation animated" data-animate="fadeInLeft">
                             <section class="process-box">
                                 <div class="img-container">
-                                    <img src="<?php echo BASE_URI.'uploads/home_page/current_info/'.$info['current_info_logo']; ?>" alt="creative thinking"/>
+                                    <img src="<?= isset($info['current_info_logo']) && strlen(trim($info['current_info_logo'])) ? BASE_URI.'uploads/home_page/current_info/'.$info['current_info_logo'] : BASE_URI."assets/images/no-image.png" ?>" alt="creative thinking"/>
                                 </div>
 
                                 <h5><?php echo htmlspecialchars_decode($info['current_info_title']); ?> </h5>
@@ -443,7 +440,7 @@
 
                                     <div class="testimonial-author clearfix">
                                         <div class="testimonial-image-container">
-                                            <img src="<?php echo BASE_URI.'uploads/'.$reviewlistdata['review_image']; ?>" alt="testimonial image"/>
+                                            <img src="<?= isset($reviewlistdata['review_image']) && strlen(trim($reviewlistdata['review_image'])) ? BASE_URI.'uploads/'.$reviewlistdata['review_image'] : BASE_URI."assets/images/no-image.png" ?>" alt="testimonial image"/>
                                         </div>
 
                                         <h6 class="testimonial-author-name"><?php echo $reviewlistdata['review_user']; ?>,</h6>

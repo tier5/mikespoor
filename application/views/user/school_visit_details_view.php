@@ -22,7 +22,9 @@
                         <li class="blog-post format-standard">
                             <div class="post-media-container">
                                 <a href="blogsingle.html">
-                                    <img src="<?php echo BASE_URI.'uploads/'.$bloginfo['gschool_visit_blog_image']; ?>" alt="standard blog post with image" />
+                                    <?php if (isset($bloginfo['gschool_visit_blog_image']) && strlen(trim($bloginfo['gschool_visit_blog_image']))) { ?>
+                                        <img src="<?php echo BASE_URI.'uploads/'.$bloginfo['gschool_visit_blog_image']; ?>" alt="standard blog post with image" />
+                                    <?php } ?>
                                 </a>
 <?php
 	 $df=$companyinfo['date_format'];

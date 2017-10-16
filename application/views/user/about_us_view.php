@@ -112,7 +112,7 @@
                           <ul class="team-alternative row">
 
                               <li class="team-member ">
-                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage1']; ?>" alt="team member image" height="220" width="285"/>
+                                  <img src="<?= isset($aboutinfo['cms_aimage1']) && strlen(trim($aboutinfo['cms_aimage1'])) ? BASE_URI.'uploads/'.$aboutinfo['cms_aimage1'] : BASE_URI.'assets/images/puzzle_top_left.png' ?>" alt="team member image" height="220" width="285"/>
                                   <div class="team-member-hover">
                                         <div class="mask"></div>
 
@@ -124,7 +124,7 @@
                                   </div>
                               </li>
                               <li class="team-member">
-                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage2']; ?>" alt="team member image" height="220" width="285"/>
+                                  <img src="<?= isset($aboutinfo['cms_aimage2']) && strlen(trim($aboutinfo['cms_aimage2'])) ? BASE_URI.'uploads/'.$aboutinfo['cms_aimage2'] : BASE_URI.'assets/images/puzzle_top_right.png' ?>" alt="team member image" height="220" width="285"/>
                                   <div class="team-member-hover">
                                         <div class="mask"></div>
 
@@ -137,7 +137,7 @@
                               </li>
 
                               <li class="team-member">
-                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage3']; ?>" alt="team member image" height="220" width="285"/>
+                                  <img src="<?= isset($aboutinfo['cms_aimage3']) && strlen(trim($aboutinfo['cms_aimage3'])) ? BASE_URI.'uploads/'.$aboutinfo['cms_aimage3'] : BASE_URI.'assets/images/puzzle_bottom_left.png' ?>" alt="team member image" height="220" width="285"/>
                                   <div class="team-member-hover">
                                         <div class="mask"></div>
 
@@ -149,7 +149,7 @@
                                   </div>
                               </li>
                               <li class="team-member">
-                                  <img src="<?php echo BASE_URI.'uploads/'.$aboutinfo['cms_aimage4']; ?>" alt="team member image" height="220" width="285"/>
+                                  <img src="<?= isset($aboutinfo['cms_aimage4']) && strlen(trim($aboutinfo['cms_aimage4'])) ? BASE_URI.'uploads/'.$aboutinfo['cms_aimage4'] : BASE_URI.'assets/images/puzzle_bottom_right.png' ?>" alt="team member image" height="220" width="285"/>
                                   <div class="team-member-hover">
                                         <div class="mask"></div>
 

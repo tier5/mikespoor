@@ -120,7 +120,7 @@
                 <div class="form-group">
                   <label for="exampleInputFile">Image</label>
                   <input type="file" id="prfbtn" name="imgBanner"><br/>
-                  <img src="<?php if(isset($bannerinfo['review_image'])){echo BASE_URI.'uploads/'.$bannerinfo['review_image'];} ?>" id="profile" width="100" height="80"/>
+                  <img src="<?php if(isset($bannerinfo['review_image']) && strlen(trim($bannerinfo['review_image']))){echo BASE_URI.'uploads/'.$bannerinfo['review_image'];} else { echo BASE_URI."assets/images/no-image.png"; } ?>" id="profile" width="100" height="100"/>
                   <p class="help-block" style="font-size:12px;"><i>Image should be of size 100 X 100 px.</i></p>
                 </div>
                 <div class="form-group">

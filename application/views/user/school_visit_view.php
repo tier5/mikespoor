@@ -58,7 +58,9 @@
                         <li class="blog-post format-standard">
                             <div class="post-media-container">
                                 <a href="<?php echo BASE_URI.'school-visit/details/'.$gallerylistdata['gschool_visit_blog_slug']; ?>">
-                                    <img src="<?php echo BASE_URI.'uploads/'.$gallerylistdata['gschool_visit_blog_image']; ?>" alt="standard blog post with image" />
+                                    <?php if (isset($gallerylistdata['gschool_visit_blog_image']) && strlen(trim($gallerylistdata['gschool_visit_blog_image']))) { ?>
+                                        <img src="<?php echo BASE_URI.'uploads/'.$gallerylistdata['gschool_visit_blog_image']; ?>" alt="standard blog post with image" />
+                                    <?php } ?>
                                 </a>
 
                                 <div class="post-media-hover">
