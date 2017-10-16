@@ -35,6 +35,27 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="assets/admin/dist/css/skins/_all-skins.min.css">
+        <link href="http://vjs.zencdn.net/6.2.7/video-js.css" rel="stylesheet">
+        <style>
+            .form-group .vjs-big-play-centered .vjs-big-play-button{
+                width: 65px;
+                height: 46px;
+                border: none;
+                border-radius: 12px;
+                background: rgba(0, 0, 0, 0.6);
+            }
+
+            .form-group .vjs-big-play-centered .vjs-big-play-button:hover{
+                background: red;
+            }
+
+            .form-group .vjs-big-play-centered .vjs-big-play-button .vjs-icon-placeholder{
+                top: 0;
+                position: absolute;
+                left: 20%;
+                font-size: 36px;
+            }
+        </style>
         <style type="text/css">
          .fa-file-video-o {
           font-size: 50px;
@@ -142,11 +163,14 @@
                     <?php 
                     $ext=substr($bannerinfo['gvideo_url'], strrpos($bannerinfo['gvideo_url'], '.') + 1);
                     ?>
-                    <video width="320" height="240" controls>
+                    <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="240" data-setup="" style="width: 360px">
                       <source src="<?php echo BASE_URI?>uploads/video/<?php echo $bannerinfo['gvideo_url'];?>" type="video/<?php echo $ext; ?>">
-                  
+                      <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                      </p>
                     </video>
-                        
+                      <input type="hidden" name="prevvideo" value="<?php echo BASE_URI?>uploads/video/<?php echo $bannerinfo['gvideo_url'];?>" /> 
                        
                  
                 <?php } ?>
@@ -326,5 +350,6 @@
     $(".select2").select2();
   });
   </script>
+  <script src="http://vjs.zencdn.net/6.2.7/video.js"></script>
 </body>
 </html>

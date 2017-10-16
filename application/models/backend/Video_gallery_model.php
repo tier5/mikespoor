@@ -140,29 +140,29 @@ class Video_gallery_model extends CI_Model {
 
 			$video_type=$this->input->post('video_type');
 
-			if($video_type =='2'){
-				
-				if (isset($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '') {
-					
-	            	$photopath2 = pathinfo($_FILES['userfile']['name']);
-			    	$extension2 = $photopath2['extension'];
-	            	$configVideo['upload_path'] = 'uploads/video/';
-	            	$configVideo['max_size'] = '102400000';
-	            	$configVideo['allowed_types'] = 'mp4|3gp';
-	            	$configVideo['overwrite'] = FALSE;
-	            	$configVideo['remove_spaces'] = TRUE;
-	            	$video_name = time();
-	            	$configVideo['file_name'] = $video_name.".".$extension2;
-	            	$this->load->library('upload', $configVideo);
-	            	$this->upload->initialize($configVideo);
-	            	if (!$this->upload->do_upload('userfile')) {
-	            		return false;
-	            	} else {
-	                	$data['gvideo_url']=$configVideo['file_name'];
-	                }
+            if($video_type =='2'){
+                
+                if (isset($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '') {
+                    
+                    $photopath2 = pathinfo($_FILES['userfile']['name']);
+                    $extension2 = $photopath2['extension'];
+                    $configVideo['upload_path'] = 'uploads/video/';
+                    $configVideo['max_size'] = '30720';
+                    $configVideo['allowed_types'] = 'mp4';
+                    $configVideo['overwrite'] = FALSE;
+                    $configVideo['remove_spaces'] = TRUE;
+                    $video_name = time();
+                    $configVideo['file_name'] = $video_name.".".$extension2;
+                    $this->load->library('upload', $configVideo);
+                    $this->upload->initialize($configVideo);
+                    if (!$this->upload->do_upload('userfile')) {
+                        return false;
+                    } else {
+                        $data['gvideo_url']=$configVideo['file_name'];
+                    }
                 }else{
-                	$data['gvideo_url']=trim($this->input->post('prevvideo'));
-                	if(!$data['gvideo_url']){
+                    $data['gvideo_url']=preg_replace(json_encode(BASE_URI.'uploads/video/'), null, trim($this->input->post('prevvideo')));
+                    if(!$data['gvideo_url']){
                 		return false;
                 	}
                 }
@@ -176,14 +176,15 @@ class Video_gallery_model extends CI_Model {
 		    	return false;
 		    }
 
-			$data['gvideo_title']=trim($_POST['txtTitle']);
-			$data['gvideo_slug']=$slugvalue;
-			$data['video_type']=$video_type;
-			$data['gvideo_content'] = htmlspecialchars($_POST['editor1']);
-			$data['addedBy'] = $_SESSION['usersession'];
-			$data['updatedOn'] = $entdate;
+            $data['gvideo_title']=trim($_POST['txtTitle']);
+            $data['gvideo_slug']=$slugvalue;
+            $data['video_type']=$video_type;
+            $data['gvideo_content'] = htmlspecialchars($_POST['editor1']);
+            $data['addedBy'] = $_SESSION['usersession'];
+            $data['updatedOn'] = $entdate;
             $this->db->where('gvideo_id', $_POST['txtCid']);
             $query=$this->db->update('lm_video_gallery', $data);
+
 			if($query){
 				return true;
 			}else{
