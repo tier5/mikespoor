@@ -1,4 +1,4 @@
-<?php if($current_page=='about-us'  || $current_page=='school-visit'  || $current_page=='links-news' || check_page('school-visit/page') >0 || check_page('school-visit/category') >0 || check_page('video-gallery/page') >0 ) {?>
+<?php if($current_page=='about-us'  || $current_page=='school-visit'  || $current_page=='links-news' || check_page('school-visit/page') >0 || check_page('school-visit/category') >0) {?>
     <section class="video-banner">
         <div class="container-fluid">
             <div class="row">
@@ -88,7 +88,7 @@
             </div>
         </div>
     </section>
-<?php } else if($current_page=='video-gallery' ){ ?>
+<?php } else if($current_page=='video-gallery' || check_page('video-gallery/page') >0){ ?>
     <section class="video-banner">
         <div class="container-fluid">
             <div class="row">
@@ -105,8 +105,12 @@
                     </div>
                     <?php } else{ 
                         $ext=substr($banner[0]['banner_image'], strrpos($banner[0]['banner_image'], '.') + 1);?>
-                        <video width="100%" height="280"  controls>
+                        <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="280" data-setup="" style="width:100%">
                             <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[0]['banner_image'];?>" type="video/<?php echo $ext; ?>">
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                            </p>
                         </video>
                     <?php } ?>
 
@@ -121,8 +125,12 @@
                     </div>
                     <?php } else{ 
                         $ext=substr($banner[1]['banner_image'], strrpos($banner[1]['banner_image'], '.') + 1); ?>
-                        <video width="100%" height="280"  controls>
+                        <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="280" data-setup="" style="width:100%">
                             <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[1]['banner_image'];?>" type="video/<?php echo $ext; ?>">
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                            </p>
                         </video>
                     <?php } ?>
                 </div> 
@@ -138,9 +146,13 @@
                      <?php } else{ 
                          $ext=substr($focus_banner['banner_image'], strrpos($focus_banner['banner_image'], '.') + 1);
                         ?>
-                             <video  width="100%" height="100%"  controls>
+                            <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="560" data-setup="" style="width:100%">
                                 <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $focus_banner['banner_image'];?>" type="video/<?php echo $ext; ?>">
-                             </video>
+                                <p class="vjs-no-js">
+                                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                                </p>
+                            </video>
 
                      <?php } ?>
                 </div> 
@@ -157,8 +169,12 @@
                         </div>
                         <?php } else{ 
                             $ext=substr($banner[2]['banner_image'], strrpos($banner[2]['banner_image'], '.') + 1); ?>
-                            <video width="100%" height="280"  controls>
+                            <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="280" data-setup="" style="width:100%">
                                 <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[2]['banner_image'];?>" type="video/<?php echo $ext; ?>">
+                                <p class="vjs-no-js">
+                                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                                </p>
                             </video>
                         <?php } ?>
                         <?php if($banner[3]['banner_type']=='2'){ ?>
@@ -172,8 +188,12 @@
                         </div>
                         <?php } else { 
                             $ext=substr($banner[3]['banner_image'], strrpos($banner[3]['banner_image'], '.') + 1);?>
-                            <video width="100%" height="280"  controls>
+                            <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="280" data-setup="" style="width:100%">
                                 <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[3]['banner_image'];?>" type="video/<?php echo $ext; ?>">
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                            </p>
                             </video>
                         <?php } ?>
                      </div>

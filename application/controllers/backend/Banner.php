@@ -174,8 +174,8 @@
 	                );
 	                $con['banner_id']=$_POST['first_id'];
 	                $query=$this->banner_model->update('lm_banner', $con,$data);
-						if(!$query){
-							$_SESSION['errormsg']='Seems to be some problem. Try Again';
+                    	if(!$query){
+							$_SESSION['errormsg']='Seems to be some problem. Try Again!';
 							header('location:'.BASE_URI.'backend/banner/type/'.$_POST['txtCid']);
 							exit;
 						}
@@ -313,7 +313,7 @@
                 
 				    $config1['upload_path'] ='uploads/banner/';
 				    $config1['max_size'] = '30720';
-					$config1['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
+					$config1['allowed_types'] = 'mp4'; # add video extenstion on here
 					$config1['overwrite'] = FALSE;
 					$config1['remove_spaces'] = TRUE;
                     $video_name =time()."_1";
@@ -360,7 +360,7 @@
 
 				    $config2['upload_path'] ='uploads/banner/';
 				    $config2['max_size'] = '30720';
-					$config2['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
+					$config2['allowed_types'] = 'mp4'; # add video extenstion on here
 					$config2['overwrite'] = FALSE;
 					$config2['remove_spaces'] = TRUE;
                     $video_name2 =time()."_2";
@@ -406,7 +406,7 @@
 
 				    $config3['upload_path'] ='uploads/banner/';
 				    $config3['max_size'] = '30720';
-					$config3['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
+					$config3['allowed_types'] = 'mp4'; # add video extenstion on here
 					$config3['overwrite'] = FALSE;
 					$config3['remove_spaces'] = TRUE;
                     $video_name3 =time()."_3";
@@ -453,7 +453,7 @@
 
 					    $config4['upload_path'] ='uploads/banner/';
 					    $config4['max_size'] = '30720';
-						$config4['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
+						$config4['allowed_types'] = 'mp4'; # add video extenstion on here
 						$config4['overwrite'] = FALSE;
 						$config4['remove_spaces'] = TRUE;
                         $video_name4 =time()."_4";
@@ -500,7 +500,7 @@
 
 					    $config5['upload_path'] ='uploads/banner/';
 					    $config5['max_size'] = '30720';
-						$config5['allowed_types'] = 'jpeg|jpg|png'; # add video extenstion on here
+						$config5['allowed_types'] = 'mp4'; # add video extenstion on here
 						$config5['overwrite'] = FALSE;
 						$config5['remove_spaces'] = TRUE;
                         $video_name5 =time()."_5";

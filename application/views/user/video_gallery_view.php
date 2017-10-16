@@ -42,13 +42,13 @@
 
                                     <?php if(isset($gallerylistdata['gvideo_url']) && ($gallerylistdata['video_type']=='2') ){ ?>
                                         <?php  $ext=substr($gallerylistdata['gvideo_url'], strrpos($gallerylistdata['gvideo_url'], '.') + 1);?>
-                                        <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="260" data-setup='{"techOrder": ["flash", "html5"]}' style="width: 100%">
+                                        <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="260" data-setup="" style="width: 100%">
                                             <source src="<?= BASE_URI ?>uploads/video/<?= $gallerylistdata['gvideo_url'];?>" type='video/<?php echo $ext; ?>'>
                                             <p class="vjs-no-js">
                                               To view this video please enable JavaScript, and consider upgrading to a web browser that
                                               <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                                             </p>
-                                          </video>
+                                        </video>
 
                                     <?php } ?>
                                 </div>

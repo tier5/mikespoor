@@ -649,7 +649,7 @@ b{
     display: none;
 }
 
-#portfolioitems li .vjs-big-play-centered .vjs-big-play-button{
+#portfolioitems li .vjs-big-play-centered .vjs-big-play-button,  .video-banner .vjs-big-play-centered .vjs-big-play-button{
     width: 65px;
     height: 46px;
     border: none;
@@ -657,11 +657,11 @@ b{
     background: rgba(0, 0, 0, 0.6);
 }
 
-#portfolioitems li .vjs-big-play-centered .vjs-big-play-button:hover{
+#portfolioitems li .vjs-big-play-centered .vjs-big-play-button:hover, .video-banner .vjs-big-play-centered .vjs-big-play-button:hover{
     background: red;
 }
 
-#portfolioitems li .vjs-big-play-centered .vjs-big-play-button .vjs-icon-placeholder {
+#portfolioitems li .vjs-big-play-centered .vjs-big-play-button .vjs-icon-placeholder, .video-banner .vjs-big-play-centered .vjs-big-play-button .vjs-icon-placeholder{
     top: 12%;
     position: absolute;
     left: 20%;
