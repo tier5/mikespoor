@@ -183,7 +183,7 @@
     </section>
 <?php }else { ?>
 <?php if((isset($banner['banner_type']) && ($banner['banner_type']=='1') && (isset($banner['banner_image'])))){  ?>
-    <section id="page-title" class="page-title-1" style="background: url('<?php echo BASE_URI;?>/uploads/banner/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
+    <section id="page-title" class="page-title-1" style="background: url('<?php echo BASE_URI;?>assets/images/banner/thumb/<?php echo $banner['banner_image'];?>') center center; background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="grid_12">
