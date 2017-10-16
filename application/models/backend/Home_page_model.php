@@ -120,7 +120,7 @@ class Home_page_model extends CI_Model {
 	           }
 			   
 			    $data = array(
-                    'banner_title' => trim(addslashes($_POST['txtTitle'])),
+                    'banner_title' => trim($_POST['txtTitle']),
                     'banner_image' => $gallery_pdf1,
 					'banner_front_image' => $gallery_pdf2,
 					'banner_comment' => "No",
@@ -153,7 +153,7 @@ class Home_page_model extends CI_Model {
 	$entdate = date('Y-m-d H:i:s');
 			
 			    $data = array(
-                    'feat_title' => trim(addslashes($_POST['txtTitle'])),
+                    'feat_title' => trim($_POST['txtTitle']),
 					'feat_content' => htmlspecialchars($_POST['editor1']),
                     'addedBy' => $_SESSION['usersession'],
 					'status' => '1',
@@ -345,10 +345,10 @@ class Home_page_model extends CI_Model {
 			  
 			 
 			$data = array(
-             'banner_title' => trim(addslashes($_POST['txtTitle'])),
+             'banner_title' => trim($_POST['txtTitle']),
                     'banner_image' => $gallery_pdf1,
 					'banner_front_image' => $gallery_pdf2,
-					//'banner_comment' => addslashes($_POST['editor1']),
+					//'banner_comment' => $_POST['editor1'],
 					//'banner_comment_shape'=>$_POST['bble_shape'],
                     'addedBy' => $_SESSION['usersession'],
 					'updatedOn' => $entdate
@@ -372,7 +372,7 @@ class Home_page_model extends CI_Model {
 	$entdate = date('Y-m-d H:i:s');
 			
 			$data = array(
-                    'feat_title' => trim(addslashes($_POST['txtTitle'])),
+                    'feat_title' => trim($_POST['txtTitle']),
 					'feat_content' => htmlspecialchars($_POST['editor1']),
                     'addedBy' => $_SESSION['usersession'],
 					'updatedOn' => $entdate
@@ -500,28 +500,28 @@ class Home_page_model extends CI_Model {
 			
 			 
 			$data = array(
-                    'home_title' => trim(addslashes($_POST['txtTitle'])),
-					'home_offer1_title' => trim(addslashes($_POST['txtOt1'])),
+                    'home_title' => trim($_POST['txtTitle']),
+					'home_offer1_title' => trim($_POST['txtOt1']),
 					'home_offer1_content' => htmlspecialchars($_POST['txtOc1']),
-					'home_offer2_title' => trim(addslashes($_POST['txtOt2'])),
+					'home_offer2_title' => trim($_POST['txtOt2']),
 					'home_offer2_content' => htmlspecialchars($_POST['txtOc2']),
-					'home_offer3_title' => trim(addslashes($_POST['txtOt3'])),
+					'home_offer3_title' => trim($_POST['txtOt3']),
 					'home_offer3_content' => htmlspecialchars($_POST['txtOc3']),
-					'home_stat1_title' => trim(addslashes($_POST['txtSt1'])),
-					'home_stat1_content' => trim(addslashes($_POST['txtSc1'])),
-					'home_stat2_title' => trim(addslashes($_POST['txtSt2'])),
-					'home_stat2_content' => trim(addslashes($_POST['txtSc2'])),
-					'home_stat3_title' => trim(addslashes($_POST['txtSt3'])),
-					'home_stat3_content' => trim(addslashes($_POST['txtSc3'])),
-					'home_stat4_title' => trim(addslashes($_POST['txtSt4'])),
-					'home_stat4_content' => trim(addslashes($_POST['txtSc4'])),
-					'home_sec1_title' => trim(addslashes($_POST['txtXt1'])),
+					'home_stat1_title' => trim($_POST['txtSt1']),
+					'home_stat1_content' => trim($_POST['txtSc1']),
+					'home_stat2_title' => trim($_POST['txtSt2']),
+					'home_stat2_content' => trim($_POST['txtSc2']),
+					'home_stat3_title' => trim($_POST['txtSt3']),
+					'home_stat3_content' => trim($_POST['txtSc3']),
+					'home_stat4_title' => trim($_POST['txtSt4']),
+					'home_stat4_content' => trim($_POST['txtSc4']),
+					'home_sec1_title' => trim($_POST['txtXt1']),
 					'home_sec1_content' => htmlspecialchars($_POST['txtXc1']),
-					'home_sec2_title' => trim(addslashes($_POST['txtYt2'])),
+					'home_sec2_title' => trim($_POST['txtYt2']),
 					'home_sec2_content' => htmlspecialchars($_POST['txtYc2']),
-					'home_sec3_title' => trim(addslashes($_POST['txtZt3'])),
+					'home_sec3_title' => trim($_POST['txtZt3']),
 					'home_sec3_content' => htmlspecialchars($_POST['txtZc3']),
-					'home_fsec_title' => trim(addslashes($_POST['txtLTitle'])),
+					'home_fsec_title' => trim($_POST['txtLTitle']),
 					'home_fsec_content' => htmlspecialchars($_POST['txtLContent']),
 					'addedBy' => $_SESSION['usersession'],
 					'addedOn' => $entdate,

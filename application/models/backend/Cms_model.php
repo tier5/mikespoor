@@ -40,7 +40,7 @@ class Cms_model extends CI_Model {
 			  
 			 
 			$data = array(
-                    'cms_title' => trim(addslashes($_POST['txtTitle'])),
+                    'cms_title' => trim($_POST['txtTitle']),
                     'cms_image' => $gallery_pdf1,
 					'cms_content' => htmlspecialchars($_POST['editor1']),
 					'updatedOn' => $entdate
@@ -132,7 +132,7 @@ class Cms_model extends CI_Model {
 	        }
 			 
 			$data = array(
-                    'cms_title' => trim(addslashes($_POST['txtTitle'])),
+                    'cms_title' => trim($_POST['txtTitle']),
                     'cms_aimage1' => $gallery_pdf1,
 					'cms_aimage2' => $gallery_pdf2,
 					'cms_aimage3' => $gallery_pdf3,
@@ -140,7 +140,7 @@ class Cms_model extends CI_Model {
 					'cms_pdf' => $gallery_pdf5,
 					'cms_choice' => $_POST['txtType'],
 					'cms_content' => htmlspecialchars($_POST['editor1']),
-					'cms_ftitle' => trim(addslashes($_POST['txtFTitle'])),
+					'cms_ftitle' => trim($_POST['txtFTitle']),
 					'cms_fcontent' => htmlspecialchars($_POST['feditor1']),
 					'updatedOn' => $entdate
             );
@@ -214,7 +214,7 @@ class Cms_model extends CI_Model {
 			
 			 
 			$data = array(
-                    'cms_title' => trim(addslashes($_POST['txtTitle'])),
+                    'cms_title' => trim($_POST['txtTitle']),
 					'cms_content' => htmlspecialchars($_POST['editor1']),
 					'updatedOn' => $entdate
              );

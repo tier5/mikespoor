@@ -30,14 +30,14 @@ class Package_model extends CI_Model {
 		          move_uploaded_file($source2,$destination2);
 	           }
 			    $data = array(
-                    'package_title' => trim(addslashes($_POST['txtName'])),
+                    'package_title' => trim($_POST['txtName']),
 					'package_slug' => $slugvalue,
 					'package_image' => $destination_pdf1,
-					'package_default' => trim(addslashes($_POST['txtDPrice'])),
-					'meta_title' => trim(addslashes($_POST['txtMTitle'])),
+					'package_default' => trim($_POST['txtDPrice']),
+					'meta_title' => trim($_POST['txtMTitle']),
 					'destination_id' => $_POST['selCategory'],
-					'meta_keyword' => trim(addslashes($_POST['txtMKeyword'])),
-					'meta_description' => trim(addslashes($_POST['txtMDesc'])),
+					'meta_keyword' => trim($_POST['txtMKeyword']),
+					'meta_description' => trim($_POST['txtMDesc']),
                     'package_content' => htmlspecialchars($_POST['editor1']),
                     'addedBy' => $_SESSION['usersession'],
 					'status' => '1',
@@ -53,7 +53,7 @@ class Package_model extends CI_Model {
 					{
                    $incdata = array(
                     'package_id' => $insertId,
-					'pi_term' => trim(addslashes($includedata)),
+					'pi_term' => trim($includedata),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -67,7 +67,7 @@ class Package_model extends CI_Model {
 					{
                    $indata = array(
                     'package_id' => $insertId,
-					'pt_term' => trim(addslashes($termdata)),
+					'pt_term' => trim($termdata),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -80,7 +80,7 @@ class Package_model extends CI_Model {
 					{
                    $cncdata = array(
                     'package_id' => $insertId,
-					'pc_policy' => trim(addslashes($canceldata)),
+					'pc_policy' => trim($canceldata),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -96,8 +96,8 @@ class Package_model extends CI_Model {
 					{
                    $pricedata = array(
                     'package_id' => $insertId,
-					'pp_title' => trim(addslashes($pricenamearr[$k])),
-					'pp_price' => trim(addslashes($pricevaluearr[$k])),
+					'pp_title' => trim($pricenamearr[$k]),
+					'pp_price' => trim($pricevaluearr[$k]),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -122,7 +122,7 @@ class Package_model extends CI_Model {
             move_uploaded_file($_FILES['file']['tmp_name'][$i], $target_path);
 			 $imgdata = array(
                     'package_id' => $insertId,
-					'pi_image' => trim(addslashes($target_path)),
+					'pi_image' => trim($target_path),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -158,7 +158,7 @@ class Package_model extends CI_Model {
 	           }
 			  
 			    $data = array(
-                    'plan_title' => trim(addslashes($_POST['txtTitle'])),
+                    'plan_title' => trim($_POST['txtTitle']),
                     'plan_image' => $destination_pdf1,
 					'package_id' => $_POST['txtPid'],
 					'plan_description' => htmlspecialchars($_POST['editor1']),
@@ -183,18 +183,18 @@ class Package_model extends CI_Model {
 	if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 	$entdate = date('Y-m-d H:i:s');
 			$data = array(
-			        'check_in' => trim(addslashes($_POST['txtIn'])),
-					'check_out' => trim(addslashes($_POST['txtOut'])),
-					'booking_adult' => trim(addslashes($_POST['selnumadults'])),
-					'booking_youth' => trim(addslashes($_POST['selnumyouth'])),
-					'booking_price' => trim(addslashes($_POST['txtPricedefault'])),
+			        'check_in' => trim($_POST['txtIn']),
+					'check_out' => trim($_POST['txtOut']),
+					'booking_adult' => trim($_POST['selnumadults']),
+					'booking_youth' => trim($_POST['selnumyouth']),
+					'booking_price' => trim($_POST['txtPricedefault']),
 					'booking_currency' => $_SESSION['currencysess'],
-					'booking_child' => trim(addslashes($_POST['selnumchild'])),
-                    'booking_fname' => trim(addslashes($_POST['txtFName'])),
-					'booking_lname' => trim(addslashes($_POST['txtLName'])),
-                    'booking_email' => trim(addslashes($_POST['txtEmail'])),
-					'booking_phone' => trim(addslashes($_POST['txtPhone'])),
-					'booking_address' => trim(addslashes($_POST['txtAdress'])),
+					'booking_child' => trim($_POST['selnumchild']),
+                    'booking_fname' => trim($_POST['txtFName']),
+					'booking_lname' => trim($_POST['txtLName']),
+                    'booking_email' => trim($_POST['txtEmail']),
+					'booking_phone' => trim($_POST['txtPhone']),
+					'booking_address' => trim($_POST['txtAdress']),
 					'package_id' => $_POST['txtPackage'],
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
@@ -349,14 +349,14 @@ class Package_model extends CI_Model {
 	          }
 			 
 			$data = array(
-                    'package_title' => trim(addslashes($_POST['txtName'])),
+                    'package_title' => trim($_POST['txtName']),
 					'package_slug' => $slugvalue,
 					'package_image' => $destination_pdf1,
-					'package_default' => trim(addslashes($_POST['txtDPrice'])),
-					'meta_title' => trim(addslashes($_POST['txtMTitle'])),
+					'package_default' => trim($_POST['txtDPrice']),
+					'meta_title' => trim($_POST['txtMTitle']),
 					'destination_id' => $_POST['selCategory'],
-					'meta_keyword' => trim(addslashes($_POST['txtMKeyword'])),
-					'meta_description' => trim(addslashes($_POST['txtMDesc'])),
+					'meta_keyword' => trim($_POST['txtMKeyword']),
+					'meta_description' => trim($_POST['txtMDesc']),
                     'package_content' => htmlspecialchars($_POST['editor1']),
 					'updatedOn' => $entdate
                              );
@@ -370,7 +370,7 @@ class Package_model extends CI_Model {
 					{
                    $incdata = array(
                     'package_id' => $_POST['txtCid'],
-					'pi_term' => trim(addslashes($includedata)),
+					'pi_term' => trim($includedata),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -383,7 +383,7 @@ class Package_model extends CI_Model {
 					{
                    $indata = array(
                     'package_id' => $_POST['txtCid'],
-					'pt_term' => trim(addslashes($termdata)),
+					'pt_term' => trim($termdata),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -396,7 +396,7 @@ class Package_model extends CI_Model {
 					{
                    $cncdata = array(
                     'package_id' => $_POST['txtCid'],
-					'pc_policy' => trim(addslashes($canceldata)),
+					'pc_policy' => trim($canceldata),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -412,8 +412,8 @@ class Package_model extends CI_Model {
 					{
                    $pricedata = array(
                     'package_id' => $_POST['txtCid'],
-					'pp_title' => trim(addslashes($pricenamearr[$k])),
-					'pp_price' => trim(addslashes($pricevaluearr[$k])),
+					'pp_title' => trim($pricenamearr[$k]),
+					'pp_price' => trim($pricevaluearr[$k]),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -438,7 +438,7 @@ class Package_model extends CI_Model {
             move_uploaded_file($_FILES['file']['tmp_name'][$i], $target_path);
 			 $imgdata = array(
                     'package_id' => $_POST['txtCid'],
-					'pi_image' => trim(addslashes($target_path)),
+					'pi_image' => trim($target_path),
 					'addedOn' => $entdate,
 					'updatedOn' => $entdate
                              );
@@ -731,7 +731,7 @@ class Package_model extends CI_Model {
 			 
 			
 			$data = array(
-                    'plan_title' => trim(addslashes($_POST['txtTitle'])),
+                    'plan_title' => trim($_POST['txtTitle']),
                     'plan_image' => $destination_pdf1,
 					'plan_description' => htmlspecialchars($_POST['editor1']),
 					'updatedOn' => $entdate

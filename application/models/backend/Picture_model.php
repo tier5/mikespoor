@@ -19,7 +19,7 @@ class Picture_model extends CI_Model {
 	$this->load->helper('function');
 			$slugvalue=createSlug($_POST['txtTitle']);
 			    $data = array(
-                    'picture_title' => trim(addslashes($_POST['txtTitle'])),
+                    'picture_title' => trim($_POST['txtTitle']),
 					'picture_slug' => $slugvalue,
 					'picture_content' => htmlspecialchars($_POST['editor1']),
                     'addedBy' => $_SESSION['usersession'],
@@ -127,7 +127,7 @@ class Picture_model extends CI_Model {
 			 
 			
 			$data = array(
-                    'picture_title' => trim(addslashes($_POST['txtTitle'])),
+                    'picture_title' => trim($_POST['txtTitle']),
 					'picture_slug' => $slugvalue,
 					'picture_content' => htmlspecialchars($_POST['editor1']),
                     'addedBy' => $_SESSION['usersession'],

@@ -1,4 +1,5 @@
 <?php
+
 class Video_banner_model extends CI_Model {
 
         public function __construct()
@@ -21,7 +22,7 @@ class Video_banner_model extends CI_Model {
 	$this->load->helper('function');
 			$slugvalue=createSlug($_POST['txtTitle']);
 			    $data = array(
-                    'video_banner_title' => trim(addslashes($_POST['txtTitle'])),
+                    'video_banner_title' => trim($_POST['txtTitle']),
 					'video_banner_slug' => $slugvalue,
 					'video_banner_content' => htmlspecialchars($_POST['editor1']),
                     'addedBy' => $_SESSION['usersession'],
@@ -127,8 +128,8 @@ class Video_banner_model extends CI_Model {
 			$slugvalue=createSlug($_POST['txtTitle']);
 			
 			$data = array(
-                'video_banner_title' => trim(addslashes($_POST['txtTitle'])),
-                'video_banner_title' => trim(addslashes($_POST['txtTitle'])),
+                'video_banner_title' => trim($_POST['txtTitle']),
+                'video_banner_title' => trim($_POST['txtTitle']),
 				'video_banner_slug' => $slugvalue,
 				'video_banner_content' => htmlspecialchars($_POST['editor1']),
                 'addedBy' => $_SESSION['usersession'],

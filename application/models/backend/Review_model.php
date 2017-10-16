@@ -27,8 +27,8 @@ class Review_model extends CI_Model {
 	           }
 			  
 			    $data = array(
-                    'review_user' => trim(addslashes($_POST['txtTitle'])),
-					'review_occupation' => trim(addslashes($_POST['txtPlace'])),
+                    'review_user' => trim($_POST['txtTitle']),
+					'review_occupation' => trim($_POST['txtPlace']),
 					'review_content' => htmlspecialchars($_POST['editor1']),
 					'review_image' => $destination_pdf1,
                     'addedBy' => $_SESSION['usersession'],
@@ -95,8 +95,8 @@ class Review_model extends CI_Model {
 	          }
 			
 			$data = array(
-                    'review_user' => trim(addslashes($_POST['txtTitle'])),
-					'review_occupation' => trim(addslashes($_POST['txtPlace'])),
+                    'review_user' => trim($_POST['txtTitle']),
+					'review_occupation' => trim($_POST['txtPlace']),
 					'review_image' => $destination_pdf1,
 					'review_content' => htmlspecialchars($_POST['editor1']),
                     'addedBy' => $_SESSION['usersession'],

@@ -30,9 +30,9 @@ class Seo_settings_model extends CI_Model {
 	$entdate = date('Y-m-d H:i:s');
 			
 			$data = array(
-					'meta_title' => addslashes($_POST['txtMTitle']),
-					'meta_keywords' => addslashes($_POST['txtMKey']),
-					'meta_description' => addslashes($_POST['txtMDesc']),
+					'meta_title' => $_POST['txtMTitle'],
+					'meta_keywords' => $_POST['txtMKey'],
+					'meta_description' => $_POST['txtMDesc'],
 					'updatedOn' => $entdate
              );
 

@@ -29,7 +29,7 @@ class Gallery_model extends CI_Model {
 	           }
 			  
 			    $data = array(
-                    'gallery_title' => trim(addslashes($_POST['txtTitle'])),
+                    'gallery_title' => trim($_POST['txtTitle']),
                     'gallery_image' => $gallery_pdf1,
                     'addedBy' => $_SESSION['usersession'],
 					'status' => '1',
@@ -98,7 +98,7 @@ class Gallery_model extends CI_Model {
 			 
 			
 			$data = array(
-                    'gallery_title' => trim(addslashes($_POST['txtTitle'])),
+                    'gallery_title' => trim($_POST['txtTitle']),
                     'gallery_image' => $gallery_pdf1,
                     'addedBy' => $_SESSION['usersession'],
 					'updatedOn' => $entdate

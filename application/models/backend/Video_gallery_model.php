@@ -48,7 +48,7 @@ class Video_gallery_model extends CI_Model {
                 }
         	}else if($video_type =='1'){
             	if($this->input->post('txtURL')){
-                	$videname=$this->input->post('txtURL');//trim(addslashes($_POST['txtURL']));
+                	$videname=$this->input->post('txtURL');//trim($_POST['txtURL']);
             	} else{
             		return false;
             	}
@@ -60,7 +60,7 @@ class Video_gallery_model extends CI_Model {
 			
 			    $data = array(
 
-                    'gvideo_title' => trim(addslashes($this->input->post('txtTitle'))),
+                    'gvideo_title' => trim($this->input->post('txtTitle')),
 					'gvideo_slug' => $slugvalue,
 					'gvideo_url' => $videname,
 					'video_type'=>$video_type,
@@ -168,7 +168,7 @@ class Video_gallery_model extends CI_Model {
                 }
         	}else if($video_type =='1'){
             	if($this->input->post('txtURL')){
-                	$data['gvideo_url']=$this->input->post('txtURL');//trim(addslashes($_POST['txtURL']));
+                	$data['gvideo_url']=$this->input->post('txtURL');//trim($_POST['txtURL']);
             	} else{
             		return false;
             	}
@@ -176,7 +176,7 @@ class Video_gallery_model extends CI_Model {
 		    	return false;
 		    }
 
-			$data['gvideo_title']=trim(addslashes($_POST['txtTitle']));
+			$data['gvideo_title']=trim($_POST['txtTitle']);
 			$data['gvideo_slug']=$slugvalue;
 			$data['video_type']=$video_type;
 			$data['gvideo_content'] = htmlspecialchars($_POST['editor1']);

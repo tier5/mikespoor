@@ -34,7 +34,7 @@ class School_visit_blog_model extends CI_Model {
 	
 			$slugvalue=createSlug($_POST['txtTitle']);
 			    $data = array(
-                    'gschool_visit_blog_title' => trim(addslashes($_POST['txtTitle'])),
+                    'gschool_visit_blog_title' => trim($_POST['txtTitle']),
 					'gschool_visit_blog_slug' => $slugvalue,
 					'gschool_visit_blog_image' => $gallery_pdf1,
 					'school_visit_id' => $_POST['selCategory'],
@@ -163,7 +163,7 @@ class School_visit_blog_model extends CI_Model {
 	          }
 			
 			$data = array(
-                    'gschool_visit_blog_title' => trim(addslashes($_POST['txtTitle'])),
+                    'gschool_visit_blog_title' => trim($_POST['txtTitle']),
 					'gschool_visit_blog_slug' => $slugvalue,
 					'school_visit_id' => $_POST['selCategory'],
 					'gschool_visit_blog_image' => $gallery_pdf1,

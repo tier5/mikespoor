@@ -46,7 +46,7 @@ class Picture_gallery_model extends CI_Model {
 	
 			$slugvalue=createSlug($_POST['txtTitle']);
 			    $data = array(
-                    'gpicture_title' => trim(addslashes($_POST['txtTitle'])),
+                    'gpicture_title' => trim($_POST['txtTitle']),
 					'gpicture_slug' => $slugvalue,
 					'gpicture_image' => $gallery_pdf1,
 					'picture_id' => $_POST['selCategory'],
@@ -155,7 +155,7 @@ class Picture_gallery_model extends CI_Model {
 	        }
 			
 			$data = array(
-                    'gpicture_title' => trim(addslashes($_POST['txtTitle'])),
+                    'gpicture_title' => trim($_POST['txtTitle']),
 					'gpicture_slug' => $slugvalue,
 					'picture_id' => $_POST['selCategory'],
 					'gpicture_image' => $gallery_pdf1,

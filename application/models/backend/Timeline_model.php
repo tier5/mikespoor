@@ -63,10 +63,10 @@ class Timeline_model extends CI_Model {
                 }
             }
 			    $data = array(
-                    'timeline_title' => trim(addslashes($_POST['txtTitle'])),
+                    'timeline_title' => trim($_POST['txtTitle']),
 					'timeline_content' => htmlspecialchars($_POST['editor1']),
                     'timeline_thumbnail' => $timeline_thumbnail,
-					'orderBy' => trim(addslashes($_POST['txtOrder'])),
+					'orderBy' => trim($_POST['txtOrder']),
                     'addedBy' => $_SESSION['usersession'],
 					'status' => '1',
 					'addedOn' => $entdate,
@@ -198,10 +198,10 @@ class Timeline_model extends CI_Model {
 
             //echo $timeline_thumbnail; exit;
 			$data=array(
-                    'timeline_title' => trim(addslashes($_POST['txtTitle'])),
+                    'timeline_title' => trim($_POST['txtTitle']),
 					'timeline_content' => $_POST['editor1'],
                     'timeline_thumbnail'=>$timeline_thumbnail,
-					'orderBy' => trim(addslashes($_POST['txtOrder'])),
+					'orderBy' => trim($_POST['txtOrder']),
                     'addedBy' => $_SESSION['usersession'],
 					'updatedOn' => $entdate
                 );
