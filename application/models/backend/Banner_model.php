@@ -20,7 +20,7 @@ class Banner_model extends CI_Model {
 		{
 			$this->db->select('`banner_id`, `banner_name`, `banner_slug`, `banner_title`, `banner_image`,`banner_type`, `banner_ext`, `updatedOn`');
             $this->db->from('lm_banner');
-             $this->db->group_by('banner_slug');
+             //$this->db->group_by('banner_slug');
 			$query = $this->db->get();
 			$row = $query->result_array();
 			return $row;
