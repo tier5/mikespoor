@@ -655,6 +655,8 @@ b{
     border: none;
     border-radius: 12px;
     background: rgba(0, 0, 0, 0.6);
+    transform: translate(-50%,-50%);
+    margin: 0;
 }
 
 #portfolioitems li .vjs-big-play-centered .vjs-big-play-button:hover, .video-banner .vjs-big-play-centered .vjs-big-play-button:hover{

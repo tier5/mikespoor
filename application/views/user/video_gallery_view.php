@@ -27,7 +27,7 @@
             <!-- .container start -->
             <div class="container">
                 <!-- .row.portfolio-items-holder start -->
-                <div class="row portfolio-items-holder triggerAnimation animated" data-animate="fadeInUp">
+                <div class="row portfolio-items-holder" data-animate="fadeInUp">
                     <!-- #portfolioitems.isotope start -->
                     <ul id="portfolioitems" class="isotope">
                         <?php foreach($gallerylist as $gallerylistdata)  {?>
