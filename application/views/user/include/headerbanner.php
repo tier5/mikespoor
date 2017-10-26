@@ -9,7 +9,7 @@
                             $url1=explode("?v=",(trim($banner[0]['banner_image'])));
                             $videoname1=$url1[1];
                             $thumbURL1 = 'http://img.youtube.com/vi/'.$videoname1.'/0.jpg'; ?>
-                            <img src="<?php echo $thumbURL1 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname1;?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
+                            <img src="<?php echo $thumbURL1 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname1;?>?autoplay=1&amp;controls=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                             <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                         </div>
 
@@ -25,7 +25,7 @@
                         $url2=explode("?v=",(trim($banner[1]['banner_image'])));
                         $videoname2=$url2[1];
                         $thumbURL2 = 'http://img.youtube.com/vi/'.$videoname2.'/0.jpg'; ?>
-                        <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname2; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
+                        <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname2; ?>?autoplay=1&amp;controls=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                         <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                     </div>
 
@@ -59,7 +59,7 @@
                             $videoname3=$url3[1];
                             $thumbURL3 = 'http://img.youtube.com/vi/'.$videoname3.'/0.jpg';
                             ?>
-                            <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname3; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
+                            <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname3; ?>?autoplay=1&amp;controls=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                             <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                         </div>
                         <?php } else{ ?>
@@ -75,7 +75,7 @@
                             $videoname4=$url4[1];
                             $thumbURL4 = 'http://img.youtube.com/vi/'.$videoname4.'/0.jpg';
                         ?>
-                            <img src="<?php echo $thumbURL4 ;?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname4; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
+                            <img src="<?php echo $thumbURL4 ;?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname4; ?>?autoplay=1&amp;controls=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                             <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                         </div>
                         <?php } else { ?>
@@ -100,7 +100,7 @@
                         $videoname1=$url1[1];
                         $thumbURL1 = 'http://img.youtube.com/vi/'.$videoname1.'/0.jpg';
                         ?>
-                        <img src="<?php echo $thumbURL1 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname1;?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
+                        <img src="<?php echo $thumbURL1 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname1;?>?autoplay=1&amp;controls=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                         <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                     </div>
                     <?php } else{ 
@@ -120,7 +120,7 @@
                         $url2=explode("?v=",(trim($banner[1]['banner_image'])));
                         $videoname2=$url2[1];
                         $thumbURL2 = 'http://img.youtube.com/vi/'.$videoname2.'/0.jpg';?>
-                        <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname2; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
+                        <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname2; ?>?autoplay=1&amp;controls=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                         <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                     </div>
                     <?php } else{ 
@@ -164,7 +164,7 @@
                             $url3=explode("?v=",(trim($banner[2]['banner_image'])));
                             $videoname3=$url3[1];
                             $thumbURL3 = 'http://img.youtube.com/vi/'.$videoname3.'/0.jpg';?>
-                            <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname3; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
+                            <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname3; ?>?autoplay=1&amp;controls=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                             <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                         </div>
                         <?php } else{ 
@@ -183,7 +183,7 @@
                             $url4=explode("?v=",(trim($banner[3]['banner_image'])));
                             $videoname4=$url4[1];
                             $thumbURL4 = 'http://img.youtube.com/vi/'.$videoname4.'/0.jpg';?>
-                            <img src="<?php echo $thumbURL4 ;?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname4; ?>?autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
+                            <img src="<?php echo $thumbURL4 ;?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname4; ?>?autoplay=1&amp;controls=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                             <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                         </div>
                         <?php } else { 
@@ -226,7 +226,7 @@
     $(document).ready(function() {
         $('.vdo-start').click(function(){
             var vdoSrc = $(this).parent().find('img').attr("data-video-src");
-            $(".middle-vdo iframe").attr("src",vdoSrc)
+            $(".middle-vdo iframe").attr("src",vdoSrc);
         });
 
         var shuffleList = [
