@@ -66,9 +66,7 @@ Version: 2.1
 
 @import '//codepen.io/chrisdothtml/pen/ojLzJK.css';
 
-@import '../assets/user/csss/font-awesome.css';
-
-
+@import '../css/font-awesome.css';
 
 @font-face {
     font-family: 'UNVR57W';

@@ -105,13 +105,10 @@
                     </div>
                     <?php } else{ 
                         $ext=substr($banner[0]['banner_image'], strrpos($banner[0]['banner_image'], '.') + 1);?>
-                        <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="280" data-setup="" style="width:100%">
-                            <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[0]['banner_image'];?>" type="video/<?php echo $ext; ?>">
-                            <p class="vjs-no-js">
-                                To view this video please enable JavaScript, and consider upgrading to a web browser that
-                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                            </p>
-                        </video>
+                    <div class="vdo vdo-top">
+                        <img src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[0]['banner_image'];?>.jpg" class="img-responsive" data-video-src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[0]['banner_image'];?>" data-video-extention="video/<?php echo $ext; ?>">
+                        <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                    </div>
                     <?php } ?>
 
                     <?php if($banner[1]['banner_type']=='2'){ ?>}
@@ -125,13 +122,10 @@
                     </div>
                     <?php } else{ 
                         $ext=substr($banner[1]['banner_image'], strrpos($banner[1]['banner_image'], '.') + 1); ?>
-                        <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="280" data-setup="" style="width:100%">
-                            <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[1]['banner_image'];?>" type="video/<?php echo $ext; ?>">
-                            <p class="vjs-no-js">
-                                To view this video please enable JavaScript, and consider upgrading to a web browser that
-                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                            </p>
-                        </video>
+                    <div class="vdo vdo-bottom">
+                        <img src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[1]['banner_image'];?>.jpg" class="img-responsive" data-video-src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[1]['banner_image'];?>" data-video-extention="video/<?php echo $ext; ?>">
+                        <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                    </div>
                     <?php } ?>
                 </div> 
                 <div class="col-md-6 no-margin" style="padding: 5px 0;">
@@ -146,14 +140,15 @@
                      <?php } else{ 
                          $ext=substr($focus_banner['banner_image'], strrpos($focus_banner['banner_image'], '.') + 1);
                         ?>
-                            <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="560" data-setup="" style="width:100%">
+                        <div class="middle-vdo">
+                            <video id="vjs-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="360" data-setup="" style="width:100%">
                                 <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $focus_banner['banner_image'];?>" type="video/<?php echo $ext; ?>">
                                 <p class="vjs-no-js">
                                     To view this video please enable JavaScript, and consider upgrading to a web browser that
                                     <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                                 </p>
                             </video>
-
+                        </div>
                      <?php } ?>
                 </div> 
                 <div class="col-md-3 no-margin hidden-xs">
@@ -167,15 +162,12 @@
                             <img src="<?php echo $thumbURL2 ; ?>" class="img-responsive" data-video-src="https://www.youtube.com/embed/<?php echo $videoname3; ?>?autoplay=1&amp;controls=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;allowfullscreen=true">
                             <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                         </div>
-                        <?php } else{ 
+                        <?php } else {
                             $ext=substr($banner[2]['banner_image'], strrpos($banner[2]['banner_image'], '.') + 1); ?>
-                            <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="280" data-setup="" style="width:100%">
-                                <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[2]['banner_image'];?>" type="video/<?php echo $ext; ?>">
-                                <p class="vjs-no-js">
-                                    To view this video please enable JavaScript, and consider upgrading to a web browser that
-                                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                                </p>
-                            </video>
+                        <div class="vdo vdo-top">
+                            <img src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[2]['banner_image'];?>.jpg" class="img-responsive" data-video-src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[2]['banner_image'];?>" data-video-extention="video/<?php echo $ext; ?>">
+                            <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                        </div>
                         <?php } ?>
                         <?php if($banner[3]['banner_type']=='2'){ ?>
                         <div class="vdo vdo-bottom">
@@ -188,13 +180,10 @@
                         </div>
                         <?php } else { 
                             $ext=substr($banner[3]['banner_image'], strrpos($banner[3]['banner_image'], '.') + 1);?>
-                            <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="" height="280" data-setup="" style="width:100%">
-                                <source src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[3]['banner_image'];?>" type="video/<?php echo $ext; ?>">
-                            <p class="vjs-no-js">
-                                To view this video please enable JavaScript, and consider upgrading to a web browser that
-                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                            </p>
-                            </video>
+                        <div class="vdo vdo-bottom">
+                            <img src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[3]['banner_image'];?>.jpg" class="img-responsive" data-video-src="<?php echo BASE_URI?>uploads/banner/<?php echo $banner[3]['banner_image'];?>" data-video-extention="video/<?php echo $ext; ?>">
+                            <a href="#" class="vdo-start"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                        </div>
                         <?php } ?>
                      </div>
                 </div> 
@@ -227,6 +216,16 @@
         $('.vdo-start').click(function(){
             var vdoSrc = $(this).parent().find('img').attr("data-video-src");
             $(".middle-vdo iframe").attr("src",vdoSrc);
+        });
+
+        videojs('vjs-video').ready(function () {
+            var vjsPlayer = this;
+            $(".vdo-start").on('click', function () {
+                var vdoSrc = $(this).parent().find('img').attr("data-video-src");
+                var vdoExt = $(this).parent().find('img').attr("data-video-extention");
+                vjsPlayer.src({type: vdoExt, src: vdoSrc});
+                vjsPlayer.play();
+            });
         });
 
         var shuffleList = [

@@ -337,6 +337,7 @@
             	 	}
             	}
 
+                exec('ffmpeg -i '.getcwd().'/uploads/banner/'.$first_image.' -ss 00:00:01 -vframes 1 '.getcwd().'/uploads/banner/'.$first_image.'.jpg');
             	$data1 = array(
 		            'banner_image' => $first_image,
 		            'banner_type'=>'1',
@@ -383,6 +384,7 @@
                 	}
                 }
 
+                exec('ffmpeg -i '.getcwd().'/uploads/banner/'.$second_image.' -ss 00:00:01 -vframes 1 '.getcwd().'/uploads/banner/'.$second_image.'.jpg');
                 $data2 = array(
 			                'banner_image' => $second_image,
 			                'banner_type'=>'1',
@@ -430,6 +432,7 @@
                     }
                 }
 
+                exec('ffmpeg -i '.getcwd().'/uploads/banner/'.$third_image.' -ss 00:00:01 -vframes 1 '.getcwd().'/uploads/banner/'.$third_image.'.jpg');
                 $data3 = array(
 			                'banner_image' => $third_image,
 			                'banner_type'=>'1',
@@ -476,6 +479,7 @@
 	                    }
                     }
 
+                    exec('ffmpeg -i '.getcwd().'/uploads/banner/'.$fourth_image.' -ss 00:00:01 -vframes 1 '.getcwd().'/uploads/banner/'.$fourth_image.'.jpg');
                     $data4 = array(
 				                'banner_image' => $fourth_image,
 				                'banner_type'=>'1',
@@ -523,6 +527,7 @@
 	                    }
                     }
 
+                    exec('ffmpeg -i '.getcwd().'/uploads/banner/'.$fifth_image.' -ss 00:00:01 -vframes 1 '.getcwd().'/uploads/banner/'.$fifth_image.'.jpg');
                     $data5 = array(
 				                'banner_image' => $fifth_image,
 				                'banner_type'=>'1',
